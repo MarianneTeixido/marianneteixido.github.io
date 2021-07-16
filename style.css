@@ -1,0 +1,20 @@
+/* CSS files add styling rules to your content */
+
+body, html {
+  font-family: helvetica, arial, sans-serif;
+  margin: 10px;
+  background-color: pink;
+}
+
+h1 {
+  font-style: italic;
+  color: #ff0066;
+}
+
+button {
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px;
+}
+

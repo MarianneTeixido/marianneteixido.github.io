@@ -3,12 +3,22 @@
 <title>Teixido</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+<!-- import the webpage's stylesheet -->
+<link rel="stylesheet" href="/style.css" />
+    
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
+  <!-- import the latest version of hydra synth-->
+    <script src="https://unpkg.com/hydra-synth"></script>
+    
 <body>
 
 <!-- Navigation -->
@@ -20,31 +30,56 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <a href="sonido.html#sonido" class="w3-button w3-bar-item">Sonido</a>
   <a href="fotografia.html#fotografia" class="w3-button w3-bar-item">Fotografía</a>
   <a href="repositorio.html#repositorio" class="w3-button w3-bar-item">Repositorio</a>
-  <a href="bitacora.html#bitacora" class="w3-button w3-bar-item">Bitácora</a>
+<!--  <a href="bitacora.html#bitacora" class="w3-button w3-bar-item">Bitácora</a> -->
 </nav>
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="inicio">
-  <img class="w3-image" src="image/01.gif" width="1500" height="800">
+ <canvas id="myCanvas" width="1500px" height="800px"></canvas>
+
+    <script>
+      // create a new hydra-synth instance
+      var hydra = new Hydra({
+        canvas: document.getElementById("myCanvas"),
+        detectAudio: false
+      })
+      
+       src(o0)
+ .saturate(1.01)
+ .scale(.999)
+ .color(1.01,1.01,1.01)
+ .hue(.01)
+ .modulateHue(src(o1).hue(.3).posterize(-1).contrast(.7),2)
+  .layer(src(o1)
+         .luma()
+         .mult(gradient(1)
+               .saturate(.9)))
+  .out(o0)
+
+noise(1, .2)
+  .rotate(2,.5)
+  .layer(src(o0)
+  .scrollX(.2))
+  .out(o1)
+
+render(o0)
+       
+    </script>
+ 
+ 
+ <!-- <img class="w3-image" src="image/01.gif" width="1500" height="800">-->
 </header>
 
 <section class="w3-container w3-center w3-content" id="inicio" style="max-width:1000px">
   <h1 class="w3-wide w3-padding-64">Marianne Teixido</h1>
 
-  <p class="w3-justify w3-padding-16"> Artista multimedia.<br>
-  El enfoque transdisciplinar de su obra vincula la investigación social, estudios de software, código fuente, música por computadora, datos, software libre, videoarte y reapropiación, escritura expandida, internet, ciber-hackfeminismos y experimentación sonora. </br>
-Ha presentado su obra en Sanford, Berlín, Barcelona, Madrid, Buenos Aires, La Plata, Bogotá, Manizales, Medellín, Quito y Lima. Así como en Lunario del Auditorio Nacional, Antiguo Colegio de San Ildefonso, Museo de Arte Moderno, Centro Cultural España, Ex Teresa Arte Actual, Centro de Cultura Digital, Casa del Lago UNAM, Centro Multimedia, Ambulante, entre otros. </br>
-Es co-fundadora del laboratorio interdisciplinario de software PiranhaLab, miembro del colectivo de live coding RGGTRN e integrante de la colectiva ciberfeminista Insubordinadas.  Ha sido beneficiaria de la beca Jóvenes Creadores del FONCA en 2018 en la especialidad en Nuevas Tecnologías y actualmente es docente de Código Creativo en CENTRO Diseño, Cine y Televisión.</p>
-
-
-  <a href="archivos/CV_MarianneTeixido.pdf">Currículum Vitae</a>
-
-
-      <h2 class="w3-wide w3-padding-16">PiranhaLab</h2>
-	  <p class="w3-justify w3-padding-16 w3-medium"> PiranhaLab es una iniciativa que surge en el contexto de la conformación de comunidades que practican y reflexionan en torno a la programación al vuelo o live coding. El live coding es una práctica performática que se basa en técnicas de programación para la síntesis de audio y video, lo cual, posibilita la creación sinestésica audiovisual. Los practicantes de esta actividad o livecoders “exponen y re-acomodan las entrañas del software al mismo tiempo que generan música improvisada y/o visuales”. <br>
-El laboratorio busca visibilizar desarrollos de software en México y América Latina que mediante código de programación, persiguen la creación de música y video en vivo. De manera paralela, busca explorar las posibilidades pedagógicas del código a partir de la enseñanza de habilidades técnicas y estéticas desde la integración sonido-imagen por medio de la computadora. <br><br>
- Apoyado por Programa de Apoyo a la Docencia e Investigación y Difusión de las Artes. México, 2018.
+  <p class="w3-justify w3-padding-16"> 
+  Artista digital, investigadora, docente y live coder. Estudiante de Maestría en Historia del Arte en la UNAM. Su trabajo transdisciplinar vincula la investigación social, música por computadora, escritura expandida y hackfeminismos. Usa el código fuente como medio y herramienta para explorar los intersticios entre el lenguaje natural y el lenguaje máquina.</br>
+Ha presentado actos en vivo en espacios como Vorspiel Trasmediale&CTM (Berlin), Hangar (Barcelona), IN-SONORA (Madrid), Center for Computer Research in Music and Acoustics (Stanford), Centro Cultural Recoleta (Buenos Aires), Festival Internacional Feminiose (Buenos Aires), Festival En Tiempo Real (Bogotá), Parque Explora (Medellín), MediaLab UIO (Quito), Espacio Fundación Telefónica (Perú), Lunario del Auditorio Nacional, Museo de Arte Moderno, Centro Cultural España, ExTeresa Arte Actual, Centro Multimedia, Centro de Cultura Digital, CMMAS,  entre otros. </br>
+Es co-fundadora del laboratorio interdisciplinario de software PiranhaLab, miembro del colectivo de live coding RGGTRN e integrante de la colectiva ciberfeminista Insubordinadas.  Ha sido beneficiaria de la beca Jóvenes Creadores del FONCA en 2018 en la especialidad en Nuevas Tecnologías y es docente de Código Creativo en CENTRO Diseño, Cine y Televisión.</br>
 </p>
+
+
 
 
 </section>

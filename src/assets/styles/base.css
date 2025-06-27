@@ -1,0 +1,437 @@
+/*
+Brakpoints
+Mobile: 0 - 480 px
+Tablet: 481px - 768px
+Desktop: 769px - 1279px
+Large Desktop: 1280px +
+*/
+
+
+
+*,
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    overflow-x: hidden !important;
+}
+
+
+:root {
+    --font-family: font-family: 'Roboto', sans-serif;
+    --White: #ffffff;
+    --Dark: #231F20;
+    --Blue-01: #0000FF;
+    --Gray-50: #F3F3F3;
+}
+
+/* Global Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--Blue-01);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-align: right;
+    letter-spacing: 0.1em;
+}
+
+h2 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--Blue-01);
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--Blue-01);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+
+
+}
+
+p {
+    margin: 1rem 0;
+
+}
+
+
+
+
+header button.btn-menu {
+    border: 1px solid var(--Blue-01);
+    padding: 0.5rem 1rem;
+    background: var(--White);
+}
+
+header button.btn-menu span,
+header button.btn-menu i {
+    color: var(--Blue-01);
+}
+
+header button.btn-menu:active,
+header button.btn-menu:focus {
+    background: var(--Blue-01);
+    color: var(--White);
+}
+
+header button.btn-menu:active span,
+header button.btn-menu:active i,
+header button.btn-menu:focus span,
+header button.btn-menu:focus i {
+    color: var(--White);
+}
+
+.inline-element {
+    display: inline-block;
+    margin: 2rem 1rem;
+}
+
+
+/* Style cards */
+
+.card {
+    margin: 0rem 0rem;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-body {
+    padding: 15px 20px 15px;
+}
+
+.card-text {
+    font-weight: 200;
+    color: #7d8597;
+    font-size: 12px;
+    font-style: italic; 
+    
+}
+
+/* Style navbar behavior*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 50vw;
+    height: 100%;
+    padding-right: 3rem 3rem 0 2rem;
+    ;
+    background: var(--Gray-50);
+    transition: left 0.3s ease;
+}
+
+.sidebar-container {
+    height: 100%;
+    margin: 2rem 1rem 0 1rem;
+}
+
+.sidebar.visible {
+    left: 0;
+}
+
+.main-content {
+    transition: transform 0.3s ease;
+}
+
+.main-content.shifted {
+    transform: translateX(50vw);
+}
+
+/* src/assets/style/base.css */
+
+.menu-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menu-column i {
+  margin-right: 0.5rem;
+}
+
+.menu-column span {
+  margin-bottom: 0.5rem;
+}
+
+.menu-column a {
+  color: black;
+  text-decoration: none; /* Quitar underline por defecto */
+}
+
+.menu-column a:hover {
+  color: var(--Blue-01);
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.menu-column a.active {
+  color: var(--Blue-01);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+h1.align-right {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--Blue-01);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.social-media-icons {
+    margin: 1rem 0 1rem 0;
+}
+
+.social-media-icons a i {
+    border: solid 1px #999999;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0.2rem;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 20px;
+    color: #999999;
+}
+
+.social-media-icons a i:hover,
+.social-media-icons a i:active {
+    color: var(--Blue-01);
+    border-color: var(--Blue-01);
+}
+
+index.html .license,
+.license * {
+
+    color: #999999;
+    font-size: 10px;
+}
+
+
+.license img {
+    filter: grayscale(100%);
+}
+
+/*  End sidebar */
+
+
+/*  About  */
+.about-content {
+    margin: 1rem;
+}
+
+/*  Contact */
+
+.contact-content {
+    margin: 1rem;
+}
+
+
+.social-media-icons-contact a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #999999;
+    border-radius: 50%;
+
+    margin: 0.2rem;
+    width: 50px;
+    height: 50px;
+    color: #999999;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.social-media-icons-contact a:hover,
+.social-media-icons-contact a i:hover,
+.social-media-icons-contact a i:active {
+    color: var(--Blue-01);
+    border-color: var(--Blue-01);
+}
+
+/* Tablet breakpoint */
+@media (min-width: 481px) and (max-width: 768px) {
+    .sidebar {
+        width: 28vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 28vw;
+    }
+
+    header {
+        display: none;
+    }
+
+    .projects-container {
+        overflow-x: hidden;
+        padding: 0 15px;
+        /* Adjust padding as needed */
+    }
+
+    .projects {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .projects .col-12,
+    .projects .col-md-6,
+    .projects .col-lg-4,
+    .projects .col-xl-3 {
+        padding: 0 0.15rem;
+    }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 769px) and (max-width: 1279px) {
+    .sidebar {
+        width: 28vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 28vw;
+    }
+
+    header {
+        display: none;
+    }
+
+    .about-content {
+        margin: 1rem 0 0 2rem;
+    }
+}
+
+/* Large Desktop breakpoint */
+@media (min-width: 1280px) {
+    .sidebar {
+        width: 22vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 22vw;
+    }
+
+    header {
+        display: none;
+    }
+
+    .about-content {
+        margin: 1rem 0 0 2rem;
+    }
+}
+
+
+
+.projects, .colaborations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch; 
+    margin-top: 30px;
+    margin-left: 5px; 
+    margin-right: 5px; 
+  }
+  
+  .project, .colaboration {
+    flex: 0 0 calc(33.33% - 10px); 
+    margin-bottom: 50px; 
+  }
+  
+  .project a {
+    text-decoration: none;
+    color: inherit; 
+    display: block;  
+    padding: 0px; 
+  }
+  
+  .project img {
+    width: 100%; 
+    height: auto; 
+
+  }
+
+  @media screen and (max-width: 768px) {
+    .project, .colaboration {
+      flex: 0 0 calc(50% - 10px);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .project, .colaboration {
+      flex: 0 0 calc(100% - 10px); 
+      margin-left: 0; 
+      margin-right: 0; 
+    }
+  }
+  
+  .project h3 {
+    margin-top: 10px; 
+  }
+  
+  .project p {
+    margin-top: 5px; 
+  }
+  
+
+.project-details {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+    margin: 2rem 1rem 0 1rem;
+}
+  
+#backButton {
+    margin: 2rem 0 0 0;
+}
+
+
+.project-img {
+    width: 100%; /* Make the image take up the full width of its container */
+    height: auto; /* Maintain the aspect ratio */
+    max-width: 600px; /* Optional: Set a maximum width for larger screens */
+    margin: 0 auto; /* Center the image horizontally if needed */
+    display: block; /* Ensure the image behaves as a block element */
+}
+
+@media (max-width: 768px) {
+    .project-img {
+        max-width: 100%; /* Allow the image to scale down for smaller screens */
+    }
+}

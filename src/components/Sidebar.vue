@@ -31,7 +31,7 @@
           </a> 2025 Marianne Teixido ]
         </span>
         <p>
-          Desarrollo hecho from scratch por mi con Vue, insírado en la web de <a href="https://sasj.nl/" target="_blank">Saskia Freeke</a>.
+          Website desarrollado en Vue <em>from scratch</em> por mi, inspirado en <a href="https://sasj.nl/" target="_blank">Saskia Freeke</a>.
           <br><br>
           Ver el código fuente en  <a href="https://github.com/MarianneTeixido/personal-webpage" target="_blank">GitHub</a>.
         </p>

@@ -9,12 +9,14 @@
         <p></p>
       </div>
     <nav class="menu-column">
+      
         <router-link to="/" active-class="active"><i class="bi bi-chevron-right"></i>Proyectos</router-link>
         <router-link to="/bio" active-class="active"><i class="bi bi-chevron-right"></i>Bio</router-link>
         <router-link to="/contact" active-class="active"><i class="bi bi-chevron-right"></i>Contacto</router-link>
     </nav>
 
       <div class="social-media-icons">
+        
         <a href="https://github.com/MarianneTeixido" target="_blank"><i class="bi bi-github"></i></a>
         <a href="https://www.instagram.com/marianneteixido/" target="_blank"><i class="bi bi-instagram"></i></a>
         <a href="https://social.toplap.org/@teixido" target="_blank" rel="me"><i class="bi bi-mastodon"></i></a>

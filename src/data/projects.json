@@ -14,8 +14,42 @@
       ],
       "fullDescription2": "<p>La pieza es una exploración de audio muticanal con espacialización que toma como referencia el cómputo ternario para el movimiento de las 3 capas de voces</p>",
       "images2": [
-        "/assets/img/rider.jpg"
+        "rider.jpg"
       ]
+    }
+  },
+  {
+    "id": "error-de-sintaxis",
+    "title": "Error de Sintaxis",
+    "text": "Pieza acusmática con voz sintética",
+    "summary": "Pieza acusmática con voz sintética",
+    "image": "insonora-error03.jpg",
+    "details": {
+      "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p>",
+      "images": [
+        "insonora-error01.jpg",
+        "insonora-error02.jpg",
+        "insonora-error03.jpg",
+        "insonora-error04.jpg"
+      ],
+      "fullDescription2": "<p>Pieza comisionada por los 20 años de INSONORA</p>"
+    }
+  },
+  {
+    "id": "error-de-sintaxis",
+    "title": "Error de Sintaxis",
+    "text": "Pieza acusmática con voz sintética",
+    "summary": "Pieza acusmática con voz sintética",
+    "image": "insonora-error03.jpg",
+    "details": {
+      "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p>",
+      "images": [
+        "/assets/img/insonora-error01.jpg",
+        "/assets/img/insonora-error02.jpg",
+        "/assets/img/insonora-error03.jpg",
+        "/assets/img/insonora-error04.jpg"
+      ],
+      "fullDescription2": "<p>Pieza comisionada por los 20 años de INSONORA</p>"
     }
   },
   {

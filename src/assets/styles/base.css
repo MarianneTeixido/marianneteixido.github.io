@@ -165,7 +165,10 @@ header button.btn-menu:focus i {
 }
 
 .menu-column i {
-  margin-right: 0.5rem;
+    margin-right: 0.5rem;
+    color: #535bf2;
+    font-weight: bold;      /* Engrosa el icono si la fuente lo soporta */
+    font-size: 1.3em;       /* Opcional: aumenta el tamaño para mayor grosor visual */
 }
 
 .menu-column span {

@@ -4,7 +4,7 @@
       <div class="col-12 col-md-10 col-lg-8 col-xl-7">
         <h2>Bio</h2>
         <figure>
-          <img src="../assets/img//marianne_teixido.jpg" alt="Marianne Teixido selfportrait"  class="img-fluid" />
+            <img src="../assets/img//marianne_teixido.jpg" alt="Marianne Teixido selfportrait" class="img-fluid" loading="lazy" />
 
           <!-- 
           <img src="/assets/img/marianne_teixido.jpg" alt="Marianne Teixido selfportrait" class="img-fluid" /> -->
@@ -18,7 +18,7 @@
                             texto, teje sensaciones, pensamientos, reflexiones y emociones que se
                             ordenan en múltiples capas de granulación y síntesis de y con texto. </p>
 
-                        <p> Se ha presentado en Sanford, Berlín, Barcelona, Madrid, Buenos
+                        <p> Se ha presentado en Stanford, Berlín, Barcelona, Madrid, Buenos
                             Aires, La Plata, Bogotá, Cusco, Lima, Manizales, Medellín y Quito. Así
                             como en CMMAS, Lunario del Auditorio Nacional, Antiguo Colegio de San
                             Ildefonso, Museo de Arte Moderno, Ex Teresa Arte Actual, CENART,

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Sidebar /> <!-- Componente de navegación lateral -->
+    <Sidebar /> 
     <main class="main-content">
-      <router-view /> <!-- Aquí se renderiza cada vista según la ruta -->
+      <router-view /> 
     </main>
   </div>
 </template>

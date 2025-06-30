@@ -4,7 +4,7 @@
     "title": "Synthnopsis",
     "text": "Pieza octafónica para electrónica en vivo.",
     "summary": "Pieza octafónica para electrónica en vivo.",
-    "image": "rider.jpg",    
+    "image": "rider.jpg",
     "details": {
       "fullDescription": "<p>Octofonía donde la voz se desdobla, transfiere y reconfigura a través de mecanismos de aprendizaje de máquinas. Ocho canales tejen una polifonía en la que el timbre humano se funde con la síntesis, el texto se torna canto y el código devuelve otra corporalidad sonora.</p>",
       "images": [
@@ -36,37 +36,345 @@
     }
   },
   {
-    "id": "error-de-sintaxis",
-    "title": "Error de Sintaxis",
-    "text": "Pieza acusmática con voz sintética",
-    "summary": "Pieza acusmática con voz sintética",
-    "image": "insonora-error03.jpg",
+    "id": "ram",
+    "title": "ram",
+    "year": null,
+    "text": "R.A.M. [Redes Autónomas de Memoria]",
+    "link": null,
+    "summary": "Laboratoria de transchackfeminista de prácticas artísticas con tecnologías",
+    "image": null,
     "details": {
-      "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p>",
-      "images": [
-        "/assets/img/insonora-error01.jpg",
-        "/assets/img/insonora-error02.jpg",
-        "/assets/img/insonora-error03.jpg",
-        "/assets/img/insonora-error04.jpg"
-      ],
-      "fullDescription2": "<p>Pieza comisionada por los 20 años de INSONORA</p>"
-    }
+      "fullDescription": "<p>R.A.M. Surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.</p>",
+      "images": [],
+      "fullDescription2": "<p>R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disrruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.</p>",
+      "images2": []
+    },
+    "category": "colectivos",
+    "tags": [
+      "IA"
+    ]
   },
   {
-    "id": "error-de-sintaxis",
-    "title": "Error de Sintaxis",
-    "text": "Pieza acusmática con voz sintética",
-    "summary": "Pieza acusmática con voz sintética",
-    "image": "insonora-error03.jpg",
+    "id": "piranhalab",
+    "title": "Piranha Lab",
+    "year": null,
+    "text": "Laboratorio de",
+    "link": null,
+    "summary": null,
+    "image": null,
     "details": {
-      "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p>",
-      "images": [
-        "/assets/img/insonora-error01.jpg",
-        "/assets/img/insonora-error02.jpg",
-        "/assets/img/insonora-error03.jpg",
-        "/assets/img/insonora-error04.jpg"
-      ],
-      "fullDescription2": "<p>Pieza comisionada por los 20 años de INSONORA</p>"
-    }
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "colectivos",
+    "tags": []
+  },
+  {
+    "id": "notasdeausencia",
+    "title": "Notas de Ausencia",
+    "year": null,
+    "text": null,
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "intalacion",
+    "tags": []
+  },
+  {
+    "id": "unkownauthor",
+    "title": "Unknown Author",
+    "year": "2019",
+    "text": "Visualización y sonificación de datos con meta-imágenes cartográficas",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "performance",
+    "tags": []
+  },
+  {
+    "id": "fragmentos",
+    "title": "Fragmentos",
+    "year": "2017",
+    "text": null,
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "intalacion",
+    "tags": []
+  },
+  {
+    "id": "corpografias",
+    "title": "Corpografías de la Violencia",
+    "year": "2021",
+    "text": null,
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "video",
+    "tags": []
+  },
+  {
+    "id": "distancias",
+    "title": "Distancias",
+    "year": "2020",
+    "text": null,
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "video",
+    "tags": []
+  },
+  {
+    "id": "pixelscape",
+    "title": "Pixelscape",
+    "year": "2020",
+    "text": null,
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "video",
+    "tags": []
+  },
+  {
+    "id": "hipnosinesteria",
+    "title": "Hipnosinesteria",
+    "year": "2021",
+    "text": null,
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "video",
+    "tags": []
+  },
+  {
+    "id": "rv-ep",
+    "title": "RV | EP en SNU",
+    "year": null,
+    "text": null,
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "video",
+    "tags": []
+  },
+  {
+    "id": "compilamesta-aural",
+    "title": "Aural",
+    "year": null,
+    "text": "Compilado Híbirdas y Quimeras, Compilame´sta",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "video",
+    "tags": []
+  },
+  {
+    "id": "balc-ep",
+    "title": "#003 Balc",
+    "year": null,
+    "text": "Single",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "música",
+    "tags": []
+  },
+  {
+    "id": "trapp",
+    "title": "tr.app",
+    "year": null,
+    "text": "Single",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "music",
+    "tags": []
+  },
+  {
+    "id": "dataset",
+    "title": "Dataset - Mutek 2",
+    "year": null,
+    "text": "Single",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "music",
+    "tags": []
+  },
+  {
+    "id": "feminoiselitoral",
+    "title": "Feminoise Litoral",
+    "year": null,
+    "text": "Single",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "music",
+    "tags": []
+  },
+  {
+    "id": "minimalresorces",
+    "title": "minimal resources",
+    "year": null,
+    "text": "EP",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "music",
+    "tags": []
+  },
+  {
+    "id": "caninacan",
+    "title": "can-in-a-can",
+    "year": null,
+    "text": "EP",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "music",
+    "tags": []
+  },
+  {
+    "id": "rggtrn",
+    "title": "RGGTRN",
+    "year": null,
+    "text": "EP",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "colectivos",
+    "tags": []
+  },
+  {
+    "id": "deepstructures",
+    "title": "deep structures",
+    "year": null,
+    "text": "EP",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "performance audiovisual",
+    "tags": []
+  },
+  {
+    "id": "ccrma-audiovisual",
+    "title": "Audio-Visual Sessions CCRMA",
+    "year": null,
+    "text": "EP",
+    "link": null,
+    "summary": null,
+    "image": null,
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "performance audiovisual",
+    "tags": ["performance", "audiovisual", "live coding", "residencia"]
   }
 ]

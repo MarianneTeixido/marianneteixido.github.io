@@ -27,7 +27,7 @@
       <div class="license">
         <span style="margin-top: 3rem;">
           [ <a href="https://labekka.red/licencia-f2f/" target="_blank">
-            <!-- <img src="/assets/img/f2f.png" alt="License" style="width: 32px; height: auto; padding-right: 0.1rem;" /> -->
+          <img src="../assets/img/f2f-web.png" alt="License" style="width: 32px; height: auto; padding-right: 0.1rem;"  class="img-fluid" loading="lazy" /> 
           </a> 2025 Marianne Teixido ]
         </span>
         <p>

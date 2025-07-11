@@ -17,15 +17,15 @@ const handleLinkClick = () => {
         <p>Artista digital, investigadora, live coder y desarrolladora de software</p>
         <p></p>
       </div>
-    <nav class="menu-column">
-      
+      <nav class="menu-column">
+
         <router-link to="/" active-class="active" @click="handleLinkClick"><i class="bi bi-chevron-right"></i>Proyectos</router-link>
         <router-link to="/bio" active-class="active" @click="handleLinkClick"><i class="bi bi-chevron-right"></i>Bio</router-link>
         <router-link to="/contact" active-class="active" @click="handleLinkClick"><i class="bi bi-chevron-right"></i>Contacto</router-link>
-    </nav>
+      </nav>
 
       <div class="social-media-icons">
-        
+
         <a href="https://github.com/MarianneTeixido" target="_blank"><i class="bi bi-github"></i></a>
         <a href="https://www.instagram.com/marianneteixido/" target="_blank"><i class="bi bi-instagram"></i></a>
         <a href="https://social.toplap.org/@teixido" target="_blank" rel="me"><i class="bi bi-mastodon"></i></a>
@@ -50,4 +50,28 @@ const handleLinkClick = () => {
 </template>
 
 <style scoped>
+
+.inline-element {
+    display: inline-block;
+    margin: 2rem 1rem;
+}
+
+.menu-toggle {
+  display: none;
+  /* Oculto por defecto */
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .menu-toggle {
+    display: block;
+  }
+}
 </style>

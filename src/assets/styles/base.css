@@ -130,30 +130,33 @@ header button.btn-menu:focus i {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px;
-    width: 50vw;
-    height: 100%;
-    padding-right: 3rem 3rem 0 2rem;
-    ;
-    background: var(--Gray-50);
-    transition: left 0.3s ease;
-}
-
-.sidebar-container {
-    height: 100%;
-    margin: 2rem 1rem 0 1rem;
-}
-
-.sidebar.visible {
     left: 0;
+    width: 22vw;
+    height: 100%;
+    padding: 2rem;
+    background: var(--Gray-50);
+    transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
 .main-content {
-    transition: transform 0.3s ease;
+    margin-left: 22vw;
+    padding: 2rem;
 }
 
-.main-content.shifted {
-    transform: translateX(50vw);
+@media (max-width: 720px) {
+    .sidebar {
+        width: 80vw;
+        transform: translateX(-100%);
+    }
+
+    #app.sidebar-is-open .sidebar {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
 }
 
 /* src/assets/style/base.css */
@@ -275,91 +278,7 @@ index.html .license,
     border-color: var(--Blue-01);
 }
 
-/* Tablet breakpoint */
-@media (min-width: 481px) and (max-width: 768px) {
-    .sidebar {
-        width: 28vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        display: block;
-    }
 
-    .main-content {
-        margin-left: 28vw;
-    }
-
-    header {
-        display: none;
-    }
-
-    .projects-container {
-        overflow-x: hidden;
-        padding: 0 15px;
-        /* Adjust padding as needed */
-    }
-
-    .projects {
-        margin-left: -15px;
-        margin-right: -15px;
-    }
-
-    .projects .col-12,
-    .projects .col-md-6,
-    .projects .col-lg-4,
-    .projects .col-xl-3 {
-        padding: 0 0.15rem;
-    }
-}
-
-/* Desktop breakpoint */
-@media (min-width: 769px) and (max-width: 1279px) {
-    .sidebar {
-        width: 28vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        display: block;
-    }
-
-    .main-content {
-        margin-left: 28vw;
-    }
-
-    header {
-        display: none;
-    }
-
-    .about-content {
-        margin: 1rem 0 0 2rem;
-    }
-}
-
-/* Large Desktop breakpoint */
-@media (min-width: 1280px) {
-    .sidebar {
-        width: 22vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        display: block;
-    }
-
-    .main-content {
-        margin-left: 22vw;
-    }
-
-    header {
-        display: none;
-    }
-
-    .about-content {
-        margin: 1rem 0 0 2rem;
-    }
-}
 
 
 

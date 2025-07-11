@@ -1,7 +1,16 @@
+<script setup>
+defineProps({
+  isOpen: Boolean,
+});
+const emit = defineEmits(['close']);
 
+const handleLinkClick = () => {
+  emit('close');
+};
+</script>
 
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar" :class="{ 'is-open': isOpen }">
     <div class="sidebar-container">
       <h1 class="align-right">Marianne Teixido</h1>
       <div>
@@ -10,9 +19,9 @@
       </div>
     <nav class="menu-column">
       
-        <router-link to="/" active-class="active"><i class="bi bi-chevron-right"></i>Proyectos</router-link>
-        <router-link to="/bio" active-class="active"><i class="bi bi-chevron-right"></i>Bio</router-link>
-        <router-link to="/contact" active-class="active"><i class="bi bi-chevron-right"></i>Contacto</router-link>
+        <router-link to="/" active-class="active" @click="handleLinkClick"><i class="bi bi-chevron-right"></i>Proyectos</router-link>
+        <router-link to="/bio" active-class="active" @click="handleLinkClick"><i class="bi bi-chevron-right"></i>Bio</router-link>
+        <router-link to="/contact" active-class="active" @click="handleLinkClick"><i class="bi bi-chevron-right"></i>Contacto</router-link>
     </nav>
 
       <div class="social-media-icons">
@@ -40,3 +49,5 @@
   </aside>
 </template>
 
+<style scoped>
+</style>

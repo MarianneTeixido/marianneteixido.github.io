@@ -285,7 +285,8 @@ index.html .license,
 .projects, .colaborations {
     display: flex;
     flex-wrap: wrap;
-    justify-content: stretch; 
+    justify-content: flex-start; 
+    align-items: flex-start;
     margin-top: 30px;
     margin-left: 5px; 
     margin-right: 5px; 

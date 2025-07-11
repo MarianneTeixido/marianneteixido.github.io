@@ -8,7 +8,7 @@ const getImageUrl = (imageName) => {
 
 <template>
 <div class="project grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-2">
-      <a @click.prevent="$router.push(`/home/${project.id}`)">
+      <a @click.prevent="$router.push(`/home/${project.id}`)" class="sticky">
       <img :src="getImageUrl(project.image)" :alt="project.title">
       <h3>{{ project.title }}</h3>
       <p>{{ project.summary }}</p>

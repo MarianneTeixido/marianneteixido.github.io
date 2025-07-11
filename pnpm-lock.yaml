@@ -17,6 +17,9 @@ importers:
       bootstrap-icons:
         specifier: ^1.13.1
         version: 1.13.1
+      gsap:
+        specifier: ^3.13.0
+        version: 3.13.0
       vue:
         specifier: ^3.5.17
         version: 3.5.17
@@ -387,6 +390,9 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
+
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -738,6 +744,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  gsap@3.13.0: {}
 
   magic-string@0.30.17:
     dependencies:

@@ -7,8 +7,8 @@ const getImageUrl = (imageName) => {
 </script>
 
 <template>
-<div class="project grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-2">
-      <a @click.prevent="$router.push(`/home/${project.id}`)" class="sticky">
+  <div class="project grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-0">
+    <a @click.prevent="$router.push(`/home/${project.id}`)" class="sticky">
       <img :src="getImageUrl(project.image)" :alt="project.title">
       <h3>{{ project.title }}</h3>
       <p>{{ project.summary }}</p>
@@ -18,16 +18,17 @@ const getImageUrl = (imageName) => {
 
 <style scoped>
 .project {
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fb 100%);
   border: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
+  margin: 2rem auto;
 }
 
 .project:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
 }
 
 .project a {
@@ -38,10 +39,11 @@ const getImageUrl = (imageName) => {
   height: 100%;
 }
 
+
 .project img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: auto;
+  object-fit: fit;
   object-position: center;
 }
 

@@ -19,6 +19,7 @@ html {
 
 body {
     overflow-x: hidden !important;
+    background: var(--Gray-50);
 }
 
 
@@ -142,6 +143,7 @@ header button.btn-menu:focus i {
 .main-content {
     margin-left: 22vw;
     padding: 2rem;
+    background: var(--Gray-50);
 }
 
 @media (max-width: 720px) {
@@ -285,16 +287,15 @@ index.html .license,
 .projects, .colaborations {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; 
+    justify-content: space-evenly; 
     align-items: flex-start;
-    margin-top: 30px;
     margin-left: 5px; 
     margin-right: 5px; 
   }
   
   .project, .colaboration {
     flex: 0 0 calc(33.33% - 10px); 
-    margin-bottom: 50px; 
+    margin-bottom: 20px; 
   }
   
   .project a {
@@ -358,15 +359,14 @@ index.html .license,
 
 
 .project-img {
-    width: 100%; /* Make the image take up the full width of its container */
-    height: auto; /* Maintain the aspect ratio */
-    max-width: 600px; /* Optional: Set a maximum width for larger screens */
-    margin: 0 auto; /* Center the image horizontally if needed */
-    display: block; /* Ensure the image behaves as a block element */
-}
+    width: 100%; 
+    height: auto; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    display: block; 
 
 @media (max-width: 768px) {
     .project-img {
-        max-width: 100%; /* Allow the image to scale down for smaller screens */
+        max-width: 100%; 
     }
 }

@@ -48,10 +48,28 @@
     ]
   },
   {
+    "id": "hydra",
+    "title": "Hydra Sketches",
+    "year": null,
+    "link": "https://hydra.ojack.xyz/?sketch_id=marianne_1",
+    "summary": "Hydra synth sketches contribution",
+    "image": "ram.png",
+    "details": {
+      "fullDescription": "R.A.M. Surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.",
+      "images": [],
+      "fullDescription2": "R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disrruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.",
+      "images2": []
+    },
+    "category": "colectivos",
+    "tags": [
+      "IA"
+    ]
+  },
+  {
     "id": "ram",
     "title": "R.A.M. [Redes Autónomas de Memoria]",
     "year": null,
-    "link": null,
+    "link": "https://ramlab.cc/",
     "summary": "Laboratoria de transchackfeminista de prácticas artísticas con tecnologías",
     "image": "ram.png",
     "details": {
@@ -103,7 +121,7 @@
     "title": "Unknown Author",
     "year": "2019",
     "link": null,
-    "summary":"Visualización y sonificación de datos con meta-imágenes cartográficas",
+    "summary": "Visualización y sonificación de datos con meta-imágenes cartográficas",
     "image": "unknown01.png",
     "details": {
       "fullDescription": "Este proyecto audiovisual es un ejercicio de desplazamiento de idea de la producción autoral, originalidad. El proyecto propone mirar críticamente las similitudes de las imágenes pobres que circulan diariamente en internet.La propuesta parte del cuestionamiento sobre la apropiación, plagio y creatividad desde la observación participante de las imágenes artística en la red. El performance un dispositivo de navegación para navegar en la información contenida en una base de datos obtenida de la actividad capturada con scripts de python y procesada algorítmicamente con técnicas de la programación al vuelo. Es un ejercicios dialéctico que busca el diálogo entre la interfaz, el usuario como meta-interfaz, la información y las narrativas interactivas.",
@@ -139,7 +157,9 @@
     "image": "corpografias.png",
     "details": {
       "fullDescription": null,
-      "images": ["corpografias02.png"],
+      "images": [
+        "corpografias02.png"
+      ],
       "fullDescription2": null,
       "images2": []
     },

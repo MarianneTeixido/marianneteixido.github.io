@@ -56,7 +56,17 @@
       />
     </div>
 
-    <BackButton />
+    <div class="navigation-buttons">
+      <BackButton />
+      <a
+        v-if="project.link"
+        :href="project.link"
+        target="_blank"
+        class="project-link"
+      >
+        Ver proyecto
+      </a>
+    </div>
   </section>
 </template>
 
@@ -104,5 +114,19 @@ const getImageUrl = (imageName) => {
   height: auto;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.project-link {
+  /* Estilos para el enlace del proyecto */
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
 }
 </style>

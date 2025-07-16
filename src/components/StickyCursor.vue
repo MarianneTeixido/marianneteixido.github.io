@@ -44,6 +44,11 @@ export default {
         mouseY = e.clientY;
       });
 
+      window.addEventListener('touchmove', (e) => {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+      });
+
       sticker.forEach((el) => {
         el.addEventListener('mouseover', () => {
           gsap.to(cursor, {
@@ -83,5 +88,11 @@ export default {
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
+}
+
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
 }
 </style>

@@ -4,7 +4,7 @@
     "title": "Synthnopsis",
     "year": "2025",
     "link": null,
-    "summary": "Pieza octafónica para electrónica en vivo.",
+    "summary": "Pieza octafónica para electrónica en vivo multicanal que explora síntesis de voz neuronal (XTTSv2/Tacotron2) en diálogo con la voz orgánica.",
     "image": "rider.jpg",
     "details": {
       "fullDescription": "<p>Octofonía donde la voz se desdobla, transfiere y reconfigura a través de mecanismos de aprendizaje de máquinas. Ocho canales tejen una polifonía en la que el timbre humano se funde con la síntesis, el texto se torna canto y el código devuelve otra corporalidad sonora.</p>",
@@ -13,16 +13,39 @@
         "synth2.jpg",
         "synth3.jpg"
       ],
-      "fullDescription2": "<p>La pieza es una exploración de audio muticanal con espacialización que toma como referencia el cómputo ternario para el movimiento de las 3 capas de voces</p>",
+      "fullDescription2": "<h3>Proceso técnico y conceptual</h3><p>La pieza confronta las limitaciones y sesgos de los modelos de síntesis de voz:</p><ul><li><strong>XTTSv2</strong>: Opera mediante <em>speaker embeddings</em> (512D) que preservan timbre/prosodia, pero hereda sesgos de género, acento y edad del dataset <em>VoxPopuli</em> (1,800h de discursos parlamentarios europeos). Presenta <em>oversmoothing prosódico</em> en prompts con baja diversidad fonética.</li><li><strong>Tacotron2</strong>: Síntesis autoregresiva que colapsa en ruido gutural por inestabilidad en la decodificación y falta de regulación acústica.</li></ul><p>Se estructuró en 3 capas vocales: (1) grabaciones de voz propia, (2) síntesis con XTTSv2 para transferencia multilingüe, y (3) distorsión progresiva con Tacotron2. La espacialización en 8 canales siguió patrones ternarios (Cuadro 3) implementados en tiempo real con <em>ProxySpace</em> (SuperCollider), usando pitch class como metáfora de escalas diatónicas.</p><h3>Contexto</h3><p>Presentada en el <em>2do Ciclo de Mecánicas Inmersivas</em> (Escuela Superior de Música, 2025), la obra reinterpreta textos críticos sobre IA y feminismo (<em>Eidsheim & Meizel, 2019; Fischetti, 2024</em>) para cuestionar corporalidades vocales sintéticas.</p>",
       "images2": [
         "rider.jpg"
+      ],
+      "technical_notes": [
+        {
+          "title": "Sistemas vocales",
+          "content": "ID 1: Voz propia | ID 2: XTTSv2 | ID 3: Tacotron2"
+        },
+        {
+          "title": "Dataset VoxPopuli",
+          "content": "1,800h de audio parlamentario multilingüe (sesgos: registros formales, acentos europeos, voces adultas)"
+        },
+        {
+          "title": "Patrón de movimiento (Cuadro 3)",
+          "content": "Operación ternaria en 8 canales: Capa 1 (voz) → 0/8; Capa 2 (XTTSv2) → 3/8; Capa 3 (Tacotron) → 5/8"
+        }
       ]
     },
     "category": "performance",
     "tags": [
       "IA",
       "performance",
-      "neural voice synthesis"
+      "neural voice synthesis",
+      "multichannel",
+      "SuperCollider"
+    ],
+    "related_projects": [
+      {
+        "title": "Instalación sonora con Jetson/Raspberry Pi",
+        "status": "En desarrollo",
+        "description": "Interfaz sensible para comunicación máquina-humano"
+      }
     ]
   },
   {
@@ -50,19 +73,23 @@
   {
     "id": "hydra",
     "title": "Hydra Sketches",
-    "year": null,
+    "year": "2021",
     "link": "https://hydra.ojack.xyz/?sketch_id=marianne_1",
     "summary": "Hydra synth sketches contribution",
-    "image": "ram.png",
+    "image": "f2f-web.png",
+    "type": "hydra-sketch",
+    "sketch": "src(o0).saturate(1.01).scale(.999).color(1.01,1.01,1.01).hue(.01).modulateHue(src(o1).hue(.3).posterize(-1).contrast(.7),2).layer(src(o1).luma().mult(gradient(1).saturate(.9))).out(o0)\n\nnoise(1, .2).rotate(2,.5).layer(src(o0).scrollX(.2)).out(o1)\n\nrender(o0)",
     "details": {
-      "fullDescription": "R.A.M. Surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.",
+      "fullDescription": "A collection of sketches made with Hydra.",
       "images": [],
-      "fullDescription2": "R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disrruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.",
+      "fullDescription2": null,
       "images2": []
     },
-    "category": "colectivos",
+    "category": "video",
     "tags": [
-      "IA"
+      "live coding",
+      "hydra",
+      "visuals"
     ]
   },
   {

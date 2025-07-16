@@ -12,6 +12,11 @@
       :alt="project.title"
     />
 
+    <!-- Sketch de Hydra -->
+    <div v-if="project.type === 'hydra-sketch' && project.sketch" class="hydra-sketch-container">
+      <HydraSketch :code="project.sketch" />
+    </div>
+
     <!-- Descripción 1 -->
     <div
       v-if="project.details?.fullDescription"
@@ -56,6 +61,27 @@
       />
     </div>
 
+    <!-- Technical Notes -->
+    <div v-if="project.details?.technical_notes" class="technical-notes">
+      <h3>Technical Notes</h3>
+      <ul>
+        <li v-for="(note, index) in project.details.technical_notes" :key="index">
+          <strong>{{ note.title }}:</strong> {{ note.content }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Related Projects -->
+    <div v-if="project.related_projects" class="related-projects">
+      <h3>Related Projects</h3>
+      <ul>
+        <li v-for="(related, index) in project.related_projects" :key="index">
+          <strong>{{ related.title }}</strong> ({{ related.status }})
+          <p>{{ related.description }}</p>
+        </li>
+      </ul>
+    </div>
+
     <div class="navigation-buttons">
       <BackButton />
       <a
@@ -74,6 +100,7 @@
 import { useRoute } from 'vue-router'
 import projects from '../data/projects.json'
 import BackButton from '../components/BackButton.vue'
+import HydraSketch from '../components/HydraSketch.vue'
 
 const route = useRoute()
 const project = projects.find(p => p.id === route.params.projectId)
@@ -128,5 +155,26 @@ const getImageUrl = (imageName) => {
   color: #3498db;
   text-decoration: none;
   font-weight: bold;
+}
+
+.hydra-sketch-container {
+  margin-top: 1.5rem;
+}
+
+.technical-notes, .related-projects {
+  margin-top: 2rem;
+}
+
+.technical-notes h3, .related-projects h3 {
+  margin-bottom: 1rem;
+}
+
+.technical-notes ul, .related-projects ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.technical-notes li, .related-projects li {
+  margin-bottom: 0.5rem;
 }
 </style>

@@ -6,12 +6,14 @@
 
 <script>
 import ProjectCard from '../components/ProjectCard.vue'
-import projects from '../data/projects.json'
+import projectsData from '../data/projects.json'
 
 export default {
   components: { ProjectCard },
   data() {
-    return { projects }
+    return {
+      projects: projectsData.filter(p => p.image)
+    }
   }
 }
 </script>

@@ -150,6 +150,7 @@ header button.btn-menu:focus i {
     .sidebar {
         width: 80vw;
         transform: translateX(-100%);
+        padding: 1rem;
     }
 
     #app.sidebar-is-open .sidebar {

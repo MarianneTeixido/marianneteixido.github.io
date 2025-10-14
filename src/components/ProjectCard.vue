@@ -1,15 +1,51 @@
 <script setup>
-const props = defineProps(['project'])
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const props = defineProps(['project']);
+const canvas = ref(null);
 
 const getImageUrl = (imageName) => {
-  return new URL(`../assets/img/${imageName}`, import.meta.url).href
-}
+  if (!imageName) return '';
+  return new URL(`../assets/img/${imageName}`, import.meta.url).href;
+};
+
+onMounted(() => {
+  if (props.project.hydraCode && canvas.value) {
+    // Initialize Hydra on our specific canvas.
+    // This sets the global 'h' context to use this canvas.
+    new Hydra({
+      canvas: canvas.value,
+      detectAudio: false,
+      enableStreamCapture: false,
+    });
+
+    try {
+      // Create a function that will execute the hydra code string.
+      // This works because the hydra-synth script in index.html makes
+      // functions like osc(), kaleid(), etc., globally available.
+      const hydraScript = new Function(props.project.hydraCode);
+      hydraScript();
+    } catch (e) {
+      console.error("Error executing Hydra code:", e);
+    }
+  }
+});
+
+onUnmounted(() => {
+  // If this card was displaying a hydra sketch, stop its rendering loop.
+  if (props.project.hydraCode && typeof h !== 'undefined') {
+    h.hush();
+  }
+});
 </script>
 
 <template>
   <div class="project grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-0">
     <a @click.prevent="$router.push(`/home/${project.id}`)" class="sticky">
-      <img :src="getImageUrl(project.image)" :alt="project.title">
+      <div v-if="project.hydraCode" class="project-media">
+        <canvas ref="canvas" class="hydra-canvas"></canvas>
+      </div>
+      <img v-else :src="getImageUrl(project.image)" :alt="project.title">
       <h3>{{ project.title }}</h3>
       <p>{{ project.summary }}</p>
     </a>
@@ -40,11 +76,13 @@ const getImageUrl = (imageName) => {
 }
 
 
-.project img {
+.project img,
+.hydra-canvas {
   width: 100%;
   height: auto;
-  object-fit: fit;
+  object-fit: cover;
   object-position: center;
+  aspect-ratio: 16 / 9;
 }
 
 .project h3 {

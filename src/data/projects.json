@@ -77,6 +77,7 @@
     "link": "https://hydra.ojack.xyz/?sketch_id=marianne_1",
     "summary": "Hydra synth sketches contribution",
     "image": "f2f-web.png",
+    "hydraCode": "osc(5, 0.9, 0.001).kaleid([3,4,5,7,8,9,10].fast(0.1)).color(0.5, 0.3).colorama(0.4).rotate(0.009,()=>Math.sin(time)* -0.001 ).modulateRotate(o0,()=>Math.sin(time) * 0.003).modulate(o0, 0.9).scale(0.9).out(o0)",
     "type": "hydra-sketch",
     "sketch": "src(o0).saturate(1.01).scale(.999).color(1.01,1.01,1.01).hue(.01).modulateHue(src(o1).hue(.3).posterize(-1).contrast(.7),2).layer(src(o1).luma().mult(gradient(1).saturate(.9))).out(o0)\n\nnoise(1, .2).rotate(2,.5).layer(src(o0).scrollX(.2)).out(o1)\n\nrender(o0)",
     "details": {

@@ -71,6 +71,27 @@
     ]
   },
   {
+    "id": "deepstructures",
+    "title": "deep structures",
+    "year": "2023",
+    "text": "",
+    "link": null,
+    "summary": "Composición para electrónica en vivo y renders 3D en la web",
+    "image": "deeps-cicla02.png",
+    "details": {
+      "fullDescription": "Composición sonora al vuelo que consiste en un descenso dentro del entrenamiento de una red neuronal de audio de aprendizaje profundo, en el cual se explorará con voz las implicaciones de la inteligencia artificial desde una perspectiva ética transhackfeminista con el fin mirar críticamente estas herramientas desde las mismas y así intervenirlas desde dentro.Es decir, a modo de ensayo algorítmico, la pieza recorrerá con voz, las implicaciones de estas tecnologías retomando como texto investigaciones feministas y transfeministas que teorizan sobre el tema. La voz se sintetizará y reconstruirá como medio para el hackeo de las mismas redes y la forma en la que las entendemos.",
+      "images": [
+        "nime-r.jpg",
+        "nime1-r.jpg",
+        "nime3-r.jpg",
+        "deeps-cicla.png"],
+      "fullDescription2": "Este performance audiovisual se ha presentado en el auditorio Blas Galindo del Centro Nacional de las Artes (CENART) como parte de las actividades de CiclaXSegundo 2022. Programa dedicado a la reflexión el live coding creado por mujeres y personas no binarias curado por Laura Balboa y realizado en colaboración con el Centro Multimedia. <br><br> De la misma forma la pieza formó parte de la conferencia <em>New Interfaces for Musical Expression (NIME)</em> en 2023. La presentación se realizó en la explanada del Centro de Cultura Digital. Esta pieza fue acreedora del <b>premio a mejor música</b>. El link de la decisión se puede encontrar en: <a href=\"https://www.nime2023.org/awards-photos\">https://www.nime2023.org/awards-photos</a> <br><br> Colaboración con Emilio Ocelotl en el sistema audiovisual con Three.js. ",
+      "images2": []
+    },
+    "category": "performance audiovisual",
+    "tags": []
+  },
+  {
     "id": "hydra",
     "title": "Hydra Sketches",
     "year": "2021",
@@ -95,6 +116,23 @@
     ]
   },
   {
+    "id": "notasdeausencia",
+    "title": "Notas de Ausencia",
+    "year": "2020",
+    "text": "Notas de ausencia es un ensayo generativo en la web. Utiliza el texto dato que por medio de la computadora como agente resignificante, deconstruye estructuras discursivas para resemantizar la narrativa sobre las desapariciones de mujeres en México y América Latina.",
+    "link": "https://github.com/MarianneTeixido/notasdeausencia",
+    "summary": "Ensayo generativo en la web para resemantizar la narrativa sobre las desapariciones de mujeres en México",
+    "image": "notas01.png",
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": null,
+    "tags": []
+  },
+  {
     "id": "ram",
     "title": "R.A.M. [Redes Autónomas de Memoria]",
     "year": null,
@@ -113,6 +151,28 @@
     ]
   },
   {
+    "id": "ccrma-audiovisual",
+    "title": "Audio-Visual Sessions CCRMA",
+    "year": "2024",
+    "text": "EP",
+    "link": null,
+    "summary":"Residencia artística en CCRMA, Stanford University",
+    "image": "ccrma.gif",
+    "details": {
+      "fullDescription": "Residencia artística realizada en Center for Computer Research in Music and Acoustics (CCRMA), Stanford junto con Marianne Teixido del 8 al 17 de enero de 2024. Durante nuestra estancia trabajamos con 6 estudiantes de composición y presentamos dos conciertos: uno en CCRMA Stage y otro en Elliott Program Center.",
+      "images": [],
+      "fullDescription2": "Los estudiantes con los que colaboramos fueron: Celeste Betancur, Brian Brown, Tatiana Catanzaro, Anna Golubkova, Lemon Guo, Nick Shaheed.",
+      "images2": []
+    },
+    "category": "performance audiovisual",
+    "tags": [
+      "performance",
+      "audiovisual",
+      "live coding",
+      "residencia"
+    ]
+  },
+  {
     "id": "piranhalab",
     "title": "Piranha Lab",
     "year": null,
@@ -126,23 +186,6 @@
       "images2": []
     },
     "category": "colectivos",
-    "tags": []
-  },
-  {
-    "id": "notasdeausencia",
-    "title": "Notas de Ausencia",
-    "year": "2020",
-    "text": "Notas de ausencia es un ensayo generativo en la web. Utiliza el texto dato que por medio de la computadora como agente resignificante, deconstruye estructuras discursivas para resemantizar la narrativa sobre las desapariciones de mujeres en México y América Latina.",
-    "link": "https://github.com/MarianneTeixido/notasdeausencia",
-    "summary": "Ensayo generativo en la web para resemantizar la narrativa sobre las desapariciones de mujeres en México",
-    "image": "notas01.png",
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "intalacion",
     "tags": []
   },
   {
@@ -395,45 +438,6 @@
     },
     "category": "colectivos",
     "tags": []
-  },
-  {
-    "id": "deepstructures",
-    "title": "deep structures",
-    "year": null,
-    "text": "EP",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": []
-  },
-  {
-    "id": "ccrma-audiovisual",
-    "title": "Audio-Visual Sessions CCRMA",
-    "year": null,
-    "text": "EP",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": [
-      "performance",
-      "audiovisual",
-      "live coding",
-      "residencia"
-    ]
   },
   {
     "id": "algorave-ram",

@@ -39,6 +39,11 @@
       />
     </div>
 
+     <!-- Sketch de Hydra 2-->
+    <div v-if="project.type === 'hydra-sketch' && project.sketch2" class="hydra-sketch-container">
+      <HydraSketch :code="project.sketch2" />
+    </div>
+
     <!-- Descripción 2 -->
     <div
       v-if="project.details?.fullDescription2"

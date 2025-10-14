@@ -16,13 +16,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
 import Sidebar from './components/Sidebar.vue'
 import Header from './components/Header.vue'
 import StickyCursor from './components/StickyCursor.vue'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+
+const route = useRoute();
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -32,6 +35,15 @@ onMounted(() => {
     smooth: 1.5,
     effects: true,
   });
+});
+
+watch(() => route.fullPath, async () => {
+  await nextTick();
+  const smoother = ScrollSmoother.get();
+  if (smoother) {
+    smoother.scrollTop(0, true);
+    ScrollTrigger.refresh();
+  }
 });
 
 const isMenuOpen = ref(false)

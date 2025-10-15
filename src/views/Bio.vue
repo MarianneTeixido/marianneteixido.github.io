@@ -151,7 +151,7 @@
             <li>
               <strong>Especialista de desarrollo</strong> - B Drive IT<br>
               Colaboré como desarrolladora fullstack en el equipo de Proyectos Especiales en el área de Inteligencia
-              Artificial | 2024 - 2025
+              Artificial en implementación de chatbots y asistentes virtuales | 2024 - 2025
             </li> <br>
             <li>
               <strong>Desarrolladora Web</strong> - Engine Core<br>
@@ -247,9 +247,7 @@
             Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX</p>
 
           <h3>Áreas de Especialización</h3>
-          <p>Control de versiones, machine learning, programación web, programación al vuelo (live coding), línea de
-            comandos, circuitos eléctricos, sensores, procesamiento de bases de datos, realidad virtual y 3D, realidad
-            aumentada, procesamiento de señales de audio, técnicas de espacialización y ambisonics</p>
+          <p>Inteligencia artificial, machine learning, programación y diseño web, programación al vuelo (live coding), programación y electrónica creativa, música electroacústica, arte digital, sistemas de control de versiones, sensores, procesamiento de bases de datos, realidad virtual y 3D, procesamiento de señales de audio e investigación artística.</p>
         </div>
 
 

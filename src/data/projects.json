@@ -115,22 +115,26 @@
       "visuals"
     ]
   },
-  {
+ {
     "id": "notasdeausencia",
     "title": "Notas de Ausencia",
     "year": "2020",
-    "text": "Notas de ausencia es un ensayo generativo en la web. Utiliza el texto dato que por medio de la computadora como agente resignificante, deconstruye estructuras discursivas para resemantizar la narrativa sobre las desapariciones de mujeres en México y América Latina.",
-    "link": "https://github.com/MarianneTeixido/notasdeausencia",
-    "summary": "Ensayo generativo en la web para resemantizar la narrativa sobre las desapariciones de mujeres en México",
+    "text": "Ensayo generativo en la web que utiliza texto-dato y la computadora como agente resignificante para deconstruir estructuras discursivas y resemantizar la narrativa sobre las desapariciones de mujeres en México y América Latina.",
+    "link": "https://notasdeausencia.cc",
+    "summary": "Narrativa algorítmica de denuncia que articula un metaespacio virtual como partitura para la memoria, utilizando tweets, teoría feminista y generación de texto automático.",
     "image": "notas01.png",
     "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
+        "fullDescription": "Notas de ausencia es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.",
+        "images": [
+            "notas03.png",
+            "notas04.png",
+            "twitter.png"
+        ],
+        "fullDescription2": "La pieza se divide en tres momentos: Memorial, Reescritura y Espejo. En el Memorial, los monolitos contienen tweets que se pueden scrollear. En Reescritura, las esferas visualizan la recurrencia de palabras extraídas de los tweets. En Espejo, aparecen aleatoriamente fotografías de mujeres desaparecidas de la CNDH. La navegación se realiza con teclado (w,a,s,d o flechas) y mouse, presionando M para cambiar escenas. La máquina genera nodos que articulan las palabras más frecuentes en la narrativa de desapariciones, creando un remix lógico-sintáctico que propicia la resignificación de estas narrativas de opresión. <br><br> Notas de ausencia. Narrativa algorítmica de denuncia.<br><br>Autora: Marianne Teixido<br>Página web interactiva; HTML, CSS, Three.js, Python.<br>Lugar de creación: Ciudad de México.<br>Año: 2020<br><br>Exposición Creación con Algoritmos. Centro de Cultura Digital. Julio, 2020.<br>EmMeio #12 Exhibition. MedialLab BR. Octubre, 2020.<br><br>  El proyecto actualmente está fuera de línea pero puedes consultar el código fuente en <a href=\"https://github.com/MarianneTeixido/notasdeausencia\">GitHub</a>",
+        "images2": []
     },
-    "category": null,
-    "tags": []
+    "category": "web",
+    "tags": ["generative", "threejs", "feminism", "algorithmic-narrative"]
   },
   {
     "id": "ram",
@@ -143,6 +147,7 @@
       "fullDescription": "R.A.M. Surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.",
       "images": [],
       "fullDescription2": "R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disrruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.",
+
       "images2": []
     },
     "category": "colectivos",

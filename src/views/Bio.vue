@@ -151,7 +151,7 @@
             <li>
               <strong>Especialista de desarrollo</strong> - B Drive IT<br>
               Colaboré como desarrolladora fullstack en el equipo de Proyectos Especiales en el área de Inteligencia
-              Artificial en implementación de chatbots y avatar 3D en la web para asistentes virtuales | 2024 - 2025
+              Artificial en implementación de chatbots y avatares 3D para asistentes virtuales en la web | 2024 - 2025
             </li> <br>
             <li>
               <strong>Desarrolladora Web</strong> - Engine Core<br>

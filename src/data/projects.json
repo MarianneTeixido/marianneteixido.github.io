@@ -4,7 +4,7 @@
     "title": "Synthnopsis",
     "year": "2025",
     "link": null,
-    "summary": "Pieza octafónica para electrónica en vivo multicanal que explora síntesis de voz neuronal con modelos TTS (XTTSv2/Tacotron2) en diálogo con la voz orgánica.",
+    "summary": "Pieza octafónica para electrónica en vivo multicanal",
     "image": "synthnopsis.png",
     "details": {
       "fullDescription": "<h3>Contexto</h3><p>Presentada en el <em>2do Ciclo de Mecánicas Inmersivas</em> (Escuela Superior de Música, 2025), la obra reinterpreta textos críticos sobre IA y feminismo (<em>Eidsheim & Meizel, 2019; Fischetti, 2024</em>) para cuestionar corporalidades vocales sintéticas.</p><h3>Descripción</h3><p>En esta octofonía donde la voz se desdobla, transfiere y reconfigura a través de mecanismos de aprendizaje de máquinas. Ocho canales tejen una polifonía en la que el timbre humano se funde con la síntesis, el texto se torna canto y el código devuelve otra corporalidad sonora.</p> <p>Esta pieza se compone de tres capas de voces,  es un ejercicio de cómputo ternario a partir del movimiento en el epsacio. Dos de las capas voces, fueron sintetizadas utilizando los modelos Tacotron 2 (fig. izq) y XTTS_v02 (fig. der) a partir de una base de datos generada ex profeso para este proyecto.  </p> ",
@@ -18,10 +18,88 @@
         "partitura.png"
       ],
       "fullDescription3": "<p>La implementación del código está diseñado para ejecutarse en tiempo real usando ProxySpace en SuperCollider en donde el código se explora como partitura a partir de los patrones descritos arriba, dando espacio a la improvisación al vuelo.</p><p>La pieza confronta las limitaciones y sesgos de los modelos de síntesis de voz:</p><ul><li><strong>XTTSv2</strong>: Opera mediante <em>speaker embeddings</em> (512D) que preservan timbre/prosodia, pero hereda sesgos de género, acento y edad del dataset <em>VoxPopuli</em> (1,800h de discursos parlamentarios europeos). Presenta <em>oversmoothing prosódico</em> en prompts con baja diversidad fonética.</li><li><strong>Tacotron2</strong>: Síntesis autoregresiva que colapsa en ruido gutural por inestabilidad en la decodificación y falta de regulación acústica.</li></ul><p>Esta pieza es un primer ensayo compositivo, teórico y pragmático sobre las implicaciones sociotécnicas de los asistentes virtuales con el fin de experimentar con mi propia voz para difuminar la voz entre tonalidades y tímbres que me permiten continuar generando redes de conceptos y voces.</p>",
-      "images3":[
+      "images3": [
         "synth1.jpg",
         "synth2.jpg"
+      ],
+      "technical_notes": [
+        {
+          "title": "Sistemas vocales",
+          "content": "ID 1: Voz propia | ID 2: XTTSv2 | ID 3: Tacotron2"
+        },
+        {
+          "title": "Dataset",
+          "content": "27 minutos de audio con 238 muestras de 8 a 20 segundos de duración. Formato wav a 22.05 kHz, 352 kbps en monocanal"
+        },
+        {
+          "title": "Patrón de movimiento (Cuadro 4)",
+          "content": "Operación ternaria en 8 canales: Capa 1 (voz) → 0/8; Capa 2 (XTTSv2) → 3/8; Capa 3 (Tacotron) → 5/8"
+        }
+      ]
+    },
+    "category": "performance",
+    "tags": [
+      "IA",
+      "performance",
+      "neural voice synthesis",
+      "multichannel",
+      "SuperCollider"
     ],
+    "related_projects": [
+      {
+        "title": "Instalación sonora con Jetson/Raspberry Pi",
+        "status": "En desarrollo",
+        "description": "Interfaz sensible para comunicación máquina-humano"
+      }
+    ]
+  },
+  {
+    "id": "error-de-sintaxis",
+    "title": "Error de Sintaxis",
+    "year": "2025",
+    "link": "https://in-sonora.org/ficha-proyecto/in-sonora2005-2025/",
+    "summary": "Pieza acusmática con voz sintética",
+    "image": "insonora-error03.jpg",
+    "details": {
+      "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p><h3>Escucha</h3>",
+      "audio": [
+        "insonora-final.wav"
+      ],
+      "images": [
+        "insonora-error01.jpg",
+        "insonora-error02.jpg",
+        "insonora-error03.jpg",
+        "insonora-error04.jpg"
+      ],
+      "fullDescription2": "<h3>Contexto</h3><p>Esta pieza fue comisionada como parte de las actividades organizadas por los 20 años de INSONORA. Fue programada dentro de la exposición retrospectiva del 2 al 13 de abril en Cruce Contemporáneo, Madrid. La invitación es una resonancia de nuestra colaboración con INSONORA en realizada durante la ICLC (International Conference on Live Coding) 2019 realizada en Madrid</p>",
+      "fullDescription3": "<h3>Créditos</h3><p>Composición: Emilio Ocelotl y Marianne Teixido</p>"
+    },
+    "category": "music",
+    "tags": [
+      "IA"
+    ]
+  },
+  {
+    "id": "deepstructures",
+    "title": "deep structures",
+    "year": "2023",
+    "text": "",
+    "link": "https://www.nime2023.org/awards-photos",
+    "summary": "Composición para electrónica en vivo y renders 3D en la web",
+    "image": "deeps-cicla02.png",
+    "details": {
+      "fullDescription": "Composición sonora al vuelo que consiste en un descenso dentro del entrenamiento de una red neuronal de audio de aprendizaje profundo, en el cual se explorará con voz las implicaciones de la inteligencia artificial desde una perspectiva ética transhackfeminista con el fin mirar críticamente estas herramientas desde las mismas y así intervenirlas desde dentro.Es decir, a modo de ensayo algorítmico, la pieza recorrerá con voz, las implicaciones de estas tecnologías retomando como texto investigaciones feministas y transfeministas que teorizan sobre el tema. La voz se sintetizará y reconstruirá como medio para el hackeo de las mismas redes y la forma en la que las entendemos.",
+      "images": [
+        "nime-r.jpg",
+        "nime1-r.jpg"
+      ],
+      "fullDescription2": "Este performance audiovisual se ha presentado en el auditorio Blas Galindo del Centro Nacional de las Artes (CENART) como parte de las actividades de <b>CiclaXSegundo</b> 2022. Programa dedicado a la reflexión el live coding creado por mujeres y personas no binarias curado por Laura Balboa y realizado en colaboración con el Centro Multimedia. <br><br> De la misma forma la pieza formó parte de la conferencia <em><b>New Interfaces for Musical Expression (NIME)</b></em> en 2023. La presentación se realizó en la explanada del Centro de Cultura Digital. Esta pieza fue acreedora del <b>premio a mejor música</b>. El link de la decisión se puede encontrar en el link del final.",
+      "images2": [
+        "nime3-r.jpg",
+        "deeps-cicla.png"
+      ],
+      "fullDescription3": "<h3>Créditos</h3><p>Composición: Marianne Teixido<br>Electrónica en vivo (SuperCollider): Marianne Teixido<br>Visuales en la web (ThreeJS): Emilio Ocelotl<br>Render 3D: Marianne Teixido<br>Voz: Amanda Alafita<br>Software: SuperCollider, Three.js, Python (RAVE)</p>"
+    },
     "technical_notes": [
       {
         "title": "Sistemas vocales",
@@ -35,70 +113,7 @@
         "title": "Patrón de movimiento (Cuadro 4)",
         "content": "Operación ternaria en 8 canales: Capa 1 (voz) → 0/8; Capa 2 (XTTSv2) → 3/8; Capa 3 (Tacotron) → 5/8"
       }
-    ]
-  },
-  "category": "performance",
-  "tags": [
-    "IA",
-    "performance",
-    "neural voice synthesis",
-    "multichannel",
-    "SuperCollider"
-  ],
-  "related_projects": [
-    {
-      "title": "Instalación sonora con Jetson/Raspberry Pi",
-      "status": "En desarrollo",
-      "description": "Interfaz sensible para comunicación máquina-humano"
-    }
-  ]
-},
-{
-  "id": "error-de-sintaxis",
-  "title": "Error de Sintaxis",
-  "year": "2025",
-  "link": null,
-  "summary": "Pieza acusmática con voz sintética",
-  "image": "insonora-error03.jpg",
-  "details": {
-    "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p><h3>Escucha</h3>",
-    "audio":[
-      "insonora-final.wav"
     ],
-    "images": [
-      "insonora-error01.jpg",
-      "insonora-error02.jpg",
-      "insonora-error03.jpg",
-      "insonora-error04.jpg"
-    ],
-    "fullDescription2": "<h3>Contexto</h3><p>Esta pieza fue comisionada como parte de las actividades organizadas por los 20 años de INSONORA. Fue programada dentro de la exposición retrospectiva del 2 al 13 de abril en Cruce Contemporáneo, Madrid. La invitación es una resonancia de nuestra colaboración con INSONORA en realizada durante la ICLC (International Conference on Live Coding) 2019 realizada en Madrid</p>",
-    "fullDescription3": "<h3>Créditos</h3><p>Composición: Emilio Ocelotl y Marianne Teixido</p>"
-  
-  },
-  "category": "music",
-  "tags": [
-    "IA"
-  ]
-},
-{
-  "id": "deepstructures",
-  "title": "deep structures",
-  "year": "2023",
-  "text": "",
-  "link": null,
-  "summary": "Composición para electrónica en vivo y renders 3D en la web",
-  "image": "deeps-cicla02.png",
-  "details": {
-    "fullDescription": "Composición sonora al vuelo que consiste en un descenso dentro del entrenamiento de una red neuronal de audio de aprendizaje profundo, en el cual se explorará con voz las implicaciones de la inteligencia artificial desde una perspectiva ética transhackfeminista con el fin mirar críticamente estas herramientas desde las mismas y así intervenirlas desde dentro.Es decir, a modo de ensayo algorítmico, la pieza recorrerá con voz, las implicaciones de estas tecnologías retomando como texto investigaciones feministas y transfeministas que teorizan sobre el tema. La voz se sintetizará y reconstruirá como medio para el hackeo de las mismas redes y la forma en la que las entendemos.",
-    "images": [
-      "nime-r.jpg",
-      "nime1-r.jpg",
-      "nime3-r.jpg",
-      "deeps-cicla.png"
-    ],
-    "fullDescription2": "Este performance audiovisual se ha presentado en el auditorio Blas Galindo del Centro Nacional de las Artes (CENART) como parte de las actividades de CiclaXSegundo 2022. Programa dedicado a la reflexión el live coding creado por mujeres y personas no binarias curado por Laura Balboa y realizado en colaboración con el Centro Multimedia. <br><br> De la misma forma la pieza formó parte de la conferencia <em>New Interfaces for Musical Expression (NIME)</em> en 2023. La presentación se realizó en la explanada del Centro de Cultura Digital. Esta pieza fue acreedora del <b>premio a mejor música</b>. El link de la decisión se puede encontrar en: <a href=\"https://www.nime2023.org/awards-photos\">https://www.nime2023.org/awards-photos</a> <br><br> Colaboración con Emilio Ocelotl en el sistema audiovisual con Three.js. ",
-    "images2": []
-  },
   "category": "performance audiovisual",
   "tags": []
 },

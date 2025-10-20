@@ -4,528 +4,541 @@
     "title": "Synthnopsis",
     "year": "2025",
     "link": null,
-    "summary": "Pieza octafónica para electrónica en vivo multicanal que explora síntesis de voz neuronal (XTTSv2/Tacotron2) en diálogo con la voz orgánica.",
-    "image": "rider.jpg",
+    "summary": "Pieza octafónica para electrónica en vivo multicanal que explora síntesis de voz neuronal con modelos TTS (XTTSv2/Tacotron2) en diálogo con la voz orgánica.",
+    "image": "synthnopsis.png",
     "details": {
-      "fullDescription": "<p>Octofonía donde la voz se desdobla, transfiere y reconfigura a través de mecanismos de aprendizaje de máquinas. Ocho canales tejen una polifonía en la que el timbre humano se funde con la síntesis, el texto se torna canto y el código devuelve otra corporalidad sonora.</p>",
+      "fullDescription": "<h3>Contexto</h3><p>Presentada en el <em>2do Ciclo de Mecánicas Inmersivas</em> (Escuela Superior de Música, 2025), la obra reinterpreta textos críticos sobre IA y feminismo (<em>Eidsheim & Meizel, 2019; Fischetti, 2024</em>) para cuestionar corporalidades vocales sintéticas.</p><h3>Descripción</h3><p>En esta octofonía donde la voz se desdobla, transfiere y reconfigura a través de mecanismos de aprendizaje de máquinas. Ocho canales tejen una polifonía en la que el timbre humano se funde con la síntesis, el texto se torna canto y el código devuelve otra corporalidad sonora.</p> <p>Esta pieza se compone de tres capas de voces,  es un ejercicio de cómputo ternario a partir del movimiento en el epsacio. Dos de las capas voces, fueron sintetizadas utilizando los modelos Tacotron 2 (fig. izq) y XTTS_v02 (fig. der) a partir de una base de datos generada ex profeso para este proyecto.  </p> ",
       "images": [
-        "synth1.jpg",
-        "synth2.jpg",
-        "synth3.jpg"
+        "tacotron.png",
+        "xtts-2.png"
       ],
-      "fullDescription2": "<h3>Proceso técnico y conceptual</h3><p>La pieza confronta las limitaciones y sesgos de los modelos de síntesis de voz:</p><ul><li><strong>XTTSv2</strong>: Opera mediante <em>speaker embeddings</em> (512D) que preservan timbre/prosodia, pero hereda sesgos de género, acento y edad del dataset <em>VoxPopuli</em> (1,800h de discursos parlamentarios europeos). Presenta <em>oversmoothing prosódico</em> en prompts con baja diversidad fonética.</li><li><strong>Tacotron2</strong>: Síntesis autoregresiva que colapsa en ruido gutural por inestabilidad en la decodificación y falta de regulación acústica.</li></ul><p>Se estructuró en 3 capas vocales: (1) grabaciones de voz propia, (2) síntesis con XTTSv2 para transferencia multilingüe, y (3) distorsión progresiva con Tacotron2. La espacialización en 8 canales siguió patrones ternarios (Cuadro 3) implementados en tiempo real con <em>ProxySpace</em> (SuperCollider), usando pitch class como metáfora de escalas diatónicas.</p><h3>Contexto</h3><p>Presentada en el <em>2do Ciclo de Mecánicas Inmersivas</em> (Escuela Superior de Música, 2025), la obra reinterpreta textos críticos sobre IA y feminismo (<em>Eidsheim & Meizel, 2019; Fischetti, 2024</em>) para cuestionar corporalidades vocales sintéticas.</p>",
+      "fullDescription2": "<h3>Proceso técnico y conceptual</h3><p>Para la elaboración el contenido linguístico de la pieza dicho por las voces, realicé una reinterpretación poética de dos fuentes textuales: <b>The Oxford Handbook of Voice Studies</b> (Eidsheim y Meizel, 2019), que aborda los estudios vocales desde una perspectiva interdisciplinar y el subcapítulo <em>Asistentes virtuales</em> lozalizado dentro del capítulo <em>Decodificando la IA desde el feminismo</em> en el libro <b>Tecnologías Feministas: Tramas para la resistencia desde el Sur Latinoamericano</b> (Fischetti, 2024) en donde se analizan críticamente las voces sintéticas desde una mirada feminista. Con esta reelaboración busco enfatizar la dimensión estética del lenguaje, preservando los fundamentos teóricos de los textos originales.</p><p>Para la construcción de las capas sonoras, implementé un proceso estratificado: la primera capa base consite en grabaciones de mi voz; la segunda capa es la voz sintetizada con el modelo XTTS_v02 para voces multilingues con transferencia de estilo; la tercera capa se integra por la voz sintetizada con Tacotron 2. Esta combinación me permitió explorar en esta pieza los contrastes entre lo orgánico y sintético así como el timbre y la prosodía en una composición octafónica al vuelo.</p><p>Para este ensayo retomé la clase de altura (pitch class) como metáfora para trasladar una escala de 8 notas diatónica sin cromatismos. En donde la octafonía hacía referencia a la equivalencia de posiciones en la repetición de 7 notas más 1 de repetición, tomando ccomo referencia los 8 canales contra los 3 layers de voces. Cada una de las voces se desplazan en el espacio siguiendo un patrón. El patrón de movimiento busca contraponer el sistema octafónico con una operación de movimiento ternaria. En la imagen/partitura debajo se puede apreciar el movimiento de las voces a lo largo de la ejecución. </p>",
       "images2": [
-        "rider.jpg"
+        "var-synthnopsis.png",
+        "partitura.png"
       ],
-      "technical_notes": [
-        {
-          "title": "Sistemas vocales",
-          "content": "ID 1: Voz propia | ID 2: XTTSv2 | ID 3: Tacotron2"
-        },
-        {
-          "title": "Dataset VoxPopuli",
-          "content": "1,800h de audio parlamentario multilingüe (sesgos: registros formales, acentos europeos, voces adultas)"
-        },
-        {
-          "title": "Patrón de movimiento (Cuadro 3)",
-          "content": "Operación ternaria en 8 canales: Capa 1 (voz) → 0/8; Capa 2 (XTTSv2) → 3/8; Capa 3 (Tacotron) → 5/8"
-        }
-      ]
-    },
-    "category": "performance",
-    "tags": [
-      "IA",
-      "performance",
-      "neural voice synthesis",
-      "multichannel",
-      "SuperCollider"
+      "fullDescription3": "<p>La implementación del código está diseñado para ejecutarse en tiempo real usando ProxySpace en SuperCollider en donde el código se explora como partitura a partir de los patrones descritos arriba, dando espacio a la improvisación al vuelo.</p><p>La pieza confronta las limitaciones y sesgos de los modelos de síntesis de voz:</p><ul><li><strong>XTTSv2</strong>: Opera mediante <em>speaker embeddings</em> (512D) que preservan timbre/prosodia, pero hereda sesgos de género, acento y edad del dataset <em>VoxPopuli</em> (1,800h de discursos parlamentarios europeos). Presenta <em>oversmoothing prosódico</em> en prompts con baja diversidad fonética.</li><li><strong>Tacotron2</strong>: Síntesis autoregresiva que colapsa en ruido gutural por inestabilidad en la decodificación y falta de regulación acústica.</li></ul><p>Esta pieza es un primer ensayo compositivo, teórico y pragmático sobre las implicaciones sociotécnicas de los asistentes virtuales con el fin de experimentar con mi propia voz para difuminar la voz entre tonalidades y tímbres que me permiten continuar generando redes de conceptos y voces.</p>",
+      "images3":[
+        "synth1.jpg",
+        "synth2.jpg"
     ],
-    "related_projects": [
+    "technical_notes": [
       {
-        "title": "Instalación sonora con Jetson/Raspberry Pi",
-        "status": "En desarrollo",
-        "description": "Interfaz sensible para comunicación máquina-humano"
+        "title": "Sistemas vocales",
+        "content": "ID 1: Voz propia | ID 2: XTTSv2 | ID 3: Tacotron2"
+      },
+      {
+        "title": "Dataset",
+        "content": "27 minutos de audio con 238 muestras de 8 a 20 segundos de duración. Formato wav a 22.05 kHz, 352 kbps en monocanal"
+      },
+      {
+        "title": "Patrón de movimiento (Cuadro 4)",
+        "content": "Operación ternaria en 8 canales: Capa 1 (voz) → 0/8; Capa 2 (XTTSv2) → 3/8; Capa 3 (Tacotron) → 5/8"
       }
     ]
   },
-  {
-    "id": "error-de-sintaxis",
-    "title": "Error de Sintaxis",
-    "year": "2025",
-    "link": null,
-    "summary": "Pieza acusmática con voz sintética",
-    "image": "insonora-error03.jpg",
-    "details": {
-      "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p>",
-      "images": [
-        "insonora-error01.jpg",
-        "insonora-error02.jpg",
-        "insonora-error03.jpg",
-        "insonora-error04.jpg"
-      ],
-      "fullDescription2": "<p>Pieza comisionada por los 20 años de INSONORA</p>"
-    },
-    "category": "music",
-    "tags": [
-      "IA"
-    ]
+  "category": "performance",
+  "tags": [
+    "IA",
+    "performance",
+    "neural voice synthesis",
+    "multichannel",
+    "SuperCollider"
+  ],
+  "related_projects": [
+    {
+      "title": "Instalación sonora con Jetson/Raspberry Pi",
+      "status": "En desarrollo",
+      "description": "Interfaz sensible para comunicación máquina-humano"
+    }
+  ]
+},
+{
+  "id": "error-de-sintaxis",
+  "title": "Error de Sintaxis",
+  "year": "2025",
+  "link": null,
+  "summary": "Pieza acusmática con voz sintética",
+  "image": "insonora-error03.jpg",
+  "details": {
+    "fullDescription": "<p>Error de sintaxis deconstruye el lenguaje mediante síntesis vocal y procesamiento algorítmico. Voces artificiales, distorsionadas, se descomponen y recombinan. Lo poético reconocible  muta en escritura transformada a datos estocásticos antes de disolverse en texturas granulares. El entorno sonoro muta, la comunicación se vuelve abstracción y fragilidad.</p><h3>Escucha</h3>",
+    "audio":[
+      "insonora-final.wav"
+    ],
+    "images": [
+      "insonora-error01.jpg",
+      "insonora-error02.jpg",
+      "insonora-error03.jpg",
+      "insonora-error04.jpg"
+    ],
+    "fullDescription2": "<p>Pieza comisionada por los 20 años de INSONORA</p>"
   },
-  {
-    "id": "deepstructures",
-    "title": "deep structures",
-    "year": "2023",
-    "text": "",
-    "link": null,
-    "summary": "Composición para electrónica en vivo y renders 3D en la web",
-    "image": "deeps-cicla02.png",
-    "details": {
-      "fullDescription": "Composición sonora al vuelo que consiste en un descenso dentro del entrenamiento de una red neuronal de audio de aprendizaje profundo, en el cual se explorará con voz las implicaciones de la inteligencia artificial desde una perspectiva ética transhackfeminista con el fin mirar críticamente estas herramientas desde las mismas y así intervenirlas desde dentro.Es decir, a modo de ensayo algorítmico, la pieza recorrerá con voz, las implicaciones de estas tecnologías retomando como texto investigaciones feministas y transfeministas que teorizan sobre el tema. La voz se sintetizará y reconstruirá como medio para el hackeo de las mismas redes y la forma en la que las entendemos.",
-      "images": [
-        "nime-r.jpg",
-        "nime1-r.jpg",
-        "nime3-r.jpg",
-        "deeps-cicla.png"],
-      "fullDescription2": "Este performance audiovisual se ha presentado en el auditorio Blas Galindo del Centro Nacional de las Artes (CENART) como parte de las actividades de CiclaXSegundo 2022. Programa dedicado a la reflexión el live coding creado por mujeres y personas no binarias curado por Laura Balboa y realizado en colaboración con el Centro Multimedia. <br><br> De la misma forma la pieza formó parte de la conferencia <em>New Interfaces for Musical Expression (NIME)</em> en 2023. La presentación se realizó en la explanada del Centro de Cultura Digital. Esta pieza fue acreedora del <b>premio a mejor música</b>. El link de la decisión se puede encontrar en: <a href=\"https://www.nime2023.org/awards-photos\">https://www.nime2023.org/awards-photos</a> <br><br> Colaboración con Emilio Ocelotl en el sistema audiovisual con Three.js. ",
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": []
+  "category": "music",
+  "tags": [
+    "IA"
+  ]
+},
+{
+  "id": "deepstructures",
+  "title": "deep structures",
+  "year": "2023",
+  "text": "",
+  "link": null,
+  "summary": "Composición para electrónica en vivo y renders 3D en la web",
+  "image": "deeps-cicla02.png",
+  "details": {
+    "fullDescription": "Composición sonora al vuelo que consiste en un descenso dentro del entrenamiento de una red neuronal de audio de aprendizaje profundo, en el cual se explorará con voz las implicaciones de la inteligencia artificial desde una perspectiva ética transhackfeminista con el fin mirar críticamente estas herramientas desde las mismas y así intervenirlas desde dentro.Es decir, a modo de ensayo algorítmico, la pieza recorrerá con voz, las implicaciones de estas tecnologías retomando como texto investigaciones feministas y transfeministas que teorizan sobre el tema. La voz se sintetizará y reconstruirá como medio para el hackeo de las mismas redes y la forma en la que las entendemos.",
+    "images": [
+      "nime-r.jpg",
+      "nime1-r.jpg",
+      "nime3-r.jpg",
+      "deeps-cicla.png"
+    ],
+    "fullDescription2": "Este performance audiovisual se ha presentado en el auditorio Blas Galindo del Centro Nacional de las Artes (CENART) como parte de las actividades de CiclaXSegundo 2022. Programa dedicado a la reflexión el live coding creado por mujeres y personas no binarias curado por Laura Balboa y realizado en colaboración con el Centro Multimedia. <br><br> De la misma forma la pieza formó parte de la conferencia <em>New Interfaces for Musical Expression (NIME)</em> en 2023. La presentación se realizó en la explanada del Centro de Cultura Digital. Esta pieza fue acreedora del <b>premio a mejor música</b>. El link de la decisión se puede encontrar en: <a href=\"https://www.nime2023.org/awards-photos\">https://www.nime2023.org/awards-photos</a> <br><br> Colaboración con Emilio Ocelotl en el sistema audiovisual con Three.js. ",
+    "images2": []
   },
-  {
-    "id": "hydra",
-    "title": "Hydra Sketches",
-    "year": "2021",
-    "link": "https://hydra.ojack.xyz/?sketch_id=marianne_1",
-    "summary": "Colección de sketches hechos con Hydra",
-    "image": "hydra.png",
-    "hydraCode": "osc(5, 0.9, 0.001).kaleid([3,4,5,7,8,9,10].fast(0.1)).color(0.5, 0.3).colorama(0.4).rotate(0.009,()=>Math.sin(time)* -0.001 ).modulateRotate(o0,()=>Math.sin(time) * 0.003).modulate(o0, 0.9).scale(0.9).out(o0)",
-    "type": "hydra-sketch",
-    "sketch": "osc(5, 0.9, 0.001).kaleid([3,4,5,7,8,9,10].fast(0.1)).color(0.5, 0.3).colorama(0.4).rotate(0.009,()=>Math.sin(time)* -0.001 ).modulateRotate(o0,()=>Math.sin(time) * 0.003).modulate(o0, 0.9).scale(0.9).out(o0)",
-    "sketch2": "src(o0).saturate(1.01).scale(.999).color(1.01,1.01,1.01).hue(.01).modulateHue(src(o1).hue(.3).posterize(-1).contrast(.7),2).layer(src(o1).luma().mult(gradient(1).saturate(.9))).out(o0)\n\nnoise(1, .2).rotate(2,.5).layer(src(o0).scrollX(.2)).out(o1)\n\nrender(o0)",
-    "details": {
-      "fullDescription": "Hydra es un sintetizador de video y entorno de programación al vuelo (livecoding) que funciona en el navegador. Este software libre desarrollado por Olivia Jack y está pensado tanto para principiantes como expertos. El proyecto cuenta con una comunidad amplia de desarrolladorxs, artistas y personas interesadas que crean y mantienen con vida el software.",
-      "images": [],
-      "fullDescription2": "Como parte de mi trabajo con Hydra contribuí con este par de sketches para la documentación online disponibles en la página oficial disponible en los siguientes enlaces:  <a href=\"https://hydra.ojack.xyz/?sketch_id=marianne_1\">Pixelscape</a>, <a href=\"https://hydra.ojack.xyz/?sketch_id=marianne_0\">Port</a>.",
-      "images2": []
-    },
-    "category": "video",
-    "tags": [
-      "live coding",
-      "hydra",
-      "visuals"
-    ]
+  "category": "performance audiovisual",
+  "tags": []
+},
+{
+  "id": "hydra",
+  "title": "Hydra Sketches",
+  "year": "2021",
+  "link": "https://hydra.ojack.xyz/?sketch_id=marianne_1",
+  "summary": "Colección de sketches hechos con Hydra",
+  "image": "hydra.png",
+  "hydraCode": "osc(5, 0.9, 0.001).kaleid([3,4,5,7,8,9,10].fast(0.1)).color(0.5, 0.3).colorama(0.4).rotate(0.009,()=>Math.sin(time)* -0.001 ).modulateRotate(o0,()=>Math.sin(time) * 0.003).modulate(o0, 0.9).scale(0.9).out(o0)",
+  "type": "hydra-sketch",
+  "sketch": "osc(5, 0.9, 0.001).kaleid([3,4,5,7,8,9,10].fast(0.1)).color(0.5, 0.3).colorama(0.4).rotate(0.009,()=>Math.sin(time)* -0.001 ).modulateRotate(o0,()=>Math.sin(time) * 0.003).modulate(o0, 0.9).scale(0.9).out(o0)",
+  "sketch2": "src(o0).saturate(1.01).scale(.999).color(1.01,1.01,1.01).hue(.01).modulateHue(src(o1).hue(.3).posterize(-1).contrast(.7),2).layer(src(o1).luma().mult(gradient(1).saturate(.9))).out(o0)\n\nnoise(1, .2).rotate(2,.5).layer(src(o0).scrollX(.2)).out(o1)\n\nrender(o0)",
+  "details": {
+    "fullDescription": "Hydra es un sintetizador de video y entorno de programación al vuelo (livecoding) que funciona en el navegador. Este software libre desarrollado por Olivia Jack y está pensado tanto para principiantes como expertos. El proyecto cuenta con una comunidad amplia de desarrolladorxs, artistas y personas interesadas que crean y mantienen con vida el software.",
+    "images": [],
+    "fullDescription2": "Como parte de mi trabajo con Hydra contribuí con este par de sketches para la documentación online disponibles en la página oficial disponible en los siguientes enlaces:  <a href=\"https://hydra.ojack.xyz/?sketch_id=marianne_1\">Pixelscape</a>, <a href=\"https://hydra.ojack.xyz/?sketch_id=marianne_0\">Port</a>.",
+    "images2": []
   },
- {
-    "id": "notasdeausencia",
-    "title": "Notas de Ausencia",
-    "year": "2020",
-    "text": "Ensayo generativo en la web que utiliza texto-dato y la computadora como agente resignificante para deconstruir estructuras discursivas y resemantizar la narrativa sobre las desapariciones de mujeres en México y América Latina.",
-    "link": "https://notasdeausencia.cc",
-    "summary": "Narrativa algorítmica de denuncia que articula un metaespacio virtual como partitura para la memoria, utilizando tweets, teoría feminista y generación de texto automático.",
-    "image": "notas01.png",
-    "details": {
-        "fullDescription": "Notas de ausencia es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.",
-        "images": [
-            "notas03.png",
-            "notas04.png",
-            "twitter.png"
-        ],
-        "fullDescription2": "La pieza se divide en tres momentos: Memorial, Reescritura y Espejo. En el Memorial, los monolitos contienen tweets que se pueden scrollear. En Reescritura, las esferas visualizan la recurrencia de palabras extraídas de los tweets. En Espejo, aparecen aleatoriamente fotografías de mujeres desaparecidas de la CNDH. La navegación se realiza con teclado (w,a,s,d o flechas) y mouse, presionando M para cambiar escenas. La máquina genera nodos que articulan las palabras más frecuentes en la narrativa de desapariciones, creando un remix lógico-sintáctico que propicia la resignificación de estas narrativas de opresión. <br><br> Notas de ausencia. Narrativa algorítmica de denuncia.<br><br>Autora: Marianne Teixido<br>Página web interactiva; HTML, CSS, Three.js, Python.<br>Lugar de creación: Ciudad de México.<br>Año: 2020<br><br>Exposición Creación con Algoritmos. Centro de Cultura Digital. Julio, 2020.<br>EmMeio #12 Exhibition. MedialLab BR. Octubre, 2020.<br><br>  El proyecto actualmente está fuera de línea pero puedes consultar el código fuente en <a href=\"https://github.com/MarianneTeixido/notasdeausencia\">GitHub</a>",
-        "images2": []
-    },
-    "category": "web",
-    "tags": ["generative", "threejs", "feminism", "algorithmic-narrative"]
+  "category": "video",
+  "tags": [
+    "live coding",
+    "hydra",
+    "visuals"
+  ]
+},
+{
+  "id": "notasdeausencia",
+  "title": "Notas de Ausencia",
+  "year": "2020",
+  "text": "Ensayo generativo en la web que utiliza texto-dato y la computadora como agente resignificante para deconstruir estructuras discursivas y resemantizar la narrativa sobre las desapariciones de mujeres en México y América Latina.",
+  "link": "https://notasdeausencia.cc",
+  "summary": "Narrativa algorítmica de denuncia que articula un metaespacio virtual como partitura para la memoria, utilizando tweets, teoría feminista y generación de texto automático.",
+  "image": "notas01.png",
+  "details": {
+    "fullDescription": "Notas de ausencia es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.",
+    "images": [
+      "notas03.png",
+      "notas04.png",
+      "twitter.png"
+    ],
+    "fullDescription2": "La pieza se divide en tres momentos: Memorial, Reescritura y Espejo. En el Memorial, los monolitos contienen tweets que se pueden scrollear. En Reescritura, las esferas visualizan la recurrencia de palabras extraídas de los tweets. En Espejo, aparecen aleatoriamente fotografías de mujeres desaparecidas de la CNDH. La navegación se realiza con teclado (w,a,s,d o flechas) y mouse, presionando M para cambiar escenas. La máquina genera nodos que articulan las palabras más frecuentes en la narrativa de desapariciones, creando un remix lógico-sintáctico que propicia la resignificación de estas narrativas de opresión. <br><br> Notas de ausencia. Narrativa algorítmica de denuncia.<br><br>Autora: Marianne Teixido<br>Página web interactiva; HTML, CSS, Three.js, Python.<br>Lugar de creación: Ciudad de México.<br>Año: 2020<br><br>Exposición Creación con Algoritmos. Centro de Cultura Digital. Julio, 2020.<br>EmMeio #12 Exhibition. MedialLab BR. Octubre, 2020.<br><br>  El proyecto actualmente está fuera de línea pero puedes consultar el código fuente en <a href=\"https://github.com/MarianneTeixido/notasdeausencia\">GitHub</a>",
+    "images2": []
   },
-  {
-    "id": "ram",
-    "title": "R.A.M. [Redes Autónomas de Memoria]",
-    "year": null,
-    "link": "https://ramlab.cc/",
-    "summary": "Laboratoria de transchackfeminista de prácticas artísticas con tecnologías",
-    "image": "ram.png",
-    "details": {
-      "fullDescription": "R.A.M. Surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.",
-      "images": [],
-      "fullDescription2": "R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disrruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.",
-
-      "images2": []
-    },
-    "category": "colectivos",
-    "tags": [
-      "IA"
-    ]
+  "category": "web",
+  "tags": [
+    "generative",
+    "threejs",
+    "feminism",
+    "algorithmic-narrative"
+  ]
+},
+{
+  "id": "ram",
+  "title": "R.A.M. [Redes Autónomas de Memoria]",
+  "year": "2022",
+  "link": "https://ramlab.cc/",
+  "summary": "Laboratoria de transchackfeminista de prácticas artísticas con tecnologías",
+  "image": "ram.png",
+  "details": {
+    "fullDescription": "R.A.M. Surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.",
+    "images": [],
+    "fullDescription2": "R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disrruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.",
+    "images2": []
   },
-  {
-    "id": "ccrma-audiovisual",
-    "title": "Audio-Visual Sessions CCRMA",
-    "year": "2024",
-    "text": "EP",
-    "link": null,
-    "summary":"Residencia artística en CCRMA, Stanford University",
-    "image": "ccrma.gif",
-    "details": {
-      "fullDescription": "Residencia artística realizada en Center for Computer Research in Music and Acoustics (CCRMA), Stanford junto con Emilio Ocelotl del 8 al 17 de enero de 2024. Durante nuestra estancia trabajamos con 6 estudiantes de composición y presentamos dos conciertos: uno en CCRMA Stage y otro en Elliott Program Center.",
-      "images": [],
-      "fullDescription2": "Los estudiantes con los que colaboramos fueron: Celeste Betancur, Brian Brown, Tatiana Catanzaro, Anna Golubkova, Lemon Guo, Nick Shaheed.",
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": [
-      "performance",
-      "audiovisual",
-      "live coding",
-      "residencia"
-    ]
+  "category": "colectivos",
+  "tags": [
+    "IA"
+  ]
+},
+{
+  "id": "ccrma-audiovisual",
+  "title": "Audio-Visual Sessions CCRMA",
+  "year": "2024",
+  "text": "EP",
+  "link": null,
+  "summary": "Residencia artística en CCRMA, Stanford University",
+  "image": "ccrma.gif",
+  "details": {
+    "fullDescription": "Residencia artística realizada en Center for Computer Research in Music and Acoustics (CCRMA), Stanford junto con Emilio Ocelotl del 8 al 17 de enero de 2024. Durante nuestra estancia trabajamos con 6 estudiantes de composición y presentamos dos conciertos: uno en CCRMA Stage y otro en Elliott Program Center.",
+    "images": [],
+    "fullDescription2": "Los estudiantes con los que colaboramos fueron: Celeste Betancur, Brian Brown, Tatiana Catanzaro, Anna Golubkova, Lemon Guo, Nick Shaheed.",
+    "images2": []
   },
-  {
-    "id": "piranhalab",
-    "title": "Piranha Lab",
-    "year": null,
-    "link": "https://piranhalab.github.io/index.html",
-    "summary": "Laboratorio interdisciplinario que trabaja en las tripas del software.",
-    "image": "conversatorio.jpg",
-    "details": {
-      "fullDescription": "El laboratorio tiene como objetivo impulsar la práctica, el desarrollo, la investigación y la difusión de software orientado a la creación audiovisual. Enfoca su actividad en la comunidad que practica la Programación al Vuelo o Live Coding en México y Latinoamérica.",
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "colectivos",
-    "tags": []
+  "category": "performance audiovisual",
+  "tags": [
+    "performance",
+    "audiovisual",
+    "live coding",
+    "residencia"
+  ]
+},
+{
+  "id": "piranhalab",
+  "title": "Piranha Lab",
+  "year": "2022",
+  "link": "https://piranhalab.github.io/index.html",
+  "summary": "Laboratorio interdisciplinario que trabaja en las tripas del software.",
+  "image": "conversatorio.jpg",
+  "details": {
+    "fullDescription": "El laboratorio tiene como objetivo impulsar la práctica, el desarrollo, la investigación y la difusión de software orientado a la creación audiovisual. Enfoca su actividad en la comunidad que practica la Programación al Vuelo o Live Coding en México y Latinoamérica.",
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "unkownauthor",
-    "title": "Unknown Author",
-    "year": "2019",
-    "link": null,
-    "summary": "Visualización y sonificación de datos con meta-imágenes cartográficas",
-    "image": "unknown01.png",
-    "details": {
-      "fullDescription": "Este proyecto audiovisual es un ejercicio de desplazamiento de idea de la producción autoral, originalidad. El proyecto propone mirar críticamente las similitudes de las imágenes pobres que circulan diariamente en internet.La propuesta parte del cuestionamiento sobre la apropiación, plagio y creatividad desde la observación participante de las imágenes artística en la red. El performance un dispositivo de navegación para navegar en la información contenida en una base de datos obtenida de la actividad capturada con scripts de python y procesada algorítmicamente con técnicas de la programación al vuelo. Es un ejercicios dialéctico que busca el diálogo entre la interfaz, el usuario como meta-interfaz, la información y las narrativas interactivas.",
-      "images": [],
-      "fullDescription2": "¿Cuál es la relevancia de la técnica, el discurso y la estética cuando hay millones de imágenes similares?, ¿a dónde nos lleva la aceleración tecnológica de las interfaces en el arte?, ¿es posible defender la idea de autoría cuando probablemente la obra es imitada, copiada o robada de otras más proveniente de lo grandes nodos de influencia? ¿lo técnico determina lo estético y las herramientas enmarcan el discurso y evidencian condiciones de producción?",
-      "images2": []
-    },
-    "category": "performance",
-    "tags": []
+  "category": "colectivos",
+  "tags": []
+},
+{
+  "id": "unkownauthor",
+  "title": "Unknown Author",
+  "year": "2019",
+  "link": null,
+  "summary": "Visualización y sonificación de datos con meta-imágenes cartográficas",
+  "image": "unknown01.png",
+  "details": {
+    "fullDescription": "Este proyecto audiovisual es un ejercicio de desplazamiento de idea de la producción autoral, originalidad. El proyecto propone mirar críticamente las similitudes de las imágenes pobres que circulan diariamente en internet.La propuesta parte del cuestionamiento sobre la apropiación, plagio y creatividad desde la observación participante de las imágenes artística en la red. El performance un dispositivo de navegación para navegar en la información contenida en una base de datos obtenida de la actividad capturada con scripts de python y procesada algorítmicamente con técnicas de la programación al vuelo. Es un ejercicios dialéctico que busca el diálogo entre la interfaz, el usuario como meta-interfaz, la información y las narrativas interactivas.",
+    "images": [],
+    "fullDescription2": "¿Cuál es la relevancia de la técnica, el discurso y la estética cuando hay millones de imágenes similares?, ¿a dónde nos lleva la aceleración tecnológica de las interfaces en el arte?, ¿es posible defender la idea de autoría cuando probablemente la obra es imitada, copiada o robada de otras más proveniente de lo grandes nodos de influencia? ¿lo técnico determina lo estético y las herramientas enmarcan el discurso y evidencian condiciones de producción?",
+    "images2": []
   },
-  {
-    "id": "fragmentos",
-    "title": "Fragmentos",
-    "year": "2017",
-    "link": null,
-    "summary": "Video ensayo",
-    "image": "fragmentos.png",
-    "details": {
-      "fullDescription": "Video ensayo sobre las nuevas fracturas sísmicas en la Ciudad de México, específicamente en la delegación Benito Juárez, tras el sismo del 19 de septiembre de 2017 provocadas por las excavaciones profundas para la construcción de inmuebles, muchos de ellos, sin permisos de construcción o producto de la corrupción además de la extracción de agua del subsuelo. Estas actividades son causantes de la vulnerabilidad física del suelo y son parte de los factores que influyeron en el derrumbe de inmuebles en la zona. ",
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "intalacion",
-    "tags": []
+  "category": "performance",
+  "tags": []
+},
+{
+  "id": "fragmentos",
+  "title": "Fragmentos",
+  "year": "2017",
+  "link": null,
+  "summary": "Video ensayo",
+  "image": "fragmentos.png",
+  "details": {
+    "fullDescription": "Video ensayo sobre las nuevas fracturas sísmicas en la Ciudad de México, específicamente en la delegación Benito Juárez, tras el sismo del 19 de septiembre de 2017 provocadas por las excavaciones profundas para la construcción de inmuebles, muchos de ellos, sin permisos de construcción o producto de la corrupción además de la extracción de agua del subsuelo. Estas actividades son causantes de la vulnerabilidad física del suelo y son parte de los factores que influyeron en el derrumbe de inmuebles en la zona. ",
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "corpografias",
-    "title": "Corpografías de la Violencia",
-    "year": "2021",
-    "link": "https://www.youtube.com/watch?v=LkZvv30bU4g&t=2849s",
-    "summary": "Performance audiovisual",
-    "image": "corpografias.png",
-    "details": {
-      "fullDescription": null,
-      "images": [
-        "corpografias02.png"
-      ],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "video",
-    "tags": []
+  "category": "intalacion",
+  "tags": []
+},
+{
+  "id": "corpografias",
+  "title": "Corpografías de la Violencia",
+  "year": "2021",
+  "link": "https://www.youtube.com/watch?v=LkZvv30bU4g&t=2849s",
+  "summary": "Performance audiovisual",
+  "image": "corpografias.png",
+  "details": {
+    "fullDescription": null,
+    "images": [
+      "corpografias02.png"
+    ],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "distancias",
-    "title": "Distancias",
-    "year": "2020",
-    "link": "https://www.youtube.com/watch?v=q3Eq7Q0PJhM&t=2994s",
-    "summary": null,
-    "image": "distancias.png",
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "video",
-    "tags": []
+  "category": "video",
+  "tags": []
+},
+{
+  "id": "distancias",
+  "title": "Distancias",
+  "year": "2020",
+  "link": "https://www.youtube.com/watch?v=q3Eq7Q0PJhM&t=2994s",
+  "summary": null,
+  "image": "distancias.png",
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "pixelscape",
-    "title": "Pixelscape",
-    "year": "2020",
-    "link": null,
-    "summary": null,
-    "image": "pixelscape.png",
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "video",
-    "tags": []
+  "category": "video",
+  "tags": []
+},
+{
+  "id": "pixelscape",
+  "title": "Pixelscape",
+  "year": "2020",
+  "link": null,
+  "summary": null,
+  "image": "pixelscape.png",
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "hipnosinesteria",
-    "title": "Hipnosinesteria",
-    "year": "2021",
-    "link": null,
-    "summary": null,
-    "image": "hipnosinesteria.png",
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "video",
-    "tags": []
+  "category": "video",
+  "tags": []
+},
+{
+  "id": "hipnosinesteria",
+  "title": "Hipnosinesteria",
+  "year": "2021",
+  "link": null,
+  "summary": null,
+  "image": "hipnosinesteria.png",
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "compilados",
-    "title": "Música y compilados",
-    "year": null,
-    "text": null,
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "video",
-    "tags": []
+  "category": "video",
+  "tags": []
+},
+{
+  "id": "compilados",
+  "title": "Música y compilados",
+  "year": "2022",
+  "text": null,
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "compilamesta-aural",
-    "title": "Aural",
-    "year": null,
-    "text": "Compilado Híbirdas y Quimeras, Compilame´sta",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "video",
-    "tags": []
+  "category": "video",
+  "tags": []
+},
+{
+  "id": "compilamesta-aural",
+  "title": "Aural",
+  "year": "2022",
+  "text": "Compilado Híbirdas y Quimeras, Compilame´sta",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "balc-ep",
-    "title": "#003 Balc",
-    "year": null,
-    "text": "Single",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "música",
-    "tags": []
+  "category": "video",
+  "tags": []
+},
+{
+  "id": "balc-ep",
+  "title": "#003 Balc",
+  "year": "2022",
+  "text": "Single",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "trapp",
-    "title": "tr.app",
-    "year": null,
-    "text": "Single",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "music",
-    "tags": []
+  "category": "música",
+  "tags": []
+},
+{
+  "id": "trapp",
+  "title": "tr.app",
+  "year": "2022",
+  "text": "Single",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "dataset",
-    "title": "Dataset - Mutek 2",
-    "year": null,
-    "text": "Single",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "music",
-    "tags": []
+  "category": "music",
+  "tags": []
+},
+{
+  "id": "dataset",
+  "title": "Dataset - Mutek 2",
+  "year": "2022",
+  "text": "Single",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "feminoiselitoral",
-    "title": "Feminoise Litoral",
-    "year": null,
-    "text": "Single",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "music",
-    "tags": []
+  "category": "music",
+  "tags": []
+},
+{
+  "id": "feminoiselitoral",
+  "title": "Feminoise Litoral",
+  "year": "2022",
+  "text": "Single",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "minimalresorces",
-    "title": "minimal resources",
-    "year": null,
-    "text": "EP",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "music",
-    "tags": []
+  "category": "music",
+  "tags": []
+},
+{
+  "id": "minimalresorces",
+  "title": "minimal resources",
+  "year": "2022",
+  "text": "EP",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "caninacan",
-    "title": "can-in-a-can",
-    "year": null,
-    "text": "EP",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "music",
-    "tags": []
+  "category": "music",
+  "tags": []
+},
+{
+  "id": "caninacan",
+  "title": "can-in-a-can",
+  "year": "2022",
+  "text": "EP",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "rggtrn",
-    "title": "RGGTRN",
-    "year": null,
-    "text": "EP",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "colectivos",
-    "tags": []
+  "category": "music",
+  "tags": []
+},
+{
+  "id": "rggtrn",
+  "title": "RGGTRN",
+  "year": "2022",
+  "text": "EP",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "algorave-ram",
-    "title": "Algorave RAM",
-    "year": null,
-    "text": "Gestión de un espacio de encuentro para la práctica de live coding",
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": [
-      "performance",
-      "audiovisual",
-      "live coding"
-    ]
+  "category": "colectivos",
+  "tags": []
+},
+{
+  "id": "algorave-ram",
+  "title": "Algorave RAM",
+  "year": "2022",
+  "text": "Gestión de un espacio de encuentro para la práctica de live coding",
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "xicalcoliuhqui",
-    "title": "Xicalcoliuhqui",
-    "year": null,
-    "text": null,
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": [
-      "performance",
-      "audiovisual",
-      "live coding"
-    ]
+  "category": "performance audiovisual",
+  "tags": [
+    "performance",
+    "audiovisual",
+    "live coding"
+  ]
+},
+{
+  "id": "xicalcoliuhqui",
+  "title": "Xicalcoliuhqui",
+  "year": "2022",
+  "text": null,
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "pumpumyackkan",
-    "title": "Symbolic Machines, Pumpumyackkan",
-    "year": null,
-    "text": null,
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": [
-      "performance",
-      "audiovisual",
-      "live coding"
-    ]
+  "category": "performance audiovisual",
+  "tags": [
+    "performance",
+    "audiovisual",
+    "live coding"
+  ]
+},
+{
+  "id": "pumpumyackkan",
+  "title": "Symbolic Machines, Pumpumyackkan",
+  "year": "2022",
+  "text": null,
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
   },
-  {
-    "id": "pumpumyackkan",
-    "title": "Symbolic Machines, Pumpumyackkan",
-    "year": null,
-    "text": null,
-    "link": null,
-    "summary": null,
-    "image": null,
-    "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": [
-      "performance",
-      "audiovisual",
-      "live coding"
-    ]
-  }
+  "category": "performance audiovisual",
+  "tags": [
+    "performance",
+    "audiovisual",
+    "live coding"
+  ]
+},
+{
+  "id": "pumpumyackkan",
+  "title": "Symbolic Machines, Pumpumyackkan",
+  "year": "2022",
+  "text": null,
+  "link": null,
+  "summary": null,
+  "image": null,
+  "details": {
+    "fullDescription": null,
+    "images": [],
+    "fullDescription2": null,
+    "images2": []
+  },
+  "category": "performance audiovisual",
+  "tags": [
+    "performance",
+    "audiovisual",
+    "live coding"
+  ]
+}
 ]

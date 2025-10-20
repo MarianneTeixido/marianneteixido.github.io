@@ -16,17 +16,21 @@
     <!-- Descripción 1 -->
     <div v-if="project.details?.fullDescription" v-html="project.details.fullDescription" class="project-description">
     </div>
-  <!-- Reproductor de Audio -->
-    <div v-if="project.details?.audio" class="audio-player">
-      <audio controls>
-        <source :src="getAudioUrl(project.details.audio)" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-      </audio>
-    </div>
-    <!-- Galería 1 -->
-    <div v-if="project.details?.images && project.details.images.length" class="project-gallery">
-      <img v-for="(img, index) in project.details.images" :key="index" :src="getImageUrl(img)"
-        :alt="`Imagen ${index + 1}`" class="gallery-img" loading="lazy" />
+      <!-- Reproductor de Audio -->
+      <div v-if="project.details?.audio" class="audio-player">
+        <audio controls>
+          <source :src="getAudioUrl(project.details.audio)" type="audio/mpeg">
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </div>
+  
+      <!-- Video de YouTube -->
+      <div v-if="project.details?.youtubeEmbed" v-html="project.details.youtubeEmbed" class="video-container"></div>
+  
+      <!-- Galería 1 -->
+      <div v-if="project.details?.images && project.details.images.length" class="project-gallery">
+        <img v-for="(img, index) in project.details.images" :key="index" :src="getImageUrl(img)"
+          :alt="`Imagen ${index + 1}`" class="gallery-img" loading="lazy" />
     </div>
 
     <!-- Sketch de Hydra 2-->
@@ -124,6 +128,23 @@ const getAudioUrl = (audioName) => {
 .audio-player {
   margin-top: 1.5rem;
 }
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.video-container iframe {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .project-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

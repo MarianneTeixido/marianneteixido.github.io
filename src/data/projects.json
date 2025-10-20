@@ -89,6 +89,7 @@
     "image": "deeps-cicla02.png",
     "details": {
       "fullDescription": "Composición sonora al vuelo que consiste en un descenso dentro del entrenamiento de una red neuronal de audio de aprendizaje profundo, en el cual se explorará con voz las implicaciones de la inteligencia artificial desde una perspectiva ética transhackfeminista con el fin mirar críticamente estas herramientas desde las mismas y así intervenirlas desde dentro.Es decir, a modo de ensayo algorítmico, la pieza recorrerá con voz, las implicaciones de estas tecnologías retomando como texto investigaciones feministas y transfeministas que teorizan sobre el tema. La voz se sintetizará y reconstruirá como medio para el hackeo de las mismas redes y la forma en la que las entendemos.",
+      "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/8gIit8QgeBE?si=uCOppg9USAXsvV0o\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "images": [
         "nime-r.jpg",
         "nime1-r.jpg"
@@ -147,17 +148,16 @@
   "year": "2020",
   "text": "Ensayo generativo en la web que utiliza texto-dato y la computadora como agente resignificante para deconstruir estructuras discursivas y resemantizar la narrativa sobre las desapariciones de mujeres en México y América Latina.",
   "link": "https://notasdeausencia.cc",
-  "summary": "Narrativa algorítmica de denuncia que articula un metaespacio virtual como partitura para la memoria, utilizando tweets, teoría feminista y generación de texto automático.",
+  "summary": "Narrativa algorítmica de denuncia sobre feminicidio y desapariciones forzadas",
   "image": "notas01.png",
   "details": {
-    "fullDescription": "Notas de ausencia es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.",
+    "fullDescription": "<b>Notas de ausencia</b> es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.",
     "images": [
       "notas03.png",
-      "notas04.png",
-      "twitter.png"
+      "notas04.png"
     ],
     "fullDescription2": "La pieza se divide en tres momentos: Memorial, Reescritura y Espejo. En el Memorial, los monolitos contienen tweets que se pueden scrollear. En Reescritura, las esferas visualizan la recurrencia de palabras extraídas de los tweets. En Espejo, aparecen aleatoriamente fotografías de mujeres desaparecidas de la CNDH. La navegación se realiza con teclado (w,a,s,d o flechas) y mouse, presionando M para cambiar escenas. La máquina genera nodos que articulan las palabras más frecuentes en la narrativa de desapariciones, creando un remix lógico-sintáctico que propicia la resignificación de estas narrativas de opresión. <br><br> Notas de ausencia. Narrativa algorítmica de denuncia.<br><br>Autora: Marianne Teixido<br>Página web interactiva; HTML, CSS, Three.js, Python.<br>Lugar de creación: Ciudad de México.<br>Año: 2020<br><br>Exposición Creación con Algoritmos. Centro de Cultura Digital. Julio, 2020.<br>EmMeio #12 Exhibition. MedialLab BR. Octubre, 2020.<br><br>  El proyecto actualmente está fuera de línea pero puedes consultar el código fuente en <a href=\"https://github.com/MarianneTeixido/notasdeausencia\">GitHub</a>",
-    "images2": []
+    "images2": ["twitter.png"]
   },
   "category": "web",
   "tags": [
@@ -195,6 +195,7 @@
   "image": "ccrma.gif",
   "details": {
     "fullDescription": "Residencia artística realizada en Center for Computer Research in Music and Acoustics (CCRMA), Stanford junto con Emilio Ocelotl del 8 al 17 de enero de 2024. Durante nuestra estancia trabajamos con 6 estudiantes de composición y presentamos dos conciertos: uno en CCRMA Stage y otro en Elliott Program Center.",
+    "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hLyjZ6nZn5g?si=IjGZZg-1WencDZ0R\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
     "images": [],
     "fullDescription2": "Los estudiantes con los que colaboramos fueron: Celeste Betancur, Brian Brown, Tatiana Catanzaro, Anna Golubkova, Lemon Guo, Nick Shaheed.",
     "images2": []

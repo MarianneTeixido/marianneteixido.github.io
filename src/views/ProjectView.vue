@@ -107,6 +107,27 @@ const getAudioUrl = (audioName) => {
 }
 </script>
 
+<style>
+/* Global styles for v-html content */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 1.5rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
+
 <style scoped>
 .project-details {
   max-width: 800px;
@@ -125,24 +146,9 @@ const getAudioUrl = (audioName) => {
   margin-top: 1.5rem;
   line-height: 1.6;
 }
+
 .audio-player {
   margin-top: 1.5rem;
-}
-
-.video-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin-top: 1.5rem;
-}
-
-.video-container iframe {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .project-gallery {
@@ -174,10 +180,6 @@ const getAudioUrl = (audioName) => {
 }
 
 .hydra-sketch-container {
-  margin-top: 1.5rem;
-}
-
-.audio-player {
   margin-top: 1.5rem;
 }
 

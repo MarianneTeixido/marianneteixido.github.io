@@ -89,7 +89,7 @@
     "image": "deeps-cicla02.png",
     "details": {
       "fullDescription": "Composición sonora al vuelo que consiste en un descenso dentro del entrenamiento de una red neuronal de audio de aprendizaje profundo, en el cual se explorará con voz las implicaciones de la inteligencia artificial desde una perspectiva ética transhackfeminista con el fin mirar críticamente estas herramientas desde las mismas y así intervenirlas desde dentro.Es decir, a modo de ensayo algorítmico, la pieza recorrerá con voz, las implicaciones de estas tecnologías retomando como texto investigaciones feministas y transfeministas que teorizan sobre el tema. La voz se sintetizará y reconstruirá como medio para el hackeo de las mismas redes y la forma en la que las entendemos.",
-      "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/8gIit8QgeBE?si=uCOppg9USAXsvV0o\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "youtubeEmbed": "<iframe src=\"https://www.youtube.com/embed/8gIit8QgeBE?si=uCOppg9USAXsvV0o\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "images": [
         "nime-r.jpg",
         "nime1-r.jpg"
@@ -152,6 +152,7 @@
   "image": "notas01.png",
   "details": {
     "fullDescription": "<b>Notas de ausencia</b> es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.",
+    "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/W851KungtSQ?si=u3mHpwg2K4LqliKN\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
     "images": [
       "notas03.png",
       "notas04.png"

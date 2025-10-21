@@ -1,5 +1,41 @@
 [
   {
+    "id": "subsuelo",
+    "title": "Perimetral",
+    "year": "2025",
+    "link": "https://www.centroculturadigital.mx/exposicion/murmuro-poeticas-del-subsuelo",
+    "summary": "Instalación sonora inmersiva",
+    "image": "subsuelo01.jpg",
+    "details": {
+      "fullDescription": "<h3>Contexto</h3><p><b>Murmuro</b> es un encuentro de escucha y experimentación sonora que desde 2021 ha convocado a artistas, investigadorxs y comunidades a explorar las múltiples dimensiones de lo sonoro. Con ediciones en distintos espacios culturales de la Ciudad de México, se ha consolidado como una plataforma para la creación y reflexión en torno a la escucha como práctica estética, política y social.</p> <p>En esta tercera edición, titulada <b>Poéticas del subsuelo</b>, Murmuro se adentra en las sonoridades y escuchas que emergen de la oscuridad, lo cavernoso y lo oculto. El subsuelo se erige como detonante artístico para explorar una plétora de poéticas sonoras que, al restringir la luz y la vista, nos invitan a descubrir un universo sensorial donde lo auditivo cobra primacía.</p>",
+      "images": [
+        "subsuelo03.jpg",
+        "subsuelo05.jpg"
+      ],
+      "fullDescription2": "<h3>Descripción</h3><p>Perimetral es una pieza inmersiva dentro del Memorial del CCD, la cual prolonga la experiencia del subsuelo y su resonancia compartida cuenta con la participación de Homero Guerrero,  Karen Jimenez, Marianne Teixido y el equipo de murmuro. Esta instalación sonora aprovecha diversos medios —como la escultura, la programación y la composición de piezas acusmáticas— para generar un territorio de vibración, textura y sonido inspirado en el espacio perimetral del CCD.  </p>",
+      "images2": [
+        "perimetral.jpg",
+        "perimetral02.jpg"
+      ],
+      "fullDescription3": "<p>Este entorno surge como detonante de las poéticas del subsuelo, ya que materialmente alberga la oscuridad y lo cavernoso, además de ser una zona oculta del recinto. El perimetral nos recuerda que, aun estando en la ciudad, el subsuelo —con sus olores, texturas y tránsitos— se hace presente constantemente desde su naturaleza oculta...  Una pieza que busca contraponer el espacio clínico y brillante del Memorial con los espacios limítales que circundan esta construcción que se localiza debajo del Bosque de Chapultepec.</p>",
+      "images3": [
+        "W-7.jpg",
+        "subsuelo02.jpg"    
+      ],
+      "videos": [
+        "video-perimetral.mp4",
+        "subsuelo.mp4"
+      ]
+    },
+    "category": "instalacion",
+    "tags": [
+      "instalacion sonora",
+      "inmersiva",
+      "performance",
+      "memorial"
+    ]
+  },
+  {
     "id": "synthnopsis",
     "title": "Synthnopsis",
     "year": "2025",
@@ -98,9 +134,6 @@
       "images2": [
         "nime3-r.jpg",
         "deeps-cicla.png"
-      ],
-      "videos": [
-        "sample-video.mp4"
       ],
       "fullDescription3": "<h3>Créditos</h3><p>Composición: Marianne Teixido<br>Electrónica en vivo (SuperCollider): Marianne Teixido<br>Visuales en la web (ThreeJS): Emilio Ocelotl<br>Render 3D: Marianne Teixido<br>Voz: Amanda Alafita<br>Software: SuperCollider, Three.js, Python (RAVE)</p>"
     },

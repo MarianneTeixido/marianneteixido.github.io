@@ -50,6 +50,14 @@
         :alt="`Imagen secundaria ${index + 1}`" class="gallery-img" loading="lazy" />
     </div>
 
+    <!-- Video Gallery -->
+    <div v-if="project.details?.videos && project.details.videos.length" class="video-gallery">
+      <video v-for="(video, index) in project.details.videos" :key="index" controls class="gallery-video">
+        <source :src="getVideoUrl(video)" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
     <!-- Description 3 -->
     <div v-if="project.details?.fullDescription3" v-html="project.details.fullDescription3" class="project-description">
     </div>
@@ -104,6 +112,10 @@ const getImageUrl = (imageName) => {
 }
 const getAudioUrl = (audioName) => {
   return new URL(`../assets/audio/${audioName}`, import.meta.url).href
+}
+
+const getVideoUrl = (videoName) => {
+  return new URL(`../assets/video/${videoName}`, import.meta.url).href
 }
 </script>
 
@@ -162,6 +174,19 @@ const getAudioUrl = (audioName) => {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 8px;
+}
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-video {
+  width: 100%;
+  height: auto;
   border-radius: 8px;
 }
 

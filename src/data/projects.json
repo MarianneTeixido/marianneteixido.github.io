@@ -99,6 +99,9 @@
         "nime3-r.jpg",
         "deeps-cicla.png"
       ],
+      "videos": [
+        "sample-video.mp4"
+      ],
       "fullDescription3": "<h3>Créditos</h3><p>Composición: Marianne Teixido<br>Electrónica en vivo (SuperCollider): Marianne Teixido<br>Visuales en la web (ThreeJS): Emilio Ocelotl<br>Render 3D: Marianne Teixido<br>Voz: Amanda Alafita<br>Software: SuperCollider, Three.js, Python (RAVE)</p>"
     },
     "technical_notes": [
@@ -191,15 +194,29 @@
   "title": "Audio-Visual Sessions CCRMA",
   "year": "2024",
   "text": "EP",
-  "link": null,
+  "link": "https://music.stanford.edu/events/ccrma-presents-audio-visual-sessions-stanford-graduate-composers-rggtrn",
   "summary": "Residencia artística en CCRMA, Stanford University",
   "image": "ccrma.gif",
   "details": {
-    "fullDescription": "Residencia artística realizada en Center for Computer Research in Music and Acoustics (CCRMA), Stanford junto con Emilio Ocelotl del 8 al 17 de enero de 2024. Durante nuestra estancia trabajamos con 6 estudiantes de composición y presentamos dos conciertos: uno en CCRMA Stage y otro en Elliott Program Center.",
+    "fullDescription": "<h3>Contexto</h3>Residencia artística realizada en Center for Computer Research in Music and Acoustics (CCRMA), Stanford junto con Emilio Ocelotl del 8 al 17 de enero de 2024. Durante nuestra estancia trabajamos con 6 estudiantes de composición y presentamos dos conciertos: uno en CCRMA Stage y otro en Elliott Program Center.",
     "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/hLyjZ6nZn5g?si=IjGZZg-1WencDZ0R\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
-    "images": [],
-    "fullDescription2": "Los estudiantes con los que colaboramos fueron: Celeste Betancur, Brian Brown, Tatiana Catanzaro, Anna Golubkova, Lemon Guo, Nick Shaheed.",
-    "images2": []
+    "images": [
+      "ccrma4.jpg",
+      "ccrma2.jpg",
+      "ccrma3.jpg",
+      "ccrma1.jpg"
+    ],
+    "fullDescription2": "A continaución se presentan algunos videos de las presentaciones realizadas en CCRMA Stage y Elliott Program Center.",
+    "images2": [
+       "cartel-ccrma.jpg"
+    ],
+    "fullDescription3": "Los estudiantes con los que colaboramos fueron: Celeste Betancur, Brian Brown, Tatiana Catanzaro, Anna Golubkova, Lemon Guo, Nick Shaheed.",
+    "videos": [
+      "ccrma2.mp4",
+      "ccrma3.mp4",
+      "ccrma5.mp4",
+      "ccrma6.mp4"
+    ]
   },
   "category": "performance audiovisual",
   "tags": [
@@ -236,7 +253,8 @@
     "fullDescription": "Este proyecto audiovisual es un ejercicio de desplazamiento de idea de la producción autoral, originalidad. El proyecto propone mirar críticamente las similitudes de las imágenes pobres que circulan diariamente en internet.La propuesta parte del cuestionamiento sobre la apropiación, plagio y creatividad desde la observación participante de las imágenes artística en la red. El performance un dispositivo de navegación para navegar en la información contenida en una base de datos obtenida de la actividad capturada con scripts de python y procesada algorítmicamente con técnicas de la programación al vuelo. Es un ejercicios dialéctico que busca el diálogo entre la interfaz, el usuario como meta-interfaz, la información y las narrativas interactivas.",
     "images": [],
     "fullDescription2": "¿Cuál es la relevancia de la técnica, el discurso y la estética cuando hay millones de imágenes similares?, ¿a dónde nos lleva la aceleración tecnológica de las interfaces en el arte?, ¿es posible defender la idea de autoría cuando probablemente la obra es imitada, copiada o robada de otras más proveniente de lo grandes nodos de influencia? ¿lo técnico determina lo estético y las herramientas enmarcan el discurso y evidencian condiciones de producción?",
-    "images2": []
+    "images2": [],
+    "youtubeEmbed" : "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/X2lifGYckIQ?si=77mFs7Cwdfeg8Vin\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
   },
   "category": "performance",
   "tags": []

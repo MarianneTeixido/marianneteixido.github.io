@@ -1,5 +1,49 @@
 [
   {
+    "id": "codigo-tecnoafectivos",
+    "title": "Código Tecnoafectivo",
+    "year": "2026",
+    "link": null,
+    "summary": "Instalación web interactiva",
+    "image": "exteresa-01.jpg",
+    "details": {
+      "fullDescription": "<h3>Contexto</h3><p>Esta pieza surge en la intersección entre el cuerpo, tecnoafecciones, archivo y tecnología. A partir del archivo fotográfico y  audiovisual del archivo del museo Ex Teresa Arte Actual, dentro del marco de la exposición Plurisonoridades, curado por Amanda Gutiérrez y Rosa Landabur enfocada en la visibilización de las prácticas de mujeres y disidencias hemos tenido en dicho recinto, <em>Código Afectivo</em> propone una instalación que retoma la selección propuesta por Ana Mora para el Eje 2 de la exposición titulado Constelaciónes Sonoras. En esta pieza el archivo se activa con el cuerpo y modula el archivo mediante su presencia física: manos, brazos, cabeza y pies se convierten en interfaces de navegación. La detección gestual recupera el cuerpo como agente en el encuentro conimágenes cargadas de memoria y tiempo.</p>",
+      "images": [
+        "exteresa-02.jpg",
+        "exteresa-03.jpg",
+        "exteresa-07.jpg"],
+      "fullDescription2": "<h3>Descripción</h3><p>La instalación usa visión computacional en tiempo real (MediaPipe) para traducir gestos corporales en parámetros visuales y sonoros. Acercar las manos a la cámara revela fotografías; levantar los brazos activa video con audio; inclinar la cabeza modifica la velocidad de reproducción. Al retirar las manos, fragmentos de texto aparecen en pantalla con efecto typewriter. El movimiento de los pies desencadena capas de sonido generadas  por síntesis FM y muestras de audio. Cuando no hay presencia durante 60 segundos, la instalación entra en estado de reposo y espera un nuevo cuerpo.</p><p> Esta pieza ha sido solo presentada en formato perfor-ponencia debido a que a solicitud del museo la pieza no se encuentra en línea para no vulnerar el archivo en sí. De esta forma el que complile únicamente en virtual responde a un cuidado del archivo.</p>",
+      "images2": [],
+      "fullDescription3": "<h3>Créditos</h3><h4>Realización</h4><p>Concepto, programación y diseño de interacción: <strong>Marianne Teixidó</strong> — 2026</p><h4>Archivo fotográfico</h4><ul><li><strong>Zona Residual. RADIAL</strong> (2005) — Amanda Gutiérrez</li><li><strong>Simulacros naturales</strong> (2011) — Lázaro Valiente y Molly Surno. Curaduría: Erick Diego</li><li><strong>A la escucha del código fuente</strong> (2019) — Karen del Valle, Marianne Teixido, Mitzi Olvera, Malitzin Cortés, Libertad Figueroa, Isaura Román, Emilio Ocelotl, Alejandro Hernández, Jaime Jalil, Eduardo Meléndez, José Carlos Hasbun, Rodrigo Frenk y Jaime Lobato. Curaduría: Hernani Villaseñor</li><li><strong>Vocal Readings</strong> (2022) — Ute Wassermann</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Pies pa que los quiero</strong> (1999) — Alejandra Hernández</li><li><strong>Festival Tiempo de Mujeres — Concierto de Live Coding</strong> (2020) — Libertad Figueroa, Piaka Roela, Malitzin Cortés y Marianne Teixidó. Curaduría: Irene Soria</li></ul><h4>Archivo de video</h4><ul><li><strong>A la escucha del código fuente</strong> (2019) — Mitzi Olvera, Rodrigo Frenk y Jaime Lobato</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>Creación vocal</strong> (2023) — Natalia Rangel</li><li><strong>Maratón de Música</strong> (2019) — Ónix</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Grietas</strong> (2023) — Lucía Hinojosa, Vania Fortuna, Anahy Cabrera (ZETA) y Concepción Huerta</li><li><strong>Ocupación</strong> (2007) — Marcela Armas</li><li><strong>Sonido en Acción</strong> (2019) — Galia Eibenschutz y Natalia Perez</li></ul><h4>Audio</h4><ul><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li></ul><h4>Textos</h4><ul><li>Longoni, Ana; Cañada, Lucía y Bianchi, Lucía (2022) — <em>Invocar la imaginación archivística</em></li><li>Mbembé, Achille (2020) — <em>El poder del archivo y sus límites</em></li><li>Rufer, Mario (2016) — <em>El archivo, la fuente, la evidencia: de la extracción a la ruptura poscolonial</em></li></ul>",
+      "images3": [
+          "exteresa-06.jpg",
+          "exteresa-05.jpg",
+          "exteresa-04.jpg"
+      ],
+      "videos": [
+        "exteresa-01-video.mp4",
+        "exteresa-02-video.mp4",
+        "codigo-afectivo.mp4"
+      ]
+    },
+    "category": "performance",
+    "tags": [
+      "live coding",
+      "tecnoafectivo",
+      "performance"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Interactive local installation",
+        "details": {
+          "fullDescription": "<h3>Context</h3><p>This piece emerges at the intersection of body, techno-affections, archive and technology. Drawing from the photographic and audiovisual archive of the Ex Teresa Arte Actual museum, within the framework of the exhibition Plurisonoridades, curated by Amanda Gutiérrez and Rosa Landabur, focused on the visibility of the practices of women and dissidents in that space, <em>Código Afectivo</em> proposes an installation that takes up the selection proposed by Ana Mora for Axis 2 of the exhibition titled Sonic Constellations. In this piece the archive is activated by the body and modulated through its physical presence: hands, arms, head and feet become navigation interfaces. Gestural detection recovers the body as an agent in the encounter with images charged with memory and time.</p>",
+          "fullDescription2": "<h3>Description</h3><p>The installation uses real-time computer vision (MediaPipe) to translate bodily gestures into visual and sonic parameters. Bringing the hands close to the camera reveals photographs; raising the arms activates video with audio; tilting the head modifies playback speed. When the hands are withdrawn, text fragments appear on screen with a typewriter effect. The movement of the feet triggers sound layers generated by FM synthesis and audio samples. When there is no presence for 60 seconds, the installation enters a rest state and awaits a new body.</p>",
+          "fullDescription3": "<h3>Credits</h3><h4>Production</h4><p>Concept, programming and interaction design: <strong>Marianne Teixidó</strong> — 2026</p><h4>Photographic archive</h4><ul><li><strong>Zona Residual. RADIAL</strong> (2005) — Amanda Gutiérrez</li><li><strong>Simulacros naturales</strong> (2011) — Lázaro Valiente and Molly Surno. Curated by: Erick Diego</li><li><strong>A la escucha del código fuente</strong> (2019) — Karen del Valle, Marianne Teixido, Mitzi Olvera, Malitzin Cortés, Libertad Figueroa, Isaura Román, Emilio Ocelotl, Alejandro Hernández, Jaime Jalil, Eduardo Meléndez, José Carlos Hasbun, Rodrigo Frenk and Jaime Lobato. Curated by: Hernani Villaseñor</li><li><strong>Vocal Readings</strong> (2022) — Ute Wassermann</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Pies pa que los quiero</strong> (1999) — Alejandra Hernández</li><li><strong>Festival Tiempo de Mujeres — Live Coding Concert</strong> (2020) — Libertad Figueroa, Piaka Roela, Malitzin Cortés and Marianne Teixidó. Curated by: Irene Soria</li></ul><h4>Video archive</h4><ul><li><strong>A la escucha del código fuente</strong> (2019) — Mitzi Olvera, Rodrigo Frenk and Jaime Lobato</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>Creación vocal</strong> (2023) — Natalia Rangel</li><li><strong>Maratón de Música</strong> (2019) — Ónix</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Grietas</strong> (2023) — Lucía Hinojosa, Vania Fortuna, Anahy Cabrera (ZETA) and Concepción Huerta</li><li><strong>Ocupación</strong> (2007) — Marcela Armas</li><li><strong>Sonido en Acción</strong> (2019) — Galia Eibenschutz and Natalia Perez</li></ul><h4>Audio</h4><ul><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li></ul><h4>Texts</h4><ul><li>Longoni, Ana; Cañada, Lucía and Bianchi, Lucía (2022) — <em>Invocar la imaginación archivística</em></li><li>Mbembé, Achille (2020) — <em>El poder del archivo y sus límites</em></li><li>Rufer, Mario (2016) — <em>El archivo, la fuente, la evidencia: de la extracción a la ruptura poscolonial</em></li></ul>"
+        }
+      }
+    }
+  },
+  {
     "id": "subsuelo",
     "title": "Perimetral",
     "year": "2025",
@@ -721,6 +765,9 @@
       "performance",
       "audiovisual",
       "live coding"
-    ]
+    ],
+    "translations": {
+      "EN": {}
+    }
   }
 ]

@@ -133,6 +133,24 @@ const getVideoUrl = (videoName) => {
 
 <style>
 /* Global styles for v-html content */
+.project-description h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--Blue-01);
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.project-description ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project-description li {
+  margin-bottom: 0.3rem;
+}
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */

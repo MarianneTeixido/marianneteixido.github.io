@@ -17,3 +17,28 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.projects {
+  columns: 2;
+  column-gap: 0;
+}
+
+@media (max-width: 480px) {
+  .projects {
+    columns: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects {
+    columns: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects {
+    columns: 4;
+  }
+}
+</style>

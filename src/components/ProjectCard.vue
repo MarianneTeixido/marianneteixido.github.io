@@ -40,7 +40,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="project grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-0">
+  <div class="project">
     <a @click.prevent="$router.push(`/home/${project.id}`)" class="sticky">
       <div v-if="project.hydraCode" class="project-media">
         <canvas ref="canvas" class="hydra-canvas"></canvas>
@@ -60,7 +60,7 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fb 100%);
   border: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  margin: 2rem auto;
+  break-inside: avoid;
 }
 
 .project:hover {

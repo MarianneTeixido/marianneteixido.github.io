@@ -164,30 +164,45 @@ const getVideoUrl = (videoName) => {
 }
 
 .project-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
+  columns: 2;
+  column-gap: 1rem;
   margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .project-gallery {
+    columns: 1;
+  }
 }
 
 .gallery-img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  display: block;
+  margin-bottom: 1rem;
   border-radius: 8px;
+  break-inside: avoid;
 }
 
 .video-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
+  columns: 2;
+  column-gap: 1rem;
   margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .video-gallery {
+    columns: 1;
+  }
 }
 
 .gallery-video {
   width: 100%;
   height: auto;
+  display: block;
+  margin-bottom: 1rem;
   border-radius: 8px;
+  break-inside: avoid;
 }
 
 .navigation-buttons {

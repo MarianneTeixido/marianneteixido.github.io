@@ -1,8 +1,13 @@
 <script setup>
+import { useLang } from '../composables/useLang'
+import LangToggle from './LangToggle.vue'
+
 defineProps({
   isOpen: Boolean,
 });
 const emit = defineEmits(['close']);
+
+const { t } = useLang()
 
 const handleLinkClick = () => {
   emit('close');
@@ -14,17 +19,17 @@ const handleLinkClick = () => {
     <div class="sidebar-container">
       <h1 class="align-right">Marianne Teixido</h1>
       <div>
-        <p>Artista digital, investigadora, live coder y desarrolladora de software</p>
+        <p>{{ t.description }}</p>
         <p></p>
       </div>
       <nav class="menu-column">
 
         <router-link to="/" active-class="active" @click="handleLinkClick" class="sticky"><i
-            class="bi bi-chevron-right"></i>Proyectos</router-link>
+            class="bi bi-chevron-right"></i>{{ t.nav.projects }}</router-link>
         <router-link to="/bio" active-class="active" @click="handleLinkClick" class="sticky"><i
-            class="bi bi-chevron-right"></i>Bio</router-link>
+            class="bi bi-chevron-right"></i>{{ t.nav.bio }}</router-link>
         <router-link to="/contact" active-class="active" @click="handleLinkClick" class="sticky"><i
-            class="bi bi-chevron-right"></i>Contacto</router-link>
+            class="bi bi-chevron-right"></i>{{ t.nav.contact }}</router-link>
       </nav>
 
       <div class="social-media-icons">
@@ -46,10 +51,9 @@ const handleLinkClick = () => {
               class="img-fluid" loading="lazy" />
           </a> 2025 Marianne Teixido ]
         </span>
-        <p>
-          Website desarrollado en Vue <em>from scratch</em> por mi.
-        </p>
+        <p>{{ t.footer }}</p>
       </div>
+      <LangToggle class="sidebar-lang-toggle" />
     </div>
   </aside>
 </template>

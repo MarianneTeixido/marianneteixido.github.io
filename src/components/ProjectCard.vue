@@ -1,8 +1,17 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useLang } from '../composables/useLang';
 
 const props = defineProps(['project']);
 const canvas = ref(null);
+const { current } = useLang();
+
+const localizedSummary = computed(() => {
+  if (current.value === 'EN' && props.project.translations?.EN?.summary) {
+    return props.project.translations.EN.summary;
+  }
+  return props.project.summary;
+});
 
 const getImageUrl = (imageName) => {
   if (!imageName) return '';
@@ -47,7 +56,7 @@ onUnmounted(() => {
       </div>
       <img v-else :src="getImageUrl(project.image)" :alt="project.title">
       <h3>{{ project.title }}</h3>
-      <p>{{ project.summary }}</p>
+      <p>{{ localizedSummary }}</p>
     </a>
   </div>
 </template>

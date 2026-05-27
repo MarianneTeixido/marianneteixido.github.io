@@ -1,12 +1,12 @@
 <template>
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      <div id="app" :class="{ 'sidebar-is-open': isMenuOpen }">
-        <Sidebar :is-open="isMenuOpen" @close="isMenuOpen = false" class="sticky" />
+  <div class="app-shell" :class="{ 'sidebar-is-open': isMenuOpen }">
+    <Sidebar :is-open="isMenuOpen" @close="isMenuOpen = false" />
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
         <div class="main-container">
-          <Header @toggle-menu="toggleMenu" class="sticky" />
+          <Header @toggle-menu="toggleMenu" />
           <main class="main-content">
-            <router-view class="sticky" />
+            <router-view />
           </main>
         </div>
       </div>
@@ -53,18 +53,16 @@ const toggleMenu = () => {
 </script>
 
 <style>
-#app {
-  display: flex;
+.app-shell {
   position: relative;
   overflow-x: hidden;
 }
 
 .main-container {
-  flex-grow: 1;
   transition: transform 0.3s ease;
 }
 
-#app.sidebar-is-open .main-container {
+.app-shell.sidebar-is-open .main-container {
   transform: translateX(80vw);
 }
 </style>

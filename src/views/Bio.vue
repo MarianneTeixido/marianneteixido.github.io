@@ -9,254 +9,500 @@
             loading="lazy" />
         </figure>
 
-        <div class="bio-section">
-          <h2>Semblanza</h2>
-          <p>Artista, música y desarrolladora transhackfeminista. Mi práctica se sitúa en la intersección entre arte,
-            tecnología y teoría crítica, explorando el código como material poético y político. A través de la escritura
-            expandida, el sonido y la experimentación algorítmica, propongo otros modos del saber-hacer para ocupar la
-            tecnología como espacio de resistencia y creación de temporalidades alternativas.</p>
+        <!-- ESPAÑOL -->
+        <template v-if="current === 'ES'">
+          <div class="bio-section">
+            <h2>Semblanza</h2>
+            <p>Artista, música y desarrolladora transhackfeminista. Mi práctica se sitúa en la intersección entre arte,
+              tecnología y teoría crítica, explorando el código como material poético y político. A través de la escritura
+              expandida, el sonido y la experimentación algorítmica, propongo otros modos del saber-hacer para ocupar la
+              tecnología como espacio de resistencia y creación de temporalidades alternativas.</p>
 
-          <p>Mi trabajo se materializa en performances de live coding, composiciones electroacústicas, instalaciones
-            interactivas e investigaciones teóricas que cuestionan las narrativas hegemónicas de la tecnología,
-            proponiendo en su lugar prácticas ciberfeministas y no binarias de creación.</p>
-        </div>
+            <p>Mi trabajo se materializa en performances de live coding, composiciones electroacústicas, instalaciones
+              interactivas e investigaciones teóricas que cuestionan las narrativas hegemónicas de la tecnología,
+              proponiendo en su lugar prácticas ciberfeministas y no binarias de creación.</p>
+          </div>
 
-        <div class="bio-section">
-          <h2>Formación Académica</h2>
-          <ul class="timeline">
-            <li>
-              <strong>Doctorado en Música</strong> - Especialidad Tecnología Musical<br>
-              Facultad de Música, Universidad Nacional Autónoma de México<br>
-              <em>Investigación en proceso: "XYK. Síntesis de habla no binarie recursiva con deep neural networks"</em>
-              2024 - presente
-            </li>
-            <li>
-              <strong>Maestría en Historia del Arte</strong> - Especialidad Teoría y Metodología<br>
-              Facultad de Filosofía y Letras / Instituto de Investigaciones Estéticas, UNAM<br>
-              <em>Tesis: "Para tejer tiempos. Temporalidades otras para pensar y escribir sobre prácticas artísticas con
-                tecnologías"</em><br>
-              2020 - 2023
-            </li>
-            <li>
-              <strong>Licenciatura en Ciencias de la Comunicación</strong> - Especialidad Producción Audiovisual<br>
-              Facultad de Ciencias Políticas y Sociales, UNAM<br>
-              <em>Tesis: "Videoarte y resistencia política: alternativas al discurso oficial en torno al caso Iguala en
-                la obra de Bruno Varela"</em><br>
-              2013 - 2017
-            </li>
-          </ul>
-        </div>
+          <div class="bio-section">
+            <h2>Formación Académica</h2>
+            <ul class="timeline">
+              <li>
+                <strong>Doctorado en Música</strong> - Especialidad Tecnología Musical<br>
+                Facultad de Música, Universidad Nacional Autónoma de México<br>
+                <em>Investigación en proceso: "XYK. Síntesis de habla no binarie recursiva con deep neural networks"</em>
+                2024 - presente
+              </li>
+              <li>
+                <strong>Maestría en Historia del Arte</strong> - Especialidad Teoría y Metodología<br>
+                Facultad de Filosofía y Letras / Instituto de Investigaciones Estéticas, UNAM<br>
+                <em>Tesis: "Para tejer tiempos. Temporalidades otras para pensar y escribir sobre prácticas artísticas con
+                  tecnologías"</em><br>
+                2020 - 2023
+              </li>
+              <li>
+                <strong>Licenciatura en Ciencias de la Comunicación</strong> - Especialidad Producción Audiovisual<br>
+                Facultad de Ciencias Políticas y Sociales, UNAM<br>
+                <em>Tesis: "Videoarte y resistencia política: alternativas al discurso oficial en torno al caso Iguala en
+                  la obra de Bruno Varela"</em><br>
+                2013 - 2017
+              </li>
+            </ul>
+          </div>
 
-        <div class="bio-section">
-          <h2>Investigación y Proyectos Actuales</h2>
-          <ul>
-            <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Coordinación del proyecto de inteligencia
-              artificial transhackfeminista</li>
-            <li><strong>XYK</strong> - Investigación sobre síntesis de habla no binarie recursiva con deep neural
-              networks</li>
-          </ul>
-        </div>
+          <div class="bio-section">
+            <h2>Investigación y Proyectos Actuales</h2>
+            <ul>
+              <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Coordinación del proyecto de inteligencia
+                artificial transhackfeminista</li>
+              <li><strong>XYK</strong> - Investigación sobre síntesis de habla no binarie recursiva con deep neural
+                networks</li>
+            </ul>
+          </div>
 
-        <div class="bio-section">
-          <h2>Reconocimientos y Premios</h2>
-          <ul>
-            <li>
-              <strong>Best Music Award</strong> - New Interfaces for Musical Expression (NIME)<br>
-              Por "deep structures" en colaboración con Emilio Ocelotl, Ciudad de México, 2023
-            </li>
-            <li>
-              <strong>Mención Honorífica</strong> - Tercera Edición de la Bienal Internacional de Videoarte y Animación
-              Puebla 2018<br>
-              Por el video "Fragmentos"
-            </li>
-          </ul>
-        </div>
+          <div class="bio-section">
+            <h2>Reconocimientos y Premios</h2>
+            <ul>
+              <li>
+                <strong>Best Music Award</strong> - New Interfaces for Musical Expression (NIME)<br>
+                Por "deep structures" en colaboración con Emilio Ocelotl, Ciudad de México, 2023
+              </li>
+              <li>
+                <strong>Mención Honorífica</strong> - Tercera Edición de la Bienal Internacional de Videoarte y Animación
+                Puebla 2018<br>
+                Por el video "Fragmentos"
+              </li>
+            </ul>
+          </div>
 
-        <div class="bio-section">
-          <h2>Becas y Residencias</h2>
+          <div class="bio-section">
+            <h2>Becas y Residencias</h2>
 
-          <h3>Becas Individuales</h3>
-          <ul>
-            <li><strong>manifiest(ia)s</strong> - Convocatoria para compositoras Creación con perspectiva, CMMAS, 2022
-            </li>
-            <li><strong>Estancia de investigación</strong> - Convergencia TransHackFeminista, Calafou y Hangar,
-              Barcelona. PAEP, 2022</li>
-            <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Programa de Acompañamiento 2022, Piso 16, Cultura
-              UNAM, 2021</li>
-            <li><strong>Beca Nacional CONACyT</strong> - Programa de Posgrado, Maestría en Historia del Arte, 2021-2022
-            </li>
-            <li><strong>Jóvenes Creadores</strong> - FONCA, Medios Audiovisuales, Nuevas Tecnologías, 2018-2019</li>
-          </ul>
+            <h3>Becas Individuales</h3>
+            <ul>
+              <li><strong>manifiest(ia)s</strong> - Convocatoria para compositoras Creación con perspectiva, CMMAS, 2022
+              </li>
+              <li><strong>Estancia de investigación</strong> - Convergencia TransHackFeminista, Calafou y Hangar,
+                Barcelona. PAEP, 2022</li>
+              <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Programa de Acompañamiento 2022, Piso 16, Cultura
+                UNAM, 2021</li>
+              <li><strong>Beca Nacional CONACyT</strong> - Programa de Posgrado, Maestría en Historia del Arte, 2021-2022
+              </li>
+              <li><strong>Jóvenes Creadores</strong> - FONCA, Medios Audiovisuales, Nuevas Tecnologías, 2018-2019</li>
+            </ul>
 
-          <h3>Becas Colectivas</h3>
-          <ul>
-            <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Seed funding por Numun Found, 2022-2024</li>
-            <li><strong>RGGTRN</strong> - Apoyos Especiales FONCA para Conferencia Internacional de Live Coding, Madrid,
-              2019</li>
-            <li><strong>PiranhaLab</strong> - PADID, Centro Nacional de las Artes, 2018</li>
-            <li><strong>RGGTRN, Bellacode Tour</strong> - IBERMUSICAS, 2017</li>
-          </ul>
+            <h3>Becas Colectivas</h3>
+            <ul>
+              <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Seed funding por Numun Found, 2022-2024</li>
+              <li><strong>RGGTRN</strong> - Apoyos Especiales FONCA para Conferencia Internacional de Live Coding, Madrid,
+                2019</li>
+              <li><strong>PiranhaLab</strong> - PADID, Centro Nacional de las Artes, 2018</li>
+              <li><strong>RGGTRN, Bellacode Tour</strong> - IBERMUSICAS, 2017</li>
+            </ul>
 
-          <h3>Residencias Artísticas</h3>
-          <ul>
-            <li><strong>CCRMA, Stanford University</strong> - Enero 2024</li>
-            <li><strong>TransHachFeminist! @ Calafou, Catalonia</strong> - Agosto 2022</li>
-            <li><strong>Hangar, Toplab Barcelona</strong> - Julio 2022</li>
-            <li><strong>LacunaLab, Berlín</strong> - Enero 2019</li>
-            <li><strong>MediaLab Prado, Madrid</strong> - Enero 2019</li>
-            <li><strong>MediaLab UIO, Quito</strong> - Mayo-Junio 2018</li>
-            <li><strong>Fundación Telefónica, Lima</strong> - Mayo 2018</li>
-            <li><strong>Platohedro, Medellín</strong> - Mayo 2018</li>
-          </ul>
-        </div>
+            <h3>Residencias Artísticas</h3>
+            <ul>
+              <li><strong>CCRMA, Stanford University</strong> - Enero 2024</li>
+              <li><strong>TransHachFeminist! @ Calafou, Catalonia</strong> - Agosto 2022</li>
+              <li><strong>Hangar, Toplab Barcelona</strong> - Julio 2022</li>
+              <li><strong>LacunaLab, Berlín</strong> - Enero 2019</li>
+              <li><strong>MediaLab Prado, Madrid</strong> - Enero 2019</li>
+              <li><strong>MediaLab UIO, Quito</strong> - Mayo-Junio 2018</li>
+              <li><strong>Fundación Telefónica, Lima</strong> - Mayo 2018</li>
+              <li><strong>Platohedro, Medellín</strong> - Mayo 2018</li>
+            </ul>
+          </div>
 
-        <div class="bio-section">
-          <h2>Experiencia Profesional</h2>
+          <div class="bio-section">
+            <h2>Experiencia Profesional</h2>
 
+            <h3>Docencia</h3>
+            <ul>
+              <li>
+                <strong>Docente - <a
+                    href="https://desarrolloacademico.cenart.gob.mx/diplomado-transitos-34-exploraciones-intermediales-con-el-cuerpo-y-el-sonido/"
+                    target="_blank">Exploraciones intermediales con el cuerpo y el sonido</a></strong><br>
+                Diplomado Tránsitos Nodo 34, CENART <br>
+                Impartido en colaboración con Claudia Cabrera <br>
+                2025
+              </li>
+              <br>
+              <li>
+                <strong>Docente de asignatura</strong> - Código Creativo en STEAMLab<br>
+                Carreras de Arquitectura de Interiores, Diseño Industrial, Diseño Textil y Moda, Cine y Televisión,
+                Mercadotecnia y Publicidad<br>
+                Centro de Diseño, Cine y Televisión<br>
+                2019 - 2024
+              </li>
+              <br>
+              <li>
+                <strong>Docente de asignatura</strong> - ABC Digital en Tronco Común<br>
+                Centro de Diseño, Cine y Televisión<br>
+                2020 - 2021
+              </li> <br>
+              <li>
+                <strong>Docente de asignatura</strong> - Arte en la Red<br>
+                Licenciatura en Arte Digital, UAEM<br>
+                2021
+              </li>
+            </ul>
 
+            <h3>Industria Tecnológica</h3>
+            <ul>
+              <li>
+                <strong>Especialista de desarrollo</strong> - B Drive IT<br>
+                Colaboré como desarrolladora fullstack en el equipo de Proyectos Especiales en el área de Inteligencia
+                Artificial en implementación de chatbots y avatares 3D para asistentes virtuales en la web | 2024 - 2025
+              </li> <br>
+              <li>
+                <strong>Desarrolladora Web</strong> - Engine Core<br>
+                Colaboré como desarrolladora frontend con el equipo de desarrollo y marketing, además de realizar diseño
+                UI/UX & optimización SEO | 2024
+              </li>
+              <br>
+              <li>
+                <strong><a href="https://www.instagram.com/p/DFY4WdfxtEb/?img_index=9" target="_blank">Contribuidora al
+                    código de p5.js</a></strong> -  Processing Foundation<br>
+                Participé en el equipo de traducción al español de la documentacion de P5.js en la sección de Referencias contribuyendo al código en Github | 2024
+              </li>
+            </ul>
 
-          <h3>Docencia</h3>
-          <ul>
-            <li>
-              <strong>Docente - <a
-                  href="https://desarrolloacademico.cenart.gob.mx/diplomado-transitos-34-exploraciones-intermediales-con-el-cuerpo-y-el-sonido/"
-                  target="_blank">Exploraciones intermediales con el cuerpo y el sonido</a></strong><br>
-              Diplomado Tránsitos Nodo 34, CENART <br>
-              Impartido en colaboración con Claudia Cabrera <br>
-              2025
-            </li>
-            <br>
-            <li>
-              <strong>Docente de asignatura</strong> - Código Creativo en STEAMLab<br>
-              Carreras de Arquitectura de Interiores, Diseño Industrial, Diseño Textil y Moda, Cine y Televisión,
-              Mercadotecnia y Publicidad<br>
-              Centro de Diseño, Cine y Televisión<br>
-              2019 - 2024
-            </li>
-            <br>
-            <li>
-              <strong>Docente de asignatura</strong> - ABC Digital en Tronco Común<br>
-              Centro de Diseño, Cine y Televisión<br>
-              2020 - 2021
-            </li> <br>
-            <li>
-              <strong>Docente de asignatura</strong> - Arte en la Red<br>
-              Licenciatura en Arte Digital, UAEM<br>
-              2021
-            </li>
-          </ul>
+            <h3>Curaduría y Gestión Cultural</h3>
+            <ul>
+              <li><strong>Curadorxs invitadxs (PiranhaLab)</strong> - 5to Ciclo de Concierto EDGES, Centro Multimedia,
+                CENART, 2020</li>
+              Para este ciclo de conciertos desarrollamos espacio virtual e inmmersivo en 3D llamado Panorama hecho con
+              software libre autogestionado por nosotres como PiranhaLab
+              <li><strong>Gestora y productora</strong> - Concierto de Live Coding, Festival Tiempo de Mujeres, Ex-Teresa
+                Arte Actual, 2020</li>
+              <li><strong>Curadora y gestora</strong> - Ciclo de talleres PiranhaLab, PADID, Centro de Cultura Digital,
+                2019</li>
+            </ul>
+          </div>
 
-          <h3>Industria Tecnológica</h3>
-          <ul>
-            <li>
-              <strong>Especialista de desarrollo</strong> - B Drive IT<br>
-              Colaboré como desarrolladora fullstack en el equipo de Proyectos Especiales en el área de Inteligencia
-              Artificial en implementación de chatbots y avatares 3D para asistentes virtuales en la web | 2024 - 2025
-            </li> <br>
-            <li>
-              <strong>Desarrolladora Web</strong> - Engine Core<br>
-              Colaboré como desarrolladora frontend con el equipo de desarrollo y marketing, además de realizar diseño
-              UI/UX & optimización SEO | 2024
-            </li>
-            <br>
-            <li>
-              <strong><a href="https://www.instagram.com/p/DFY4WdfxtEb/?img_index=9" target="_blank">Contribuidora al
-                  código de p5.js</a></strong> -  Processing Foundation<br>
-              Participé en el equipo de traducción al español de la documentacion de P5.js en la sección de Referencias contribuyendo al código en Github | 2024
-            </li>
-          </ul>
+          <div class="bio-section">
+            <h2>Publicaciones Seleccionadas</h2>
+            <ul>
+              <li>
+                <strong><a href="https://mitpress.mit.edu/9780262049702/the-supercollider-book/"
+                    target="_blank"><em>Artist
+                      Statement</em> en The SuperCollider Book. Second Edition</a></strong><br>
+                MIT Press | Part V: Projects and perspectives, Chapter 24: Artists' Statements, 2025
+              </li>
+              <br>
+              <li>
+                <strong><a href="https://www.cmmas.com/copy-3-of-ideassonicas25/ideassonicas%2Fsonicideas-23"
+                    target="_blank">Live coding como práctica ciber-hackfeminista</a></strong><br>
+                Ideas Sónicas No. 29, CMMAS, 2023
+              </li>
+              <br>
+              <li>
+                <strong><a href="https://www.repositorio.fam.unam.mx/handle/123456789/139" target="_blank">Panorama.
+                    Escritura de espacios libres e inmersivos para el performance audiovisual</a></strong><br>
+                En colaboración con Emilio Ocelotl y Dorian Sotomayor<br>
+                En "Algoritmos Arruinados. Perspectivas situadas de tecnología musical", UNAM, 2023
+              </li><br>
+              <li>
+                <strong><a
+                    href="https://www.tierraadentro.cultura.gob.mx/subversion-ciber-feminista-utopias-tecnologicas-palabra-musica-codigo/"
+                    target="_blank">Subversión (ciber) feminista. Utopías tecnológicas, palabra - música -
+                    código</a></strong><br>
+                Revista Tierra Adentro, 2020
+              </li><br>
+              <li>
+                <strong><a href="https://doi.org/10.5281/zenodo.3946163" target="_blank">Bellacode: localized textual
+                    interfaces for live coding music</a></strong><br>
+                En colaboración con Luis N. Del Angel, Emilio Ocelotl y David Ogborn<br>
+                Proceedings of the Fourth International Conference on Live Coding, 2019
+              </li> <br>
+              <li>
+                <strong><a href="http://dx.doi.org/10.12801/1947-5403.2018.10.01.11" target="_blank">Saborítmico: A
+                    Report from the Dance Floor in Mexico</a></strong><br>
+                En colaboración con Emilio Ocelotl y Luis N. Del Angel<br>
+                Dancecult Journal of Electronic Dance Music Culture, 2018
+              </li>
+            </ul>
+          </div>
 
-          <h3>Curaduría y Gestión Cultural</h3>
-          <ul>
-            <li><strong>Curadorxs invitadxs (PiranhaLab)</strong> - 5to Ciclo de Concierto EDGES, Centro Multimedia,
-              CENART, 2020</li>
-            Para este ciclo de conciertos desarrollamos espacio virtual e inmmersivo en 3D llamado Panorama hecho con
-            software libre autogestionado por nosotres como PiranhaLab
-            <li><strong>Gestora y productora</strong> - Concierto de Live Coding, Festival Tiempo de Mujeres, Ex-Teresa
-              Arte Actual, 2020</li>
-            <li><strong>Curadora y gestora</strong> - Ciclo de talleres PiranhaLab, PADID, Centro de Cultura Digital,
-              2019</li>
-          </ul>
-        </div>
+          <div class="bio-section">
+            <h2>Habilidades Técnicas</h2>
 
-        <div class="bio-section">
-          <h2>Publicaciones Seleccionadas</h2>
-          <ul>
-            <li>
-              <strong><a href="https://mitpress.mit.edu/9780262049702/the-supercollider-book/"
-                  target="_blank"><em>Artist
-                    Statement</em> en The SuperCollider Book. Second Edition</a></strong><br>
-              MIT Press | Part V: Projects and perspectives, Chapter 24: Artists' Statements, 2025
-            </li>
-            <br>
-            <li>
-              <strong><a href="https://www.cmmas.com/copy-3-of-ideassonicas25/ideassonicas%2Fsonicideas-23"
-                  target="_blank">Live coding como práctica ciber-hackfeminista</a></strong><br>
-              Ideas Sónicas No. 29, CMMAS, 2023
-            </li>
-            <br>
-            <li>
-              <strong><a href="https://www.repositorio.fam.unam.mx/handle/123456789/139" target="_blank">Panorama.
-                  Escritura de espacios libres e inmersivos para el performance audiovisual</a></strong><br>
-              En colaboración con Emilio Ocelotl y Dorian Sotomayor<br>
-              En "Algoritmos Arruinados. Perspectivas situadas de tecnología musical", UNAM, 2023
-            </li><br>
-            <li>
-              <strong><a
-                  href="https://www.tierraadentro.cultura.gob.mx/subversion-ciber-feminista-utopias-tecnologicas-palabra-musica-codigo/"
-                  target="_blank">Subversión (ciber) feminista. Utopías tecnológicas, palabra - música -
-                  código</a></strong><br>
-              Revista Tierra Adentro, 2020
-            </li><br>
-            <li>
-              <strong><a href="https://doi.org/10.5281/zenodo.3946163" target="_blank">Bellacode: localized textual
-                  interfaces for live coding music</a></strong><br>
-              En colaboración con Luis N. Del Angel, Emilio Ocelotl y David Ogborn<br>
-              Proceedings of the Fourth International Conference on Live Coding, 2019
-            </li> <br>
-            <li>
-              <strong><a href="http://dx.doi.org/10.12801/1947-5403.2018.10.01.11" target="_blank">Saborítmico: A
-                  Report from the Dance Floor in Mexico</a></strong><br>
-              En colaboración con Emilio Ocelotl y Luis N. Del Angel<br>
-              Dancecult Journal of Electronic Dance Music Culture, 2018
-            </li>
-          </ul>
-        </div>
+            <h3>Lenguajes de Programación y tecnologías de desarrollo</h3>
+            <p>JavaScript, Python, Three.js, React, Vue, TypeScript, Bootstrap, Tailwind, HTML5, CSS3, Git,
+              Firestore, Firebase, Node, Java, Pytorch, MySQL, API Rest, Google Cloud Platform (GCP), Netlify, Vercel,
+              Docker,
+              Bash, Pytorch, TensorFlow, Keras, Flask, Jupyter Notebooks
+            </p>
 
-        <div class="bio-section">
-          <h2>Habilidades Técnicas</h2>
+            <h3>Entornos Creativos de Programación</h3>
+            <p>SuperCollider, TidalCycles, SonicPi, Hydra, Processing, OpenFrameworks, p5.js, ml5.js, Three.js, P5LIVE,
+              Fluxus, Cinder, FoxDot, Tone.js</p>
 
-          <h3>Lenguajes de Programación y tecnologías de desarrollo</h3>
-          <p>JavaScript, Python, Three.js, React, Vue, TypeScript, Bootstrap, Tailwind, HTML5, CSS3, Git,
-            Firestore, Firebase, Node, Java, Pytorch, MySQL, API Rest, Google Cloud Platform (GCP), Netlify, Vercel,
-            Docker,
-            Bash, Pytorch, TensorFlow, Keras, Flask, Jupyter Notebooks
-          </p>
+            <h3>Sistemas Operativos</h3>
+            <p>Linux (Debian, Ubuntu, Linux Mint), Raspbian, MacOs, Windows</p>
 
-          <h3>Entornos Creativos de Programación</h3>
-          <p>SuperCollider, TidalCycles, SonicPi, Hydra, Processing, OpenFrameworks, p5.js, ml5.js, Three.js, P5LIVE,
-            Fluxus, Cinder, FoxDot, Tone.js</p>
+            <h3>Otras herramientas</h3>
+            <p>Github, Gitlab, Figma, SCRUM, Notion, Adobe Creative Suite (Premiere, Audition, After Effects, Photoshop,
+              Illustrator), TouchDesigner, ProTools,
+              Kdenlive, Reaper, Reallusion, Logic, Ableton Live, Final Cut, Resolume Arena,
+              Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX</p>
 
-          <h3>Sistemas Operativos</h3>
-          <p>Linux (Debian, Ubuntu, Linux Mint), Raspbian, MacOs, Windows</p>
+            <h3>Áreas de Especialización</h3>
+            <p>Inteligencia artificial, machine learning, programación y diseño web, programación al vuelo (live coding), programación y electrónica creativa, música electroacústica, arte digital, sistemas de control de versiones, sensores, procesamiento de bases de datos, realidad virtual y 3D, procesamiento de señales de audio e investigación artística.</p>
+          </div>
 
-          <h3>Otras herramientas</h3>
-          <p>Github, Gitlab, Figma, SCRUM, Notion, Adobe Creative Suite (Premiere, Audition, After Effects, Photoshop,
-            Illustrator), TouchDesigner, ProTools,
-            Kdenlive, Reaper, Reallusion, Logic, Ableton Live, Final Cut, Resolume Arena,
-            Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX</p>
+          <p class="update-date"><em>Actualización: Octubre 2025</em></p>
+        </template>
 
-          <h3>Áreas de Especialización</h3>
-          <p>Inteligencia artificial, machine learning, programación y diseño web, programación al vuelo (live coding), programación y electrónica creativa, música electroacústica, arte digital, sistemas de control de versiones, sensores, procesamiento de bases de datos, realidad virtual y 3D, procesamiento de señales de audio e investigación artística.</p>
-        </div>
+        <!-- ENGLISH -->
+        <template v-else>
+          <div class="bio-section">
+            <h2>Statement</h2>
+            <p>Artist, musician and transhackfeminist developer. My practice is situated at the intersection of art,
+              technology and critical theory, exploring code as poetic and political material. Through expanded writing,
+              sound and algorithmic experimentation, I propose other modes of knowing-doing to occupy technology as a
+              space of resistance and creation of alternative temporalities.</p>
 
+            <p>My work materializes in live coding performances, electroacoustic compositions, interactive installations
+              and theoretical research that question the hegemonic narratives of technology, proposing instead
+              cyberfeminist and non-binary practices of creation.</p>
+          </div>
 
+          <div class="bio-section">
+            <h2>Academic Background</h2>
+            <ul class="timeline">
+              <li>
+                <strong>PhD in Music</strong> - Music Technology Specialization<br>
+                Faculty of Music, Universidad Nacional Autónoma de México<br>
+                <em>Research in progress: "XYK. Recursive non-binary speech synthesis with deep neural networks"</em>
+                2024 - present
+              </li>
+              <li>
+                <strong>Master's in Art History</strong> - Theory and Methodology Specialization<br>
+                Faculty of Philosophy and Letters / Institute of Aesthetic Research, UNAM<br>
+                <em>Thesis: "To weave times. Other temporalities to think and write about artistic practices with
+                  technologies"</em><br>
+                2020 - 2023
+              </li>
+              <li>
+                <strong>Bachelor's in Communication Sciences</strong> - Audiovisual Production Specialization<br>
+                Faculty of Political and Social Sciences, UNAM<br>
+                <em>Thesis: "Video art and political resistance: alternatives to the official discourse around the Iguala
+                  case in the work of Bruno Varela"</em><br>
+                2013 - 2017
+              </li>
+            </ul>
+          </div>
 
-        <p class="update-date"><em>Actualización: Octubre 2025</em></p>
+          <div class="bio-section">
+            <h2>Current Research and Projects</h2>
+            <ul>
+              <li><strong>[R.A.M.] Autonomous Memory Networks</strong> - Coordination of the transhackfeminist artificial
+                intelligence project</li>
+              <li><strong>XYK</strong> - Research on recursive non-binary speech synthesis with deep neural networks</li>
+            </ul>
+          </div>
+
+          <div class="bio-section">
+            <h2>Awards and Recognition</h2>
+            <ul>
+              <li>
+                <strong>Best Music Award</strong> - New Interfaces for Musical Expression (NIME)<br>
+                For "deep structures" in collaboration with Emilio Ocelotl, Mexico City, 2023
+              </li>
+              <li>
+                <strong>Honorable Mention</strong> - Third Edition of the International Biennial of Video Art and
+                Animation Puebla 2018<br>
+                For the video "Fragmentos"
+              </li>
+            </ul>
+          </div>
+
+          <div class="bio-section">
+            <h2>Grants and Residencies</h2>
+
+            <h3>Individual Grants</h3>
+            <ul>
+              <li><strong>manifiest(ia)s</strong> - Open call for composers, Creación con perspectiva, CMMAS, 2022</li>
+              <li><strong>Research stay</strong> - TransHackFeminist Convergence, Calafou and Hangar, Barcelona. PAEP,
+                2022</li>
+              <li><strong>[R.A.M.] Autonomous Memory Networks</strong> - Accompaniment Program 2022, Piso 16, Cultura
+                UNAM, 2021</li>
+              <li><strong>CONACyT National Grant</strong> - Graduate Program, Master's in Art History, 2021-2022</li>
+              <li><strong>Jóvenes Creadores</strong> - FONCA, Audiovisual Media, New Technologies, 2018-2019</li>
+            </ul>
+
+            <h3>Collective Grants</h3>
+            <ul>
+              <li><strong>[R.A.M.] Autonomous Memory Networks</strong> - Seed funding by Numun Fund, 2022-2024</li>
+              <li><strong>RGGTRN</strong> - FONCA Special Support for the International Conference on Live Coding,
+                Madrid, 2019</li>
+              <li><strong>PiranhaLab</strong> - PADID, Centro Nacional de las Artes, 2018</li>
+              <li><strong>RGGTRN, Bellacode Tour</strong> - IBERMUSICAS, 2017</li>
+            </ul>
+
+            <h3>Artist Residencies</h3>
+            <ul>
+              <li><strong>CCRMA, Stanford University</strong> - January 2024</li>
+              <li><strong>TransHackFeminist! @ Calafou, Catalonia</strong> - August 2022</li>
+              <li><strong>Hangar, Toplab Barcelona</strong> - July 2022</li>
+              <li><strong>LacunaLab, Berlin</strong> - January 2019</li>
+              <li><strong>MediaLab Prado, Madrid</strong> - January 2019</li>
+              <li><strong>MediaLab UIO, Quito</strong> - May-June 2018</li>
+              <li><strong>Fundación Telefónica, Lima</strong> - May 2018</li>
+              <li><strong>Platohedro, Medellín</strong> - May 2018</li>
+            </ul>
+          </div>
+
+          <div class="bio-section">
+            <h2>Professional Experience</h2>
+
+            <h3>Teaching</h3>
+            <ul>
+              <li>
+                <strong>Instructor - <a
+                    href="https://desarrolloacademico.cenart.gob.mx/diplomado-transitos-34-exploraciones-intermediales-con-el-cuerpo-y-el-sonido/"
+                    target="_blank">Intermedial Explorations with Body and Sound</a></strong><br>
+                Diplomado Tránsitos Node 34, CENART<br>
+                Taught in collaboration with Claudia Cabrera<br>
+                2025
+              </li>
+              <br>
+              <li>
+                <strong>Course Instructor</strong> - Creative Code at STEAMLab<br>
+                Interior Architecture, Industrial Design, Textile and Fashion Design, Film and Television,
+                Marketing and Advertising programs<br>
+                Centro de Diseño, Cine y Televisión<br>
+                2019 - 2024
+              </li>
+              <br>
+              <li>
+                <strong>Course Instructor</strong> - ABC Digital in Common Core<br>
+                Centro de Diseño, Cine y Televisión<br>
+                2020 - 2021
+              </li><br>
+              <li>
+                <strong>Course Instructor</strong> - Art on the Web<br>
+                Digital Art Degree, UAEM<br>
+                2021
+              </li>
+            </ul>
+
+            <h3>Tech Industry</h3>
+            <ul>
+              <li>
+                <strong>Development Specialist</strong> - B Drive IT<br>
+                Worked as a fullstack developer in the Special Projects team in the Artificial Intelligence area,
+                implementing chatbots and 3D avatars for virtual web assistants | 2024 - 2025
+              </li><br>
+              <li>
+                <strong>Web Developer</strong> - Engine Core<br>
+                Worked as a frontend developer with the development and marketing team, also performing UI/UX design
+                & SEO optimization | 2024
+              </li>
+              <br>
+              <li>
+                <strong><a href="https://www.instagram.com/p/DFY4WdfxtEb/?img_index=9" target="_blank">p5.js Code
+                    Contributor</a></strong> - Processing Foundation<br>
+                Participated in the Spanish translation team for the P5.js documentation in the References section,
+                contributing to the code on Github | 2024
+              </li>
+            </ul>
+
+            <h3>Curatorship and Cultural Management</h3>
+            <ul>
+              <li><strong>Guest Curators (PiranhaLab)</strong> - 5th Concert Cycle EDGES, Centro Multimedia, CENART,
+                2020</li>
+              For this concert cycle we developed a virtual and immersive 3D space called Panorama, made with free
+              software self-managed by us as PiranhaLab
+              <li><strong>Manager and producer</strong> - Live Coding Concert, Festival Tiempo de Mujeres, Ex-Teresa
+                Arte Actual, 2020</li>
+              <li><strong>Curator and manager</strong> - PiranhaLab workshop series, PADID, Centro de Cultura Digital,
+                2019</li>
+            </ul>
+          </div>
+
+          <div class="bio-section">
+            <h2>Selected Publications</h2>
+            <ul>
+              <li>
+                <strong><a href="https://mitpress.mit.edu/9780262049702/the-supercollider-book/"
+                    target="_blank"><em>Artist Statement</em> in The SuperCollider Book. Second Edition</a></strong><br>
+                MIT Press | Part V: Projects and perspectives, Chapter 24: Artists' Statements, 2025
+              </li>
+              <br>
+              <li>
+                <strong><a href="https://www.cmmas.com/copy-3-of-ideassonicas25/ideassonicas%2Fsonicideas-23"
+                    target="_blank">Live coding as a cyber-hackfeminist practice</a></strong><br>
+                Ideas Sónicas No. 29, CMMAS, 2023
+              </li>
+              <br>
+              <li>
+                <strong><a href="https://www.repositorio.fam.unam.mx/handle/123456789/139" target="_blank">Panorama.
+                    Writing free and immersive spaces for audiovisual performance</a></strong><br>
+                In collaboration with Emilio Ocelotl and Dorian Sotomayor<br>
+                In "Algoritmos Arruinados. Situated perspectives on music technology", UNAM, 2023
+              </li><br>
+              <li>
+                <strong><a
+                    href="https://www.tierraadentro.cultura.gob.mx/subversion-ciber-feminista-utopias-tecnologicas-palabra-musica-codigo/"
+                    target="_blank">Cyberfeminist Subversion. Technological utopias, word - music - code</a></strong><br>
+                Revista Tierra Adentro, 2020
+              </li><br>
+              <li>
+                <strong><a href="https://doi.org/10.5281/zenodo.3946163" target="_blank">Bellacode: localized textual
+                    interfaces for live coding music</a></strong><br>
+                In collaboration with Luis N. Del Angel, Emilio Ocelotl and David Ogborn<br>
+                Proceedings of the Fourth International Conference on Live Coding, 2019
+              </li><br>
+              <li>
+                <strong><a href="http://dx.doi.org/10.12801/1947-5403.2018.10.01.11" target="_blank">Saborítmico: A
+                    Report from the Dance Floor in Mexico</a></strong><br>
+                In collaboration with Emilio Ocelotl and Luis N. Del Angel<br>
+                Dancecult Journal of Electronic Dance Music Culture, 2018
+              </li>
+            </ul>
+          </div>
+
+          <div class="bio-section">
+            <h2>Technical Skills</h2>
+
+            <h3>Programming Languages and Development Technologies</h3>
+            <p>JavaScript, Python, Three.js, React, Vue, TypeScript, Bootstrap, Tailwind, HTML5, CSS3, Git,
+              Firestore, Firebase, Node, Java, Pytorch, MySQL, REST API, Google Cloud Platform (GCP), Netlify, Vercel,
+              Docker, Bash, Pytorch, TensorFlow, Keras, Flask, Jupyter Notebooks
+            </p>
+
+            <h3>Creative Programming Environments</h3>
+            <p>SuperCollider, TidalCycles, SonicPi, Hydra, Processing, OpenFrameworks, p5.js, ml5.js, Three.js, P5LIVE,
+              Fluxus, Cinder, FoxDot, Tone.js</p>
+
+            <h3>Operating Systems</h3>
+            <p>Linux (Debian, Ubuntu, Linux Mint), Raspbian, MacOS, Windows</p>
+
+            <h3>Other Tools</h3>
+            <p>Github, Gitlab, Figma, SCRUM, Notion, Adobe Creative Suite (Premiere, Audition, After Effects, Photoshop,
+              Illustrator), TouchDesigner, ProTools, Kdenlive, Reaper, Reallusion, Logic, Ableton Live, Final Cut,
+              Resolume Arena, Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX</p>
+
+            <h3>Areas of Specialization</h3>
+            <p>Artificial intelligence, machine learning, web programming and design, live coding, creative programming
+              and electronics, electroacoustic music, digital art, version control systems, sensors, database processing,
+              virtual reality and 3D, audio signal processing and artistic research.</p>
+          </div>
+
+          <p class="update-date"><em>Last updated: October 2025</em></p>
+        </template>
+
       </div>
     </div>
   </article>
 </template>
+
+<script setup>
+import { useLang } from '../composables/useLang'
+
+const { current } = useLang()
+</script>
 
 <style scoped>
 .about-content {

@@ -11,6 +11,12 @@ const messages = {
       contact: 'Contacto',
     },
     footer: 'Website desarrollado en Vue from scratch por mi.',
+    projectView: {
+      technicalNotes: 'Notas Técnicas',
+      relatedProjects: 'Proyectos relacionados',
+      seeProject: 'Ver proyecto',
+      audioUnsupported: 'Tu navegador no soporta el elemento de audio.',
+    },
   },
   EN: {
     description: 'Digital artist, researcher, live coder and software developer',
@@ -20,6 +26,12 @@ const messages = {
       contact: 'Contact',
     },
     footer: 'Website developed in Vue from scratch by me.',
+    projectView: {
+      technicalNotes: 'Technical Notes',
+      relatedProjects: 'Related Projects',
+      seeProject: 'See project',
+      audioUnsupported: 'Your browser does not support the audio element.',
+    },
   },
 }
 

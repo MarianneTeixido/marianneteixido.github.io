@@ -1,88 +1,86 @@
 <template>
   <section class="project-details">
-    <h2>{{ project.title }}</h2>
-    <p>{{ project.summary }}</p>
-    <p>{{ project.year }}</p>
+    <h2>{{ displayProject.title }}</h2>
+    <p>{{ displayProject.summary }}</p>
+    <p>{{ displayProject.year }}</p>
 
     <!-- Imagen principal -->
-    <img v-if="project.image" :src="getImageUrl(project.image)" class="project-img" loading="lazy"
-      :alt="project.title" />
+    <img v-if="displayProject.image" :src="getImageUrl(displayProject.image)" class="project-img" loading="lazy"
+      :alt="displayProject.title" />
 
     <!-- Sketch de Hydra -->
-    <div v-if="project.type === 'hydra-sketch' && project.sketch" class="hydra-sketch-container">
-      <HydraSketch :code="project.sketch" />
+    <div v-if="displayProject.type === 'hydra-sketch' && displayProject.sketch" class="hydra-sketch-container">
+      <HydraSketch :code="displayProject.sketch" />
     </div>
 
     <!-- Descripción 1 -->
-    <div v-if="project.details?.fullDescription" v-html="project.details.fullDescription" class="project-description">
+    <div v-if="displayProject.details?.fullDescription" v-html="displayProject.details.fullDescription" class="project-description">
     </div>
       <!-- Reproductor de Audio -->
-      <div v-if="project.details?.audio" class="audio-player">
+      <div v-if="displayProject.details?.audio" class="audio-player">
         <audio controls>
-          <source :src="getAudioUrl(project.details.audio)" type="audio/mpeg">
-          Tu navegador no soporta el elemento de audio.
+          <source :src="getAudioUrl(displayProject.details.audio)" type="audio/mpeg">
+          {{ t.projectView.audioUnsupported }}
         </audio>
       </div>
-  
+
       <!-- Video de YouTube -->
-      <div v-if="project.details?.youtubeEmbed" v-html="project.details.youtubeEmbed" class="video-container"></div>
-  
+      <div v-if="displayProject.details?.youtubeEmbed" v-html="displayProject.details.youtubeEmbed" class="video-container"></div>
+
       <!-- Galería 1 -->
-      <div v-if="project.details?.images && project.details.images.length" class="project-gallery">
-        <img v-for="(img, index) in project.details.images" :key="index" :src="getImageUrl(img)"
-          :alt="`Imagen ${index + 1}`" class="gallery-img" loading="lazy" />
+      <div v-if="displayProject.details?.images && displayProject.details.images.length" class="project-gallery">
+        <img v-for="(img, index) in displayProject.details.images" :key="index" :src="getImageUrl(img)"
+          :alt="`Image ${index + 1}`" class="gallery-img" loading="lazy" />
     </div>
 
     <!-- Sketch de Hydra 2-->
-    <div v-if="project.type === 'hydra-sketch' && project.sketch2" class="hydra-sketch-container">
-      <HydraSketch :code="project.sketch2" />
+    <div v-if="displayProject.type === 'hydra-sketch' && displayProject.sketch2" class="hydra-sketch-container">
+      <HydraSketch :code="displayProject.sketch2" />
     </div>
 
     <!-- Descripción 2 -->
-    <div v-if="project.details?.fullDescription2" v-html="project.details.fullDescription2" class="project-description">
+    <div v-if="displayProject.details?.fullDescription2" v-html="displayProject.details.fullDescription2" class="project-description">
     </div>
 
-
-
     <!-- Galería 2 -->
-    <div v-if="project.details?.images2 && project.details.images2.length" class="project-gallery">
-      <img v-for="(img, index) in project.details.images2" :key="index" :src="getImageUrl(img)"
-        :alt="`Imagen secundaria ${index + 1}`" class="gallery-img" loading="lazy" />
+    <div v-if="displayProject.details?.images2 && displayProject.details.images2.length" class="project-gallery">
+      <img v-for="(img, index) in displayProject.details.images2" :key="index" :src="getImageUrl(img)"
+        :alt="`Image ${index + 1}`" class="gallery-img" loading="lazy" />
     </div>
 
     <!-- Video Gallery -->
-    <div v-if="project.details?.videos && project.details.videos.length" class="video-gallery">
-      <video v-for="(video, index) in project.details.videos" :key="index" controls class="gallery-video">
+    <div v-if="displayProject.details?.videos && displayProject.details.videos.length" class="video-gallery">
+      <video v-for="(video, index) in displayProject.details.videos" :key="index" controls class="gallery-video">
         <source :src="getVideoUrl(video)" type="video/mp4">
-        Your browser does not support the video tag.
+        {{ t.projectView.audioUnsupported }}
       </video>
     </div>
 
     <!-- Description 3 -->
-    <div v-if="project.details?.fullDescription3" v-html="project.details.fullDescription3" class="project-description">
+    <div v-if="displayProject.details?.fullDescription3" v-html="displayProject.details.fullDescription3" class="project-description">
     </div>
 
     <!-- Galería 3 -->
-    <div v-if="project.details?.images3 && project.details.images3.length" class="project-gallery">
-      <img v-for="(img, index) in project.details.images3" :key="index" :src="getImageUrl(img)"
-        :alt="`Imagen secundaria ${index + 1}`" class="gallery-img" loading="lazy" />
+    <div v-if="displayProject.details?.images3 && displayProject.details.images3.length" class="project-gallery">
+      <img v-for="(img, index) in displayProject.details.images3" :key="index" :src="getImageUrl(img)"
+        :alt="`Image ${index + 1}`" class="gallery-img" loading="lazy" />
     </div>
 
     <!-- Technical Notes -->
-    <div v-if="project.details?.technical_notes" class="technical-notes">
-      <h3>Technical Notes</h3>
+    <div v-if="displayProject.details?.technical_notes" class="technical-notes">
+      <h3>{{ t.projectView.technicalNotes }}</h3>
       <ul>
-        <li v-for="(note, index) in project.details.technical_notes" :key="index">
+        <li v-for="(note, index) in displayProject.details.technical_notes" :key="index">
           <strong>{{ note.title }}:</strong> {{ note.content }}
         </li>
       </ul>
     </div>
 
     <!-- Related Projects -->
-    <div v-if="project.related_projects" class="related-projects">
-      <h3>Proyectos relacionados</h3>
+    <div v-if="displayProject.related_projects" class="related-projects">
+      <h3>{{ t.projectView.relatedProjects }}</h3>
       <ul>
-        <li v-for="(related, index) in project.related_projects" :key="index">
+        <li v-for="(related, index) in displayProject.related_projects" :key="index">
           <strong>{{ related.title }}</strong> ({{ related.status }})
           <p>{{ related.description }}</p>
         </li>
@@ -91,21 +89,36 @@
 
     <div class="navigation-buttons">
       <BackButton />
-      <a v-if="project.link" :href="project.link" target="_blank" class="project-link">
-        Ver proyecto
+      <a v-if="displayProject.link" :href="displayProject.link" target="_blank" class="project-link">
+        {{ t.projectView.seeProject }}
       </a>
     </div>
   </section>
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import projects from '../data/projects.json'
 import BackButton from '../components/BackButton.vue'
 import HydraSketch from '../components/HydraSketch.vue'
+import { useLang } from '../composables/useLang'
 
+const { current, t } = useLang()
 const route = useRoute()
 const project = projects.find(p => p.id === route.params.projectId)
+
+const displayProject = computed(() => {
+  if (current.value === 'ES' || !project?.translations?.EN) return project
+  const en = project.translations.EN
+  return {
+    ...project,
+    title: en.title ?? project.title,
+    summary: en.summary ?? project.summary,
+    details: en.details ? { ...project.details, ...en.details } : project.details,
+    related_projects: en.related_projects ?? project.related_projects,
+  }
+})
 
 const getImageUrl = (imageName) => {
   return new URL(`../assets/img/${imageName}`, import.meta.url).href
@@ -113,7 +126,6 @@ const getImageUrl = (imageName) => {
 const getAudioUrl = (audioName) => {
   return new URL(`../assets/audio/${audioName}`, import.meta.url).href
 }
-
 const getVideoUrl = (videoName) => {
   return new URL(`../assets/video/${videoName}`, import.meta.url).href
 }
@@ -213,7 +225,6 @@ const getVideoUrl = (videoName) => {
 }
 
 .project-link {
-  /* Estilos para el enlace del proyecto */
   color: #3498db;
   text-decoration: none;
   font-weight: bold;

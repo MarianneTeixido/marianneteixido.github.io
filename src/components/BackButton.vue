@@ -1,8 +1,13 @@
 <template>
   <button class="back-button" @click="$router.back()">
-    <span class="text-container">Volver</span>
+    <span class="text-container">{{ current === 'EN' ? 'Back' : 'Volver' }}</span>
   </button>
 </template>
+
+<script setup>
+import { useLang } from '../composables/useLang';
+const { current } = useLang();
+</script>
 
 <style scoped>
 .back-button {

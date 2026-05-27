@@ -128,12 +128,23 @@ header button.btn-menu:focus i {
 }
 
 /* Style navbar behavior*/
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-lang-toggle {
+    margin-top: auto;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: 22vw;
-    height: 100%;
+    height: 100vh;
+    overflow-y: auto;
     padding: 1rem;
     background: var(--Gray-50);
     transition: transform 0.3s ease;
@@ -153,7 +164,7 @@ header button.btn-menu:focus i {
         padding: 1rem;
     }
 
-    #app.sidebar-is-open .sidebar {
+    .sidebar-is-open .sidebar {
         transform: translateX(0);
     }
 

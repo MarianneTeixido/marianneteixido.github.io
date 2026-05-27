@@ -35,3 +35,13 @@ import { useLang } from '../composables/useLang'
 
 const { current } = useLang()
 </script>
+
+<style scoped>
+
+
+@media (max-width: 480px) {
+  .contact-content {
+    margin-top: 3rem; }
+}
+
+</style>

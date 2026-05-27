@@ -54,7 +54,7 @@ onUnmounted(() => {
       <div v-if="project.hydraCode" class="project-media">
         <canvas ref="canvas" class="hydra-canvas"></canvas>
       </div>
-      <img v-else :src="getImageUrl(project.image)" :alt="project.title">
+      <img v-else :src="getImageUrl(project.image)" :alt="project.title" loading="lazy" decoding="async">
       <h3>{{ project.title }}</h3>
       <p>{{ localizedSummary }}</p>
     </a>

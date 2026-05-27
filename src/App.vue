@@ -1,10 +1,10 @@
 <template>
   <div class="app-shell" :class="{ 'sidebar-is-open': isMenuOpen }">
     <Sidebar :is-open="isMenuOpen" @close="isMenuOpen = false" />
+    <Header @toggle-menu="toggleMenu" :is-menu-open="isMenuOpen" />
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <div class="main-container">
-          <Header @toggle-menu="toggleMenu" />
           <main class="main-content">
             <router-view />
           </main>

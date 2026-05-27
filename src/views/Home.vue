@@ -27,7 +27,7 @@ export default {
 @media (max-width: 480px) {
   .projects {
     columns: 1;
-  }
+    margin-top: 3rem; }
 }
 
 @media (min-width: 768px) {

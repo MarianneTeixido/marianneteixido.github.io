@@ -558,4 +558,13 @@ figure {
   max-width: 100%;
   height: auto;
 }
+
+
+
+@media (max-width: 480px) {
+  .about-content h1 {
+    display: none;
+  }
+}
+
 </style>

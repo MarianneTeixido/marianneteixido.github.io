@@ -22,13 +22,13 @@ defineEmits(['toggle-menu']);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0.1rem 0.1rem 1rem;
+    padding: 0.4rem 0.75rem;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1001;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(243, 243, 243, 0.85);
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease;
   }

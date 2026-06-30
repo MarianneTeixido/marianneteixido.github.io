@@ -1,23 +1,29 @@
 <script setup>
 import { useLang } from '../composables/useLang'
-import LangToggle from './LangToggle.vue'
 
 defineProps({
   isOpen: Boolean,
 });
 const emit = defineEmits(['close']);
 
-const { t } = useLang()
+const { t, current, setLang } = useLang()
 
 const handleLinkClick = () => {
   emit('close');
 };
+
+const toggleLang = () => {
+  setLang(current.value === 'ES' ? 'EN' : 'ES')
+}
 </script>
 
 <template>
   <aside class="sidebar" :class="{ 'is-open': isOpen }">
     <div class="sidebar-container">
-      <h1 class="align-right">Marianne Teixido</h1>
+      <div class="sidebar-name-row">
+        <h1 class="site-name">Marianne Teixido</h1>
+        <button class="lang-inline sticky" @click="toggleLang">{{ current === 'ES' ? 'EN' : 'ES' }}</button>
+      </div>
       <div>
         <p>{{ t.description }}</p>
         <p></p>
@@ -53,33 +59,57 @@ const handleLinkClick = () => {
         </span>
         <p>{{ t.footer }}</p>
       </div>
-      <LangToggle class="sidebar-lang-toggle" />
     </div>
   </aside>
 </template>
 
 <style scoped>
-.inline-element {
-  display: inline-block;
-  margin: 2rem 1rem;
+.sidebar-name-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
-.menu-toggle {
-  display: none;
-  /* Oculto por defecto */
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1001;
-  background: none;
-  border: none;
-  font-size: 2rem;
+.site-name {
+  font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+  font-weight: 700;
+  color: var(--Blue-01);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.lang-inline {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  border: 1px solid var(--Blue-01);
+  background: var(--White);
+  color: #231F20;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
+  border-radius: 4px;
+  width: 4rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-inline:hover {
+  background: var(--Blue-01);
+  color: var(--White);
 }
 
 @media (max-width: 720px) {
-  .menu-toggle {
-    display: block;
+  .site-name {
+    font-size: 1.2rem;
   }
 }
 </style>

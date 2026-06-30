@@ -1,6 +1,6 @@
 <template>
   <section class="projects">
-    <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+    <ProjectCard v-for="(project, index) in projects" :key="project.id" :project="project" :index="index" />
   </section>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 <style scoped>
 .projects {
   columns: 2;
-  column-gap: 0;
+  column-gap: 0.5rem;
 }
 
 @media (max-width: 480px) {

@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useLang } from '../composables/useLang';
 
-const props = defineProps(['project']);
+const props = defineProps(['project', 'index']);
 const canvas = ref(null);
 const { current } = useLang();
 
@@ -13,6 +13,8 @@ const localizedSummary = computed(() => {
   return props.project.summary;
 });
 
+const projectNumber = computed(() => String((props.index ?? 0) + 1).padStart(2, '0'));
+
 const getImageUrl = (imageName) => {
   if (!imageName) return '';
   return new URL(`../assets/img/${imageName}`, import.meta.url).href;
@@ -20,8 +22,6 @@ const getImageUrl = (imageName) => {
 
 onMounted(() => {
   if (props.project.hydraCode && canvas.value) {
-    // Initialize Hydra on our specific canvas.
-    // This sets the global 'h' context to use this canvas.
     new Hydra({
       canvas: canvas.value,
       detectAudio: false,
@@ -29,9 +29,6 @@ onMounted(() => {
     });
 
     try {
-      // Create a function that will execute the hydra code string.
-      // This works because the hydra-synth script in index.html makes
-      // functions like osc(), kaleid(), etc., globally available.
       const hydraScript = new Function(props.project.hydraCode);
       hydraScript();
     } catch (e) {
@@ -41,7 +38,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  // If this card was displaying a hydra sketch, stop its rendering loop.
   if (props.project.hydraCode && typeof h !== 'undefined') {
     h.hush();
   }
@@ -51,29 +47,24 @@ onUnmounted(() => {
 <template>
   <div class="project">
     <a @click.prevent="$router.push(`/home/${project.id}`)" class="sticky">
-      <div v-if="project.hydraCode" class="project-media">
-        <canvas ref="canvas" class="hydra-canvas"></canvas>
+      <div class="project-thumb-wrap">
+        <div class="project-thumb">
+          <canvas v-if="project.hydraCode" ref="canvas" class="hydra-canvas"></canvas>
+          <img v-else :src="getImageUrl(project.image)" :alt="project.title" loading="lazy" decoding="async">
+        </div>
       </div>
-      <img v-else :src="getImageUrl(project.image)" :alt="project.title" loading="lazy" decoding="async">
+      <span class="project-number">{{ projectNumber }}</span>
       <h3>{{ project.title }}</h3>
-      <p>{{ localizedSummary }}</p>
     </a>
   </div>
 </template>
 
 <style scoped>
 .project {
-  border-radius: 2px;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fb 100%);
-  border: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
   break-inside: avoid;
-}
-
-.project:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
+  background: var(--Gray-50);
+  padding: 0.75rem 1.75rem 1.75rem 0.75rem;
 }
 
 .project a {
@@ -81,30 +72,66 @@ onUnmounted(() => {
   color: inherit;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
+.project-thumb-wrap {
+  position: relative;
+}
 
-.project img,
-.hydra-canvas {
+.project-thumb-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2px 28px 28px 90px;
+  border: 2px solid var(--Blue-01);
+  transform: translate(12px, 12px);
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.2s ease;
+}
+
+.project-thumb {
+  position: relative;
+  border-radius: 2px 28px 28px 90px;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
+
+.project:hover .project-thumb {
+  transform: translate(6px, 6px);
+}
+
+.project:hover .project-thumb-wrap::after {
+  transform: translate(6px, 6px);
+}
+
+.project-thumb img,
+.project-thumb .hydra-canvas {
+  display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
   object-position: center;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.4s ease;
+}
+
+.project:hover .project-thumb img,
+.project:hover .project-thumb .hydra-canvas {
+  transform: scale(1.04);
+}
+
+.project-number {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--Blue-01);
+  padding: 0.5rem 0.25rem 0.15rem;
+  letter-spacing: 0.05em;
 }
 
 .project h3 {
-  padding: 1rem 1rem 0;
+  padding: 0 0.25rem 0.75rem;
   margin: 0;
-  font-weight: 600;
-}
-
-.project p {
-  padding: 0.5rem 1rem 1rem;
-  margin: 0;
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  flex-grow: 1;
 }
 </style>

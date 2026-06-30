@@ -5,8 +5,7 @@
         <h1>Marianne Teixidó</h1>
 
         <figure>
-          <img src="../assets/img/marianne_teixido.jpg" alt="Marianne Teixido selfportrait" class="img-fluid"
-            loading="lazy" />
+          <FlowmapPhoto />
         </figure>
 
         <!-- ESPAÑOL -->
@@ -500,6 +499,7 @@
 
 <script setup>
 import { useLang } from '../composables/useLang'
+import FlowmapPhoto from '../components/FlowmapPhoto.vue'
 
 const { current } = useLang()
 </script>

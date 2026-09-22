@@ -84,7 +84,9 @@ onMounted(() => {
   }
 
   window.addEventListener('resize', resize)
-  resize()
+
+  const ro = new ResizeObserver(() => resize())
+  ro.observe(container)
 
   const mouse = new Vec2(-1)
   const velocity = new Vec2()
@@ -151,6 +153,7 @@ onMounted(() => {
   cleanups.push(() => {
     cancelAnimationFrame(animId)
     window.removeEventListener('resize', resize)
+    ro.disconnect()
     container.removeEventListener('mousemove', updateMouse)
     container.removeEventListener('touchstart', updateMouse)
     container.removeEventListener('touchmove', updateMouse)

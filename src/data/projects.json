@@ -1,5 +1,25 @@
 [
   {
+    "id": "decoding-gesture",
+    "title": "Decoding Gesture",
+    "year": "2026",
+    "link": "https://teixido.cc/dg",
+    "externalOnly": true,
+    "summary": null,
+    "image": "dg.jpg",
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": [],
+      "fullDescription3": null,
+      "images3": [],
+      "videos": []
+    },
+    "category": "web",
+    "tags": []
+  },
+  {
     "id": "codigo-tecnoafectivos",
     "title": "Código Tecnoafectivo",
     "year": "2026",

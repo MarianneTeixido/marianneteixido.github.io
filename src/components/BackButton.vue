@@ -14,7 +14,7 @@ const { current } = useLang();
   position: relative;
   display: flex;
   height: 50px;
-  width: 10rem; 
+  width: 5rem; 
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -30,6 +30,7 @@ const { current } = useLang();
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   cursor: pointer;
+  border-radius: 0.375rem;
 }
 
 .back-button::before {

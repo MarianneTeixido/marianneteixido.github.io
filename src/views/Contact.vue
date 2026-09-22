@@ -21,6 +21,7 @@
           <a href="https://github.com/MarianneTeixido" target="_blank"><i class="bi bi-github"></i></a>
           <a href="https://www.instagram.com/marianneteixido/" target="_blank"><i class="bi bi-instagram"></i></a>
           <a href="https://x.com/marianneteixido" target="_blank"><i class="bi bi-twitter"></i></a>
+          <a href="https://bsky.app/profile/teixido.bsky.social" target="_blank"><i class="bi bi-bluesky"></i></a>
           <a href="https://www.linkedin.com/in/marianneteixidodev/" target="_blank"><i class="bi bi-linkedin"></i></a>
           <a href="mailto:mteixido@piso16.cultura.unam.mx" target="_blank"><i class="bi bi-envelope"></i></a>
         </div>

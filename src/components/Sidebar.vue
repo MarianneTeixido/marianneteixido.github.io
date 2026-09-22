@@ -21,7 +21,7 @@ const toggleLang = () => {
   <aside class="sidebar" :class="{ 'is-open': isOpen }">
     <div class="sidebar-container">
       <div class="sidebar-name-row">
-        <h1 class="site-name">Marianne Teixido</h1>
+        <router-link to="/" class="site-name sticky" @click="handleLinkClick">Marianne Teixido</router-link>
         <button class="lang-inline sticky" @click="toggleLang">{{ current === 'ES' ? 'EN' : 'ES' }}</button>
       </div>
       <div>
@@ -45,6 +45,8 @@ const toggleLang = () => {
             class="bi bi-instagram"></i></a>
         <a href="https://social.toplap.org/@teixido" target="_blank" rel="me" class="sticky"><i
             class="bi bi-mastodon"></i></a>
+        <a href="https://bsky.app/profile/teixido.bsky.social" target="_blank" class="sticky"><i
+            class="bi bi-bluesky"></i></a>
         <a href="https://www.linkedin.com/in/marianneteixidodev/" target="_blank" class="sticky"><i
             class="bi bi-linkedin"></i></a>
         <a href="mailto:marianne.teixido@gmail.com" target="_blank" class="sticky"><i class="bi bi-envelope"></i></a>
@@ -73,7 +75,7 @@ const toggleLang = () => {
 }
 
 .site-name {
-  font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.2vw, 1.4rem);
   font-weight: 700;
   color: var(--Blue-01);
   text-transform: uppercase;
@@ -84,6 +86,8 @@ const toggleLang = () => {
   flex: 1;
   min-width: 0;
   word-break: break-word;
+  text-decoration: none;
+  display: block;
 }
 
 .lang-inline {
@@ -92,19 +96,26 @@ const toggleLang = () => {
   border: 1px solid var(--Blue-01);
   background: var(--White);
   color: #231F20;
-  padding: 0.4rem 0.6rem;
+  padding: 0.4rem 0.3rem;
   font-size: 0.85rem;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   border-radius: 4px;
-  width: 4rem;
+  width: 2.5rem;
   transition: background 0.2s, color 0.2s;
 }
 
 .lang-inline:hover {
   background: var(--Blue-01);
   color: var(--White);
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  .sidebar-name-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 720px) {

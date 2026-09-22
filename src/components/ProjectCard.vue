@@ -1,10 +1,12 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { useLang } from '../composables/useLang';
 
 const props = defineProps(['project', 'index']);
 const canvas = ref(null);
 const { current } = useLang();
+const router = useRouter();
 
 const localizedSummary = computed(() => {
   if (current.value === 'EN' && props.project.translations?.EN?.summary) {
@@ -13,7 +15,15 @@ const localizedSummary = computed(() => {
   return props.project.summary;
 });
 
-const projectNumber = computed(() => String((props.index ?? 0) + 1).padStart(2, '0'));
+const projectNumber = computed(() => props.project.year ?? '');
+
+const handleClick = () => {
+  if (props.project.externalOnly && props.project.link) {
+    window.open(props.project.link, '_blank', 'noopener');
+    return;
+  }
+  router.push(`/home/${props.project.id}`);
+};
 
 const getImageUrl = (imageName) => {
   if (!imageName) return '';
@@ -46,7 +56,7 @@ onUnmounted(() => {
 
 <template>
   <div class="project">
-    <a @click.prevent="$router.push(`/home/${project.id}`)" class="sticky">
+    <a @click.prevent="handleClick" class="sticky">
       <div class="project-thumb-wrap">
         <div class="project-thumb">
           <canvas v-if="project.hydraCode" ref="canvas" class="hydra-canvas"></canvas>

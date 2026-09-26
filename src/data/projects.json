@@ -6,7 +6,27 @@
     "link": "https://teixido.cc/dg",
     "externalOnly": true,
     "summary": null,
-    "image": "dg.jpg",
+    "image": "interfaz-perdida.png",
+    "details": {
+      "fullDescription": null,
+      "images": [],
+      "fullDescription2": null,
+      "images2": [],
+      "fullDescription3": null,
+      "images3": [],
+      "videos": []
+    },
+    "category": "web",
+    "tags": []
+  },
+  {
+    "id": "tecnologias-otras",
+    "title": "Tecnologías Otras. Saberes-hacer en el Abya Yala",
+    "year": "2026",
+    "link": "https://ramlab.cc/tecnologias-otras",
+    "externalOnly": true,
+    "summary": null,
+    "image": "tecnologiasotras.jpeg",
     "details": {
       "fullDescription": null,
       "images": [],
@@ -25,7 +45,7 @@
     "year": "2026",
     "link": null,
     "summary": "Instalación web interactiva",
-    "image": "exteresa-01.jpg",
+    "image": "exteresa-00.jpg",
     "details": {
       "fullDescription": "<h3>Contexto</h3><p>Esta pieza surge en la intersección entre el cuerpo, tecnoafecciones, archivo y tecnología. A partir del archivo fotográfico y  audiovisual del archivo del museo Ex Teresa Arte Actual, dentro del marco de la exposición Plurisonoridades, curado por Amanda Gutiérrez y Rosa Landabur enfocada en la visibilización de las prácticas de mujeres y disidencias hemos tenido en dicho recinto, <em>Código Afectivo</em> propone una instalación que retoma la selección propuesta por Ana Mora para el Eje 2 de la exposición titulado Constelaciónes Sonoras. En esta pieza el archivo se activa con el cuerpo y modula el archivo mediante su presencia física: manos, brazos, cabeza y pies se convierten en interfaces de navegación. La detección gestual recupera el cuerpo como agente en el encuentro conimágenes cargadas de memoria y tiempo.</p>",
       "images": [

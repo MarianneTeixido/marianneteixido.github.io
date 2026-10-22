@@ -15,6 +15,10 @@ const esc = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, 
 // Proyectos cuya description sale de otro campo que fullDescription.
 const descField = { perimetral: 'fullDescription2' }
 
+// GitHub Pages sirve cada ruta como carpeta y redirige (301) a la versión con
+// barra final, así que esa es la URL canónica.
+const url = path => `${SITE}${path}/`
+
 const pages = [
   { path: '/home', title: 'Portafolio | Marianne Teixido' },
   { path: '/bio', title: 'Bio | Marianne Teixido' },
@@ -30,9 +34,9 @@ const pages = [
 
 const render = ({ path, title, description }) => {
   let html = template.replace(/<title>.*?<\/title>/, `<title>${esc(title)}</title>`)
-  html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${SITE}${path}" />`)
+  html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${url(path)}" />`)
   html = html.replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(title)}`)
-  html = html.replace(/(<meta property="og:url" content=")[^"]*/, `$1${SITE}${path}`)
+  html = html.replace(/(<meta property="og:url" content=")[^"]*/, `$1${url(path)}`)
   if (description) {
     html = html.replace(/(<meta name="description" content=")[^"]*/, `$1${esc(description)}`)
     html = html.replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`)
@@ -47,7 +51,7 @@ for (const page of pages) {
 
 copyFileSync('docs/index.html', 'docs/404.html')
 
-const urls = pages.map(p => `  <url><loc>${SITE}${p.path}</loc><lastmod>${today}</lastmod></url>`)
+const urls = [`  <url><loc>${SITE}/</loc><lastmod>${today}</lastmod></url>`, ...pages.map(p => `  <url><loc>${url(p.path)}</loc><lastmod>${today}</lastmod></url>`)]
 writeFileSync(
   'docs/sitemap.xml',
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`,

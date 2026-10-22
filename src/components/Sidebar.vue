@@ -40,16 +40,16 @@ const toggleLang = () => {
 
       <div class="social-media-icons">
 
-        <a href="https://github.com/MarianneTeixido" target="_blank" class="sticky"><i class="bi bi-github"></i></a>
-        <a href="https://www.instagram.com/marianneteixido/" target="_blank" class="sticky"><i
+        <a href="https://github.com/MarianneTeixido" target="_blank" data-umami-event="social-github" data-umami-event-origen="sidebar" class="sticky"><i class="bi bi-github"></i></a>
+        <a href="https://www.instagram.com/marianneteixido/" target="_blank" data-umami-event="social-instagram" data-umami-event-origen="sidebar" class="sticky"><i
             class="bi bi-instagram"></i></a>
-        <a href="https://social.toplap.org/@teixido" target="_blank" rel="me" class="sticky"><i
+        <a href="https://social.toplap.org/@teixido" target="_blank" rel="me" data-umami-event="social-mastodon" data-umami-event-origen="sidebar" class="sticky"><i
             class="bi bi-mastodon"></i></a>
-        <a href="https://bsky.app/profile/teixido.bsky.social" target="_blank" class="sticky"><i
+        <a href="https://bsky.app/profile/teixido.bsky.social" target="_blank" data-umami-event="social-bluesky" data-umami-event-origen="sidebar" class="sticky"><i
             class="bi bi-bluesky"></i></a>
-        <a href="https://www.linkedin.com/in/marianneteixidodev/" target="_blank" class="sticky"><i
+        <a href="https://www.linkedin.com/in/marianneteixidodev/" target="_blank" data-umami-event="social-linkedin" data-umami-event-origen="sidebar" class="sticky"><i
             class="bi bi-linkedin"></i></a>
-        <a href="mailto:marianne.teixido@gmail.com" target="_blank" class="sticky"><i class="bi bi-envelope"></i></a>
+        <a href="mailto:marianne.teixido@gmail.com" target="_blank" data-umami-event="email" data-umami-event-origen="sidebar" class="sticky"><i class="bi bi-envelope"></i></a>
       </div>
 
       <div class="license">

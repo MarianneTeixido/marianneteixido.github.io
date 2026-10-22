@@ -15,8 +15,9 @@ dist-ssr
 # Referencias locales
 referencias/
 
-# Claude Code worktrees
-.claude/worktrees/
+# Claude Code
+.claude/
+CLAUDE.md
 
 # Editor directories and files
 .vscode/*

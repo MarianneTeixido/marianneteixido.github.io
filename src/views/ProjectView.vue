@@ -89,7 +89,7 @@
 
     <div class="navigation-buttons">
       <BackButton />
-      <a v-if="displayProject.link" :href="displayProject.link" target="_blank" class="project-link">
+      <a v-if="displayProject.link" :href="displayProject.link" target="_blank" class="project-link" data-umami-event="ver-proyecto" :data-umami-event-proyecto="displayProject.id">
         {{ t.projectView.seeProject }}
       </a>
     </div>

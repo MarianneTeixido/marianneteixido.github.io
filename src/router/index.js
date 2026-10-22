@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Bio from '../views/Bio.vue'
 import Contact from '../views/Contact.vue'
 import ProjectView from '../views/ProjectView.vue'
+import projects from '../data/projects.json'
 
 const routes = [
   { path: '/', redirect: '/home' },
@@ -19,6 +20,15 @@ const router = createRouter({
     // always scroll to top
     return { top: 0 }
   },
+})
+
+const staticTitles = { '/home': 'Portafolio', '/bio': 'Bio', '/contact': 'Contacto' }
+
+// Mantiene document.title en sync para que analytics registre títulos útiles
+router.afterEach((to) => {
+  const project = projects.find(p => p.id === to.params.projectId)
+  const name = project?.title ?? staticTitles[to.path]
+  document.title = name ? `${name} | Marianne Teixido` : 'Portafolio | Marianne Teixido'
 })
 
 export default router

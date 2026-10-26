@@ -49,7 +49,7 @@
     <!-- Galería 2 -->
     <div v-if="displayProject.details?.images2 && displayProject.details.images2.length" class="project-gallery">
       <img v-for="(img, index) in displayProject.details.images2" :key="index" :src="getImageUrl(img)"
-        :alt="`${displayProject.title} ${index + 1}`" class="gallery-img zoomable" loading="lazy" tabindex="0"
+        :alt="`${displayProject.title} ${index + 1}`" :class="['gallery-img', 'zoomable', { wide: displayProject.details.wideImages?.includes(img) }]" loading="lazy" tabindex="0"
         role="button" @click="openAt(offsets.g2 + index)" @keydown.enter="openAt(offsets.g2 + index)" />
     </div>
 
@@ -75,9 +75,9 @@
     <!-- Technical Notes -->
     <div v-if="displayProject.details?.technical_notes" class="technical-notes">
       <h3>{{ t.projectView.technicalNotes }}</h3>
-      <ul>
+      <ul class="ficha">
         <li v-for="(note, index) in displayProject.details.technical_notes" :key="index">
-          <strong>{{ note.title }}:</strong> {{ note.content }}
+          <span class="ficha-label">{{ note.title }}</span>{{ note.content }}
         </li>
       </ul>
     </div>
@@ -278,6 +278,11 @@ const getVideoUrl = (videoName) => {
   outline-offset: 3px;
 }
 
+/* Imágenes que ocupan todo el ancho de la columna de texto (partituras, diagramas) */
+.gallery-img.wide {
+  column-span: all;
+}
+
 .gallery-img {
   width: 100%;
   height: auto;
@@ -341,6 +346,26 @@ const getVideoUrl = (videoName) => {
   padding: 0;
 }
 
+/* Misma ficha que en las exhibiciones; aquí sin sangría y con etiquetas más anchas */
+.technical-notes ul.ficha {
+  margin: 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--Blue-01);
+  font-size: 0.9rem;
+}
+.technical-notes ul.ficha li {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.1rem;
+}
+.technical-notes .ficha-label {
+  flex: 0 0 7rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Blue-01);
+  opacity: 0.8;
+}
 .technical-notes li,
 .related-projects li {
   margin-bottom: 0.5rem;

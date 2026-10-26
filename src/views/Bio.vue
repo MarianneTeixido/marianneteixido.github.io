@@ -20,6 +20,9 @@
             <p>Mi trabajo se materializa en performances de live coding, composiciones electroacústicas, instalaciones
               interactivas e investigaciones teóricas que cuestionan las narrativas hegemónicas de la tecnología,
               proponiendo en su lugar prácticas ciberfeministas y no binarias de creación.</p>
+
+            <a class="cv-pill" :href="cvEs" download="Marianne-Teixido_CV_ES.pdf" target="_blank" rel="noopener"
+              data-umami-event="descarga-cv" data-umami-event-idioma="ES"><i class="bi bi-download"></i> Descargar CV</a>
           </div>
 
           <div class="bio-section">
@@ -28,15 +31,15 @@
               <li>
                 <strong>Doctorado en Música</strong> - Especialidad Tecnología Musical<br>
                 Facultad de Música, Universidad Nacional Autónoma de México<br>
-                <em>Investigación en proceso: "XYK. Síntesis de habla no binarie recursiva con deep neural networks"</em>
-                2024 - presente
+                <em>Investigación en proceso: "XYK. Síntesis de voces disidentes posthumanas con redes neuronales"</em><br>
+                2024 - 2028
               </li>
               <li>
                 <strong>Maestría en Historia del Arte</strong> - Especialidad Teoría y Metodología<br>
                 Facultad de Filosofía y Letras / Instituto de Investigaciones Estéticas, UNAM<br>
                 <em>Tesis: "Para tejer tiempos. Temporalidades otras para pensar y escribir sobre prácticas artísticas con
                   tecnologías"</em><br>
-                2020 - 2023
+                2021 - 2022
               </li>
               <li>
                 <strong>Licenciatura en Ciencias de la Comunicación</strong> - Especialidad Producción Audiovisual<br>
@@ -51,10 +54,10 @@
           <div class="bio-section">
             <h2>Investigación y Proyectos Actuales</h2>
             <ul>
-              <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Coordinación del proyecto de inteligencia
-                artificial transhackfeminista</li>
-              <li><strong>XYK</strong> - Investigación sobre síntesis de habla no binarie recursiva con deep neural
-                networks</li>
+              <li><strong>[R.A.M.] Redes Autónomas de Memoria</strong> - Coordinación de la infraestructura tecnológica
+                autónoma transhackfeminista, 2021 - presente</li>
+              <li><strong>XYK</strong> - Investigación doctoral sobre síntesis de voces disidentes posthumanas con redes
+                neuronales, 2024 - 2028</li>
             </ul>
           </div>
 
@@ -78,6 +81,13 @@
 
             <h3>Becas Individuales</h3>
             <ul>
+              <li><strong>Jóvenes Creadores</strong> - Sistema Nacional de Creadores de Arte, Medios Audiovisuales / Nuevas
+                Tecnologías, por "Oráculo para cuerpos tentaculares", 2026</li>
+              <li><strong>Beca completa</strong> - School for Poetic Computation (SFPC), Nueva York, curso Handmade
+                Datasets, 2026</li>
+              <li><strong>Estancia de investigación</strong> - PAEP-UNAM, Stiftung Universität Hildesheim, Alemania: "XYK.
+                Perceptual evaluation of voice latent space interpolation through real-time synthesis", 2026</li>
+              <li><strong>Beca nacional de doctorado SECIHTI</strong> - Doctorado en Música, UNAM, 2024-2028</li>
               <li><strong>manifiest(ia)s</strong> - Convocatoria para compositoras Creación con perspectiva, CMMAS, 2022
               </li>
               <li><strong>Estancia de investigación</strong> - Convergencia TransHackFeminista, Calafou y Hangar,
@@ -86,7 +96,8 @@
                 UNAM, 2021</li>
               <li><strong>Beca Nacional CONACyT</strong> - Programa de Posgrado, Maestría en Historia del Arte, 2021-2022
               </li>
-              <li><strong>Jóvenes Creadores</strong> - FONCA, Medios Audiovisuales, Nuevas Tecnologías, 2018-2019</li>
+              <li><strong>Jóvenes Creadores</strong> - FONCA, Medios Audiovisuales, Nuevas Tecnologías, por "Unknown Author.
+                Meta-imágenes cartográficas", 2018-2019</li>
             </ul>
 
             <h3>Becas Colectivas</h3>
@@ -100,6 +111,8 @@
 
             <h3>Residencias Artísticas</h3>
             <ul>
+              <li><strong>Stiftung Universität Hildesheim, Alemania</strong> - 23 de noviembre al 11 de diciembre de 2026
+                (próxima)</li>
               <li><strong>CCRMA, Stanford University</strong> - Enero 2024</li>
               <li><strong>TransHachFeminist! @ Calafou, Catalonia</strong> - Agosto 2022</li>
               <li><strong>Hangar, Toplab Barcelona</strong> - Julio 2022</li>
@@ -118,10 +131,19 @@
             <ul>
               <li>
                 <strong>Docente - <a
+                    href="https://desarrolloacademico.cenart.gob.mx/curso-oci-2025-2026-2-poeticas-situadas-de-lo-artificial-eticas-especulativas-con-las-ias/"
+                    target="_blank">Poéticas situadas de lo artificial. Éticas especulativas con las IAs</a></strong><br>
+                Oferta Curricular Interdisciplinaria, CENART<br>
+                Impartido en dupla con Yoatzin Balbuena<br>
+                2025
+              </li>
+              <br>
+              <li>
+                <strong>Docente - <a
                     href="https://desarrolloacademico.cenart.gob.mx/diplomado-transitos-34-exploraciones-intermediales-con-el-cuerpo-y-el-sonido/"
                     target="_blank">Exploraciones intermediales con el cuerpo y el sonido</a></strong><br>
                 Diplomado Tránsitos Nodo 34, CENART <br>
-                Impartido en colaboración con Claudia Cabrera <br>
+                Impartido en colaboración con Claudia Cabrera. Además, clase magistral de SuperCollider, LIMME, UNAM <br>
                 2025
               </li>
               <br>
@@ -130,7 +152,7 @@
                 Carreras de Arquitectura de Interiores, Diseño Industrial, Diseño Textil y Moda, Cine y Televisión,
                 Mercadotecnia y Publicidad<br>
                 Centro de Diseño, Cine y Televisión<br>
-                2019 - 2024
+                2019 - 2023
               </li>
               <br>
               <li>
@@ -167,7 +189,11 @@
 
             <h3>Curaduría y Gestión Cultural</h3>
             <ul>
-              <li><strong>Curadorxs invitadxs (PiranhaLab)</strong> - 5to Ciclo de Concierto EDGES, Centro Multimedia,
+              <li><strong>Curadora</strong> - Tecnologías Otras. Saberes-hacer en el Abya Yala, Museo Universitario
+                Leopoldo Flores, UAEM, Toluca, 2026</li>
+              <li><strong>Coordinadora</strong> - R.A.M. (Redes Autónomas de Memoria), infraestructura tecnológica
+                autónoma transhackfeminista, 2021 - presente</li>
+              <li><strong>Curadora (PiranhaLab)</strong> - 5.º Ciclo de Concierto EDGES, Centro Multimedia,
                 CENART, 2020</li>
               Para este ciclo de conciertos desarrollamos espacio virtual e inmmersivo en 3D llamado Panorama hecho con
               software libre autogestionado por nosotres como PiranhaLab
@@ -226,9 +252,9 @@
             <h2>Habilidades Técnicas</h2>
 
             <h3>Lenguajes de Programación y tecnologías de desarrollo</h3>
-            <p>JavaScript, Python, Three.js, React, Vue, TypeScript, Bootstrap, Tailwind, HTML5, CSS3, Git,
+            <p>JavaScript, Python, C++, Three.js, React, Vue, TypeScript, Bootstrap, Tailwind, HTML5, CSS3, Git,
               Firestore, Firebase, Node, Java, Pytorch, MySQL, API Rest, Google Cloud Platform (GCP), Netlify, Vercel,
-              Docker,
+              Docker, Kubernetes,
               Bash, Pytorch, TensorFlow, Keras, Flask, Jupyter Notebooks
             </p>
 
@@ -243,13 +269,13 @@
             <p>Github, Gitlab, Figma, SCRUM, Notion, Adobe Creative Suite (Premiere, Audition, After Effects, Photoshop,
               Illustrator), TouchDesigner, ProTools,
               Kdenlive, Reaper, Reallusion, Logic, Ableton Live, Final Cut, Resolume Arena,
-              Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX</p>
+              Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX, Raspberry Pi, ESP32 / Arduino</p>
 
             <h3>Áreas de Especialización</h3>
-            <p>Inteligencia artificial, machine learning, programación y diseño web, programación al vuelo (live coding), programación y electrónica creativa, música electroacústica, arte digital, sistemas de control de versiones, sensores, procesamiento de bases de datos, realidad virtual y 3D, procesamiento de señales de audio e investigación artística.</p>
+            <p>Inteligencia artificial, machine learning, programación y diseño web, programación al vuelo (live coding), programación y electrónica creativa, música electroacústica, síntesis neuronal de voz, espacialización y ambisonics, biomateriales (bioplásticos de alginato y agar, celulosa bacteriana, cerámica de huevo), arte digital, sistemas de control de versiones, sensores, procesamiento de bases de datos, realidad virtual y 3D, procesamiento de señales de audio e investigación artística.</p>
           </div>
 
-          <p class="update-date"><em>Actualización: Octubre 2025</em></p>
+          <p class="update-date"><em>Actualización: Octubre 2026</em></p>
         </template>
 
         <!-- ENGLISH -->
@@ -264,6 +290,9 @@
             <p>My work materializes in live coding performances, electroacoustic compositions, interactive installations
               and theoretical research that question the hegemonic narratives of technology, proposing instead
               cyberfeminist and non-binary practices of creation.</p>
+
+            <a class="cv-pill" :href="cvEn" download="Marianne-Teixido_CV_EN.pdf" target="_blank" rel="noopener"
+              data-umami-event="descarga-cv" data-umami-event-idioma="EN"><i class="bi bi-download"></i> Download CV</a>
           </div>
 
           <div class="bio-section">
@@ -272,15 +301,15 @@
               <li>
                 <strong>PhD in Music</strong> - Music Technology Specialization<br>
                 Faculty of Music, Universidad Nacional Autónoma de México<br>
-                <em>Research in progress: "XYK. Recursive non-binary speech synthesis with deep neural networks"</em>
-                2024 - present
+                <em>Research in progress: "XYK. Synthesis of posthuman dissident voices with neural networks"</em><br>
+                2024 - 2028
               </li>
               <li>
                 <strong>Master's in Art History</strong> - Theory and Methodology Specialization<br>
                 Faculty of Philosophy and Letters / Institute of Aesthetic Research, UNAM<br>
                 <em>Thesis: "To weave times. Other temporalities to think and write about artistic practices with
                   technologies"</em><br>
-                2020 - 2023
+                2021 - 2022
               </li>
               <li>
                 <strong>Bachelor's in Communication Sciences</strong> - Audiovisual Production Specialization<br>
@@ -295,9 +324,10 @@
           <div class="bio-section">
             <h2>Current Research and Projects</h2>
             <ul>
-              <li><strong>[R.A.M.] Autonomous Memory Networks</strong> - Coordination of the transhackfeminist artificial
-                intelligence project</li>
-              <li><strong>XYK</strong> - Research on recursive non-binary speech synthesis with deep neural networks</li>
+              <li><strong>[R.A.M.] Autonomous Memory Networks</strong> - Coordination of the autonomous transhackfeminist
+                technological infrastructure, 2021 - present</li>
+              <li><strong>XYK</strong> - Doctoral research on synthesis of posthuman dissident voices with neural networks,
+                2024 - 2028</li>
             </ul>
           </div>
 
@@ -321,13 +351,21 @@
 
             <h3>Individual Grants</h3>
             <ul>
+              <li><strong>Jóvenes Creadores</strong> - Sistema Nacional de Creadores de Arte, Audiovisual Media / New
+                Technologies, for "Oráculo para cuerpos tentaculares", 2026</li>
+              <li><strong>Full scholarship</strong> - School for Poetic Computation (SFPC), New York, Handmade Datasets
+                course, 2026</li>
+              <li><strong>Research stay</strong> - PAEP-UNAM, Stiftung Universität Hildesheim, Germany: "XYK. Perceptual
+                evaluation of voice latent space interpolation through real-time synthesis", 2026</li>
+              <li><strong>SECIHTI National PhD Grant</strong> - PhD in Music, UNAM, 2024-2028</li>
               <li><strong>manifiest(ia)s</strong> - Open call for composers, Creación con perspectiva, CMMAS, 2022</li>
               <li><strong>Research stay</strong> - TransHackFeminist Convergence, Calafou and Hangar, Barcelona. PAEP,
                 2022</li>
               <li><strong>[R.A.M.] Autonomous Memory Networks</strong> - Accompaniment Program 2022, Piso 16, Cultura
                 UNAM, 2021</li>
               <li><strong>CONACyT National Grant</strong> - Graduate Program, Master's in Art History, 2021-2022</li>
-              <li><strong>Jóvenes Creadores</strong> - FONCA, Audiovisual Media, New Technologies, 2018-2019</li>
+              <li><strong>Jóvenes Creadores</strong> - FONCA, Audiovisual Media, New Technologies, for "Unknown Author.
+                Cartographic meta-images", 2018-2019</li>
             </ul>
 
             <h3>Collective Grants</h3>
@@ -341,6 +379,8 @@
 
             <h3>Artist Residencies</h3>
             <ul>
+              <li><strong>Stiftung Universität Hildesheim, Germany</strong> - November 23 to December 11, 2026
+                (upcoming)</li>
               <li><strong>CCRMA, Stanford University</strong> - January 2024</li>
               <li><strong>TransHackFeminist! @ Calafou, Catalonia</strong> - August 2022</li>
               <li><strong>Hangar, Toplab Barcelona</strong> - July 2022</li>
@@ -359,10 +399,19 @@
             <ul>
               <li>
                 <strong>Instructor - <a
+                    href="https://desarrolloacademico.cenart.gob.mx/curso-oci-2025-2026-2-poeticas-situadas-de-lo-artificial-eticas-especulativas-con-las-ias/"
+                    target="_blank">Situated Poetics of the Artificial. Speculative Ethics with AIs</a></strong><br>
+                Interdisciplinary Curricular Offering, CENART<br>
+                Taught in a duo with Yoatzin Balbuena<br>
+                2025
+              </li>
+              <br>
+              <li>
+                <strong>Instructor - <a
                     href="https://desarrolloacademico.cenart.gob.mx/diplomado-transitos-34-exploraciones-intermediales-con-el-cuerpo-y-el-sonido/"
                     target="_blank">Intermedial Explorations with Body and Sound</a></strong><br>
                 Diplomado Tránsitos Node 34, CENART<br>
-                Taught in collaboration with Claudia Cabrera<br>
+                Taught in collaboration with Claudia Cabrera. Also, SuperCollider masterclass, LIMME, UNAM<br>
                 2025
               </li>
               <br>
@@ -371,7 +420,7 @@
                 Interior Architecture, Industrial Design, Textile and Fashion Design, Film and Television,
                 Marketing and Advertising programs<br>
                 Centro de Diseño, Cine y Televisión<br>
-                2019 - 2024
+                2019 - 2023
               </li>
               <br>
               <li>
@@ -409,7 +458,11 @@
 
             <h3>Curatorship and Cultural Management</h3>
             <ul>
-              <li><strong>Guest Curators (PiranhaLab)</strong> - 5th Concert Cycle EDGES, Centro Multimedia, CENART,
+              <li><strong>Curator</strong> - Tecnologías Otras. Saberes-hacer en el Abya Yala, Museo Universitario
+                Leopoldo Flores, UAEM, Toluca, 2026</li>
+              <li><strong>Coordinator</strong> - R.A.M. (Autonomous Memory Networks), autonomous transhackfeminist
+                technological infrastructure, 2021 - present</li>
+              <li><strong>Curator (PiranhaLab)</strong> - 5th Concert Cycle EDGES, Centro Multimedia, CENART,
                 2020</li>
               For this concert cycle we developed a virtual and immersive 3D space called Panorama, made with free
               software self-managed by us as PiranhaLab
@@ -466,9 +519,9 @@
             <h2>Technical Skills</h2>
 
             <h3>Programming Languages and Development Technologies</h3>
-            <p>JavaScript, Python, Three.js, React, Vue, TypeScript, Bootstrap, Tailwind, HTML5, CSS3, Git,
+            <p>JavaScript, Python, C++, Three.js, React, Vue, TypeScript, Bootstrap, Tailwind, HTML5, CSS3, Git,
               Firestore, Firebase, Node, Java, Pytorch, MySQL, REST API, Google Cloud Platform (GCP), Netlify, Vercel,
-              Docker, Bash, Pytorch, TensorFlow, Keras, Flask, Jupyter Notebooks
+              Docker, Kubernetes, Bash, Pytorch, TensorFlow, Keras, Flask, Jupyter Notebooks
             </p>
 
             <h3>Creative Programming Environments</h3>
@@ -481,15 +534,15 @@
             <h3>Other Tools</h3>
             <p>Github, Gitlab, Figma, SCRUM, Notion, Adobe Creative Suite (Premiere, Audition, After Effects, Photoshop,
               Illustrator), TouchDesigner, ProTools, Kdenlive, Reaper, Reallusion, Logic, Ableton Live, Final Cut,
-              Resolume Arena, Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX</p>
+              Resolume Arena, Ardour, Audacity, Blender, GIMP, Inkscape, OBS, ffmpeg, LaTeX, Raspberry Pi, ESP32 / Arduino</p>
 
             <h3>Areas of Specialization</h3>
             <p>Artificial intelligence, machine learning, web programming and design, live coding, creative programming
-              and electronics, electroacoustic music, digital art, version control systems, sensors, database processing,
+              and electronics, electroacoustic music, neural voice synthesis, spatialization and ambisonics, biomaterials (alginate and agar bioplastics, bacterial cellulose, eggshell ceramics), digital art, version control systems, sensors, database processing,
               virtual reality and 3D, audio signal processing and artistic research.</p>
           </div>
 
-          <p class="update-date"><em>Last updated: October 2025</em></p>
+          <p class="update-date"><em>Last updated: October 2026</em></p>
         </template>
 
       </div>
@@ -500,6 +553,9 @@
 <script setup>
 import { useLang } from '../composables/useLang'
 import FlowmapPhoto from '../components/FlowmapPhoto.vue'
+
+import cvEs from '../assets/docs/Marianne-Teixido_CV_ES_corto.pdf?url'
+import cvEn from '../assets/docs/Marianne-Teixido_CV_EN_short.pdf?url'
 
 const { current } = useLang()
 </script>
@@ -518,6 +574,25 @@ const { current } = useLang()
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
+}
+
+.cv-pill {
+  display: inline-block;
+  border: 1px solid var(--Blue-01);
+  background: var(--White);
+  color: var(--Dark);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.3;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cv-pill:hover {
+  background: var(--Blue-01);
+  color: var(--White);
 }
 
 .bio-section h3 {

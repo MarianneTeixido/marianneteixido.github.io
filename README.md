@@ -10,3 +10,5 @@ Pendientes
 - Añadir buscador, ~~filtro de proyectos y ordenamiento por tags~~
 - ~~Crear mapa de sitio y subir a Google~~
 - Mejorar SEO 
+- Añadir paginas con los modelos montados en len y bombon. (grafiti, pix2pix audio.)
+

@@ -223,10 +223,11 @@
         "tacotron.png",
         "xtts-2.png"
       ],
-      "fullDescription2": "<h3>Proceso técnico y conceptual</h3><p>Para la elaboración el contenido linguístico de la pieza dicho por las voces, realicé una reinterpretación poética de dos fuentes textuales: <b>The Oxford Handbook of Voice Studies</b> (Eidsheim y Meizel, 2019), que aborda los estudios vocales desde una perspectiva interdisciplinar y el subcapítulo <em>Asistentes virtuales</em> lozalizado dentro del capítulo <em>Decodificando la IA desde el feminismo</em> en el libro <b>Tecnologías Feministas: Tramas para la resistencia desde el Sur Latinoamericano</b> (Fischetti, 2024) en donde se analizan críticamente las voces sintéticas desde una mirada feminista. Con esta reelaboración busco enfatizar la dimensión estética del lenguaje, preservando los fundamentos teóricos de los textos originales.</p><p>Para la construcción de las capas sonoras, implementé un proceso estratificado: la primera capa base consite en grabaciones de mi voz; la segunda capa es la voz sintetizada con el modelo XTTS_v02 para voces multilingues con transferencia de estilo; la tercera capa se integra por la voz sintetizada con Tacotron 2. Esta combinación me permitió explorar en esta pieza los contrastes entre lo orgánico y sintético así como el timbre y la prosodía en una composición octafónica al vuelo.</p><p>Para este ensayo retomé la clase de altura (pitch class) como metáfora para trasladar una escala de 8 notas diatónica sin cromatismos. En donde la octafonía hacía referencia a la equivalencia de posiciones en la repetición de 7 notas más 1 de repetición, tomando ccomo referencia los 8 canales contra los 3 layers de voces. Cada una de las voces se desplazan en el espacio siguiendo un patrón. El patrón de movimiento busca contraponer el sistema octafónico con una operación de movimiento ternaria. En la imagen/partitura debajo se puede apreciar el movimiento de las voces a lo largo de la ejecución. </p>",
+      "fullDescription2": "<h3>Proceso técnico y conceptual</h3><p>Para la elaboración el contenido linguístico de la pieza dicho por las voces, realicé una reinterpretación poética de dos fuentes textuales: <b>The Oxford Handbook of Voice Studies</b> (Eidsheim y Meizel, 2019), que aborda los estudios vocales desde una perspectiva interdisciplinar y el subcapítulo <em>Asistentes virtuales</em> lozalizado dentro del capítulo <em>Decodificando la IA desde el feminismo</em> en el libro <b>Tecnologías Feministas: Tramas para la resistencia desde el Sur Latinoamericano</b> (Fischetti, 2024) en donde se analizan críticamente las voces sintéticas desde una mirada feminista. Con esta reelaboración busco enfatizar la dimensión estética del lenguaje, preservando los fundamentos teóricos de los textos originales.</p><p>Para la construcción de las capas sonoras, implementé un proceso estratificado: la primera capa base consite en grabaciones de mi voz; la segunda capa es la voz sintetizada con el modelo XTTS_v02 para voces multilingues con transferencia de estilo; la tercera capa se integra por la voz sintetizada con Tacotron 2. Esta combinación me permitió explorar en esta pieza los contrastes entre lo orgánico y sintético así como el timbre y la prosodía en una composición octafónica al vuelo.</p><p>Para este ensayo retomé la clase de altura (pitch class) como metáfora para trasladar una escala de 8 notas diatónica sin cromatismos. En donde la octafonía hacía referencia a la equivalencia de posiciones en la repetición de 7 notas más 1 de repetición, tomando ccomo referencia los 8 canales contra los 3 layers de voces. Cada una de las voces se desplazan en el espacio siguiendo un patrón. El patrón de movimiento busca contraponer el sistema octafónico con una operación de movimiento ternaria. En la partitura debajo se puede apreciar el movimiento de las voces a lo largo de la ejecución.</p><h3>Partitura</h3><p>La partitura es una secuencia de diez secciones de tres pulsos cada una. Cada pulso muestra los ocho canales vistos desde arriba (canal 1 arriba a la izquierda, en sentido horario); el punto marca el canal donde suena la voz y la flecha el recorrido desde el pulso anterior. La fracción n/8 indica el avance por pulso. Las voces se nombran <em>a</em> (voz propia), <em>b</em> (XTTS v2) y <em>c</em> (Tacotron 2); la línea continua indica la voz y la línea punteada una variación (a', b'). La última imagen muestra la disposición de los ocho canales alrededor del público, con una separación de 45°, y la tabla de secuencia de secciones. <a href=\"/synthnopsis-partitura.pdf\" target=\"_blank\" rel=\"noopener\">Descargar la partitura (PDF)</a>.</p>",
       "images2": [
         "var-synthnopsis.png",
-        "partitura.png"
+        "synthnopsis-partitura.png",
+        "synthnopsis-dispositivo.png"
       ],
       "fullDescription3": "<p>La implementación del código está diseñado para ejecutarse en tiempo real usando ProxySpace en SuperCollider en donde el código se explora como partitura a partir de los patrones descritos arriba, dando espacio a la improvisación al vuelo.</p><p>La pieza confronta las limitaciones y sesgos de los modelos de síntesis de voz:</p><ul><li><strong>XTTSv2</strong>: Opera mediante <em>speaker embeddings</em> (512D) que preservan timbre/prosodia, pero hereda sesgos de género, acento y edad del dataset <em>VoxPopuli</em> (1,800h de discursos parlamentarios europeos). Presenta <em>oversmoothing prosódico</em> en prompts con baja diversidad fonética.</li><li><strong>Tacotron2</strong>: Síntesis autoregresiva que colapsa en ruido gutural por inestabilidad en la decodificación y falta de regulación acústica.</li></ul><p>Esta pieza es un primer ensayo compositivo, teórico y pragmático sobre las implicaciones sociotécnicas de los asistentes virtuales con el fin de experimentar con mi propia voz para difuminar la voz entre tonalidades y tímbres que me permiten continuar generando redes de conceptos y voces.</p>",
       "images3": [
@@ -234,6 +235,22 @@
         "synth2.jpg"
       ],
       "technical_notes": [
+        {
+          "title": "Formato",
+          "content": "Pieza octofónica para electrónica en vivo multicanal, 2025"
+        },
+        {
+          "title": "Software",
+          "content": "SuperCollider (ProxySpace), XTTS v2, Tacotron 2"
+        },
+        {
+          "title": "Disposición",
+          "content": "8 canales alrededor del público, separados 45°"
+        },
+        {
+          "title": "Estructura",
+          "content": "10 secciones de 3 pulsos; n/8 = avance por pulso"
+        },
         {
           "title": "Sistemas vocales",
           "content": "ID 1: Voz propia | ID 2: XTTSv2 | ID 3: Tacotron2"
@@ -246,6 +263,10 @@
           "title": "Patrón de movimiento (Cuadro 4)",
           "content": "Operación ternaria en 8 canales: Capa 1 (voz) → 0/8; Capa 2 (XTTSv2) → 3/8; Capa 3 (Tacotron) → 5/8"
         }
+      ],
+      "wideImages": [
+        "synthnopsis-partitura.png",
+        "synthnopsis-dispositivo.png"
       ]
     },
     "category": "performance",
@@ -261,21 +282,30 @@
       "multichannel",
       "SuperCollider"
     ],
-    "related_projects": [
-      {
-        "title": "Instalación sonora con Jetson/Raspberry Pi",
-        "status": "En desarrollo",
-        "description": "Interfaz sensible para comunicación máquina-humano"
-      }
-    ],
     "translations": {
       "EN": {
         "summary": "Octaphonic piece for live multichannel electronics",
         "details": {
           "fullDescription": "<h3>Context</h3><p>Presented at the <em>2nd Cycle of Immersive Mechanics</em> (Escuela Superior de Música, 2025), the work reinterprets critical texts on AI and feminism (<em>Eidsheim & Meizel, 2019; Fischetti, 2024</em>) to question synthetic vocal embodiments.</p><h3>Description</h3><p>In this octaphony the voice unfolds, transfers and reconfigures itself through machine learning mechanisms. Eight channels weave a polyphony in which human timbre fuses with synthesis, text becomes song and code returns another sonic embodiment.</p> <p>This piece is composed of three voice layers, an exercise in ternary computation based on movement in space. Two of the voice layers were synthesized using the Tacotron 2 (fig. left) and XTTS_v02 (fig. right) models from a database generated expressly for this project.</p>",
-          "fullDescription2": "<h3>Technical and Conceptual Process</h3><p>For the linguistic content of the piece spoken by the voices, I made a poetic reinterpretation of two textual sources: <b>The Oxford Handbook of Voice Studies</b> (Eidsheim and Meizel, 2019), which addresses vocal studies from an interdisciplinary perspective, and the subchapter <em>Virtual Assistants</em> within the chapter <em>Decoding AI from Feminism</em> in the book <b>Feminist Technologies: Frameworks for Resistance from the Latin American South</b> (Fischetti, 2024), which critically analyzes synthetic voices from a feminist perspective. With this reworking I seek to emphasize the aesthetic dimension of language, preserving the theoretical foundations of the original texts.</p><p>For the construction of the sound layers, I implemented a stratified process: the first base layer consists of recordings of my own voice; the second layer is the voice synthesized with the XTTS_v02 model for multilingual voices with style transfer; the third layer is integrated by the voice synthesized with Tacotron 2. This combination allowed me to explore the contrasts between the organic and synthetic as well as timbre and prosody in a live octaphonic composition.</p><p>For this essay I revisited pitch class as a metaphor to translate an 8-note diatonic scale without chromaticism. The octaphony referred to the equivalence of positions in the repetition of 7 notes plus 1 repetition, taking the 8 channels against the 3 voice layers as reference. Each of the voices moves through space following a pattern. The movement pattern seeks to counterpose the octaphonic system with a ternary movement operation. In the image/score below you can appreciate the movement of the voices throughout the performance.</p>",
+          "fullDescription2": "<h3>Technical and Conceptual Process</h3><p>For the linguistic content of the piece spoken by the voices, I made a poetic reinterpretation of two textual sources: <b>The Oxford Handbook of Voice Studies</b> (Eidsheim and Meizel, 2019), which addresses vocal studies from an interdisciplinary perspective, and the subchapter <em>Virtual Assistants</em> within the chapter <em>Decoding AI from Feminism</em> in the book <b>Feminist Technologies: Frameworks for Resistance from the Latin American South</b> (Fischetti, 2024), which critically analyzes synthetic voices from a feminist perspective. With this reworking I seek to emphasize the aesthetic dimension of language, preserving the theoretical foundations of the original texts.</p><p>For the construction of the sound layers, I implemented a stratified process: the first base layer consists of recordings of my own voice; the second layer is the voice synthesized with the XTTS_v02 model for multilingual voices with style transfer; the third layer is integrated by the voice synthesized with Tacotron 2. This combination allowed me to explore the contrasts between the organic and synthetic as well as timbre and prosody in a live octaphonic composition.</p><p>For this essay I revisited pitch class as a metaphor to translate an 8-note diatonic scale without chromaticism. The octaphony referred to the equivalence of positions in the repetition of 7 notes plus 1 repetition, taking the 8 channels against the 3 voice layers as reference. Each of the voices moves through space following a pattern. The movement pattern seeks to counterpose the octaphonic system with a ternary movement operation. In the score below you can appreciate the movement of the voices throughout the performance.</p><h3>Score</h3><p>The score is a sequence of ten sections of three pulses each. Each pulse shows the eight channels seen from above (channel 1 at the top left, clockwise); the dot marks the channel where the voice sounds and the arrow the path from the previous pulse. The fraction n/8 indicates the advance per pulse. The voices are named <em>a</em> (own voice), <em>b</em> (XTTS v2) and <em>c</em> (Tacotron 2); the solid line indicates the voice and the dashed line a variation (a', b'). The last image shows the layout of the eight channels around the audience, 45° apart, and the section sequence table. <a href=\"/synthnopsis-partitura.pdf\" target=\"_blank\" rel=\"noopener\">Download the score (PDF)</a>.</p>",
           "fullDescription3": "<p>The code implementation is designed to run in real time using ProxySpace in SuperCollider where the code is explored as a score based on the patterns described above, leaving room for live improvisation.</p><p>The piece confronts the limitations and biases of voice synthesis models:</p><ul><li><strong>XTTSv2</strong>: Operates through <em>speaker embeddings</em> (512D) that preserve timbre/prosody, but inherits gender, accent and age biases from the <em>VoxPopuli</em> dataset (1,800h of European parliamentary speeches). Presents <em>prosodic oversmoothing</em> in prompts with low phonetic diversity.</li><li><strong>Tacotron2</strong>: Autoregressive synthesis that collapses into guttural noise due to instability in decoding and lack of acoustic regulation.</li></ul><p>This piece is a first compositional, theoretical and pragmatic essay on the sociotechnical implications of virtual assistants, experimenting with my own voice to blur the voice between tones and timbres that allow me to continue generating networks of concepts and voices.</p>",
           "technical_notes": [
+            {
+              "title": "Format",
+              "content": "Octophonic piece for live multichannel electronics, 2025"
+            },
+            {
+              "title": "Software",
+              "content": "SuperCollider (ProxySpace), XTTS v2, Tacotron 2"
+            },
+            {
+              "title": "Layout",
+              "content": "8 channels around the audience, 45° apart"
+            },
+            {
+              "title": "Structure",
+              "content": "10 sections of 3 pulses; n/8 = advance per pulse"
+            },
             {
               "title": "Voice systems",
               "content": "ID 1: Own voice | ID 2: XTTSv2 | ID 3: Tacotron2"
@@ -289,14 +319,7 @@
               "content": "Ternary operation in 8 channels: Layer 1 (voice) → 0/8; Layer 2 (XTTSv2) → 3/8; Layer 3 (Tacotron) → 5/8"
             }
           ]
-        },
-        "related_projects": [
-          {
-            "title": "Sound installation with Jetson/Raspberry Pi",
-            "status": "In development",
-            "description": "Sensitive interface for machine-human communication"
-          }
-        ]
+        }
       }
     }
   },
@@ -479,75 +502,6 @@
     }
   },
   {
-    "id": "navegacion-archivo-vivo",
-    "title": "Archivo vivo | LuchaZ Fest",
-    "year": "2022",
-    "link": "https://centroculturadigital.mx/actividad/luchaz-fest",
-    "summary": "Performance audiovisual con live coding",
-    "image": "luchadoras01.jpg",
-    "details": {
-      "fullDescription": "<h3>Descripción</h3><p>Se propone una performance audiovisual a partir del archivo visual y sonoro que Luchadoras MX ha registrado en los últimos 10 años.</p><p>Se escucha: «todas somos una voz y somos la fuerza de esta voz». La imagen se compone de mujeres y diversidades movilizándose, ocupando las calles, las instituciones y resonando en toda la ciudad. La narrativa visual y sonora navega a través de este archivo, remixando y loopeando las imágenes, así como creando un mashup del sonido que compone el paisaje sonoro y ritmos que golpean con el video una historia del feminismo, del hackeo corporal y de las tecnologías.</p>",
-      "images": [
-        "luchadoras02.jpg",
-        "luchadoras03.jpg",
-        "luchadoras04.jpg"
-      ],
-      "fullDescription2": "<h3>Exhibiciones</h3><ul><li><strong>LuchaZ Fest</strong>: Luchadoras MX invitó a celebrar juntes su caminar en el espacio físico y digital desde los feminismos. Explanada del Centro de Cultura Digital, Ciudad de México, 21 de octubre de 2022, 20:00 h. Entrada libre hasta completar aforo. <a href=\"https://centroculturadigital.mx/actividad/luchaz-fest\" target=\"_blank\" rel=\"noopener\">Ver actividad</a></li></ul><h3>Créditos</h3><h4>Programación visual</h4><p>Milena Pafundi</p><h4>Audio SuperCollider</h4><p>Marianne Teixido</p><h4>Documentación</h4><p><a href=\"https://www.milenapafundi.com/Colab-para-Luchadoras\" target=\"_blank\" rel=\"noopener\">Colab para Luchadoras, en el sitio de Milena Pafundi</a></p>",
-      "images2": [
-        "luchaz.png"
-      ]
-    },
-    "category": "performance",
-    "tags": [
-      "performance",
-      "live-coding",
-      "musica"
-    ],
-    "translations": {
-      "EN": {
-        "title": "Archivo vivo | LuchaZ Fest",
-        "summary": "Audiovisual live coding performance",
-        "details": {
-          "fullDescription": "<h3>Description</h3><p>An audiovisual performance is proposed from the visual and sound archive that Luchadoras MX has recorded over the last 10 years.</p><p>You hear: “we are all one voice and we are the strength of this voice”. The image is made up of women and diverse people mobilizing, occupying the streets and the institutions and resonating across the whole city. The visual and sound narrative navigates through this archive, remixing and looping the images, as well as creating a mashup of the sound that makes up the soundscape and rhythms that strike, together with the video, a story of feminism, of bodily hacking and of technologies.</p>",
-          "fullDescription2": "<h3>Screenings</h3><ul><li><strong>LuchaZ Fest</strong>: Luchadoras MX invited everyone to celebrate together their walk in physical and digital space from feminisms. Esplanade of the Centro de Cultura Digital, Mexico City, October 21, 2022, 8 pm. Free admission until capacity is reached. <a href=\"https://centroculturadigital.mx/actividad/luchaz-fest\" target=\"_blank\" rel=\"noopener\">See event</a></li></ul><h3>Credits</h3><h4>Visual programming</h4><p>Milena Pafundi</p><h4>SuperCollider audio</h4><p>Marianne Teixido</p><h4>Documentation</h4><p><a href=\"https://www.milenapafundi.com/Colab-para-Luchadoras\" target=\"_blank\" rel=\"noopener\">Colab para Luchadoras, on Milena Pafundi’s site</a></p>"
-        }
-      }
-    }
-  },
-  {
-    "id": "ram",
-    "title": "R.A.M. [Redes Autónomas de Memoria]",
-    "year": "2022–2026",
-    "link": "https://ramlab.cc/",
-    "summary": "Laboratoria de transchackfeminista de prácticas artísticas con tecnologías",
-    "image": "ram.png",
-    "details": {
-      "fullDescription": "<h3>Descripción</h3><p>R.A.M. surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.</p><p>R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.</p><h4>¿En qué creemos?</h4><p>En la capacidad de organizar la rabia y sanar en colectiva. En que las máquinas las programamos nosotras, la inteligencia no es artificial es colectiva.</p><h4>¿Qué deseamos conseguir?</h4><p>Desmontar los procesos tecnológicos y las herramientas con IA para acercar a las mujeres y usarlas en procesos de autodefensa.</p><h4>¿Qué hacemos?</h4><p>Programar nuestras algoritmias. Organizarnos, colaborar, denunciar, tejer redes, sanar. Tejemos relatos y bordamos software, para cualquier mujer o persona no heteronormada que desee tramar resistencias narrando discursos de autocuidado colectivo. Este proyecto es para personas identificadas como mujeres y disidencias sexuales y de género, interesadas en la memoria oral y tecnologías, código, software y ciberhackfeminismos.</p>",
-      "images": [],
-      "fullDescription2": "<h3>Archiva</h3><p>Algunos de nuestros experimentos, procesos y prácticas:</p><ul><li><strong>Tecnologías Otras. Saberes hacer en Abya Yala</strong> (2026): patrocinio de la exposición colectiva que curé en el Museo Universitario «Leopoldo Flores» de la UAEMéx, en Toluca, del 12 de marzo al 22 de mayo de 2026, en el marco de las actividades por el 8M. <a href=\"https://ramlab.cc/tecnologias-otras\" target=\"_blank\" rel=\"noopener\">Ver exposición</a></li><li><strong>Radio Vecine</strong> (2024 y 2026): radio FM de corto alcance para tu vecine</li><li><strong>Kit de herramientas para la autonomía radial</strong> (2024): 6.º tomo del fanzine Cómo montar una servidora de radio por internet con conexión casera</li><li><strong>Algorave X RAM + Radio Cósmica Libre</strong> (2024): algorave es un concierto descentralizado y autogestivo donde livecoders generan música en tiempo real. Este algorave coincidió con el cierre de actividades de RAM y de NIME 2023 en CDMX</li><li><strong>Taller Des-entrenando cuerpos</strong> (2023): laboratorio crítico de inteligencia artificial repensada desde el cuerpo y el cuidado colectivo</li><li><strong>Taller po(éticas) futuras</strong> (2023): socializamos tecnologías de aprendizaje de máquinas para promover la apropiación tecnológica crítica y situada</li><li><strong>Convergencias TransHackFeministas</strong> (2022): charla «Inteligencias colectivas hackfeministas. Desmachini-zando el sonido con AI»</li><li><strong>Literatura electrónica + código al vuelo y narrativas audiovisuales</strong> (2022): conferencia en línea de la artista y programadora Jessica Arianne Rodríguez</li></ul><p>El archivo completo está en <a href=\"https://ramlab.cc/archiva\" target=\"_blank\" rel=\"noopener\">ramlab.cc/archiva</a>.</p>",
-      "images2": []
-    },
-    "category": "colectivos",
-    "tags": [
-      "talleres",
-      "colectivas",
-      "curaduria"
-    ],
-    "keywords": [
-      "IA"
-    ],
-    "translations": {
-      "EN": {
-        "title": "R.A.M. [Autonomous Memory Networks]",
-        "summary": "Transhackfeminist laboratory of artistic practices with technologies",
-        "details": {
-          "fullDescription": "<h3>Description</h3><p>R.A.M. arises from the need to socialize technologies such as AI to give them a critical discourse through cyberfeminist social processes, building defenses and self-defenses that confront gender-based violence.</p><p>R.A.M. is a collective and feminist artificial intelligence that listens to and enunciates disruptive discourses for collective care in the face of gender violence. Technology is our bodies. We think with them and through them. From the processes that traverse and interpellate us. We cannot set aside the systemic violence that seeks to paralyze us through fear. Our bodies as infrastructure respond and organize into a collective intelligence capable of asserting itself in software as a prosthesis for our collective transhackfeminist defenses.</p><h4>What do we believe in?</h4><p>In the capacity to organize rage and heal collectively. In the fact that we are the ones who program the machines: intelligence is not artificial, it is collective.</p><h4>What do we want to achieve?</h4><p>To dismantle technological processes and AI tools to bring women closer and use them in self-defense processes.</p><h4>What do we do?</h4><p>Program our algorithmias. Organize, collaborate, denounce, weave networks, heal. We weave stories and embroider software, for any woman or non-heteronormative person who wishes to plot resistances by narrating collective self-care discourses. This project is for people identified as women and sexual and gender dissidents, interested in oral memory and technologies, code, software, and cyberhackfeminisms.</p>",
-          "fullDescription2": "<h3>Archive</h3><p>Some of our experiments, processes and practices:</p><ul><li><strong>Other Technologies. Ways of Knowing in Abya Yala</strong> (2026): sponsorship of the collective exhibition that I curated at the Museo Universitario “Leopoldo Flores” of the UAEMéx, in Toluca, from March 12 to May 22, 2026, as part of the 8M activities. <a href=\"https://ramlab.cc/tecnologias-otras\" target=\"_blank\" rel=\"noopener\">See exhibition</a></li><li><strong>Radio Vecine</strong> (2024 and 2026): short-range FM radio for your neighbor</li><li><strong>Toolkit for Radio Autonomy</strong> (2024): 6th volume of the fanzine How to set up an internet radio server with a home connection</li><li><strong>Algorave X RAM + Radio Cósmica Libre</strong> (2024): algorave is a decentralized and self-managed concert where livecoders generate music in real time. This algorave coincided with the close of RAM's activities and NIME 2023 in Mexico City</li><li><strong>Workshop: Untraining Bodies</strong> (2023): a critical laboratory of artificial intelligence rethought through the body and collective care</li><li><strong>Workshop: Future Po(etics)</strong> (2023): we socialize machine learning technologies to promote critical and situated technological appropriation</li><li><strong>TransHackFeminist Convergences</strong> (2022): talk “Hackfeminist collective intelligences. De-machining sound with AI”</li><li><strong>Electronic Literature + Live Coding and Audiovisual Narratives</strong> (2022): online conference by artist and programmer Jessica Arianne Rodríguez</li></ul><p>The full archive is at <a href=\"https://ramlab.cc/archiva\" target=\"_blank\" rel=\"noopener\">ramlab.cc/archiva</a>.</p>"
-        }
-      }
-    }
-  },
-  {
     "id": "ccrma-audiovisual",
     "title": "Audio-Visual Sessions CCRMA",
     "year": "2024",
@@ -595,6 +549,75 @@
           "fullDescription": "<h3>Context</h3>Artistic residency carried out at the Center for Computer Research in Music and Acoustics (CCRMA), Stanford together with Emilio Ocelotl from January 8 to 17, 2024. During our stay we worked with 6 composition students and presented two concerts: one at CCRMA Stage and another at Elliott Program Center.",
           "fullDescription2": "Below are some videos from the presentations at CCRMA Stage and Elliott Program Center.",
           "fullDescription3": "The students we collaborated with were: Celeste Betancur, Brian Brown, Tatiana Catanzaro, Anna Golubkova, Lemon Guo, Nick Shaheed."
+        }
+      }
+    }
+  },
+  {
+    "id": "ram",
+    "title": "R.A.M. [Redes Autónomas de Memoria]",
+    "year": "2022–2026",
+    "link": "https://ramlab.cc/",
+    "summary": "Laboratoria de transchackfeminista de prácticas artísticas con tecnologías",
+    "image": "ram.png",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>R.A.M. surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.</p><p>R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.</p><h4>¿En qué creemos?</h4><p>En la capacidad de organizar la rabia y sanar en colectiva. En que las máquinas las programamos nosotras, la inteligencia no es artificial es colectiva.</p><h4>¿Qué deseamos conseguir?</h4><p>Desmontar los procesos tecnológicos y las herramientas con IA para acercar a las mujeres y usarlas en procesos de autodefensa.</p><h4>¿Qué hacemos?</h4><p>Programar nuestras algoritmias. Organizarnos, colaborar, denunciar, tejer redes, sanar. Tejemos relatos y bordamos software, para cualquier mujer o persona no heteronormada que desee tramar resistencias narrando discursos de autocuidado colectivo. Este proyecto es para personas identificadas como mujeres y disidencias sexuales y de género, interesadas en la memoria oral y tecnologías, código, software y ciberhackfeminismos.</p>",
+      "images": [],
+      "fullDescription2": "<h3>Archiva</h3><p>Algunos de nuestros experimentos, procesos y prácticas:</p><ul><li><strong>Tecnologías Otras. Saberes hacer en Abya Yala</strong> (2026): patrocinio de la exposición colectiva que curé en el Museo Universitario «Leopoldo Flores» de la UAEMéx, en Toluca, del 12 de marzo al 22 de mayo de 2026, en el marco de las actividades por el 8M. <a href=\"https://ramlab.cc/tecnologias-otras\" target=\"_blank\" rel=\"noopener\">Ver exposición</a></li><li><strong>Radio Vecine</strong> (2024 y 2026): radio FM de corto alcance para tu vecine</li><li><strong>Kit de herramientas para la autonomía radial</strong> (2024): 6.º tomo del fanzine Cómo montar una servidora de radio por internet con conexión casera</li><li><strong>Algorave X RAM + Radio Cósmica Libre</strong> (2024): algorave es un concierto descentralizado y autogestivo donde livecoders generan música en tiempo real. Este algorave coincidió con el cierre de actividades de RAM y de NIME 2023 en CDMX</li><li><strong>Taller Des-entrenando cuerpos</strong> (2023): laboratorio crítico de inteligencia artificial repensada desde el cuerpo y el cuidado colectivo</li><li><strong>Taller po(éticas) futuras</strong> (2023): socializamos tecnologías de aprendizaje de máquinas para promover la apropiación tecnológica crítica y situada</li><li><strong>Convergencias TransHackFeministas</strong> (2022): charla «Inteligencias colectivas hackfeministas. Desmachini-zando el sonido con AI»</li><li><strong>Literatura electrónica + código al vuelo y narrativas audiovisuales</strong> (2022): conferencia en línea de la artista y programadora Jessica Arianne Rodríguez</li></ul><p>El archivo completo está en <a href=\"https://ramlab.cc/archiva\" target=\"_blank\" rel=\"noopener\">ramlab.cc/archiva</a>.</p>",
+      "images2": []
+    },
+    "category": "colectivos",
+    "tags": [
+      "talleres",
+      "colectivas",
+      "curaduria"
+    ],
+    "keywords": [
+      "IA"
+    ],
+    "translations": {
+      "EN": {
+        "title": "R.A.M. [Autonomous Memory Networks]",
+        "summary": "Transhackfeminist laboratory of artistic practices with technologies",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>R.A.M. arises from the need to socialize technologies such as AI to give them a critical discourse through cyberfeminist social processes, building defenses and self-defenses that confront gender-based violence.</p><p>R.A.M. is a collective and feminist artificial intelligence that listens to and enunciates disruptive discourses for collective care in the face of gender violence. Technology is our bodies. We think with them and through them. From the processes that traverse and interpellate us. We cannot set aside the systemic violence that seeks to paralyze us through fear. Our bodies as infrastructure respond and organize into a collective intelligence capable of asserting itself in software as a prosthesis for our collective transhackfeminist defenses.</p><h4>What do we believe in?</h4><p>In the capacity to organize rage and heal collectively. In the fact that we are the ones who program the machines: intelligence is not artificial, it is collective.</p><h4>What do we want to achieve?</h4><p>To dismantle technological processes and AI tools to bring women closer and use them in self-defense processes.</p><h4>What do we do?</h4><p>Program our algorithmias. Organize, collaborate, denounce, weave networks, heal. We weave stories and embroider software, for any woman or non-heteronormative person who wishes to plot resistances by narrating collective self-care discourses. This project is for people identified as women and sexual and gender dissidents, interested in oral memory and technologies, code, software, and cyberhackfeminisms.</p>",
+          "fullDescription2": "<h3>Archive</h3><p>Some of our experiments, processes and practices:</p><ul><li><strong>Other Technologies. Ways of Knowing in Abya Yala</strong> (2026): sponsorship of the collective exhibition that I curated at the Museo Universitario “Leopoldo Flores” of the UAEMéx, in Toluca, from March 12 to May 22, 2026, as part of the 8M activities. <a href=\"https://ramlab.cc/tecnologias-otras\" target=\"_blank\" rel=\"noopener\">See exhibition</a></li><li><strong>Radio Vecine</strong> (2024 and 2026): short-range FM radio for your neighbor</li><li><strong>Toolkit for Radio Autonomy</strong> (2024): 6th volume of the fanzine How to set up an internet radio server with a home connection</li><li><strong>Algorave X RAM + Radio Cósmica Libre</strong> (2024): algorave is a decentralized and self-managed concert where livecoders generate music in real time. This algorave coincided with the close of RAM's activities and NIME 2023 in Mexico City</li><li><strong>Workshop: Untraining Bodies</strong> (2023): a critical laboratory of artificial intelligence rethought through the body and collective care</li><li><strong>Workshop: Future Po(etics)</strong> (2023): we socialize machine learning technologies to promote critical and situated technological appropriation</li><li><strong>TransHackFeminist Convergences</strong> (2022): talk “Hackfeminist collective intelligences. De-machining sound with AI”</li><li><strong>Electronic Literature + Live Coding and Audiovisual Narratives</strong> (2022): online conference by artist and programmer Jessica Arianne Rodríguez</li></ul><p>The full archive is at <a href=\"https://ramlab.cc/archiva\" target=\"_blank\" rel=\"noopener\">ramlab.cc/archiva</a>.</p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "navegacion-archivo-vivo",
+    "title": "Archivo vivo | LuchaZ Fest",
+    "year": "2022",
+    "link": "https://centroculturadigital.mx/actividad/luchaz-fest",
+    "summary": "Performance audiovisual con live coding",
+    "image": "luchadoras01.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Se propone una performance audiovisual a partir del archivo visual y sonoro que Luchadoras MX ha registrado en los últimos 10 años.</p><p>Se escucha: «todas somos una voz y somos la fuerza de esta voz». La imagen se compone de mujeres y diversidades movilizándose, ocupando las calles, las instituciones y resonando en toda la ciudad. La narrativa visual y sonora navega a través de este archivo, remixando y loopeando las imágenes, así como creando un mashup del sonido que compone el paisaje sonoro y ritmos que golpean con el video una historia del feminismo, del hackeo corporal y de las tecnologías.</p>",
+      "images": [
+        "luchadoras02.jpg",
+        "luchadoras03.jpg",
+        "luchadoras04.jpg"
+      ],
+      "fullDescription2": "<h3>Exhibiciones</h3><ul><li><strong>LuchaZ Fest</strong>: Luchadoras MX invitó a celebrar juntes su caminar en el espacio físico y digital desde los feminismos. Explanada del Centro de Cultura Digital, Ciudad de México, 21 de octubre de 2022, 20:00 h. Entrada libre hasta completar aforo. <a href=\"https://centroculturadigital.mx/actividad/luchaz-fest\" target=\"_blank\" rel=\"noopener\">Ver actividad</a></li></ul><h3>Créditos</h3><h4>Programación visual</h4><p>Milena Pafundi</p><h4>Audio SuperCollider</h4><p>Marianne Teixido</p><h4>Documentación</h4><p><a href=\"https://www.milenapafundi.com/Colab-para-Luchadoras\" target=\"_blank\" rel=\"noopener\">Colab para Luchadoras, en el sitio de Milena Pafundi</a></p>",
+      "images2": [
+        "luchaz.png"
+      ]
+    },
+    "category": "performance",
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "title": "Archivo vivo | LuchaZ Fest",
+        "summary": "Audiovisual live coding performance",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>An audiovisual performance is proposed from the visual and sound archive that Luchadoras MX has recorded over the last 10 years.</p><p>You hear: “we are all one voice and we are the strength of this voice”. The image is made up of women and diverse people mobilizing, occupying the streets and the institutions and resonating across the whole city. The visual and sound narrative navigates through this archive, remixing and looping the images, as well as creating a mashup of the sound that makes up the soundscape and rhythms that strike, together with the video, a story of feminism, of bodily hacking and of technologies.</p>",
+          "fullDescription2": "<h3>Screenings</h3><ul><li><strong>LuchaZ Fest</strong>: Luchadoras MX invited everyone to celebrate together their walk in physical and digital space from feminisms. Esplanade of the Centro de Cultura Digital, Mexico City, October 21, 2022, 8 pm. Free admission until capacity is reached. <a href=\"https://centroculturadigital.mx/actividad/luchaz-fest\" target=\"_blank\" rel=\"noopener\">See event</a></li></ul><h3>Credits</h3><h4>Visual programming</h4><p>Milena Pafundi</p><h4>SuperCollider audio</h4><p>Marianne Teixido</p><h4>Documentation</h4><p><a href=\"https://www.milenapafundi.com/Colab-para-Luchadoras\" target=\"_blank\" rel=\"noopener\">Colab para Luchadoras, on Milena Pafundi’s site</a></p>"
         }
       }
     }
@@ -742,6 +765,45 @@
         "details": {
           "fullDescription": "<h3>Context</h3><p>I took these photographs during <strong>Algorave México 2017</strong>, held at Platoon Mexico City (Humboldt 59, Mexico City) on Thursday, April 27, 2017. Karen Del Valle and Diego Acevedo proposed to The Global Creative Alliance (Platoon) hosting an algorave session within the Mexico-Germany Dual Year, and the Platoon space was the central base for the night.</p><p>The term “algorave” was coined by Alex McLean and Nick Collins. At this gathering, Mexico City's live coding community, which had been forming for about two years, came together for a night with afterparties and small algoraves all over the city centre.</p>",
           "fullDescription2": "<h3>Participants</h3><ul><li>AB/DX</li><li>Desaxismundi</li><li>Alex Rosado</li><li>JoseCaos_NucleRoto</li><li>MHV</li><li>RGGTRN</li><li>Jaime Lobato</li><li>Map</li><li>{D1([6, 6].er)}</li><li>CNDSD</li><li>Black Hole</li><li>Ivan Abreu</li><li>Eduardo Menendez</li></ul><h3>Credits</h3><h4>Photography</h4><p>Marianne Teixido</p><h4>Screens</h4><p>Kano Shop</p><h4>Lighting design</h4><p>OOSPP</p><h3>Publications</h3><p>Platoon Cultural Development. <em>Algorave Mexico 2017: The livecoding community gathered at TGCA project space</em>. Platoon, May 18, 2017. Photographs by Marianne Teixido. <a href=\"https://www.platoon.org/report/algorave-mexico-2017\" target=\"_blank\" rel=\"noopener\">platoon.org</a></p><p>Teixido, M. (May 1, 2017). <em>RGGTRON, rave y livecoders haciendo música en tiempo real</em>. Linne Magazine. Text and photographs by Marianne Teixido. <a href=\"https://linnemagazine.com/2017/05/01/de-reino-unido-a-la-ciudad-de-mexico-livecoders%E2%80%8B-y-musica-en-tiempo-real/\" target=\"_blank\" rel=\"noopener\">linnemagazine.com</a></p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "xicalcoliuhqui",
+    "title": "Xicalcoliuhqui",
+    "year": "2022",
+    "text": null,
+    "link": "https://ocelotl.cc/xicalco.html",
+    "summary": "RGGTRN + Gabriel de Dios «El Hijo de Tere»",
+    "image": "xicalcoliuhqui-01.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Presentamos RGGTRN en formato completo, en colaboración con Gabriel de Dios «El Hijo de Tere», en el Centro Cultural de España en México (Ciudad de México). Hay grabaciones de audio del concierto en <a href=\"https://ocelotl.cc/xicalco.html\" target=\"_blank\" rel=\"noopener\">el sitio de Emilio Ocelotl</a>.</p>",
+      "images": [
+        "xicalcoliuhqui-02.jpg",
+        "xicalcoliuhqui-03.jpg",
+        "xicalcoliuhqui-04.jpg"
+      ],
+      "fullDescription2": "<h3>Créditos</h3><h4>Colectivo</h4><p>RGGTRN</p><h4>Colaboración</h4><p>Gabriel de Dios «El Hijo de Tere»</p><h4>Lugar y año</h4><p>Centro Cultural de España en México, Ciudad de México, 2022</p>",
+      "images2": []
+    },
+    "category": "performance audiovisual",
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica"
+    ],
+    "keywords": [
+      "performance",
+      "audiovisual",
+      "live coding"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "RGGTRN + Gabriel de Dios “El Hijo de Tere”",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>We presented RGGTRN in its full format, in collaboration with Gabriel de Dios “El Hijo de Tere”, at the Centro Cultural de España en México (Mexico City). Audio recordings of the concert are available on <a href=\"https://ocelotl.cc/xicalco.html\" target=\"_blank\" rel=\"noopener\">Emilio Ocelotl’s site</a>.</p>",
+          "fullDescription2": "<h3>Credits</h3><h4>Collective</h4><p>RGGTRN</p><h4>Collaboration</h4><p>Gabriel de Dios “El Hijo de Tere”</p><h4>Place and year</h4><p>Centro Cultural de España en México, Mexico City, 2022</p>"
         }
       }
     }
@@ -950,28 +1012,59 @@
     }
   },
   {
-    "id": "cyber-latinoamericanity",
-    "title": "Cyber-latinoamericanity",
-    "year": "2018",
-    "link": null,
-    "summary": "Serie fotográfica",
-    "image": "cyber-latinoamericanity-01.jpg",
+    "id": "rggtrn",
+    "title": "RGGTRN",
+    "year": "2012",
+    "text": "EP",
+    "link": "https://rggtrn.github.io/",
+    "summary": "Colectivo de música algorítmica para bailar",
+    "image": "rggtrn.jpg",
     "details": {
-      "fullDescription": "<h3>Descripción</h3><p>Serie de fotografías que tomé.</p>",
+      "fullDescription": "<h3>Descripción</h3><p><strong>RGGTRN</strong> se pronuncia <em>reɣɣaeˈtɾon</em>. Empezó en 2012 en la Ciudad de México como ~ON, un dúo de música electroacústica y mixta con Luis Navarro, y en el camino se volvió colectivo. Hacemos música algorítmica para bailar e improvisación audiovisual, en el contexto latinx.</p><p>RGGTRN surge en Bilbao, en plena gira de 2014, tras tocar en el Festival Databit.me en Arles, Francia, con Henri Marquet en guitarrón y Emmanuelle Aymès en voz. Desde entonces lo nuestro es programar la música mientras suena: el código en el proyector, la pista de baile enfrente y todes mirando cómo se arma el ruido. Eso es un algorave, un concierto descentralizado y autogestivo donde livecoders generamos música en tiempo real.</p>",
       "images": [
-        "cyber-latinoamericanity-02.jpg",
-        "cyber-latinoamericanity-03.jpg"
+        "rggtrn-foto-01.jpg",
+        "rggtrn-foto-02.jpg",
+        "rggtrn-foto-03.jpg",
+        "rggtrn-foto-04.jpg",
+        "rggtrn-foto-05.jpg",
+        "rggtrn-foto-06.jpg",
+        "rggtrn-foto-07.jpg",
+        "rggtrn-foto-08.jpg",
+        "rggtrn-foto-09.jpg",
+        "rggtrn-foto-10.jpg",
+        "rggtrn-foto-11.jpg",
+        "rggtrn-foto-12.jpg"
       ],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription2": "<h3>Presentaciones</h3><p>Algunas paradas, con y sin pista de baile:</p><ul><li><strong>Mensajes Sonoros #1: RGGTRN</strong>, Centro de Cultura Digital, Ciudad de México, 26 de abril de 2018. <a href=\"https://centroculturadigital.mx/actividad/Bellacode-H1Wz9yPqG\" target=\"_blank\" rel=\"noopener\">Ver actividad</a></li><li><strong>Bellacode Tour</strong>: Bogotá, Manizales y Medellín (Colombia), Lima (Perú) y Quito (Ecuador), del 3 de mayo al 2 de junio de 2018. <a href=\"http://www.ibermusicas.org/es/noticias/596\" target=\"_blank\" rel=\"noopener\">Ver gira</a></li><li><strong>VIU</strong>, Hangar, Barcelona, del 3 de mayo de 2018 al 21 de enero de 2019. <a href=\"https://toplapbarcelona.hangar.org/index.php/en/viu-3/\" target=\"_blank\" rel=\"noopener\">Ver programa</a></li><li><strong>Algorave Transpiksel</strong>, Centro Cultural de España en México, 13 de julio de 2018. <a href=\"http://ccemx.org/formacion/festival-transpiksel-mx-antimateria\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>Algorave Terminal</strong>, Ciudad de México, 4 de agosto de 2018. <a href=\"https://algorave-terminal.boletia.com/\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>404 Art Not Found</strong>, 316centro, Ciudad de México, 8 de diciembre de 2018. <a href=\"https://boletopolis.com/es/evento/6838\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>ICLC 2019</strong>, Medialab Prado, Madrid, del 16 al 18 de enero de 2019. <a href=\"http://iclc.livecodenetwork.org/2019/\" target=\"_blank\" rel=\"noopener\">Ver conferencia</a></li></ul><p>También tocamos en el Algorave-Algorumba (Manizales, Colombia, 2017), en el Algorave de Platoon (Ciudad de México, 2017) y en la Linux Audio Conference (2019).</p><h4>Radio y podcast</h4><ul><li><strong>Rock 101</strong>, <em>Sorry I'm Late</em> (2018). <a href=\"https://rest.rock101online.mx/ondemand101/#!/pages/archivo-sorry-i-039-m-late-rggtrn-miau-11-de-septiembre-del-2018-2553\" target=\"_blank\" rel=\"noopener\">Escuchar</a></li><li><strong>Radio Nopal</strong>, <em>Efecto Larsen</em></li></ul>",
+      "images2": [
+        "rggtrn-flyer-01.jpg",
+        "rggtrn-flyer-02.jpg",
+        "rggtrn-flyer-03.jpg",
+        "rggtrn-flyer-04.jpg",
+        "rggtrn-flyer-05.jpg",
+        "rggtrn-flyer-06.jpg",
+        "rggtrn-flyer-07.jpg",
+        "rggtrn-flyer-08.jpg",
+        "rggtrn-flyer-09.jpg",
+        "rggtrn-flyer-10.jpg"
+      ],
+      "audioEmbed": "<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/157362680&color=%230000ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false\"></iframe>",
+      "fullDescription3": "<h3>Publicaciones</h3><ul><li>Ocelotl, E., Del Angel, L. N. y Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. Dancecult, 10(1). <a href=\"https://dj.dancecult.net/index.php/dancecult/article/view/1066/962\" target=\"_blank\" rel=\"noopener\">Leer artículo</a></li><li>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E. y Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. ICLC 2019, Madrid.</li></ul><h3>Encuéntranos</h3><ul><li><a href=\"https://soundcloud.com/rggtrn\" target=\"_blank\" rel=\"noopener\">SoundCloud</a></li><li><a href=\"https://github.com/rggtrn\" target=\"_blank\" rel=\"noopener\">GitHub</a></li><li><a href=\"https://www.instagram.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Instagram</a></li><li><a href=\"https://vimeo.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Vimeo</a></li><li><a href=\"https://www.facebook.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Facebook</a></li><li><a href=\"https://twitter.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Twitter</a></li><li><a href=\"mailto:rggtrn@gmail.com\" target=\"_blank\" rel=\"noopener\">rggtrn@gmail.com</a></li></ul>"
     },
-    "category": "fotografia",
-    "tags": [],
+    "category": "colectivos",
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica",
+      "colectivas"
+    ],
     "translations": {
       "EN": {
-        "summary": "Photo series",
+        "summary": "Algorithmic dance music collective",
         "details": {
-          "fullDescription": "<h3>Description</h3><p>A series of photographs that I took.</p>"
+          "fullDescription": "<h3>Description</h3><p><strong>RGGTRN</strong> is pronounced <em>reɣɣaeˈtɾon</em>. It began in 2012 in Mexico City as ~ON, an electroacoustic and mixed music duo with Luis Navarro, and along the way it became a collective. We make algorithmic dance music and audiovisual improvisation, in the Latinx context.</p><p>RGGTRN emerges in Bilbao, in the middle of a 2014 tour, after playing the Databit.me Festival in Arles, France, with Henri Marquet on guitarrón and Emmanuelle Aymès on voice. Since then our thing is programming the music while it plays: the code on the projector, the dance floor in front and everyone watching the noise get built. That is an algorave, a decentralized, self-managed concert where livecoders generate music in real time.</p>",
+          "fullDescription2": "<h3>Gigs</h3><p>Some stops, with and without a dance floor:</p><ul><li><strong>Mensajes Sonoros #1: RGGTRN</strong>, Centro de Cultura Digital, Mexico City, April 26, 2018. <a href=\"https://centroculturadigital.mx/actividad/Bellacode-H1Wz9yPqG\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>Bellacode Tour</strong>: Bogotá, Manizales and Medellín (Colombia), Lima (Peru) and Quito (Ecuador), May 3 to June 2, 2018. <a href=\"http://www.ibermusicas.org/es/noticias/596\" target=\"_blank\" rel=\"noopener\">See tour</a></li><li><strong>VIU</strong>, Hangar, Barcelona, May 3, 2018 to January 21, 2019. <a href=\"https://toplapbarcelona.hangar.org/index.php/en/viu-3/\" target=\"_blank\" rel=\"noopener\">See program</a></li><li><strong>Algorave Transpiksel</strong>, Centro Cultural de España en México, July 13, 2018. <a href=\"http://ccemx.org/formacion/festival-transpiksel-mx-antimateria\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>Algorave Terminal</strong>, Mexico City, August 4, 2018. <a href=\"https://algorave-terminal.boletia.com/\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>404 Art Not Found</strong>, 316centro, Mexico City, December 8, 2018. <a href=\"https://boletopolis.com/es/evento/6838\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>ICLC 2019</strong>, Medialab Prado, Madrid, January 16 to 18, 2019. <a href=\"http://iclc.livecodenetwork.org/2019/\" target=\"_blank\" rel=\"noopener\">See conference</a></li></ul><p>We also played at the Algorave-Algorumba (Manizales, Colombia, 2017), at the Platoon Algorave (Mexico City, 2017) and at the Linux Audio Conference (2019).</p><h4>Radio and podcast</h4><ul><li><strong>Rock 101</strong>, <em>Sorry I'm Late</em> (2018). <a href=\"https://rest.rock101online.mx/ondemand101/#!/pages/archivo-sorry-i-039-m-late-rggtrn-miau-11-de-septiembre-del-2018-2553\" target=\"_blank\" rel=\"noopener\">Listen</a></li><li><strong>Radio Nopal</strong>, <em>Efecto Larsen</em></li></ul>",
+          "fullDescription3": "<h3>Publications</h3><ul><li>Ocelotl, E., Del Angel, L. N., & Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. Dancecult, 10(1). <a href=\"https://dj.dancecult.net/index.php/dancecult/article/view/1066/962\" target=\"_blank\" rel=\"noopener\">Read article</a></li><li>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E., & Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. ICLC 2019, Madrid.</li></ul><h3>Find us</h3><ul><li><a href=\"https://soundcloud.com/rggtrn\" target=\"_blank\" rel=\"noopener\">SoundCloud</a></li><li><a href=\"https://github.com/rggtrn\" target=\"_blank\" rel=\"noopener\">GitHub</a></li><li><a href=\"https://www.instagram.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Instagram</a></li><li><a href=\"https://vimeo.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Vimeo</a></li><li><a href=\"https://www.facebook.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Facebook</a></li><li><a href=\"https://twitter.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Twitter</a></li><li><a href=\"mailto:rggtrn@gmail.com\" target=\"_blank\" rel=\"noopener\">rggtrn@gmail.com</a></li></ul>"
         }
       }
     }
@@ -1044,33 +1137,30 @@
     }
   },
   {
-    "id": "ficciones-ciberfeministas",
-    "title": "Ficciones ciberfeministas",
-    "year": "2021",
-    "link": "https://github.com/MarianneTeixido/ficciones-ciberfeministas",
-    "summary": "Taller de narrativas audiovisuales interactivas con código al vuelo",
-    "image": "ficciones-ciberfeministas.jpg",
+    "id": "feminoiselitoral",
+    "title": "Feminoise Litoral",
+    "year": "2018",
+    "text": "Single",
+    "link": "https://sisterstriangla.bandcamp.com/album/feminoise-litoral",
+    "summary": "Compilado sonoro de Feminoise",
+    "image": "feminoise-litoral.jpg",
     "details": {
-      "fullDescription": "<h3>Contexto</h3><p>Facilité este taller de forma virtual en el <a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Festival Pumpumyachkan 2021</a>, del miércoles 5 al viernes 7 de mayo de 2021, de 16 a 18 horas (Perú/México), con sedes presenciales en La Munay (Huancayo) y en el CCUNSCH (Ayacucho). La participación fue gratuita y con aplicación cerrada, para personas identificadas como mujeres o no binarias: artistas visuales, videoastas, cineastas, programadoras, músicas, artistas sonoras y público en general, sin necesidad de conocimientos previos de programación.</p><p>El taller tiene como objetivo dialogar con los conocimientos locales para tejer historias audiovisuales, tanto personales como colectivas, que buscan documentar, historiar y ficcionar deconstruyendo narrativas convencionales, usando el código-pantalla como herramienta para el hackeo cultural. Buscamos replantear los valores patriarcales y hegemónicos y problematizar el territorio pantalla de internet con una crítica activa a las narrativas hegemónicas que mercantilizan o violentan los cuerpos de mujeres, personas no binarias y de género fluido, desde el ruido, el porno feminista, el ensayo, el retrato, la apropiación de metraje y la resignificación del discurso como input para el código. Usamos el código como medio para exponer y confrontar la realidad social desde sus implicaciones políticas y artísticas.</p><p><em>«Un cyborg es un organismo cibernético, un híbrido de máquina y organismo, una criatura de realidad social y también de ficción.»</em> (Donna Haraway)</p>",
+      "fullDescription": "<h3>Descripción</h3><p><strong>Feminoise Litoral</strong> es un compilado sonoro de Feminoise («les Feminoisers»), publicado el 2 de octubre de 2018 en Bandcamp. Reúne siete piezas y participo con «Delay time».</p><h4>Pistas</h4><ul><li>Marianne Teixido: «Delay time»</li><li>Kmiac, Maria Prima y Tu Guaina: «Sentires»</li><li>Carolina Segura: «Antena»</li><li>Alejandra Cardenas: «Sublime y repulsivo»</li><li>Ailen Heredia: «Soy como el Rio»</li><li>Gabriela Calzada: «El gato que venia del muelle»</li><li>Los Duendos: «Requiem al olvido»</li></ul>",
       "images": [],
-      "fullDescription2": "<h3>Programa</h3><h4>1. Código hackfeminista</h4><ul><li>Decolonizar la tecnología</li><li>Otras narrativas: el código como medio</li><li>SuperCollider</li></ul><h4>2. Tejer el código</h4><ul><li>Interacción y navegación: bases de datos como narración</li><li>Descomposición de pixeles y granulación de sonido</li><li>Ejercicios para deconstruir la narrativa</li></ul><h4>3. Proyección de resultados</h4><p>Como resultado, hicimos una serie de códigos interactivos de audio y video para ejecutarse en tiempo real.</p><h3>Herramientas</h3><ul><li>SuperCollider</li><li><a href=\"https://tidalcycles.org/Welcome\" target=\"_blank\" rel=\"noopener\">TidalCycles</a></li><li><a href=\"https://hydra.ojack.xyz/\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://teddavis.org/p5live/\" target=\"_blank\" rel=\"noopener\">p5live</a></li><li><a href=\"https://obsproject.com/es\" target=\"_blank\" rel=\"noopener\">OBS</a></li></ul><h3>Referencias</h3><ul><li><a href=\"https://cyberfeminismindex.com/\" target=\"_blank\" rel=\"noopener\">Cyberfeminism Index</a></li><li><a href=\"https://monoskop.org/Cyberfeminism\" target=\"_blank\" rel=\"noopener\">Monoskop: Cyberfeminism</a></li><li><a href=\"https://radioslibres.net/ciberfem/#inicio\" target=\"_blank\" rel=\"noopener\">Radio Ciberfeminista</a></li><li><a href=\"https://ciberfemgt.org/\" target=\"_blank\" rel=\"noopener\">Ciberfeministas Guatemala</a></li><li><a href=\"https://donestech.net/noticia/manifiesto-por-algoritmias-hackfeministas\" target=\"_blank\" rel=\"noopener\">Manifiesto por las Algoritmias Hackfeministas</a></li><li><a href=\"https://hemisphericinstitute.org/en/emisferica-91/9-1-essays/venus-en-dos-actos.html\" target=\"_blank\" rel=\"noopener\"><em>Venus en dos actos</em></a>, Saidiya Hartman</li></ul><p>Dejé las notas de las sesiones y los ejemplos de código en el <a href=\"https://github.com/MarianneTeixido/ficciones-ciberfeministas\" target=\"_blank\" rel=\"noopener\">repositorio del taller en GitHub</a>.</p>",
+      "fullDescription2": null,
       "images2": [],
-      "fullDescription3": "<h3>Créditos</h3><h4>Facilitación</h4><p>Marianne Teixido</p><h4>Presentado en</h4><p><a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Festival Pumpumyachkan 2021</a></p><h4>Licencia</h4><p><a href=\"https://labekka.red/licencia-f2f/\" target=\"_blank\" rel=\"noopener\">Licencia Feminista de Producción de Pares</a></p>"
+      "audioEmbed": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=1723282804/size=large/bgcol=f3f3f3/linkcol=0000ff/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>"
     },
-    "category": "taller",
+    "category": "music",
     "tags": [
       "live-coding",
-      "experimentos",
-      "talleres"
+      "musica"
     ],
     "translations": {
       "EN": {
-        "title": "Cyberfeminist Fictions",
-        "summary": "Workshop on interactive audiovisual narratives with live code",
+        "summary": "Sound compilation by Feminoise",
         "details": {
-          "fullDescription": "<h3>Context</h3><p>I facilitated this workshop virtually at the <a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Pumpumyachkan Festival 2021</a>, from Wednesday, May 5 to Friday, May 7, 2021, from 4 to 6 pm (Peru/Mexico), with in-person venues at La Munay (Huancayo) and CCUNSCH (Ayacucho). Participation was free and by closed application, for people identified as women or non-binary: visual artists, video makers, filmmakers, programmers, musicians, sound artists and the general public, with no prior programming knowledge required.</p><p>The workshop aims to dialogue with local knowledge to weave audiovisual stories, both personal and collective, that seek to document, historicize and fictionalize by deconstructing conventional narratives, using screen-code as a tool for cultural hacking. We seek to rethink patriarchal and hegemonic values and to problematize the screen territory of the internet with an active critique of the hegemonic narratives that commodify or do violence to the bodies of women, non-binary and gender-fluid people, starting from noise, feminist porn, the essay, the portrait, footage appropriation and the resignification of discourse as input for code. We use code as a medium to expose and confront social reality from its political and artistic implications.</p><p><em>“A cyborg is a cybernetic organism, a hybrid of machine and organism, a creature of social reality as well as a creature of fiction.”</em> (Donna Haraway)</p>",
-          "fullDescription2": "<h3>Program</h3><h4>1. Hackfeminist code</h4><ul><li>Decolonizing technology</li><li>Other narratives: code as a medium</li><li>SuperCollider</li></ul><h4>2. Weaving code</h4><ul><li>Interaction and navigation: databases as narration</li><li>Pixel decomposition and sound granulation</li><li>Exercises to deconstruct narrative</li></ul><h4>3. Screening of results</h4><p>As a result, we made a series of interactive audio and video codes to be run in real time.</p><h3>Tools</h3><ul><li>SuperCollider</li><li><a href=\"https://tidalcycles.org/Welcome\" target=\"_blank\" rel=\"noopener\">TidalCycles</a></li><li><a href=\"https://hydra.ojack.xyz/\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://teddavis.org/p5live/\" target=\"_blank\" rel=\"noopener\">p5live</a></li><li><a href=\"https://obsproject.com/es\" target=\"_blank\" rel=\"noopener\">OBS</a></li></ul><h3>References</h3><ul><li><a href=\"https://cyberfeminismindex.com/\" target=\"_blank\" rel=\"noopener\">Cyberfeminism Index</a></li><li><a href=\"https://monoskop.org/Cyberfeminism\" target=\"_blank\" rel=\"noopener\">Monoskop: Cyberfeminism</a></li><li><a href=\"https://radioslibres.net/ciberfem/#inicio\" target=\"_blank\" rel=\"noopener\">Radio Ciberfeminista</a></li><li><a href=\"https://ciberfemgt.org/\" target=\"_blank\" rel=\"noopener\">Ciberfeministas Guatemala</a></li><li><a href=\"https://donestech.net/noticia/manifiesto-por-algoritmias-hackfeministas\" target=\"_blank\" rel=\"noopener\">Manifiesto por las Algoritmias Hackfeministas</a></li><li><a href=\"https://hemisphericinstitute.org/en/emisferica-91/9-1-essays/venus-en-dos-actos.html\" target=\"_blank\" rel=\"noopener\"><em>Venus en dos actos</em></a>, Saidiya Hartman</li></ul><p>I left the session notes and code examples in the <a href=\"https://github.com/MarianneTeixido/ficciones-ciberfeministas\" target=\"_blank\" rel=\"noopener\">workshop repository on GitHub</a>.</p>",
-          "fullDescription3": "<h3>Credits</h3><h4>Facilitation</h4><p>Marianne Teixido</p><h4>Presented at</h4><p><a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Pumpumyachkan Festival 2021</a></p><h4>License</h4><p><a href=\"https://labekka.red/licencia-f2f/\" target=\"_blank\" rel=\"noopener\">Feminist Peer Production License</a></p>"
+          "fullDescription": "<h3>Description</h3><p><strong>Feminoise Litoral</strong> is a sound compilation by Feminoise (“les Feminoisers”), released on October 2, 2018 on Bandcamp. It gathers seven pieces and I take part with “Delay time”.</p><h4>Tracks</h4><ul><li>Marianne Teixido: “Delay time”</li><li>Kmiac, Maria Prima and Tu Guaina: “Sentires”</li><li>Carolina Segura: “Antena”</li><li>Alejandra Cardenas: “Sublime y repulsivo”</li><li>Ailen Heredia: “Soy como el Rio”</li><li>Gabriela Calzada: “El gato que venia del muelle”</li><li>Los Duendos: “Requiem al olvido”</li></ul>"
         }
       }
     }
@@ -1330,30 +1420,33 @@
     }
   },
   {
-    "id": "feminoiselitoral",
-    "title": "Feminoise Litoral",
-    "year": "2018",
-    "text": "Single",
-    "link": "https://sisterstriangla.bandcamp.com/album/feminoise-litoral",
-    "summary": "Compilado sonoro de Feminoise",
-    "image": "feminoise-litoral.jpg",
+    "id": "ficciones-ciberfeministas",
+    "title": "Ficciones ciberfeministas",
+    "year": "2021",
+    "link": "https://github.com/MarianneTeixido/ficciones-ciberfeministas",
+    "summary": "Taller de narrativas audiovisuales interactivas con código al vuelo",
+    "image": "ficciones-ciberfeministas.jpg",
     "details": {
-      "fullDescription": "<h3>Descripción</h3><p><strong>Feminoise Litoral</strong> es un compilado sonoro de Feminoise («les Feminoisers»), publicado el 2 de octubre de 2018 en Bandcamp. Reúne siete piezas y participo con «Delay time».</p><h4>Pistas</h4><ul><li>Marianne Teixido: «Delay time»</li><li>Kmiac, Maria Prima y Tu Guaina: «Sentires»</li><li>Carolina Segura: «Antena»</li><li>Alejandra Cardenas: «Sublime y repulsivo»</li><li>Ailen Heredia: «Soy como el Rio»</li><li>Gabriela Calzada: «El gato que venia del muelle»</li><li>Los Duendos: «Requiem al olvido»</li></ul>",
+      "fullDescription": "<h3>Contexto</h3><p>Facilité este taller de forma virtual en el <a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Festival Pumpumyachkan 2021</a>, del miércoles 5 al viernes 7 de mayo de 2021, de 16 a 18 horas (Perú/México), con sedes presenciales en La Munay (Huancayo) y en el CCUNSCH (Ayacucho). La participación fue gratuita y con aplicación cerrada, para personas identificadas como mujeres o no binarias: artistas visuales, videoastas, cineastas, programadoras, músicas, artistas sonoras y público en general, sin necesidad de conocimientos previos de programación.</p><p>El taller tiene como objetivo dialogar con los conocimientos locales para tejer historias audiovisuales, tanto personales como colectivas, que buscan documentar, historiar y ficcionar deconstruyendo narrativas convencionales, usando el código-pantalla como herramienta para el hackeo cultural. Buscamos replantear los valores patriarcales y hegemónicos y problematizar el territorio pantalla de internet con una crítica activa a las narrativas hegemónicas que mercantilizan o violentan los cuerpos de mujeres, personas no binarias y de género fluido, desde el ruido, el porno feminista, el ensayo, el retrato, la apropiación de metraje y la resignificación del discurso como input para el código. Usamos el código como medio para exponer y confrontar la realidad social desde sus implicaciones políticas y artísticas.</p><p><em>«Un cyborg es un organismo cibernético, un híbrido de máquina y organismo, una criatura de realidad social y también de ficción.»</em> (Donna Haraway)</p>",
       "images": [],
-      "fullDescription2": null,
+      "fullDescription2": "<h3>Programa</h3><h4>1. Código hackfeminista</h4><ul><li>Decolonizar la tecnología</li><li>Otras narrativas: el código como medio</li><li>SuperCollider</li></ul><h4>2. Tejer el código</h4><ul><li>Interacción y navegación: bases de datos como narración</li><li>Descomposición de pixeles y granulación de sonido</li><li>Ejercicios para deconstruir la narrativa</li></ul><h4>3. Proyección de resultados</h4><p>Como resultado, hicimos una serie de códigos interactivos de audio y video para ejecutarse en tiempo real.</p><h3>Herramientas</h3><ul><li>SuperCollider</li><li><a href=\"https://tidalcycles.org/Welcome\" target=\"_blank\" rel=\"noopener\">TidalCycles</a></li><li><a href=\"https://hydra.ojack.xyz/\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://teddavis.org/p5live/\" target=\"_blank\" rel=\"noopener\">p5live</a></li><li><a href=\"https://obsproject.com/es\" target=\"_blank\" rel=\"noopener\">OBS</a></li></ul><h3>Referencias</h3><ul><li><a href=\"https://cyberfeminismindex.com/\" target=\"_blank\" rel=\"noopener\">Cyberfeminism Index</a></li><li><a href=\"https://monoskop.org/Cyberfeminism\" target=\"_blank\" rel=\"noopener\">Monoskop: Cyberfeminism</a></li><li><a href=\"https://radioslibres.net/ciberfem/#inicio\" target=\"_blank\" rel=\"noopener\">Radio Ciberfeminista</a></li><li><a href=\"https://ciberfemgt.org/\" target=\"_blank\" rel=\"noopener\">Ciberfeministas Guatemala</a></li><li><a href=\"https://donestech.net/noticia/manifiesto-por-algoritmias-hackfeministas\" target=\"_blank\" rel=\"noopener\">Manifiesto por las Algoritmias Hackfeministas</a></li><li><a href=\"https://hemisphericinstitute.org/en/emisferica-91/9-1-essays/venus-en-dos-actos.html\" target=\"_blank\" rel=\"noopener\"><em>Venus en dos actos</em></a>, Saidiya Hartman</li></ul><p>Dejé las notas de las sesiones y los ejemplos de código en el <a href=\"https://github.com/MarianneTeixido/ficciones-ciberfeministas\" target=\"_blank\" rel=\"noopener\">repositorio del taller en GitHub</a>.</p>",
       "images2": [],
-      "audioEmbed": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=1723282804/size=large/bgcol=f3f3f3/linkcol=0000ff/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>"
+      "fullDescription3": "<h3>Créditos</h3><h4>Facilitación</h4><p>Marianne Teixido</p><h4>Presentado en</h4><p><a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Festival Pumpumyachkan 2021</a></p><h4>Licencia</h4><p><a href=\"https://labekka.red/licencia-f2f/\" target=\"_blank\" rel=\"noopener\">Licencia Feminista de Producción de Pares</a></p>"
     },
-    "category": "music",
+    "category": "taller",
     "tags": [
       "live-coding",
-      "musica"
+      "experimentos",
+      "talleres"
     ],
     "translations": {
       "EN": {
-        "summary": "Sound compilation by Feminoise",
+        "title": "Cyberfeminist Fictions",
+        "summary": "Workshop on interactive audiovisual narratives with live code",
         "details": {
-          "fullDescription": "<h3>Description</h3><p><strong>Feminoise Litoral</strong> is a sound compilation by Feminoise (“les Feminoisers”), released on October 2, 2018 on Bandcamp. It gathers seven pieces and I take part with “Delay time”.</p><h4>Tracks</h4><ul><li>Marianne Teixido: “Delay time”</li><li>Kmiac, Maria Prima and Tu Guaina: “Sentires”</li><li>Carolina Segura: “Antena”</li><li>Alejandra Cardenas: “Sublime y repulsivo”</li><li>Ailen Heredia: “Soy como el Rio”</li><li>Gabriela Calzada: “El gato que venia del muelle”</li><li>Los Duendos: “Requiem al olvido”</li></ul>"
+          "fullDescription": "<h3>Context</h3><p>I facilitated this workshop virtually at the <a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Pumpumyachkan Festival 2021</a>, from Wednesday, May 5 to Friday, May 7, 2021, from 4 to 6 pm (Peru/Mexico), with in-person venues at La Munay (Huancayo) and CCUNSCH (Ayacucho). Participation was free and by closed application, for people identified as women or non-binary: visual artists, video makers, filmmakers, programmers, musicians, sound artists and the general public, with no prior programming knowledge required.</p><p>The workshop aims to dialogue with local knowledge to weave audiovisual stories, both personal and collective, that seek to document, historicize and fictionalize by deconstructing conventional narratives, using screen-code as a tool for cultural hacking. We seek to rethink patriarchal and hegemonic values and to problematize the screen territory of the internet with an active critique of the hegemonic narratives that commodify or do violence to the bodies of women, non-binary and gender-fluid people, starting from noise, feminist porn, the essay, the portrait, footage appropriation and the resignification of discourse as input for code. We use code as a medium to expose and confront social reality from its political and artistic implications.</p><p><em>“A cyborg is a cybernetic organism, a hybrid of machine and organism, a creature of social reality as well as a creature of fiction.”</em> (Donna Haraway)</p>",
+          "fullDescription2": "<h3>Program</h3><h4>1. Hackfeminist code</h4><ul><li>Decolonizing technology</li><li>Other narratives: code as a medium</li><li>SuperCollider</li></ul><h4>2. Weaving code</h4><ul><li>Interaction and navigation: databases as narration</li><li>Pixel decomposition and sound granulation</li><li>Exercises to deconstruct narrative</li></ul><h4>3. Screening of results</h4><p>As a result, we made a series of interactive audio and video codes to be run in real time.</p><h3>Tools</h3><ul><li>SuperCollider</li><li><a href=\"https://tidalcycles.org/Welcome\" target=\"_blank\" rel=\"noopener\">TidalCycles</a></li><li><a href=\"https://hydra.ojack.xyz/\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://teddavis.org/p5live/\" target=\"_blank\" rel=\"noopener\">p5live</a></li><li><a href=\"https://obsproject.com/es\" target=\"_blank\" rel=\"noopener\">OBS</a></li></ul><h3>References</h3><ul><li><a href=\"https://cyberfeminismindex.com/\" target=\"_blank\" rel=\"noopener\">Cyberfeminism Index</a></li><li><a href=\"https://monoskop.org/Cyberfeminism\" target=\"_blank\" rel=\"noopener\">Monoskop: Cyberfeminism</a></li><li><a href=\"https://radioslibres.net/ciberfem/#inicio\" target=\"_blank\" rel=\"noopener\">Radio Ciberfeminista</a></li><li><a href=\"https://ciberfemgt.org/\" target=\"_blank\" rel=\"noopener\">Ciberfeministas Guatemala</a></li><li><a href=\"https://donestech.net/noticia/manifiesto-por-algoritmias-hackfeministas\" target=\"_blank\" rel=\"noopener\">Manifiesto por las Algoritmias Hackfeministas</a></li><li><a href=\"https://hemisphericinstitute.org/en/emisferica-91/9-1-essays/venus-en-dos-actos.html\" target=\"_blank\" rel=\"noopener\"><em>Venus en dos actos</em></a>, Saidiya Hartman</li></ul><p>I left the session notes and code examples in the <a href=\"https://github.com/MarianneTeixido/ficciones-ciberfeministas\" target=\"_blank\" rel=\"noopener\">workshop repository on GitHub</a>.</p>",
+          "fullDescription3": "<h3>Credits</h3><h4>Facilitation</h4><p>Marianne Teixido</p><h4>Presented at</h4><p><a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Pumpumyachkan Festival 2021</a></p><h4>License</h4><p><a href=\"https://labekka.red/licencia-f2f/\" target=\"_blank\" rel=\"noopener\">Feminist Peer Production License</a></p>"
         }
       }
     }
@@ -1414,59 +1507,28 @@
     }
   },
   {
-    "id": "rggtrn",
-    "title": "RGGTRN",
-    "year": "2012",
-    "text": "EP",
-    "link": "https://rggtrn.github.io/",
-    "summary": "Colectivo de música algorítmica para bailar",
-    "image": "rggtrn.jpg",
+    "id": "cyber-latinoamericanity",
+    "title": "Cyber-latinoamericanity",
+    "year": "2018",
+    "link": null,
+    "summary": "Serie fotográfica",
+    "image": "cyber-latinoamericanity-01.jpg",
     "details": {
-      "fullDescription": "<h3>Descripción</h3><p><strong>RGGTRN</strong> se pronuncia <em>reɣɣaeˈtɾon</em>. Empezó en 2012 en la Ciudad de México como ~ON, un dúo de música electroacústica y mixta con Luis Navarro, y en el camino se volvió colectivo. Hacemos música algorítmica para bailar e improvisación audiovisual, en el contexto latinx.</p><p>RGGTRN surge en Bilbao, en plena gira de 2014, tras tocar en el Festival Databit.me en Arles, Francia, con Henri Marquet en guitarrón y Emmanuelle Aymès en voz. Desde entonces lo nuestro es programar la música mientras suena: el código en el proyector, la pista de baile enfrente y todes mirando cómo se arma el ruido. Eso es un algorave, un concierto descentralizado y autogestivo donde livecoders generamos música en tiempo real.</p>",
+      "fullDescription": "<h3>Descripción</h3><p>Serie de fotografías que tomé.</p>",
       "images": [
-        "rggtrn-foto-01.jpg",
-        "rggtrn-foto-02.jpg",
-        "rggtrn-foto-03.jpg",
-        "rggtrn-foto-04.jpg",
-        "rggtrn-foto-05.jpg",
-        "rggtrn-foto-06.jpg",
-        "rggtrn-foto-07.jpg",
-        "rggtrn-foto-08.jpg",
-        "rggtrn-foto-09.jpg",
-        "rggtrn-foto-10.jpg",
-        "rggtrn-foto-11.jpg",
-        "rggtrn-foto-12.jpg"
+        "cyber-latinoamericanity-02.jpg",
+        "cyber-latinoamericanity-03.jpg"
       ],
-      "fullDescription2": "<h3>Presentaciones</h3><p>Algunas paradas, con y sin pista de baile:</p><ul><li><strong>Mensajes Sonoros #1: RGGTRN</strong>, Centro de Cultura Digital, Ciudad de México, 26 de abril de 2018. <a href=\"https://centroculturadigital.mx/actividad/Bellacode-H1Wz9yPqG\" target=\"_blank\" rel=\"noopener\">Ver actividad</a></li><li><strong>Bellacode Tour</strong>: Bogotá, Manizales y Medellín (Colombia), Lima (Perú) y Quito (Ecuador), del 3 de mayo al 2 de junio de 2018. <a href=\"http://www.ibermusicas.org/es/noticias/596\" target=\"_blank\" rel=\"noopener\">Ver gira</a></li><li><strong>VIU</strong>, Hangar, Barcelona, del 3 de mayo de 2018 al 21 de enero de 2019. <a href=\"https://toplapbarcelona.hangar.org/index.php/en/viu-3/\" target=\"_blank\" rel=\"noopener\">Ver programa</a></li><li><strong>Algorave Transpiksel</strong>, Centro Cultural de España en México, 13 de julio de 2018. <a href=\"http://ccemx.org/formacion/festival-transpiksel-mx-antimateria\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>Algorave Terminal</strong>, Ciudad de México, 4 de agosto de 2018. <a href=\"https://algorave-terminal.boletia.com/\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>404 Art Not Found</strong>, 316centro, Ciudad de México, 8 de diciembre de 2018. <a href=\"https://boletopolis.com/es/evento/6838\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>ICLC 2019</strong>, Medialab Prado, Madrid, del 16 al 18 de enero de 2019. <a href=\"http://iclc.livecodenetwork.org/2019/\" target=\"_blank\" rel=\"noopener\">Ver conferencia</a></li></ul><p>También tocamos en el Algorave-Algorumba (Manizales, Colombia, 2017), en el Algorave de Platoon (Ciudad de México, 2017) y en la Linux Audio Conference (2019).</p><h4>Radio y podcast</h4><ul><li><strong>Rock 101</strong>, <em>Sorry I'm Late</em> (2018). <a href=\"https://rest.rock101online.mx/ondemand101/#!/pages/archivo-sorry-i-039-m-late-rggtrn-miau-11-de-septiembre-del-2018-2553\" target=\"_blank\" rel=\"noopener\">Escuchar</a></li><li><strong>Radio Nopal</strong>, <em>Efecto Larsen</em></li></ul>",
-      "images2": [
-        "rggtrn-flyer-01.jpg",
-        "rggtrn-flyer-02.jpg",
-        "rggtrn-flyer-03.jpg",
-        "rggtrn-flyer-04.jpg",
-        "rggtrn-flyer-05.jpg",
-        "rggtrn-flyer-06.jpg",
-        "rggtrn-flyer-07.jpg",
-        "rggtrn-flyer-08.jpg",
-        "rggtrn-flyer-09.jpg",
-        "rggtrn-flyer-10.jpg"
-      ],
-      "audioEmbed": "<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/157362680&color=%230000ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false\"></iframe>",
-      "fullDescription3": "<h3>Publicaciones</h3><ul><li>Ocelotl, E., Del Angel, L. N. y Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. Dancecult, 10(1). <a href=\"https://dj.dancecult.net/index.php/dancecult/article/view/1066/962\" target=\"_blank\" rel=\"noopener\">Leer artículo</a></li><li>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E. y Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. ICLC 2019, Madrid.</li></ul><h3>Encuéntranos</h3><ul><li><a href=\"https://soundcloud.com/rggtrn\" target=\"_blank\" rel=\"noopener\">SoundCloud</a></li><li><a href=\"https://github.com/rggtrn\" target=\"_blank\" rel=\"noopener\">GitHub</a></li><li><a href=\"https://www.instagram.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Instagram</a></li><li><a href=\"https://vimeo.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Vimeo</a></li><li><a href=\"https://www.facebook.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Facebook</a></li><li><a href=\"https://twitter.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Twitter</a></li><li><a href=\"mailto:rggtrn@gmail.com\" target=\"_blank\" rel=\"noopener\">rggtrn@gmail.com</a></li></ul>"
+      "fullDescription2": null,
+      "images2": []
     },
-    "category": "colectivos",
-    "tags": [
-      "performance",
-      "live-coding",
-      "musica",
-      "colectivas"
-    ],
+    "category": "fotografia",
+    "tags": [],
     "translations": {
       "EN": {
-        "summary": "Algorithmic dance music collective",
+        "summary": "Photo series",
         "details": {
-          "fullDescription": "<h3>Description</h3><p><strong>RGGTRN</strong> is pronounced <em>reɣɣaeˈtɾon</em>. It began in 2012 in Mexico City as ~ON, an electroacoustic and mixed music duo with Luis Navarro, and along the way it became a collective. We make algorithmic dance music and audiovisual improvisation, in the Latinx context.</p><p>RGGTRN emerges in Bilbao, in the middle of a 2014 tour, after playing the Databit.me Festival in Arles, France, with Henri Marquet on guitarrón and Emmanuelle Aymès on voice. Since then our thing is programming the music while it plays: the code on the projector, the dance floor in front and everyone watching the noise get built. That is an algorave, a decentralized, self-managed concert where livecoders generate music in real time.</p>",
-          "fullDescription2": "<h3>Gigs</h3><p>Some stops, with and without a dance floor:</p><ul><li><strong>Mensajes Sonoros #1: RGGTRN</strong>, Centro de Cultura Digital, Mexico City, April 26, 2018. <a href=\"https://centroculturadigital.mx/actividad/Bellacode-H1Wz9yPqG\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>Bellacode Tour</strong>: Bogotá, Manizales and Medellín (Colombia), Lima (Peru) and Quito (Ecuador), May 3 to June 2, 2018. <a href=\"http://www.ibermusicas.org/es/noticias/596\" target=\"_blank\" rel=\"noopener\">See tour</a></li><li><strong>VIU</strong>, Hangar, Barcelona, May 3, 2018 to January 21, 2019. <a href=\"https://toplapbarcelona.hangar.org/index.php/en/viu-3/\" target=\"_blank\" rel=\"noopener\">See program</a></li><li><strong>Algorave Transpiksel</strong>, Centro Cultural de España en México, July 13, 2018. <a href=\"http://ccemx.org/formacion/festival-transpiksel-mx-antimateria\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>Algorave Terminal</strong>, Mexico City, August 4, 2018. <a href=\"https://algorave-terminal.boletia.com/\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>404 Art Not Found</strong>, 316centro, Mexico City, December 8, 2018. <a href=\"https://boletopolis.com/es/evento/6838\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>ICLC 2019</strong>, Medialab Prado, Madrid, January 16 to 18, 2019. <a href=\"http://iclc.livecodenetwork.org/2019/\" target=\"_blank\" rel=\"noopener\">See conference</a></li></ul><p>We also played at the Algorave-Algorumba (Manizales, Colombia, 2017), at the Platoon Algorave (Mexico City, 2017) and at the Linux Audio Conference (2019).</p><h4>Radio and podcast</h4><ul><li><strong>Rock 101</strong>, <em>Sorry I'm Late</em> (2018). <a href=\"https://rest.rock101online.mx/ondemand101/#!/pages/archivo-sorry-i-039-m-late-rggtrn-miau-11-de-septiembre-del-2018-2553\" target=\"_blank\" rel=\"noopener\">Listen</a></li><li><strong>Radio Nopal</strong>, <em>Efecto Larsen</em></li></ul>",
-          "fullDescription3": "<h3>Publications</h3><ul><li>Ocelotl, E., Del Angel, L. N., & Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. Dancecult, 10(1). <a href=\"https://dj.dancecult.net/index.php/dancecult/article/view/1066/962\" target=\"_blank\" rel=\"noopener\">Read article</a></li><li>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E., & Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. ICLC 2019, Madrid.</li></ul><h3>Find us</h3><ul><li><a href=\"https://soundcloud.com/rggtrn\" target=\"_blank\" rel=\"noopener\">SoundCloud</a></li><li><a href=\"https://github.com/rggtrn\" target=\"_blank\" rel=\"noopener\">GitHub</a></li><li><a href=\"https://www.instagram.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Instagram</a></li><li><a href=\"https://vimeo.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Vimeo</a></li><li><a href=\"https://www.facebook.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Facebook</a></li><li><a href=\"https://twitter.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Twitter</a></li><li><a href=\"mailto:rggtrn@gmail.com\" target=\"_blank\" rel=\"noopener\">rggtrn@gmail.com</a></li></ul>"
+          "fullDescription": "<h3>Description</h3><p>A series of photographs that I took.</p>"
         }
       }
     }
@@ -1494,45 +1556,6 @@
       "audiovisual",
       "live coding"
     ]
-  },
-  {
-    "id": "xicalcoliuhqui",
-    "title": "Xicalcoliuhqui",
-    "year": "2022",
-    "text": null,
-    "link": "https://ocelotl.cc/xicalco.html",
-    "summary": "RGGTRN + Gabriel de Dios «El Hijo de Tere»",
-    "image": "xicalcoliuhqui-01.jpg",
-    "details": {
-      "fullDescription": "<h3>Descripción</h3><p>Presentamos RGGTRN en formato completo, en colaboración con Gabriel de Dios «El Hijo de Tere», en el Centro Cultural de España en México (Ciudad de México). Hay grabaciones de audio del concierto en <a href=\"https://ocelotl.cc/xicalco.html\" target=\"_blank\" rel=\"noopener\">el sitio de Emilio Ocelotl</a>.</p>",
-      "images": [
-        "xicalcoliuhqui-02.jpg",
-        "xicalcoliuhqui-03.jpg",
-        "xicalcoliuhqui-04.jpg"
-      ],
-      "fullDescription2": "<h3>Créditos</h3><h4>Colectivo</h4><p>RGGTRN</p><h4>Colaboración</h4><p>Gabriel de Dios «El Hijo de Tere»</p><h4>Lugar y año</h4><p>Centro Cultural de España en México, Ciudad de México, 2022</p>",
-      "images2": []
-    },
-    "category": "performance audiovisual",
-    "tags": [
-      "performance",
-      "live-coding",
-      "musica"
-    ],
-    "keywords": [
-      "performance",
-      "audiovisual",
-      "live coding"
-    ],
-    "translations": {
-      "EN": {
-        "summary": "RGGTRN + Gabriel de Dios “El Hijo de Tere”",
-        "details": {
-          "fullDescription": "<h3>Description</h3><p>We presented RGGTRN in its full format, in collaboration with Gabriel de Dios “El Hijo de Tere”, at the Centro Cultural de España en México (Mexico City). Audio recordings of the concert are available on <a href=\"https://ocelotl.cc/xicalco.html\" target=\"_blank\" rel=\"noopener\">Emilio Ocelotl’s site</a>.</p>",
-          "fullDescription2": "<h3>Credits</h3><h4>Collective</h4><p>RGGTRN</p><h4>Collaboration</h4><p>Gabriel de Dios “El Hijo de Tere”</p><h4>Place and year</h4><p>Centro Cultural de España en México, Mexico City, 2022</p>"
-        }
-      }
-    }
   },
   {
     "id": "pumpumyackkan",

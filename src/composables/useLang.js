@@ -4,32 +4,32 @@ const current = ref('ES')
 
 const messages = {
   ES: {
-    description: 'Artista digital, investigadora, live coder y desarrolladora de software',
+    description: 'Artista, compositora, live coder e investigadora',
     nav: {
       projects: 'Proyectos',
       bio: 'Bio',
       contact: 'Contacto',
     },
-    footer: 'Website desarrollado en Vue from scratch por mi.',
+    footer: 'Website from scratch con ♡.',
     filters: { label: 'Filtrar proyectos', all: 'Todos' },
     projectView: {
-      technicalNotes: 'Notas Técnicas',
+      technicalNotes: 'Ficha técnica',
       relatedProjects: 'Proyectos relacionados',
       seeProject: 'Ver proyecto',
       audioUnsupported: 'Tu navegador no soporta el elemento de audio.',
     },
   },
   EN: {
-    description: 'Digital artist, researcher, live coder and software developer',
+    description: 'Artist, composer, live coder and researcher',
     nav: {
       projects: 'Projects',
       bio: 'Bio',
       contact: 'Contact',
     },
-    footer: 'Website developed in Vue from scratch by me.',
+    footer: 'Website from scratch with ♡.',
     filters: { label: 'Filter projects', all: 'All' },
     projectView: {
-      technicalNotes: 'Technical Notes',
+      technicalNotes: 'Technical sheet',
       relatedProjects: 'Related Projects',
       seeProject: 'See project',
       audioUnsupported: 'Your browser does not support the audio element.',

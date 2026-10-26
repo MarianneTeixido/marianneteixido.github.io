@@ -5,8 +5,8 @@
     <p>{{ displayProject.year }}</p>
 
     <!-- Imagen principal -->
-    <img v-if="displayProject.image" :src="getImageUrl(displayProject.image)" class="project-img" loading="lazy"
-      :alt="displayProject.title" />
+    <img v-if="displayProject.image" :src="getImageUrl(displayProject.image)" class="project-img zoomable" loading="lazy"
+      :alt="displayProject.title" tabindex="0" role="button" @click="openAt(0)" @keydown.enter="openAt(0)" />
 
     <!-- Sketch de Hydra -->
     <div v-if="displayProject.type === 'hydra-sketch' && displayProject.sketch" class="hydra-sketch-container">
@@ -24,13 +24,17 @@
         </audio>
       </div>
 
+      <!-- Reproductor de audio incrustado (Bandcamp, SoundCloud) -->
+      <div v-if="displayProject.details?.audioEmbed" v-html="displayProject.details.audioEmbed" class="audio-embed"></div>
+
       <!-- Video de YouTube -->
       <div v-if="displayProject.details?.youtubeEmbed" v-html="displayProject.details.youtubeEmbed" class="video-container"></div>
 
       <!-- Galería 1 -->
       <div v-if="displayProject.details?.images && displayProject.details.images.length" class="project-gallery">
         <img v-for="(img, index) in displayProject.details.images" :key="index" :src="getImageUrl(img)"
-          :alt="`Image ${index + 1}`" class="gallery-img" loading="lazy" />
+        :alt="`${displayProject.title} ${index + 1}`" class="gallery-img zoomable" loading="lazy" tabindex="0"
+        role="button" @click="openAt(offsets.g1 + index)" @keydown.enter="openAt(offsets.g1 + index)" />
     </div>
 
     <!-- Sketch de Hydra 2-->
@@ -45,7 +49,8 @@
     <!-- Galería 2 -->
     <div v-if="displayProject.details?.images2 && displayProject.details.images2.length" class="project-gallery">
       <img v-for="(img, index) in displayProject.details.images2" :key="index" :src="getImageUrl(img)"
-        :alt="`Image ${index + 1}`" class="gallery-img" loading="lazy" />
+        :alt="`${displayProject.title} ${index + 1}`" class="gallery-img zoomable" loading="lazy" tabindex="0"
+        role="button" @click="openAt(offsets.g2 + index)" @keydown.enter="openAt(offsets.g2 + index)" />
     </div>
 
     <!-- Video Gallery -->
@@ -63,7 +68,8 @@
     <!-- Galería 3 -->
     <div v-if="displayProject.details?.images3 && displayProject.details.images3.length" class="project-gallery">
       <img v-for="(img, index) in displayProject.details.images3" :key="index" :src="getImageUrl(img)"
-        :alt="`Image ${index + 1}`" class="gallery-img" loading="lazy" />
+        :alt="`${displayProject.title} ${index + 1}`" class="gallery-img zoomable" loading="lazy" tabindex="0"
+        role="button" @click="openAt(offsets.g3 + index)" @keydown.enter="openAt(offsets.g3 + index)" />
     </div>
 
     <!-- Technical Notes -->
@@ -87,6 +93,8 @@
       </ul>
     </div>
 
+    <ImageLightbox v-model="lightboxIndex" :images="lightboxImages" />
+
     <div class="navigation-buttons">
       <BackButton />
       <a v-if="displayProject.link" :href="displayProject.link" target="_blank" class="project-link" data-umami-event="ver-proyecto" :data-umami-event-proyecto="displayProject.id">
@@ -97,11 +105,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import projects from '../data/projects.json'
 import BackButton from '../components/BackButton.vue'
 import HydraSketch from '../components/HydraSketch.vue'
+import ImageLightbox from '../components/ImageLightbox.vue'
 import { useLang } from '../composables/useLang'
 
 const { current, t } = useLang()
@@ -123,6 +132,28 @@ const displayProject = computed(() => {
 const getImageUrl = (imageName) => {
   return new URL(`../assets/img/${imageName}`, import.meta.url).href
 }
+
+// Visor: portada + galerías 1, 2 y 3, en el orden en que aparecen en la página
+const lightboxIndex = ref(null)
+const openAt = (i) => { lightboxIndex.value = i }
+const galleries = computed(() => {
+  const d = displayProject.value.details ?? {}
+  return [d.images ?? [], d.images2 ?? [], d.images3 ?? []]
+})
+const hasCover = computed(() => !!displayProject.value.image)
+const offsets = computed(() => {
+  const base = hasCover.value ? 1 : 0
+  const [g1, g2] = galleries.value
+  return { g1: base, g2: base + g1.length, g3: base + g1.length + g2.length }
+})
+const lightboxImages = computed(() => {
+  const title = displayProject.value.title
+  const names = [
+    ...(hasCover.value ? [displayProject.value.image] : []),
+    ...galleries.value.flat(),
+  ]
+  return names.map((name, i) => ({ src: getImageUrl(name), alt: `${title} ${i + 1}` }))
+})
 const getAudioUrl = (audioName) => {
   return new URL(`../assets/audio/${audioName}`, import.meta.url).href
 }
@@ -149,6 +180,39 @@ const getVideoUrl = (videoName) => {
 
 .project-description li {
   margin-bottom: 0.3rem;
+}
+
+/* Ficha técnica anidada dentro de una exhibición */
+.project-description ul.ficha {
+  margin: 0.5rem 0 0.9rem 1.5rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--Blue-01);
+  font-size: 0.9rem;
+}
+
+.project-description ul.ficha li {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.project-description .ficha-label {
+  flex: 0 0 5.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--Blue-01);
+  opacity: 0.8;
+}
+
+.audio-embed {
+  margin-top: 1.5rem;
+}
+
+.audio-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
 }
 
 .video-container {
@@ -203,6 +267,15 @@ const getVideoUrl = (videoName) => {
   .project-gallery {
     columns: 1;
   }
+}
+
+.zoomable {
+  cursor: zoom-in;
+}
+
+.zoomable:focus-visible {
+  outline: 2px solid var(--Blue-01);
+  outline-offset: 3px;
 }
 
 .gallery-img {

@@ -1,5 +1,9 @@
 <script setup>
+import { computed } from 'vue'
 import { useLang } from '../composables/useLang'
+import { useTagFilter } from '../composables/useTagFilter'
+import { tags } from '../data/tags'
+import projects from '../data/projects.json'
 
 defineProps({
   isOpen: Boolean,
@@ -11,6 +15,19 @@ const { t, current, setLang } = useLang()
 const handleLinkClick = () => {
   emit('close');
 };
+
+const { activeTag, setTag } = useTagFilter()
+
+// Solo se muestran las etiquetas que tienen proyectos visibles en el inicio
+const availableTags = computed(() => {
+  const used = new Set(projects.filter(p => p.image).flatMap(p => p.tags ?? []))
+  return tags.filter(tag => used.has(tag.id))
+})
+
+const handleTagClick = (id) => {
+  setTag(id)
+  emit('close')
+}
 
 const toggleLang = () => {
   setLang(current.value === 'ES' ? 'EN' : 'ES')
@@ -61,6 +78,15 @@ const toggleLang = () => {
         </span>
         <p>{{ t.footer }}</p>
       </div>
+
+      <div class="tag-filters" role="group" :aria-label="t.filters.label">
+        <button type="button" class="tag-pill sticky" :class="{ active: !activeTag }"
+          :aria-pressed="!activeTag" @click="handleTagClick(null)">{{ t.filters.all }}</button>
+        <button v-for="tag in availableTags" :key="tag.id" type="button" class="tag-pill sticky"
+          :class="{ active: activeTag === tag.id }" :aria-pressed="activeTag === tag.id"
+          data-umami-event="filtro-tag" :data-umami-event-tag="tag.id"
+          @click="handleTagClick(tag.id)">{{ tag[current] }}</button>
+      </div>
     </div>
   </aside>
 </template>
@@ -107,6 +133,37 @@ const toggleLang = () => {
 }
 
 .lang-inline:hover {
+  background: var(--Blue-01);
+  color: var(--White);
+}
+
+/* Pastillas pegadas al fondo de la barra y alineadas a la izquierda */
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.tag-pill {
+  border: 1px solid var(--Blue-01);
+  background: var(--White);
+  color: var(--Dark);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.3;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tag-pill:hover,
+.tag-pill.active {
   background: var(--Blue-01);
   color: var(--White);
 }

@@ -11,6 +11,7 @@ const messages = {
       contact: 'Contacto',
     },
     footer: 'Website desarrollado en Vue from scratch por mi.',
+    filters: { label: 'Filtrar proyectos', all: 'Todos' },
     projectView: {
       technicalNotes: 'Notas Técnicas',
       relatedProjects: 'Proyectos relacionados',
@@ -26,6 +27,7 @@ const messages = {
       contact: 'Contact',
     },
     footer: 'Website developed in Vue from scratch by me.',
+    filters: { label: 'Filter projects', all: 'All' },
     projectView: {
       technicalNotes: 'Technical Notes',
       relatedProjects: 'Related Projects',

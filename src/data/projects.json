@@ -1,5 +1,64 @@
 [
   {
+    "id": "voces-hibrides",
+    "title": "Voces Híbrides",
+    "year": "2026",
+    "link": null,
+    "summary": "Instalación sonora interactiva",
+    "image": "voces portada.png",
+    "details": {
+      "fullDescription": "<h3>Contexto</h3><p><strong>Voces Híbrides</strong> comenzó como un taller que realizamos del 11 al 15 de mayo, en sesiones intensivas de 2 horas. La difusión la hizo principalmente el <a href=\"https://cenart.gob.mx/eventos/taller-voces-hibridas/\" target=\"_blank\" rel=\"noopener\">Centro Multimedia</a>. Generamos una base de datos con 30 minutos de grabación de 9 personas hablantes, con tres técnicas distintas de grabación: voz leída, improvisación vocal y sonidos no vocálicos con técnicas expandidas.</p><p>Las grabaciones duran de 15 a 30 segundos aproximadamente. Las hicimos en las salas de trabajo del CMM, en formato monocanal con micrófono de condensador a 44100 de sample rate y 16 bits, a una distancia de 15 y 20 cm del micrófono, con ganancia de entre -6 dB y -12 dB. Aunque las grabamos considerando múltiples factores, como la nomenclatura de almacenamiento y las condiciones técnicas, no fueron en condiciones de estudio y por un fallo en la revisión del protocolo se nos pasó medir el ruido ambiente: las grabaciones quedaron con un promedio de 50 dB de ruido ambiental en lugar de los 40 dB necesarios para el fine-tuning.</p><p>La información sociodemográfica e interseccional la recuperamos anonimizada, con campos como pronombres e identidad de género en selección múltiple no excluyente. Elegir un solo campo, como ocurre en Common Voice, obliga a escoger una sola categoría, y por eso aparecen 0 hablantes transgénero y 0 no binaries en su corpus en español: una persona trans femenina queda forzada a elegir entre «transgender» o «female feminine». En nuestra base de datos pueden coexistir. Es un cambio en el esquema que cambia estructuralmente lo que el dataset puede representar. El idioma o variedad lingüística quedó como un campo de texto libre que permite incluir sociolectos LGBTQ+, contacto con lenguas indígenas, code-switching cotidiano (español-portugués, inglés-español, español-zapoteco), así como lenguaje de señas o variantes regionales (español chilango, fronterizo, costeño, del Bajío).</p>",
+      "images": [
+        "voceshibrides-02.jpg"
+      ],
+      "fullDescription2": "<h3>Descripción</h3><p>Entre el 15 de mayo y el 5 de junio trabajamos de forma asíncrona en una instalación interactiva homónima del taller. Consistió en un chatbot que captaba, con un micrófono externo, una muestra de voz de 15 segundos para hacer una síntesis zero-shot, transcribía la pregunta hecha por voz y también tenía la opción de capturarla por texto. El prompt que le dimos al modelo parte de que responde con la voz de la persona que consulta, así que contesta con ironía, asumiendo su falta de cuerpo y entendiendo la voz como intrínseca al cuerpo.</p><p>La montamos en el ciclorama de la sala Manuel Felguérez buscando una estética que destacara las entrañas de la tecnología, expuestas en cables, circuitos desnudos y fragmentos de arcilla con formas humanas (manos, orejas, ojos) en el piso y colgando del techo. En el ciclorama proyectamos agua con técnicas de mapping en TouchDesigner, porque una de las inquietudes que surgieron en el taller fue la presencia del agua en el cuerpo humano y en el funcionamiento de estas máquinas. Por las condiciones del espacio no fue posible incorporar agua físicamente, pero sí la usamos como referencia visual al fondo.</p><p>Colocamos 3 monitores en bases de exhibición: uno mostraba el chatbot, otro la terminal donde quedaba expuesto el «cerebro» operando localmente en mi máquina y el tercero solo una textura de agua generada con Hydra. Frente al chatbot había mouse, teclado y micrófono, y el audio salía a un sistema estéreo en los límites del ciclorama. Durante la muestra, quienes participaron y el público asistente modificaron el prompt, los parámetros de la síntesis (velocidad del habla y temperatura) y la voz que ingresaba al sistema.</p>",
+      "images2": [
+        "voceshibrides-03.jpg",
+        "voceshibrides-04.jpg",
+        "voceshibrides-05.jpg"
+      ],
+      "fullDescription3": "<h3>Funcionamiento</h3><p>El chatbot consiste en dos partes: un frontend en React, servido como HTML estático desde /front, y un backend en Python con FastAPI. Se comunican por un WebSocket persistente (/ws). Desde el frontend se puede enviar texto plano en JSON con message, o audio grabado desde el micrófono del navegador como ArrayBuffer en formato webm. Si es audio, el servidor lo recibe, lo escribe en un archivo temporal y lo pasa a Whisper (openai-whisper), con el modelo base, para transcribirlo a texto en español. Ese texto, o el texto directo de la persona, se acumula en un historial de conversación que se envía al LLM local (llama3.2 vía Ollama) para generar una respuesta. Durante el taller comentamos las implicaciones del modelo y presentamos otras opciones como deepseek y mistral; elegimos llama3.2 porque sus respuestas se ajustaban más a lo que esperaban las participantes.</p><p>Cuando el LLM responde, el servidor manda la respuesta de inmediato como mensaje JSON de tipo text al frontend, para que se muestre en pantalla sin esperar el audio, y luego la pasa al servicio de TTS AllTalk. AllTalk sintetiza la voz clonando el timbre de un archivo WAV de referencia que la persona puede grabar. El audio resultante vuelve como bytes WAV que el servidor envía al cliente por WebSocket como ArrayBuffer. En el frontend, ese buffer se conecta al AnalyserNode de la Web Audio API, cuya energía de frecuencias alimenta en tiempo real los parámetros del fondo generativo en Hydra Synth (osciladores, brillo, contraste), de modo que el fondo visual reacciona a la voz sintetizada. El sketch tiene dos modos: agua y espejo. En el espejo la intención era distorsionar el reflejo de la persona para acompañar la distorsión sonora de la voz y generar ese sentimiento ominoso de encontrar algo que se parece a ti pero no eres tú.</p><h3>Performance</h3><p>Hicimos también un performance colectivo con la intervención activa del chatbot, acompañado de acciones corporales en el espacio que reaccionaban a la voz del agente. Otra compañera hizo una improvisación vocal y sonora en la que reflexionaba sobre la música y la voz en las canciones, mientras yo granulaba muestras de la base de datos con SuperCollider, acompañada por la síntesis análoga de otra de las participantes.</p><h3>Créditos</h3><h4>Realización</h4><ul><li>Pauz Peralta</li><li>Sofia Main</li><li>200 Suaves</li><li>Citlalli Yáñez Jiménez</li><li>Dante Fabrizio</li><li>Dulce Cabrera</li><li>M. Adriana Portillo</li><li>Gabriela Ramos Franco</li></ul><h4>Programación, taller y síntesis</h4><p>Marianne Teixido</p>",
+      "images3": [
+        "voceshibrides-10.jpg",
+        "voceshibrides-09.png",
+        "voceshibrides-06.jpg",
+        "voceshibrides-07.jpg",
+        "voceshibrides-08.jpg"
+      ],
+      "videos": [
+        "voceshibrides-01.mp4"
+      ]
+    },
+    "category": "instalacion",
+    "tags": [
+      "performance",
+      "live-coding",
+      "instalacion",
+      "software",
+      "experimentos",
+      "talleres"
+    ],
+    "keywords": [
+      "instalacion interactiva",
+      "taller",
+      "voz",
+      "inteligencia artificial",
+      "hydra",
+      "performance"
+    ],
+    "translations": {
+      "EN": {
+        "title": "Hybrid Voices",
+        "summary": "Interactive sound installation",
+        "details": {
+          "fullDescription": "<h3>Context</h3><p><strong>Voces Híbrides</strong> began as a workshop that we held from May 11 to 15, in intensive 2-hour sessions. It was promoted mainly by the <a href=\"https://cenart.gob.mx/eventos/taller-voces-hibridas/\" target=\"_blank\" rel=\"noopener\">Centro Multimedia</a>. We generated a database of 30 minutes of recordings of 9 speakers, using three different recording techniques: read speech, vocal improvisation and non-vocalic sounds with extended techniques.</p><p>The recordings last about 15 to 30 seconds. We made them in the CMM work rooms, as mono audio with a condenser microphone at 44100 sample rate and 16 bits, 15 to 20 cm from the microphone, with gain between -6 dB and -12 dB. Although we recorded them considering multiple factors, such as storage naming and technical conditions, they were not made in studio conditions and, because of a failure in reviewing the recording protocol, we overlooked measuring ambient noise: the recordings ended up with an average of 50 dB of ambient noise instead of the 40 dB needed for fine-tuning.</p><p>We recovered the sociodemographic and intersectional information anonymized, with fields such as pronouns and gender identity as non-exclusive multiple selection. Choosing a single field, as happens in Common Voice, forces picking a single category, which is why 0 transgender and 0 non-binary speakers appear in their Spanish corpus: a trans woman is forced to choose between “transgender” or “female feminine”. In our database they can coexist. It is a change in the schema that structurally changes what the dataset can represent. Language or linguistic variety remained a free-text field that allows including LGBTQ+ sociolects, contact with Indigenous languages, everyday code-switching (Spanish-Portuguese, English-Spanish, Spanish-Zapotec), as well as sign language or regional variants (chilango, border, coastal and Bajío Spanish).</p>",
+          "fullDescription2": "<h3>Description</h3><p>Between May 15 and June 5 we worked asynchronously on an interactive installation of the same name as the workshop. It was a chatbot that captured, with an external microphone, a 15-second voice sample to do zero-shot synthesis, transcribed the question asked by voice and also had the option of capturing it as text. The prompt we gave the model starts from the fact that it answers with the voice of the person asking, so it replies with irony, assuming its lack of a body and understanding the voice as intrinsic to the body.</p><p>We installed it in the cyclorama of the Manuel Felguérez room, looking for an aesthetic that highlighted the guts of technology, exposed in cables, bare circuits and clay fragments shaped like human parts (hands, ears, eyes) on the floor and hanging from the ceiling. We projected water onto the cyclorama using mapping techniques in TouchDesigner, because one of the concerns that came up in the workshop was the presence of water in the human body and in how these machines work. The space did not allow us to bring in physical water, but we did use it as a visual reference in the background.</p><p>We placed 3 monitors on display bases: one showed the chatbot, another the terminal where the “brain” was exposed, running locally on my machine, and the third just a water texture generated with Hydra. In front of the chatbot there were a mouse, a keyboard and a microphone, and the audio went out to a stereo system at the edges of the cyclorama. During the show, participants and audience modified the prompt, the synthesis parameters (speech rate and temperature) and the voice entering the system.</p>",
+          "fullDescription3": "<h3>How it works</h3><p>The chatbot has two parts: a React frontend, served as static HTML from /front, and a Python backend with FastAPI. They communicate through a persistent WebSocket (/ws). From the frontend you can send plain JSON text with message, or audio recorded from the browser microphone as an ArrayBuffer in webm format. If it is audio, the server receives it, writes it to a temporary file and passes it to Whisper (openai-whisper), with the base model, to transcribe it to Spanish text. That text, or the person's direct text, accumulates in a conversation history that is sent to the local LLM (llama3.2 via Ollama) to generate a response. During the workshop we discussed the implications of the model and presented other options such as deepseek and mistral; we chose llama3.2 because its answers better matched what the participants expected.</p><p>When the LLM answers, the server immediately sends the response as a JSON message of type text to the frontend, so it shows on screen without waiting for the audio, and then passes it to the AllTalk TTS service. AllTalk synthesizes the voice by cloning the timbre of a reference WAV file that the person can record. The resulting audio comes back as WAV bytes that the server sends to the client over WebSocket as an ArrayBuffer. In the frontend, that buffer is connected to the Web Audio API AnalyserNode, whose frequency energy feeds in real time the parameters of the generative Hydra Synth background (oscillators, brightness, contrast), so the visual background reacts to the synthesized voice. The sketch has two modes: water and mirror. In the mirror, the intention was to distort the person's reflection to accompany the sonic distortion of the voice and produce that uncanny feeling of finding something that looks like you but is not you.</p><h3>Performance</h3><p>We also staged a collective performance with active intervention of the chatbot, accompanied by bodily actions in the space reacting to the agent's voice. Another participant performed a vocal and sonic improvisation reflecting on music and voice in songs, while I granulated samples from the database with SuperCollider, accompanied by the analog synthesis of another participant.</p><h3>Credits</h3><h4>Realization</h4><ul><li>Pauz Peralta</li><li>Sofia Main</li><li>200 Suaves</li><li>Citlalli Yáñez Jiménez</li><li>Dante Fabrizio</li><li>Dulce Cabrera</li><li>M. Adriana Portillo</li><li>Gabriela Ramos Franco</li></ul><h4>Programming, workshop and synthesis</h4><p>Marianne Teixido</p>"
+        }
+      }
+    }
+  },
+  {
     "id": "decoding-gesture",
     "title": "Decoding Gesture",
     "year": "2026",
@@ -17,7 +76,14 @@
       "videos": []
     },
     "category": "web",
-    "tags": []
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica",
+      "software",
+      "visualizacion-datos",
+      "experimentos"
+    ]
   },
   {
     "id": "tecnologias-otras",
@@ -37,7 +103,9 @@
       "videos": []
     },
     "category": "web",
-    "tags": []
+    "tags": [
+      "curaduria"
+    ]
   },
   {
     "id": "codigo-tecnoafectivos",
@@ -51,14 +119,15 @@
       "images": [
         "exteresa-02.jpg",
         "exteresa-03.jpg",
-        "exteresa-07.jpg"],
+        "exteresa-07.jpg"
+      ],
       "fullDescription2": "<h3>Descripción</h3><p>La instalación usa visión computacional en tiempo real (MediaPipe) para traducir gestos corporales en parámetros visuales y sonoros. Acercar las manos a la cámara revela fotografías; levantar los brazos activa video con audio; inclinar la cabeza modifica la velocidad de reproducción. Al retirar las manos, fragmentos de texto aparecen en pantalla con efecto typewriter. El movimiento de los pies desencadena capas de sonido generadas  por síntesis FM y muestras de audio. Cuando no hay presencia durante 60 segundos, la instalación entra en estado de reposo y espera un nuevo cuerpo.</p><p> Esta pieza ha sido solo presentada en formato perfor-ponencia debido a que a solicitud del museo la pieza no se encuentra en línea para no vulnerar el archivo en sí. De esta forma el que complile únicamente en virtual responde a un cuidado del archivo.</p>",
       "images2": [],
-      "fullDescription3": "<h3>Créditos</h3><h4>Realización</h4><p>Concepto, programación y diseño de interacción: <strong>Marianne Teixidó</strong> — 2026</p><h4>Archivo fotográfico</h4><ul><li><strong>Zona Residual. RADIAL</strong> (2005) — Amanda Gutiérrez</li><li><strong>Simulacros naturales</strong> (2011) — Lázaro Valiente y Molly Surno. Curaduría: Erick Diego</li><li><strong>A la escucha del código fuente</strong> (2019) — Karen del Valle, Marianne Teixido, Mitzi Olvera, Malitzin Cortés, Libertad Figueroa, Isaura Román, Emilio Ocelotl, Alejandro Hernández, Jaime Jalil, Eduardo Meléndez, José Carlos Hasbun, Rodrigo Frenk y Jaime Lobato. Curaduría: Hernani Villaseñor</li><li><strong>Vocal Readings</strong> (2022) — Ute Wassermann</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Pies pa que los quiero</strong> (1999) — Alejandra Hernández</li><li><strong>Festival Tiempo de Mujeres — Concierto de Live Coding</strong> (2020) — Libertad Figueroa, Piaka Roela, Malitzin Cortés y Marianne Teixidó. Curaduría: Irene Soria</li></ul><h4>Archivo de video</h4><ul><li><strong>A la escucha del código fuente</strong> (2019) — Mitzi Olvera, Rodrigo Frenk y Jaime Lobato</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>Creación vocal</strong> (2023) — Natalia Rangel</li><li><strong>Maratón de Música</strong> (2019) — Ónix</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Grietas</strong> (2023) — Lucía Hinojosa, Vania Fortuna, Anahy Cabrera (ZETA) y Concepción Huerta</li><li><strong>Ocupación</strong> (2007) — Marcela Armas</li><li><strong>Sonido en Acción</strong> (2019) — Galia Eibenschutz y Natalia Perez</li></ul><h4>Audio</h4><ul><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li></ul><h4>Textos</h4><ul><li>Longoni, Ana; Cañada, Lucía y Bianchi, Lucía (2022) — <em>Invocar la imaginación archivística</em></li><li>Mbembé, Achille (2020) — <em>El poder del archivo y sus límites</em></li><li>Rufer, Mario (2016) — <em>El archivo, la fuente, la evidencia: de la extracción a la ruptura poscolonial</em></li></ul>",
+      "fullDescription3": "<h3>Créditos</h3><h4>Realización</h4><p>Concepto, programación y diseño de interacción: <strong>Marianne Teixidó</strong>, 2026</p><h4>Archivo fotográfico</h4><ul><li><strong>Zona Residual. RADIAL</strong> (2005): Amanda Gutiérrez</li><li><strong>Simulacros naturales</strong> (2011): Lázaro Valiente y Molly Surno. Curaduría: Erick Diego</li><li><strong>A la escucha del código fuente</strong> (2019): Karen del Valle, Marianne Teixido, Mitzi Olvera, Malitzin Cortés, Libertad Figueroa, Isaura Román, Emilio Ocelotl, Alejandro Hernández, Jaime Jalil, Eduardo Meléndez, José Carlos Hasbun, Rodrigo Frenk y Jaime Lobato. Curaduría: Hernani Villaseñor</li><li><strong>Vocal Readings</strong> (2022): Ute Wassermann</li><li><strong>AURICULAR</strong> (2019): Julia Barros de la Mora</li><li><strong>ISO 10 Transformaciones</strong> (2022): David Díaz</li><li><strong>Pies pa que los quiero</strong> (1999): Alejandra Hernández</li><li><strong>Festival Tiempo de Mujeres: Concierto de Live Coding</strong> (2020): Libertad Figueroa, Piaka Roela, Malitzin Cortés y Marianne Teixidó. Curaduría: Irene Soria</li></ul><h4>Archivo de video</h4><ul><li><strong>A la escucha del código fuente</strong> (2019): Mitzi Olvera, Rodrigo Frenk y Jaime Lobato</li><li><strong>AURICULAR</strong> (2019): Julia Barros de la Mora</li><li><strong>Creación vocal</strong> (2023): Natalia Rangel</li><li><strong>Maratón de Música</strong> (2019): Ónix</li><li><strong>ISO 10 Transformaciones</strong> (2022): David Díaz</li><li><strong>Grietas</strong> (2023): Lucía Hinojosa, Vania Fortuna, Anahy Cabrera (ZETA) y Concepción Huerta</li><li><strong>Ocupación</strong> (2007): Marcela Armas</li><li><strong>Sonido en Acción</strong> (2019): Galia Eibenschutz y Natalia Perez</li></ul><h4>Audio</h4><ul><li><strong>AURICULAR</strong> (2019): Julia Barros de la Mora</li></ul><h4>Textos</h4><ul><li>Longoni, Ana; Cañada, Lucía y Bianchi, Lucía (2022): <em>Invocar la imaginación archivística</em></li><li>Mbembé, Achille (2020): <em>El poder del archivo y sus límites</em></li><li>Rufer, Mario (2016): <em>El archivo, la fuente, la evidencia: de la extracción a la ruptura poscolonial</em></li></ul>",
       "images3": [
-          "exteresa-06.jpg",
-          "exteresa-05.jpg",
-          "exteresa-04.jpg"
+        "exteresa-06.jpg",
+        "exteresa-05.jpg",
+        "exteresa-04.jpg"
       ],
       "videos": [
         "exteresa-01-video.mp4",
@@ -68,6 +137,15 @@
     },
     "category": "performance",
     "tags": [
+      "performance",
+      "live-coding",
+      "videoarte",
+      "instalacion",
+      "software",
+      "visualizacion-datos",
+      "experimentos"
+    ],
+    "keywords": [
       "live coding",
       "tecnoafectivo",
       "performance"
@@ -78,7 +156,7 @@
         "details": {
           "fullDescription": "<h3>Context</h3><p>This piece emerges at the intersection of body, techno-affections, archive and technology. Drawing from the photographic and audiovisual archive of the Ex Teresa Arte Actual museum, within the framework of the exhibition Plurisonoridades, curated by Amanda Gutiérrez and Rosa Landabur, focused on the visibility of the practices of women and dissidents in that space, <em>Código Afectivo</em> proposes an installation that takes up the selection proposed by Ana Mora for Axis 2 of the exhibition titled Sonic Constellations. In this piece the archive is activated by the body and modulated through its physical presence: hands, arms, head and feet become navigation interfaces. Gestural detection recovers the body as an agent in the encounter with images charged with memory and time.</p>",
           "fullDescription2": "<h3>Description</h3><p>The installation uses real-time computer vision (MediaPipe) to translate bodily gestures into visual and sonic parameters. Bringing the hands close to the camera reveals photographs; raising the arms activates video with audio; tilting the head modifies playback speed. When the hands are withdrawn, text fragments appear on screen with a typewriter effect. The movement of the feet triggers sound layers generated by FM synthesis and audio samples. When there is no presence for 60 seconds, the installation enters a rest state and awaits a new body.</p>",
-          "fullDescription3": "<h3>Credits</h3><h4>Production</h4><p>Concept, programming and interaction design: <strong>Marianne Teixidó</strong> — 2026</p><h4>Photographic archive</h4><ul><li><strong>Zona Residual. RADIAL</strong> (2005) — Amanda Gutiérrez</li><li><strong>Simulacros naturales</strong> (2011) — Lázaro Valiente and Molly Surno. Curated by: Erick Diego</li><li><strong>A la escucha del código fuente</strong> (2019) — Karen del Valle, Marianne Teixido, Mitzi Olvera, Malitzin Cortés, Libertad Figueroa, Isaura Román, Emilio Ocelotl, Alejandro Hernández, Jaime Jalil, Eduardo Meléndez, José Carlos Hasbun, Rodrigo Frenk and Jaime Lobato. Curated by: Hernani Villaseñor</li><li><strong>Vocal Readings</strong> (2022) — Ute Wassermann</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Pies pa que los quiero</strong> (1999) — Alejandra Hernández</li><li><strong>Festival Tiempo de Mujeres — Live Coding Concert</strong> (2020) — Libertad Figueroa, Piaka Roela, Malitzin Cortés and Marianne Teixidó. Curated by: Irene Soria</li></ul><h4>Video archive</h4><ul><li><strong>A la escucha del código fuente</strong> (2019) — Mitzi Olvera, Rodrigo Frenk and Jaime Lobato</li><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li><li><strong>Creación vocal</strong> (2023) — Natalia Rangel</li><li><strong>Maratón de Música</strong> (2019) — Ónix</li><li><strong>ISO 10 Transformaciones</strong> (2022) — David Díaz</li><li><strong>Grietas</strong> (2023) — Lucía Hinojosa, Vania Fortuna, Anahy Cabrera (ZETA) and Concepción Huerta</li><li><strong>Ocupación</strong> (2007) — Marcela Armas</li><li><strong>Sonido en Acción</strong> (2019) — Galia Eibenschutz and Natalia Perez</li></ul><h4>Audio</h4><ul><li><strong>AURICULAR</strong> (2019) — Julia Barros de la Mora</li></ul><h4>Texts</h4><ul><li>Longoni, Ana; Cañada, Lucía and Bianchi, Lucía (2022) — <em>Invocar la imaginación archivística</em></li><li>Mbembé, Achille (2020) — <em>El poder del archivo y sus límites</em></li><li>Rufer, Mario (2016) — <em>El archivo, la fuente, la evidencia: de la extracción a la ruptura poscolonial</em></li></ul>"
+          "fullDescription3": "<h3>Credits</h3><h4>Production</h4><p>Concept, programming and interaction design: <strong>Marianne Teixidó</strong>, 2026</p><h4>Photographic archive</h4><ul><li><strong>Zona Residual. RADIAL</strong> (2005): Amanda Gutiérrez</li><li><strong>Simulacros naturales</strong> (2011): Lázaro Valiente and Molly Surno. Curated by: Erick Diego</li><li><strong>A la escucha del código fuente</strong> (2019): Karen del Valle, Marianne Teixido, Mitzi Olvera, Malitzin Cortés, Libertad Figueroa, Isaura Román, Emilio Ocelotl, Alejandro Hernández, Jaime Jalil, Eduardo Meléndez, José Carlos Hasbun, Rodrigo Frenk and Jaime Lobato. Curated by: Hernani Villaseñor</li><li><strong>Vocal Readings</strong> (2022): Ute Wassermann</li><li><strong>AURICULAR</strong> (2019): Julia Barros de la Mora</li><li><strong>ISO 10 Transformaciones</strong> (2022): David Díaz</li><li><strong>Pies pa que los quiero</strong> (1999): Alejandra Hernández</li><li><strong>Festival Tiempo de Mujeres: Live Coding Concert</strong> (2020): Libertad Figueroa, Piaka Roela, Malitzin Cortés and Marianne Teixidó. Curated by: Irene Soria</li></ul><h4>Video archive</h4><ul><li><strong>A la escucha del código fuente</strong> (2019): Mitzi Olvera, Rodrigo Frenk and Jaime Lobato</li><li><strong>AURICULAR</strong> (2019): Julia Barros de la Mora</li><li><strong>Creación vocal</strong> (2023): Natalia Rangel</li><li><strong>Maratón de Música</strong> (2019): Ónix</li><li><strong>ISO 10 Transformaciones</strong> (2022): David Díaz</li><li><strong>Grietas</strong> (2023): Lucía Hinojosa, Vania Fortuna, Anahy Cabrera (ZETA) and Concepción Huerta</li><li><strong>Ocupación</strong> (2007): Marcela Armas</li><li><strong>Sonido en Acción</strong> (2019): Galia Eibenschutz and Natalia Perez</li></ul><h4>Audio</h4><ul><li><strong>AURICULAR</strong> (2019): Julia Barros de la Mora</li></ul><h4>Texts</h4><ul><li>Longoni, Ana; Cañada, Lucía and Bianchi, Lucía (2022): <em>Invocar la imaginación archivística</em></li><li>Mbembé, Achille (2020): <em>El poder del archivo y sus límites</em></li><li>Rufer, Mario (2016): <em>El archivo, la fuente, la evidencia: de la extracción a la ruptura poscolonial</em></li></ul>"
         }
       }
     }
@@ -96,12 +174,12 @@
         "subsuelo03.jpg",
         "subsuelo05.jpg"
       ],
-      "fullDescription2": "<h3>Descripción</h3><p>Perimetral es una pieza inmersiva dentro del Memorial del CCD, la cual prolonga la experiencia del subsuelo y su resonancia compartida cuenta con la participación de Homero Guerrero,  Karen Jimenez, Marianne Teixido y el equipo de murmuro. Esta instalación sonora aprovecha diversos medios —como la escultura, la programación y la composición de piezas acusmáticas— para generar un territorio de vibración, textura y sonido inspirado en el espacio perimetral del CCD.  </p>",
+      "fullDescription2": "<h3>Descripción</h3><p>Perimetral es una pieza inmersiva dentro del Memorial del CCD, la cual prolonga la experiencia del subsuelo y su resonancia compartida cuenta con la participación de Homero Guerrero,  Karen Jimenez, Marianne Teixido y el equipo de murmuro. Esta instalación sonora aprovecha diversos medios como la escultura, la programación y la composición de piezas acusmáticas para generar un territorio de vibración, textura y sonido inspirado en el espacio perimetral del CCD.  </p>",
       "images2": [
         "perimetral.jpg",
         "perimetral02.jpg"
       ],
-      "fullDescription3": "<p>Este entorno surge como detonante de las poéticas del subsuelo, ya que materialmente alberga la oscuridad y lo cavernoso, además de ser una zona oculta del recinto. El perimetral nos recuerda que, aun estando en la ciudad, el subsuelo —con sus olores, texturas y tránsitos— se hace presente constantemente desde su naturaleza oculta...  Una pieza que busca contraponer el espacio clínico y brillante del Memorial con los espacios limítales que circundan esta construcción que se localiza debajo del Bosque de Chapultepec.</p>",
+      "fullDescription3": "<p>Este entorno surge como detonante de las poéticas del subsuelo, ya que materialmente alberga la oscuridad y lo cavernoso, además de ser una zona oculta del recinto. El perimetral nos recuerda que, aun estando en la ciudad, el subsuelo, con sus olores, texturas y tránsitos, se hace presente constantemente desde su naturaleza oculta...  Una pieza que busca contraponer el espacio clínico y brillante del Memorial con los espacios limítales que circundan esta construcción que se localiza debajo del Bosque de Chapultepec.</p>",
       "images3": [
         "W-7.jpg",
         "subsuelo02.jpg"
@@ -113,6 +191,9 @@
     },
     "category": "instalacion",
     "tags": [
+      "instalacion"
+    ],
+    "keywords": [
       "instalacion sonora",
       "inmersiva",
       "performance",
@@ -123,8 +204,8 @@
         "summary": "Immersive sound installation",
         "details": {
           "fullDescription": "<h3>Context</h3><p><b>Murmuro</b> is a listening and sound experimentation encounter that since 2021 has convened artists, researchers and communities to explore the multiple dimensions of sound. With editions in different cultural spaces in Mexico City, it has established itself as a platform for creation and reflection around listening as an aesthetic, political and social practice.</p> <p>In this third edition, titled <b>Poetics of the Subsoil</b>, Murmuro delves into the sonorities and listenings that emerge from darkness, the cavernous and the hidden. The subsoil stands as an artistic trigger to explore a plethora of sound poetics that, by restricting light and sight, invite us to discover a sensory universe where the auditory takes primacy.</p>",
-          "fullDescription2": "<h3>Description</h3><p>Perimetral is an immersive piece within the CCD Memorial, which extends the experience of the subsoil and its shared resonance, featuring the participation of Homero Guerrero, Karen Jimenez, Marianne Teixido and the murmuro team. This sound installation draws on various media —sculpture, programming and the composition of acousmatic pieces— to generate a territory of vibration, texture and sound inspired by the perimeter space of the CCD.</p>",
-          "fullDescription3": "<p>This environment emerges as a trigger for the poetics of the subsoil, as it materially harbors darkness and the cavernous, as well as being a hidden area of the venue. The perimeter reminds us that, even while in the city, the subsoil —with its smells, textures and passages— is constantly present from its hidden nature... A piece that seeks to counterpose the clinical and bright space of the Memorial with the boundary spaces surrounding this construction located beneath Chapultepec Forest.</p>"
+          "fullDescription2": "<h3>Description</h3><p>Perimetral is an immersive piece within the CCD Memorial, which extends the experience of the subsoil and its shared resonance, featuring the participation of Homero Guerrero, Karen Jimenez, Marianne Teixido and the murmuro team. This sound installation draws on various media such as sculpture, programming and the composition of acousmatic pieces to generate a territory of vibration, texture and sound inspired by the perimeter space of the CCD.</p>",
+          "fullDescription3": "<p>This environment emerges as a trigger for the poetics of the subsoil, as it materially harbors darkness and the cavernous, as well as being a hidden area of the venue. The perimeter reminds us that, even while in the city, the subsoil, with its smells, textures and passages, is constantly present from its hidden nature... A piece that seeks to counterpose the clinical and bright space of the Memorial with the boundary spaces surrounding this construction located beneath Chapultepec Forest.</p>"
         }
       }
     }
@@ -169,6 +250,11 @@
     },
     "category": "performance",
     "tags": [
+      "performance",
+      "live-coding",
+      "musica"
+    ],
+    "keywords": [
       "IA",
       "performance",
       "neural voice synthesis",
@@ -237,6 +323,11 @@
     },
     "category": "music",
     "tags": [
+      "live-coding",
+      "musica",
+      "experimentos"
+    ],
+    "keywords": [
       "IA"
     ],
     "translations": {
@@ -288,7 +379,13 @@
       }
     ],
     "category": "performance audiovisual",
-    "tags": [],
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica",
+      "visualizacion-datos",
+      "literatura-electronica"
+    ],
     "translations": {
       "EN": {
         "summary": "Composition for live electronics and 3D renders on the web",
@@ -319,6 +416,9 @@
     },
     "category": "video",
     "tags": [
+      "live-coding"
+    ],
+    "keywords": [
       "live coding",
       "hydra",
       "visuals"
@@ -342,17 +442,25 @@
     "summary": "Narrativa algorítmica de denuncia sobre feminicidio y desapariciones forzadas",
     "image": "notas01.png",
     "details": {
-      "fullDescription": "<b>Notas de ausencia</b> es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.",
+      "fullDescription": "<h3>Contexto</h3><p><strong>Notas de ausencia</strong> es un ensayo generativo en la web que intersecta lo artístico y lo periodístico. La pieza crea un texto generativo a partir de unidades de texto-dato, donde la computadora actúa como agente resignificante de estructuras textuales. El espacio virtual se conforma como una partitura para la memoria y la denuncia, articulada mediante dos bots: uno que recopila tweets con hashtags como #MéxicoFeminicida y #NiUnaMenos, y otro de generación de texto automático. La narrativa semi-autónoma argumenta a partir de textos de tweets, poemarios, libros y artículos feministas sobre desapariciones forzadas, feminicidio y violencia de género, presentes como texto, imagen y sonido.</p>",
       "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/W851KungtSQ?si=u3mHpwg2K4LqliKN\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "images": [
         "notas03.png",
         "notas04.png"
       ],
-      "fullDescription2": "La pieza se divide en tres momentos: Memorial, Reescritura y Espejo. En el Memorial, los monolitos contienen tweets que se pueden scrollear. En Reescritura, las esferas visualizan la recurrencia de palabras extraídas de los tweets. En Espejo, aparecen aleatoriamente fotografías de mujeres desaparecidas de la CNDH. La navegación se realiza con teclado (w,a,s,d o flechas) y mouse, presionando M para cambiar escenas. La máquina genera nodos que articulan las palabras más frecuentes en la narrativa de desapariciones, creando un remix lógico-sintáctico que propicia la resignificación de estas narrativas de opresión. <br><br> Notas de ausencia. Narrativa algorítmica de denuncia.<br><br>Autora: Marianne Teixido<br>Página web interactiva; HTML, CSS, Three.js, Python.<br>Lugar de creación: Ciudad de México.<br>Año: 2020<br><br>Exposición Creación con Algoritmos. Centro de Cultura Digital. Julio, 2020.<br>EmMeio #12 Exhibition. MedialLab BR. Octubre, 2020.<br><br>  El proyecto actualmente está fuera de línea pero puedes consultar el código fuente en <a href=\"https://github.com/MarianneTeixido/notasdeausencia\">GitHub</a>",
-      "images2": ["twitter.png"]
+      "fullDescription2": "<h3>Descripción</h3><p>La pieza se divide en tres momentos.</p><h4>Memorial</h4><p>Los monolitos contienen tweets que se pueden scrollear.</p><h4>Reescritura</h4><p>Las esferas visualizan la recurrencia de palabras extraídas de los tweets.</p><h4>Espejo</h4><p>Aparecen aleatoriamente fotografías de mujeres desaparecidas de la CNDH.</p><p>La navegación se realiza con teclado (w, a, s, d o flechas) y mouse, presionando M para cambiar escenas. La máquina genera nodos que articulan las palabras más frecuentes en la narrativa de desapariciones, creando un remix lógico-sintáctico que propicia la resignificación de estas narrativas de opresión.</p>",
+      "images2": [
+        "twitter.png"
+      ],
+      "fullDescription3": "<h3>Créditos</h3><h4>Autora</h4><p>Marianne Teixido</p><h4>Tecnologías</h4><p>Página web interactiva; HTML, CSS, Three.js, Python</p><h4>Lugar y año</h4><p>Ciudad de México, 2020</p><h3>Exhibiciones</h3><ul><li><strong>Creación con Algoritmos</strong>: Centro de Cultura Digital, julio de 2020</li><li><strong>EmMeio #12</strong>: MediaLab BR, octubre de 2020</li></ul><p>El proyecto actualmente está fuera de línea, pero puedes consultar el código fuente en <a href=\"https://github.com/MarianneTeixido/notasdeausencia\" target=\"_blank\" rel=\"noopener\">GitHub</a>.</p>"
     },
     "category": "web",
     "tags": [
+      "instalacion",
+      "visualizacion-datos",
+      "literatura-electronica"
+    ],
+    "keywords": [
       "generative",
       "threejs",
       "feminism",
@@ -363,8 +471,45 @@
         "title": "Notes of Absence",
         "summary": "Algorithmic narrative denouncing femicide and forced disappearances",
         "details": {
-          "fullDescription": "<b>Notas de ausencia</b> is a generative web essay that intersects the artistic and the journalistic. The piece creates a generative text from text-data units, where the computer acts as a resignifying agent of textual structures. The virtual space is configured as a score for memory and denunciation, articulated through two bots: one that collects tweets with hashtags such as #MéxicoFeminicida and #NiUnaMenos, and another for automatic text generation. The semi-autonomous narrative argues from tweets, poetry collections, books and feminist articles on forced disappearances, femicide and gender violence, present as text, image and sound.",
-          "fullDescription2": "The piece is divided into three moments: Memorial, Rewriting and Mirror. In the Memorial, the monoliths contain scrollable tweets. In Rewriting, spheres visualize the recurrence of words extracted from the tweets. In Mirror, photographs of disappeared women from the CNDH appear randomly. Navigation is done with keyboard (w,a,s,d or arrows) and mouse, pressing M to change scenes. The machine generates nodes that articulate the most frequent words in the narrative of disappearances, creating a logical-syntactic remix that fosters the resignification of these oppression narratives. <br><br>Notas de ausencia. Algorithmic denunciation narrative.<br><br>Author: Marianne Teixido<br>Interactive website; HTML, CSS, Three.js, Python.<br>Place of creation: Mexico City.<br>Year: 2020<br><br>Exhibition Creación con Algoritmos. Centro de Cultura Digital. July, 2020.<br>EmMeio #12 Exhibition. MediaLab BR. October, 2020.<br><br>The project is currently offline but you can view the source code on <a href=\"https://github.com/MarianneTeixido/notasdeausencia\">GitHub</a>"
+          "fullDescription": "<h3>Context</h3><p><strong>Notas de ausencia</strong> is a generative web essay that intersects the artistic and the journalistic. The piece creates a generative text from text-data units, where the computer acts as a resignifying agent of textual structures. The virtual space is configured as a score for memory and denunciation, articulated through two bots: one that collects tweets with hashtags such as #MéxicoFeminicida and #NiUnaMenos, and another for automatic text generation. The semi-autonomous narrative argues from tweets, poetry collections, books and feminist articles on forced disappearances, femicide and gender violence, present as text, image and sound.</p>",
+          "fullDescription2": "<h3>Description</h3><p>The piece is divided into three moments.</p><h4>Memorial</h4><p>The monoliths contain scrollable tweets.</p><h4>Rewriting</h4><p>Spheres visualize the recurrence of words extracted from the tweets.</p><h4>Mirror</h4><p>Photographs of disappeared women from the CNDH appear randomly.</p><p>Navigation is done with keyboard (w, a, s, d or arrows) and mouse, pressing M to change scenes. The machine generates nodes that articulate the most frequent words in the narrative of disappearances, creating a logical-syntactic remix that fosters the resignification of these oppression narratives.</p>",
+          "fullDescription3": "<h3>Credits</h3><h4>Author</h4><p>Marianne Teixido</p><h4>Technologies</h4><p>Interactive website; HTML, CSS, Three.js, Python</p><h4>Place and year</h4><p>Mexico City, 2020</p><h3>Screenings</h3><ul><li><strong>Creación con Algoritmos</strong>: Centro de Cultura Digital, July 2020</li><li><strong>EmMeio #12</strong>: MediaLab BR, October 2020</li></ul><p>The project is currently offline, but you can view the source code on <a href=\"https://github.com/MarianneTeixido/notasdeausencia\" target=\"_blank\" rel=\"noopener\">GitHub</a>.</p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "navegacion-archivo-vivo",
+    "title": "Archivo vivo | LuchaZ Fest",
+    "year": "2022",
+    "link": "https://centroculturadigital.mx/actividad/luchaz-fest",
+    "summary": "Performance audiovisual con live coding",
+    "image": "luchadoras01.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Se propone una performance audiovisual a partir del archivo visual y sonoro que Luchadoras MX ha registrado en los últimos 10 años.</p><p>Se escucha: «todas somos una voz y somos la fuerza de esta voz». La imagen se compone de mujeres y diversidades movilizándose, ocupando las calles, las instituciones y resonando en toda la ciudad. La narrativa visual y sonora navega a través de este archivo, remixando y loopeando las imágenes, así como creando un mashup del sonido que compone el paisaje sonoro y ritmos que golpean con el video una historia del feminismo, del hackeo corporal y de las tecnologías.</p>",
+      "images": [
+        "luchadoras02.jpg",
+        "luchadoras03.jpg",
+        "luchadoras04.jpg"
+      ],
+      "fullDescription2": "<h3>Exhibiciones</h3><ul><li><strong>LuchaZ Fest</strong>: Luchadoras MX invitó a celebrar juntes su caminar en el espacio físico y digital desde los feminismos. Explanada del Centro de Cultura Digital, Ciudad de México, 21 de octubre de 2022, 20:00 h. Entrada libre hasta completar aforo. <a href=\"https://centroculturadigital.mx/actividad/luchaz-fest\" target=\"_blank\" rel=\"noopener\">Ver actividad</a></li></ul><h3>Créditos</h3><h4>Programación visual</h4><p>Milena Pafundi</p><h4>Audio SuperCollider</h4><p>Marianne Teixido</p><h4>Documentación</h4><p><a href=\"https://www.milenapafundi.com/Colab-para-Luchadoras\" target=\"_blank\" rel=\"noopener\">Colab para Luchadoras, en el sitio de Milena Pafundi</a></p>",
+      "images2": [
+        "luchaz.png"
+      ]
+    },
+    "category": "performance",
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "title": "Archivo vivo | LuchaZ Fest",
+        "summary": "Audiovisual live coding performance",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>An audiovisual performance is proposed from the visual and sound archive that Luchadoras MX has recorded over the last 10 years.</p><p>You hear: “we are all one voice and we are the strength of this voice”. The image is made up of women and diverse people mobilizing, occupying the streets and the institutions and resonating across the whole city. The visual and sound narrative navigates through this archive, remixing and looping the images, as well as creating a mashup of the sound that makes up the soundscape and rhythms that strike, together with the video, a story of feminism, of bodily hacking and of technologies.</p>",
+          "fullDescription2": "<h3>Screenings</h3><ul><li><strong>LuchaZ Fest</strong>: Luchadoras MX invited everyone to celebrate together their walk in physical and digital space from feminisms. Esplanade of the Centro de Cultura Digital, Mexico City, October 21, 2022, 8 pm. Free admission until capacity is reached. <a href=\"https://centroculturadigital.mx/actividad/luchaz-fest\" target=\"_blank\" rel=\"noopener\">See event</a></li></ul><h3>Credits</h3><h4>Visual programming</h4><p>Milena Pafundi</p><h4>SuperCollider audio</h4><p>Marianne Teixido</p><h4>Documentation</h4><p><a href=\"https://www.milenapafundi.com/Colab-para-Luchadoras\" target=\"_blank\" rel=\"noopener\">Colab para Luchadoras, on Milena Pafundi’s site</a></p>"
         }
       }
     }
@@ -372,18 +517,23 @@
   {
     "id": "ram",
     "title": "R.A.M. [Redes Autónomas de Memoria]",
-    "year": "2022",
+    "year": "2022–2026",
     "link": "https://ramlab.cc/",
     "summary": "Laboratoria de transchackfeminista de prácticas artísticas con tecnologías",
     "image": "ram.png",
     "details": {
-      "fullDescription": "R.A.M. Surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.",
+      "fullDescription": "<h3>Descripción</h3><p>R.A.M. surge de la necesidad de socializar tecnologías como la IA para dotarlas de un discurso crítico por medio de procesos sociales ciberfeministas para armar defensas y autodefensas que confronten las violencias de género.</p><p>R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.</p><h4>¿En qué creemos?</h4><p>En la capacidad de organizar la rabia y sanar en colectiva. En que las máquinas las programamos nosotras, la inteligencia no es artificial es colectiva.</p><h4>¿Qué deseamos conseguir?</h4><p>Desmontar los procesos tecnológicos y las herramientas con IA para acercar a las mujeres y usarlas en procesos de autodefensa.</p><h4>¿Qué hacemos?</h4><p>Programar nuestras algoritmias. Organizarnos, colaborar, denunciar, tejer redes, sanar. Tejemos relatos y bordamos software, para cualquier mujer o persona no heteronormada que desee tramar resistencias narrando discursos de autocuidado colectivo. Este proyecto es para personas identificadas como mujeres y disidencias sexuales y de género, interesadas en la memoria oral y tecnologías, código, software y ciberhackfeminismos.</p>",
       "images": [],
-      "fullDescription2": "R.A.M. es una inteligencia artificial colectiva y feminista que escucha y enuncia discursos disrruptivos para el cuidado colectivo frente a la violencia de género. La tecnología son nuestras cuerpas. Pensamos con ellas y a través de ellas. Desde los procesos que nos atraviesan e interpelan. No podemos dejar de lado la violencia sistémica que pretende paralizarnos ante el miedo. Nuestras cuerpas como infraestructura responden y se organizan en una inteligencia colectiva capaz de agenciarse en el software como una prótesis para nuestras defensas colectivas transhackfeministas.",
+      "fullDescription2": "<h3>Archiva</h3><p>Algunos de nuestros experimentos, procesos y prácticas:</p><ul><li><strong>Tecnologías Otras. Saberes hacer en Abya Yala</strong> (2026): patrocinio de la exposición colectiva que curé en el Museo Universitario «Leopoldo Flores» de la UAEMéx, en Toluca, del 12 de marzo al 22 de mayo de 2026, en el marco de las actividades por el 8M. <a href=\"https://ramlab.cc/tecnologias-otras\" target=\"_blank\" rel=\"noopener\">Ver exposición</a></li><li><strong>Radio Vecine</strong> (2024 y 2026): radio FM de corto alcance para tu vecine</li><li><strong>Kit de herramientas para la autonomía radial</strong> (2024): 6.º tomo del fanzine Cómo montar una servidora de radio por internet con conexión casera</li><li><strong>Algorave X RAM + Radio Cósmica Libre</strong> (2024): algorave es un concierto descentralizado y autogestivo donde livecoders generan música en tiempo real. Este algorave coincidió con el cierre de actividades de RAM y de NIME 2023 en CDMX</li><li><strong>Taller Des-entrenando cuerpos</strong> (2023): laboratorio crítico de inteligencia artificial repensada desde el cuerpo y el cuidado colectivo</li><li><strong>Taller po(éticas) futuras</strong> (2023): socializamos tecnologías de aprendizaje de máquinas para promover la apropiación tecnológica crítica y situada</li><li><strong>Convergencias TransHackFeministas</strong> (2022): charla «Inteligencias colectivas hackfeministas. Desmachini-zando el sonido con AI»</li><li><strong>Literatura electrónica + código al vuelo y narrativas audiovisuales</strong> (2022): conferencia en línea de la artista y programadora Jessica Arianne Rodríguez</li></ul><p>El archivo completo está en <a href=\"https://ramlab.cc/archiva\" target=\"_blank\" rel=\"noopener\">ramlab.cc/archiva</a>.</p>",
       "images2": []
     },
     "category": "colectivos",
     "tags": [
+      "talleres",
+      "colectivas",
+      "curaduria"
+    ],
+    "keywords": [
       "IA"
     ],
     "translations": {
@@ -391,8 +541,8 @@
         "title": "R.A.M. [Autonomous Memory Networks]",
         "summary": "Transhackfeminist laboratory of artistic practices with technologies",
         "details": {
-          "fullDescription": "R.A.M. emerges from the need to socialize technologies such as AI to endow them with critical discourse through cyberfeminist social processes to build defenses and self-defenses that confront gender violence.",
-          "fullDescription2": "R.A.M. is a collective and feminist artificial intelligence that listens to and enunciates disruptive discourses for collective care in the face of gender violence. Technology is our bodies. We think with them and through them. From the processes that traverse and interpellate us. We cannot set aside the systemic violence that seeks to paralyze us through fear. Our bodies as infrastructure respond and organize into a collective intelligence capable of asserting itself in software as a prosthesis for our collective transhackfeminist defenses."
+          "fullDescription": "<h3>Description</h3><p>R.A.M. arises from the need to socialize technologies such as AI to give them a critical discourse through cyberfeminist social processes, building defenses and self-defenses that confront gender-based violence.</p><p>R.A.M. is a collective and feminist artificial intelligence that listens to and enunciates disruptive discourses for collective care in the face of gender violence. Technology is our bodies. We think with them and through them. From the processes that traverse and interpellate us. We cannot set aside the systemic violence that seeks to paralyze us through fear. Our bodies as infrastructure respond and organize into a collective intelligence capable of asserting itself in software as a prosthesis for our collective transhackfeminist defenses.</p><h4>What do we believe in?</h4><p>In the capacity to organize rage and heal collectively. In the fact that we are the ones who program the machines: intelligence is not artificial, it is collective.</p><h4>What do we want to achieve?</h4><p>To dismantle technological processes and AI tools to bring women closer and use them in self-defense processes.</p><h4>What do we do?</h4><p>Program our algorithmias. Organize, collaborate, denounce, weave networks, heal. We weave stories and embroider software, for any woman or non-heteronormative person who wishes to plot resistances by narrating collective self-care discourses. This project is for people identified as women and sexual and gender dissidents, interested in oral memory and technologies, code, software, and cyberhackfeminisms.</p>",
+          "fullDescription2": "<h3>Archive</h3><p>Some of our experiments, processes and practices:</p><ul><li><strong>Other Technologies. Ways of Knowing in Abya Yala</strong> (2026): sponsorship of the collective exhibition that I curated at the Museo Universitario “Leopoldo Flores” of the UAEMéx, in Toluca, from March 12 to May 22, 2026, as part of the 8M activities. <a href=\"https://ramlab.cc/tecnologias-otras\" target=\"_blank\" rel=\"noopener\">See exhibition</a></li><li><strong>Radio Vecine</strong> (2024 and 2026): short-range FM radio for your neighbor</li><li><strong>Toolkit for Radio Autonomy</strong> (2024): 6th volume of the fanzine How to set up an internet radio server with a home connection</li><li><strong>Algorave X RAM + Radio Cósmica Libre</strong> (2024): algorave is a decentralized and self-managed concert where livecoders generate music in real time. This algorave coincided with the close of RAM's activities and NIME 2023 in Mexico City</li><li><strong>Workshop: Untraining Bodies</strong> (2023): a critical laboratory of artificial intelligence rethought through the body and collective care</li><li><strong>Workshop: Future Po(etics)</strong> (2023): we socialize machine learning technologies to promote critical and situated technological appropriation</li><li><strong>TransHackFeminist Convergences</strong> (2022): talk “Hackfeminist collective intelligences. De-machining sound with AI”</li><li><strong>Electronic Literature + Live Coding and Audiovisual Narratives</strong> (2022): online conference by artist and programmer Jessica Arianne Rodríguez</li></ul><p>The full archive is at <a href=\"https://ramlab.cc/archiva\" target=\"_blank\" rel=\"noopener\">ramlab.cc/archiva</a>.</p>"
         }
       }
     }
@@ -429,6 +579,11 @@
     "category": "performance audiovisual",
     "tags": [
       "performance",
+      "live-coding",
+      "musica"
+    ],
+    "keywords": [
+      "performance",
       "audiovisual",
       "live coding",
       "residencia"
@@ -447,23 +602,35 @@
   {
     "id": "piranhalab",
     "title": "Piranha Lab",
-    "year": "2022",
-    "link": "https://piranhalab.github.io/index.html",
-    "summary": "Laboratorio interdisciplinario que trabaja en las tripas del software.",
-    "image": "conversatorio.jpg",
+    "year": "2019–2026",
+    "link": "https://piranhalab.cc/",
+    "summary": "Laboratorio de experimentación entre arte, tecnología y educación",
+    "image": "piranhalab-edges.jpg",
     "details": {
-      "fullDescription": "El laboratorio tiene como objetivo impulsar la práctica, el desarrollo, la investigación y la difusión de software orientado a la creación audiovisual. Enfoca su actividad en la comunidad que practica la Programación al Vuelo o Live Coding en México y Latinoamérica.",
+      "fullDescription": "<h3>Descripción</h3><p>PiranhaLab es un laboratorio de experimentación entre arte, tecnología y educación, y soy cofundadora. Promovemos procesos de apropiación tecnológica en el cruce de las prácticas artísticas multimedia, la educación y la programación creativa. Investigamos y cuestionamos desde la praxis el software como medio de creación, documentación y comunidad, con una pedagogía crítica que pone en cuestión la predominancia de los objetos tecnocientíficos y tiende puentes entre tecnologías análogas, digitales, sonoras y de lenguaje. Enfocamos nuestra actividad en la comunidad que practica la programación al vuelo (live coding) en México y Latinoamérica.</p><p>Partimos de una premisa política y estética: todas las personas pueden crear, programar y diseñar tecnologías, no solo usarlas.</p><h4>DIY / DIWO</h4><p>Como proceso de enseñanza y aprendizaje: hacer por unx mismx y hacer junto a otrxs.</p><h4>Software libre</h4><p>Como herramienta para democratizar la expresión y el pensamiento crítico. Esta postura abre puertas para traspasar la frontera entre consumo y creación.</p><h4>Educación experimental</h4><p>Talleres y programas que fomentan el pensamiento crítico y la creación colaborativa.</p><h3>Metodología</h3><ul><li><strong>Actualización y aprendizaje constante</strong>: técnica, conceptual, cultural, social y política</li><li><strong>Laboratorios de experimentación</strong>: improvisación y experimentación como aprendizaje por práctica</li><li><strong>Documentación descentralizada</strong>: control de versiones, redes sociales y páginas web</li><li><strong>Investigación artística</strong>: vínculo entre la investigación y la reflexión desde las artes y la docencia</li></ul>",
       "images": [],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription2": "<h3>Trayectoria</h3><ul><li><strong>2018 · PADID / CENART</strong>: arrancamos un ciclo de talleres, conversatorios y conciertos para visibilizar el software creativo para performance audiovisual que se hace en Latinoamérica</li><li><strong>2019 · Ciclo en el Centro de Cultura Digital</strong>: hicimos cinco talleres, dos conversatorios y dos conciertos junto al Taller de Tecnologías Libres. El taller más demandado superó las 100 solicitudes de inscripción</li><li><strong>2020 · EDGES</strong>: cinco conciertos virtuales en espacios tridimensionales que diseñamos como colectivo, convocados por el Centro Multimedia del CENART durante la pandemia</li><li><strong>2022 · Publicación UNAM</strong>: sistematizamos la experiencia EDGES en «Panorama. Escritura de espacios libres e inmersivos para el performance audiovisual», dentro de <em>Algoritmos arruinados</em></li><li><strong>2026 · SEP / UNESCO, Alas y Raíces</strong>: participamos en una mesa sobre tecnología y educación en el Congreso Educación, Arte y Cultura, y dimos talleres para dotar de herramientas tecnológicas a promotores culturales del norte de México</li></ul><p>Llevamos más de 7 años de práctica y hemos alcanzado a más de 400 personas, con más de 20 talleres, conciertos y charlas y una publicación académica (UNAM).</p>",
+      "images2": [
+        "conversatorio.jpg"
+      ],
+      "fullDescription3": "<h3>Proyectos</h3><ul><li><strong>Cartas Sonoras</strong>: taller para facilitadores que trabajan con infancias en contextos de privación de libertad. Escucha, captura y composición colectiva con el teléfono. <a href=\"https://piranhalab.cc/talleres/cartas-sonoras.html\" target=\"_blank\" rel=\"noopener\">Ver taller</a></li><li><strong>Tecnologías Cotidianas para Documentar el Territorio</strong>: taller-laboratorio para promotores culturales, Reunión Nacional de Cultura Infantil 2026 (Alas y Raíces, Puebla). <a href=\"https://piranhalab.cc/talleres/tecnologias-cotidianas.html\" target=\"_blank\" rel=\"noopener\">Ver taller</a></li><li><strong>EDGES</strong>: ciclo de conciertos virtuales en espacios tridimensionales diseñados por el colectivo, Centro Multimedia del CENART, 2020. <a href=\"https://www.repositorio.fam.unam.mx/handle/123456789/139\" target=\"_blank\" rel=\"noopener\">Ver publicación</a></li><li><strong>Ciclo de talleres en el CCD</strong>: espacio donde presentamos bibliotecas personalizadas de personas que practican programación al vuelo</li><li><strong>Pedagogías interdisciplinares en las artes</strong>: espacios que nos han servido como motivos para poner en práctica el trabajo experimental por proyectos</li><li><strong>El navegador como lienzo</strong>: el navegador como tecnología nos ha permitido desarrollar proyectos audiovisuales experimentales de manera accesible</li></ul><h3>Publicaciones</h3><p>García Castilla, J. D. y Silva Treviño, P. (coords.) (2022). <em>Algoritmos arruinados. Perspectivas situadas de tecnología musical</em>. Facultad de Música, UNAM, Colección Amoxtli. ISBN 978-607-3062-11-4. Licencia CC BY 4.0. Soy una de las 16 personas autoras del libro. <a href=\"https://www.repositorio.fam.unam.mx/handle/123456789/139\" target=\"_blank\" rel=\"noopener\">repositorio.fam.unam.mx</a></p>"
     },
     "category": "colectivos",
-    "tags": [],
+    "tags": [
+      "live-coding",
+      "instalacion",
+      "software",
+      "talleres",
+      "colectivas",
+      "curaduria"
+    ],
     "translations": {
       "EN": {
-        "summary": "Interdisciplinary laboratory working in the guts of software.",
+        "summary": "Laboratory for experimentation between art, technology and education",
         "details": {
-          "fullDescription": "The laboratory aims to promote the practice, development, research and dissemination of software oriented toward audiovisual creation. It focuses its activity on the community that practices Live Coding in Mexico and Latin America."
+          "fullDescription": "<h3>Description</h3><p>PiranhaLab is a laboratory for experimentation between art, technology and education, and I am a co-founder. We promote processes of technological appropriation at the crossroads of multimedia art practices, education and creative programming. We investigate and question, from praxis, software as a medium for creation, documentation and community, with a critical pedagogy that challenges the predominance of technoscientific objects and builds bridges between analog, digital, sonic and language technologies. We focus our activity on the community that practices live coding in Mexico and Latin America.</p><p>We start from a political and aesthetic premise: everyone can create, program and design technologies, not just use them.</p><h4>DIY / DIWO</h4><p>As a process of teaching and learning: doing it yourself and doing it together with others.</p><h4>Free software</h4><p>As a tool to democratize expression and critical thinking. This stance opens doors to cross the border between consumption and creation.</p><h4>Experimental education</h4><p>Workshops and programs that foster critical thinking and collaborative creation.</p><h3>Methodology</h3><ul><li><strong>Constant updating and learning</strong>: technical, conceptual, cultural, social and political</li><li><strong>Experimentation laboratories</strong>: improvisation and experimentation as learning by practice</li><li><strong>Decentralized documentation</strong>: version control, social media and websites</li><li><strong>Artistic research</strong>: a link between research and reflection from the arts and teaching</li></ul>",
+          "fullDescription2": "<h3>Trajectory</h3><ul><li><strong>2018 · PADID / CENART</strong>: we started a cycle of workshops, talks and concerts to make visible the creative software for audiovisual performance made in Latin America</li><li><strong>2019 · Cycle at the Centro de Cultura Digital</strong>: we gave five workshops, two talks and two concerts together with the Taller de Tecnologías Libres. The most requested workshop received over 100 applications</li><li><strong>2020 · EDGES</strong>: five virtual concerts in three-dimensional spaces that we designed as a collective, commissioned by CENART's Centro Multimedia during the pandemic</li><li><strong>2022 · UNAM publication</strong>: we systematized the EDGES experience in “Panorama. Escritura de espacios libres e inmersivos para el performance audiovisual”, within <em>Algoritmos arruinados</em></li><li><strong>2026 · SEP / UNESCO, Alas y Raíces</strong>: we took part in a panel on technology and education at the Education, Art and Culture Congress, and gave workshops to provide technological tools to cultural promoters in northern Mexico</li></ul><p>We have more than 7 years of practice and have reached over 400 people, with more than 20 workshops, concerts and talks and one academic publication (UNAM).</p>",
+          "fullDescription3": "<h3>Projects</h3><ul><li><strong>Cartas Sonoras</strong>: a workshop for facilitators working with children in contexts of deprivation of liberty. Listening, capturing and collective composition with a phone. <a href=\"https://piranhalab.cc/talleres/cartas-sonoras.html\" target=\"_blank\" rel=\"noopener\">See workshop</a></li><li><strong>Everyday Technologies to Document the Territory</strong>: a workshop-laboratory for cultural promoters, Reunión Nacional de Cultura Infantil 2026 (Alas y Raíces, Puebla). <a href=\"https://piranhalab.cc/talleres/tecnologias-cotidianas.html\" target=\"_blank\" rel=\"noopener\">See workshop</a></li><li><strong>EDGES</strong>: a cycle of virtual concerts in three-dimensional spaces designed by the collective, CENART's Centro Multimedia, 2020. <a href=\"https://www.repositorio.fam.unam.mx/handle/123456789/139\" target=\"_blank\" rel=\"noopener\">See publication</a></li><li><strong>Workshop cycle at the CCD</strong>: a space where we presented personal libraries of people who practice live coding</li><li><strong>Interdisciplinary pedagogies in the arts</strong>: spaces that have served us as motives for putting experimental project-based work into practice</li><li><strong>The browser as canvas</strong>: the browser as a technology has allowed us to develop experimental audiovisual projects in an accessible way</li></ul><h3>Publications</h3><p>García Castilla, J. D. & Silva Treviño, P. (coords.) (2022). <em>Algoritmos arruinados. Perspectivas situadas de tecnología musical</em>. Facultad de Música, UNAM, Colección Amoxtli. ISBN 978-607-3062-11-4. CC BY 4.0 license. I am one of the book's 16 authors. <a href=\"https://www.repositorio.fam.unam.mx/handle/123456789/139\" target=\"_blank\" rel=\"noopener\">repositorio.fam.unam.mx</a></p>"
         }
       }
     }
@@ -472,24 +639,339 @@
     "id": "unkownauthor",
     "title": "Unknown Author",
     "year": "2019",
-    "link": null,
+    "link": "https://teixido.cc/unknown-author/",
     "summary": "Visualización y sonificación de datos con meta-imágenes cartográficas",
     "image": "unknown01.png",
     "details": {
       "fullDescription": "Este proyecto audiovisual es un ejercicio de desplazamiento de idea de la producción autoral, originalidad. El proyecto propone mirar críticamente las similitudes de las imágenes pobres que circulan diariamente en internet.La propuesta parte del cuestionamiento sobre la apropiación, plagio y creatividad desde la observación participante de las imágenes artística en la red. El performance un dispositivo de navegación para navegar en la información contenida en una base de datos obtenida de la actividad capturada con scripts de python y procesada algorítmicamente con técnicas de la programación al vuelo. Es un ejercicios dialéctico que busca el diálogo entre la interfaz, el usuario como meta-interfaz, la información y las narrativas interactivas.",
-      "images": [],
+      "images": [
+        "unknown-author-02.jpg"
+      ],
       "fullDescription2": "¿Cuál es la relevancia de la técnica, el discurso y la estética cuando hay millones de imágenes similares?, ¿a dónde nos lleva la aceleración tecnológica de las interfaces en el arte?, ¿es posible defender la idea de autoría cuando probablemente la obra es imitada, copiada o robada de otras más proveniente de lo grandes nodos de influencia? ¿lo técnico determina lo estético y las herramientas enmarcan el discurso y evidencian condiciones de producción?",
       "images2": [],
-      "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/X2lifGYckIQ?si=77mFs7Cwdfeg8Vin\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/X2lifGYckIQ?si=77mFs7Cwdfeg8Vin\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "fullDescription3": "<h3>Exhibiciones</h3><ul><li><strong>Exposición Creación en Movimiento</strong>: Jóvenes Creadores, Primer Periodo. Antiguo Colegio de San Ildefonso, Ciudad de México, septiembre–noviembre de 2019. Lo presenté como serie de impresiones en giclée sobre papel y como concierto de live coding conducido por datos.</li></ul>"
     },
     "category": "performance",
-    "tags": [],
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica",
+      "visualizacion-datos"
+    ],
     "translations": {
       "EN": {
         "summary": "Data visualization and sonification with cartographic meta-images",
         "details": {
           "fullDescription": "This audiovisual project is an exercise in displacing the idea of authorial production and originality. The project proposes critically examining the similarities of poor images that circulate daily on the internet. The proposal starts from questioning appropriation, plagiarism and creativity through participant observation of artistic images on the network. The performance is a navigation device for traversing the information contained in a database obtained from activity captured with Python scripts and algorithmically processed with live coding techniques. It is a dialectical exercise that seeks dialogue between the interface, the user as meta-interface, information and interactive narratives.",
-          "fullDescription2": "What is the relevance of technique, discourse and aesthetics when there are millions of similar images? Where does the technological acceleration of interfaces in art take us? Is it possible to defend the idea of authorship when the work is probably imitated, copied or stolen from others originating from the great nodes of influence? Does the technical determine the aesthetic and do the tools frame the discourse and reveal production conditions?"
+          "fullDescription2": "What is the relevance of technique, discourse and aesthetics when there are millions of similar images? Where does the technological acceleration of interfaces in art take us? Is it possible to defend the idea of authorship when the work is probably imitated, copied or stolen from others originating from the great nodes of influence? Does the technical determine the aesthetic and do the tools frame the discourse and reveal production conditions?",
+          "fullDescription3": "<h3>Screenings</h3><ul><li><strong>Exhibition Creación en Movimiento</strong>: Jóvenes Creadores, First Period. Antiguo Colegio de San Ildefonso, Mexico City, September–November 2019. I presented it as a series of giclée prints on paper and as a data-driven live coding concert.</li></ul>"
+        }
+      }
+    }
+  },
+  {
+    "id": "dialogo-iterante",
+    "title": "Diálogo iterante",
+    "year": "2018",
+    "link": "https://antologia.litelat.net/volumen1/index.html",
+    "summary": "Video experimental sobre el código como agente narrativo",
+    "image": "dialogo-iterante.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Encuentros atemporales entre actores intangibles. El texto como intermediario de una historia viva en medio de un diálogo compuesto de meta-mensajes discontinuos.</p><p>La agencia del código de programación en los procesos multimedia generalmente está desprendida de los procesos narrativos, al fungir como un medio utilitario para la manipulación de material sonoro y visual. Este video es una apuesta de experimentación con el código como meta-personaje y agente narrativo de su misma documentación, atravesada tanto por la transición de la práctica de la programación al vuelo, el contexto de uso y desarrollo en Latinoamérica y las relaciones lingüísticas de orden sinestésico. La obra retoma extractos literarios yuxtapuestos de Richard Stallman, Lev Manovich, Walter Benjamin y el Comité Invisible, y considera al ejecutante como narrador.</p>",
+      "youtubeEmbed": "<iframe src=\"https://player.vimeo.com/video/292574984\" title=\"Diálogo iterante\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe>",
+      "images": [],
+      "fullDescription2": "<h3>Créditos</h3><h4>Autoría</h4><ul><li>Marianne Teixido: texto, imagen y audio</li><li>Emilio Ocelotl: código, imagen y audio</li></ul><h4>Tecnologías</h4><p>openFrameworks, SuperCollider, Open Sound Control</p><h4>Duración</h4><p>3:18 min.</p><h3>Publicaciones</h3><p>Flores, Leonardo; Kozak, Claudia; Mata, Rodolfo (eds.). <em>Antología Lit(e)Lat Volumen 1</em>. Red de Literatura Electrónica Latinoamericana, 2020. <a href=\"https://antologia.litelat.net/volumen1/index.html\" target=\"_blank\" rel=\"noopener\">antologia.litelat.net</a></p><p>Incluida en la antología con el título <em>Diálogo iterante</em> (2018), en las categorías videopoesía, generación y performance.</p>",
+      "images2": []
+    },
+    "category": "video",
+    "tags": [
+      "live-coding",
+      "musica",
+      "videoarte",
+      "literatura-electronica"
+    ],
+    "translations": {
+      "EN": {
+        "title": "Iterating Dialogue",
+        "summary": "Experimental video on code as a narrative agent",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>Timeless encounters among intangible actors. Text as an intermediary of a living history amid a dialogue composed of discontinuous meta-messages.</p><p>The agency of programming code in multimedia processes is generally detached from narrative processes, serving as a utilitarian means for manipulating sound and visual material. This video is an experiment with code as a meta-character and narrative agent of its own documentation, traversed by the transition of live coding practice, its context of use and development in Latin America, and linguistic relations of a synesthetic order. The work takes up juxtaposed literary excerpts from Richard Stallman, Lev Manovich, Walter Benjamin and the Invisible Committee, and considers the performer as narrator.</p>",
+          "fullDescription2": "<h3>Credits</h3><h4>Authors</h4><ul><li>Marianne Teixido: text, image and audio</li><li>Emilio Ocelotl: code, image and audio</li></ul><h4>Technologies</h4><p>openFrameworks, SuperCollider, Open Sound Control</p><h4>Duration</h4><p>3:18 min.</p><h3>Publications</h3><p>Flores, Leonardo; Kozak, Claudia; Mata, Rodolfo (eds.). <em>Antología Lit(e)Lat Volumen 1</em>. Red de Literatura Electrónica Latinoamericana, 2020. <a href=\"https://antologia.litelat.net/volumen1/index.html\" target=\"_blank\" rel=\"noopener\">antologia.litelat.net</a></p><p>Included in the anthology as <em>Diálogo iterante</em> (2018), under the categories video poetry, generation and performance.</p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "algorave-platoon",
+    "title": "Algorave Platoon",
+    "year": "2017",
+    "link": "https://www.platoon.org/report/algorave-mexico-2017",
+    "summary": "Serie fotográfica del Algorave México 2017",
+    "image": "algorave-platoon-03.jpg",
+    "details": {
+      "fullDescription": "<h3>Contexto</h3><p>Estas fotografías las tomé durante el <strong>Algorave México 2017</strong>, que se realizó en Platoon Mexico City (Humboldt 59, Ciudad de México) el jueves 27 de abril de 2017. Karen Del Valle y Diego Acevedo propusieron a The Global Creative Alliance (Platoon) hacer una sesión de algorave en el marco del Año Dual México-Alemania, y el espacio de Platoon fue la base central de la noche.</p><p>El término «algorave» lo acuñaron Alex McLean y Nick Collins. En esta cita, la comunidad de live coding de la Ciudad de México, que llevaba unos dos años formándose, se reunió en una noche con afterparties y pequeños algoraves por todo el centro de la ciudad.</p>",
+      "images": [
+        "algorave-platoon-01.jpg",
+        "algorave-platoon-02.jpg",
+        "algorave-platoon-04.jpg",
+        "algorave-platoon-05.jpg",
+        "algorave-platoon-06.jpg",
+        "algorave-platoon-07.jpg",
+        "algorave-platoon-08.jpg",
+        "algorave-platoon-09.jpg",
+        "algorave-platoon-10.jpg",
+        "algorave-platoon-11.jpg",
+        "algorave-platoon-12.jpg",
+        "algorave-platoon-13.jpg",
+        "algorave-platoon-14.jpg",
+        "algorave-platoon-15.jpg",
+        "algorave-platoon-16.jpg",
+        "algorave-platoon-17.jpg"
+      ],
+      "fullDescription2": "<h3>Participantes</h3><ul><li>AB/DX</li><li>Desaxismundi</li><li>Alex Rosado</li><li>JoseCaos_NucleRoto</li><li>MHV</li><li>RGGTRN</li><li>Jaime Lobato</li><li>Map</li><li>{D1([6, 6].er)}</li><li>CNDSD</li><li>Black Hole</li><li>Ivan Abreu</li><li>Eduardo Menendez</li></ul><h3>Créditos</h3><h4>Fotografía</h4><p>Marianne Teixido</p><h4>Pantallas</h4><p>Kano Shop</p><h4>Diseño de iluminación</h4><p>OOSPP</p><h3>Publicaciones</h3><p>Platoon Cultural Development. <em>Algorave Mexico 2017: The livecoding community gathered at TGCA project space</em>. Platoon, 18 de mayo de 2017. Fotografías de Marianne Teixido. <a href=\"https://www.platoon.org/report/algorave-mexico-2017\" target=\"_blank\" rel=\"noopener\">platoon.org</a></p><p>Teixido, M. (1 de mayo de 2017). <em>RGGTRON, rave y livecoders haciendo música en tiempo real</em>. Linne Magazine. Texto y fotografías de Marianne Teixido. <a href=\"https://linnemagazine.com/2017/05/01/de-reino-unido-a-la-ciudad-de-mexico-livecoders%E2%80%8B-y-musica-en-tiempo-real/\" target=\"_blank\" rel=\"noopener\">linnemagazine.com</a></p>",
+      "images2": []
+    },
+    "category": "fotografia",
+    "tags": [
+      "live-coding"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Photo series from Algorave México 2017",
+        "details": {
+          "fullDescription": "<h3>Context</h3><p>I took these photographs during <strong>Algorave México 2017</strong>, held at Platoon Mexico City (Humboldt 59, Mexico City) on Thursday, April 27, 2017. Karen Del Valle and Diego Acevedo proposed to The Global Creative Alliance (Platoon) hosting an algorave session within the Mexico-Germany Dual Year, and the Platoon space was the central base for the night.</p><p>The term “algorave” was coined by Alex McLean and Nick Collins. At this gathering, Mexico City's live coding community, which had been forming for about two years, came together for a night with afterparties and small algoraves all over the city centre.</p>",
+          "fullDescription2": "<h3>Participants</h3><ul><li>AB/DX</li><li>Desaxismundi</li><li>Alex Rosado</li><li>JoseCaos_NucleRoto</li><li>MHV</li><li>RGGTRN</li><li>Jaime Lobato</li><li>Map</li><li>{D1([6, 6].er)}</li><li>CNDSD</li><li>Black Hole</li><li>Ivan Abreu</li><li>Eduardo Menendez</li></ul><h3>Credits</h3><h4>Photography</h4><p>Marianne Teixido</p><h4>Screens</h4><p>Kano Shop</p><h4>Lighting design</h4><p>OOSPP</p><h3>Publications</h3><p>Platoon Cultural Development. <em>Algorave Mexico 2017: The livecoding community gathered at TGCA project space</em>. Platoon, May 18, 2017. Photographs by Marianne Teixido. <a href=\"https://www.platoon.org/report/algorave-mexico-2017\" target=\"_blank\" rel=\"noopener\">platoon.org</a></p><p>Teixido, M. (May 1, 2017). <em>RGGTRON, rave y livecoders haciendo música en tiempo real</em>. Linne Magazine. Text and photographs by Marianne Teixido. <a href=\"https://linnemagazine.com/2017/05/01/de-reino-unido-a-la-ciudad-de-mexico-livecoders%E2%80%8B-y-musica-en-tiempo-real/\" target=\"_blank\" rel=\"noopener\">linnemagazine.com</a></p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "algoritmos-arruinados",
+    "title": "Algoritmos arruinados",
+    "year": "2022",
+    "link": "https://www.repositorio.fam.unam.mx/handle/123456789/139",
+    "summary": "Libro colectivo, Facultad de Música, UNAM",
+    "image": "algoritmos-arruinados.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Libro que busca un debate situado sobre música y tecnología, basado en experiencias concretas de la tecnología musical en América Latina y no en modelos teóricos importados de Europa o Estados Unidos. Invita a replicar, con distintos grupos de trabajo, el ejercicio de «arruinar» los algoritmos, como respuesta a la uniformidad que generaliza el hacer y pensar la música, con un enfoque de código abierto. Solo así, sostiene, se reconocen la diversidad, la complejidad y la riqueza de la tecnología musical de la región.</p><p>Soy una de las 16 personas autoras.</p>",
+      "images": [],
+      "fullDescription2": "<h3>Autoras y autores</h3><ul><li>Aarón Escobar Castañeda</li><li>Alessio Giuliani</li><li>Andrea Sorrenti</li><li>Diego Tinajero Islas</li><li>Dorian Sotomayor</li><li>Emilia Bahamonde Noriega</li><li>Emilio Ocelotl</li><li>Hernani Villaseñor Ramírez</li><li>Iván Paz</li><li>Jocelyn Muñoz Díaz</li><li>Jonathan Andrés Pérez Díaz</li><li>Julian Woodside</li><li>Marianne Teixido</li><li>Ollin Vázquez González</li><li>Tobías Álvarez Di Desidero</li><li>Xavier Góngora</li></ul><p>Coordinación: Jorge David García Castilla y Pablo Silva Treviño.</p><h3>Referencia</h3><p>García Castilla, J. D. y Silva Treviño, P. (coords.) (2022). <em>Algoritmos arruinados. Perspectivas situadas de tecnología musical</em>. Facultad de Música, UNAM, Colección Amoxtli. 289 páginas. ISBN 978-607-3062-11-4. Publicado el 23 de agosto de 2022, en acceso abierto con licencia CC BY 4.0. <a href=\"https://www.repositorio.fam.unam.mx/handle/123456789/139\" target=\"_blank\" rel=\"noopener\">repositorio.fam.unam.mx</a></p>",
+      "images2": []
+    },
+    "category": "publicacion",
+    "tags": [
+      "live-coding",
+      "publicaciones"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Collective book, UNAM School of Music",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>A book that seeks a situated debate on music and technology, based on concrete experiences of music technology in Latin America rather than on theoretical models imported from Europe or the United States. It invites readers to replicate, with different working groups, the exercise of “ruining” algorithms, as a response to the uniformity that generalizes how music is made and thought about, with an open-source approach. Only in this way, it argues, can the diversity, complexity and richness of the region's music technology be recognized.</p><p>I am one of the 16 authors.</p>",
+          "fullDescription2": "<h3>Authors</h3><ul><li>Aarón Escobar Castañeda</li><li>Alessio Giuliani</li><li>Andrea Sorrenti</li><li>Diego Tinajero Islas</li><li>Dorian Sotomayor</li><li>Emilia Bahamonde Noriega</li><li>Emilio Ocelotl</li><li>Hernani Villaseñor Ramírez</li><li>Iván Paz</li><li>Jocelyn Muñoz Díaz</li><li>Jonathan Andrés Pérez Díaz</li><li>Julian Woodside</li><li>Marianne Teixido</li><li>Ollin Vázquez González</li><li>Tobías Álvarez Di Desidero</li><li>Xavier Góngora</li></ul><p>Coordination: Jorge David García Castilla and Pablo Silva Treviño.</p><h3>Reference</h3><p>García Castilla, J. D. & Silva Treviño, P. (coords.) (2022). <em>Algoritmos arruinados. Perspectivas situadas de tecnología musical</em>. Facultad de Música, UNAM, Colección Amoxtli. 289 pages. ISBN 978-607-3062-11-4. Published August 23, 2022, open access under a CC BY 4.0 license. <a href=\"https://www.repositorio.fam.unam.mx/handle/123456789/139\" target=\"_blank\" rel=\"noopener\">repositorio.fam.unam.mx</a></p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "tesis-videoarte-resistencia-politica",
+    "title": "Videoarte y resistencia política",
+    "year": "2019",
+    "link": "https://ru.dgb.unam.mx/bitstream/20.500.14330/TES01000797105/3/0797105.pdf",
+    "summary": "Tesis de licenciatura, UNAM",
+    "image": null,
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>En esta tesis de licenciatura analizo las alternativas al discurso oficial en torno al caso Iguala en el videoarte mexicano, a partir de la obra de Bruno Varela. Como metodología uso la hermenéutica profunda de John B. Thompson, y retomo las ideas de Walter Benjamin sobre la destrucción del aura y las de Hito Steyerl sobre la economía política de las imágenes.</p>",
+      "images": [],
+      "fullDescription2": "<h3>Contenido</h3><ul><li>Videoarte en México</li><li>Materialidades de la imagen y procesos políticos</li><li>Videoarte y resistencia política, con el análisis de <em>Extraño Enemigo</em> (<em>Fauna Nociva</em> y <em>Materia Oscura</em>)</li><li>Conclusiones</li></ul><h3>Referencia</h3><p>Teixido, M. (2019). <em>Videoarte y resistencia política: alternativas al discurso oficial en torno al caso Iguala en la obra de Bruno Varela</em> [Tesis de licenciatura, Universidad Nacional Autónoma de México]. Facultad de Ciencias Políticas y Sociales, Licenciatura en Ciencias de la Comunicación. Directora de tesis: Jessica Fernanda Conejo Muñoz. Noviembre de 2019. <a href=\"https://ru.dgb.unam.mx/bitstream/20.500.14330/TES01000797105/3/0797105.pdf\" target=\"_blank\" rel=\"noopener\">Repositorio de Tesis Digitales, UNAM</a></p>",
+      "images2": []
+    },
+    "category": "publicacion",
+    "tags": [],
+    "translations": {
+      "EN": {
+        "title": "Video Art and Political Resistance",
+        "summary": "Bachelor’s thesis, UNAM",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>In this bachelor's thesis I analyze the alternatives to the official discourse around the Iguala case in Mexican video art, based on the work of Bruno Varela. My methodology is John B. Thompson's depth hermeneutics, and I draw on Walter Benjamin's ideas on the destruction of the aura and Hito Steyerl's on the political economy of images.</p>",
+          "fullDescription2": "<h3>Contents</h3><ul><li>Video art in Mexico</li><li>Materialities of the image and political processes</li><li>Video art and political resistance, with the analysis of <em>Extraño Enemigo</em> (<em>Fauna Nociva</em> and <em>Materia Oscura</em>)</li><li>Conclusions</li></ul><h3>Reference</h3><p>Teixido, M. (2019). <em>Videoarte y resistencia política: alternativas al discurso oficial en torno al caso Iguala en la obra de Bruno Varela</em> [Bachelor's thesis, Universidad Nacional Autónoma de México]. Faculty of Political and Social Sciences, Communication Sciences. Thesis advisor: Jessica Fernanda Conejo Muñoz. November 2019. <a href=\"https://ru.dgb.unam.mx/bitstream/20.500.14330/TES01000797105/3/0797105.pdf\" target=\"_blank\" rel=\"noopener\">UNAM Digital Theses Repository</a></p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "bellacode",
+    "title": "Bellacode",
+    "year": "2019",
+    "link": "https://doi.org/10.5281/zenodo.3946163",
+    "summary": "Artículo arbitrado, ICLC 2019 (Madrid)",
+    "image": "bellacode.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Artículo arbitrado (revisión de pares) que presentamos en la Cuarta Conferencia Internacional de Live Coding (ICLC 2019), en Medialab Prado, Madrid, del 16 al 18 de enero de 2019. En mayo de 2018 realizamos, como RGGTRN, talleres de live coding para construir mini lenguajes localizados que usan las posibilidades de TidalCycles a través del entorno web Estuary. En el texto interpretamos dos lenguajes esotéricos que surgieron en esos talleres, <em>La Calle</em> y <em>Sucixxx</em>, analizamos una encuesta anónima aplicada a las personas participantes y proponemos la localización como un aspecto a explorar en la práctica del live coding.</p>",
+      "images": [],
+      "fullDescription2": "<h3>Referencia</h3><p>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E. y Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. En <em>Proceedings of the Fourth International Conference on Live Coding</em> (p. 353). Medialab Prado / Madrid Destino, Madrid, España. ISBN 978-84-18299-08-7. <a href=\"https://doi.org/10.5281/zenodo.3946163\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5281/zenodo.3946163</a></p><p>Publicación arbitrada por revisión de pares. Licencia CC BY 4.0.</p>",
+      "images2": []
+    },
+    "category": "publicacion",
+    "tags": [
+      "live-coding",
+      "publicaciones"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Peer-reviewed paper, ICLC 2019 (Madrid)",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>Peer-reviewed paper that we presented at the Fourth International Conference on Live Coding (ICLC 2019), at Medialab Prado, Madrid, January 16–18, 2019. In May 2018 we ran, as RGGTRN, live coding workshops to build localized mini live coding languages that use TidalCycles affordances through the Estuary web environment. In the text we interpret two esoteric languages that came out of those workshops, <em>La Calle</em> and <em>Sucixxx</em>, analyze an anonymous survey of the participants and propose localization as an aspect to explore in live coding practice.</p>",
+          "fullDescription2": "<h3>Reference</h3><p>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E., & Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. In <em>Proceedings of the Fourth International Conference on Live Coding</em> (p. 353). Medialab Prado / Madrid Destino, Madrid, Spain. ISBN 978-84-18299-08-7. <a href=\"https://doi.org/10.5281/zenodo.3946163\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.5281/zenodo.3946163</a></p><p>Peer-reviewed publication. CC BY 4.0 license.</p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "saboritmico",
+    "title": "Saborítmico",
+    "year": "2018",
+    "link": "https://doi.org/10.12801/1947-5403.2018.10.01.11",
+    "summary": "Artículo arbitrado en Dancecult",
+    "image": "saboritmico.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Artículo arbitrado publicado en <em>Dancecult: Journal of Electronic Dance Music Culture</em>, vol. 10, n.º 1, número especial <em>Algorithmic Electronic Dance Music</em> (editores invitados: Shelly Knotts y Nick Collins), el 22 de noviembre de 2018. En la sección «From the floor», Ocelotl, Del Angel y yo presentamos a RGGTRN y reportamos desde la pista de baile en México.</p>",
+      "images": [],
+      "fullDescription2": "<h3>Referencia</h3><p>Ocelotl, E., Del Angel, L. N. y Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. <em>Dancecult: Journal of Electronic Dance Music Culture</em>, 10(1). Maynooth University. <a href=\"https://doi.org/10.12801/1947-5403.2018.10.01.11\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.12801/1947-5403.2018.10.01.11</a></p><p>Publicación arbitrada por revisión de pares. Foto de portada del número: Joanne Armitage (2017).</p>",
+      "images2": []
+    },
+    "category": "publicacion",
+    "tags": [
+      "live-coding",
+      "publicaciones"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Peer-reviewed article in Dancecult",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>Peer-reviewed article published in <em>Dancecult: Journal of Electronic Dance Music Culture</em>, vol. 10, no. 1, special issue <em>Algorithmic Electronic Dance Music</em> (guest editors: Shelly Knotts and Nick Collins), on November 22, 2018. In the “From the floor” section, Ocelotl, Del Angel and I introduce RGGTRN and report from the dance floor in Mexico.</p>",
+          "fullDescription2": "<h3>Reference</h3><p>Ocelotl, E., Del Angel, L. N., & Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. <em>Dancecult: Journal of Electronic Dance Music Culture</em>, 10(1). Maynooth University. <a href=\"https://doi.org/10.12801/1947-5403.2018.10.01.11\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.12801/1947-5403.2018.10.01.11</a></p><p>Peer-reviewed publication. Issue cover photo: Joanne Armitage (2017).</p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "supercollider-book",
+    "title": "The SuperCollider Book",
+    "year": "2025",
+    "link": "https://mitpress.mit.edu/9780262049702/the-supercollider-book/",
+    "summary": "Artist statement en el libro de MIT Press",
+    "image": "supercolliderbook.avif",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Contribución con un artist statement a <strong>The SuperCollider Book</strong>, publicado por MIT Press, sobre mi práctica de música y live coding con SuperCollider.</p>",
+      "images": [],
+      "fullDescription2": "<h3>Publicación</h3><ul><li><strong>MIT Press</strong>. <a href=\"https://mitpress.mit.edu/9780262049702/the-supercollider-book/\" target=\"_blank\" rel=\"noopener\">The SuperCollider Book</a>. Artist statement de Marianne Teixido</li></ul>",
+      "images2": []
+    },
+    "category": "publicacion",
+    "tags": [
+      "live-coding",
+      "publicaciones"
+    ],
+    "translations": {
+      "EN": {
+        "title": "The SuperCollider Book",
+        "summary": "Artist statement in the MIT Press book",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>Contribution of an artist statement to <strong>The SuperCollider Book</strong>, published by MIT Press, about my music and live coding practice with SuperCollider.</p>",
+          "fullDescription2": "<h3>Publication</h3><ul><li><strong>MIT Press</strong>. <a href=\"https://mitpress.mit.edu/9780262049702/the-supercollider-book/\" target=\"_blank\" rel=\"noopener\">The SuperCollider Book</a>. Artist statement by Marianne Teixido</li></ul>"
+        }
+      }
+    }
+  },
+  {
+    "id": "sc-hawc",
+    "title": "ofhawc + sc_hawc",
+    "year": "2018",
+    "link": "https://github.com/EmilioOcelotl/ofhawc",
+    "summary": "Visualización y sonorización de datos del Observatorio HAWC",
+    "image": "ofhawc.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p><strong>ofhawc</strong> es un visualizador, hecho con openFrameworks, de los datos de posición y curvas de luz de fuentes observadas por el <a href=\"https://www.hawc-observatory.org/\" target=\"_blank\" rel=\"noopener\">Observatorio de Rayos Gamma HAWC</a> (High-Altitude Water Cherenkov Gamma-Ray Observatory). Surgió a propósito del Hackatón Astronómico ACT 2018 y es parte de un proyecto colaborativo que se complementa con <a href=\"https://github.com/ciretorres/2HAWC\" target=\"_blank\" rel=\"noopener\">2HAWC</a> y <a href=\"https://github.com/MarianneTeixido/sc_hawc\" target=\"_blank\" rel=\"noopener\">sc_hawc</a>, y de nuestra práctica performática del live coding. Lo desarrollamos Emilio Ocelotl, Eric Torres y yo, con el apoyo de Rodrigo Treviño.</p><p>Cada objeto visible es una fuente. Su localización en el espacio tridimensional sale de convertir su posición en coordenadas galácticas a coordenadas esféricas, y eso nos permite acercar la cámara a cada fuente. Los acercamientos arrojan información en forma de texto del objeto enfocado, y se puede enfocar con un comando escrito en la mini-consola del visualizador, por ejemplo: fuente 1. Para generar datos que se pudieran usar en un entorno como openFrameworks o Processing a partir de los datos públicos del proyecto HAWC usamos Astropy.</p>",
+      "images": [
+        "sc-hawc-01.jpg",
+        "sc-hawc-02.jpg"
+      ],
+      "fullDescription2": "<h3>El complemento sonoro</h3><p><a href=\"https://github.com/MarianneTeixido/sc_hawc\" target=\"_blank\" rel=\"noopener\">sc_hawc</a> es el sistema cuadrafónico de audio que hice en SuperCollider para manipular en tiempo real los datos de un archivo CSV con los valores de las curvas de luz de las fuentes Crab Nebula, Mrk421 y Mrk501, tomados por el Observatorio HAWC. Incluye buffers con muestras de audio de las entrevistas que Cintia Durán hizo a astrónomos del Instituto de Astronomía sobre la emisión de rayos gamma.</p><p>El visualizador está pensado para ejecutarse a la par de este complemento. El motor de audio extrae y secuencia los valores de las curvas de luz y los envía por OSC a openFrameworks, que los representa como intensidad lumínica. Esta representación no corresponde a cada fuente porque solo tenemos datos de tres fuentes observadas. La parte de audio usa una serie de 39 sintetizadores, uno por fuente, y los valores de amplitud se relacionan con la fuente enfocada; el resto queda «sonando» como ruido de fondo con menor amplitud.</p><p>Este proyecto se inspira en parte en <a href=\"https://github.com/EmilioOcelotl/Orbit\" target=\"_blank\" rel=\"noopener\">Orbit</a>, una plataforma para hacer live coding e integrarlo con audio y video, y por eso es posible escribir texto en pantalla para controlar distintos parámetros del sistema. El complemento de audio usa la librería JITLib, que nos permite manipular dinámicamente los flujos de información que representan las curvas de luz.</p>",
+      "images2": [],
+      "fullDescription3": "<h3>Contexto</h3><p>Desarrollé este código en el marco del Hackatón Astronómico ACT 2018, un evento enfocado en vincular arte, tecnología e investigación científica a través del intercambio de datos en un ambiente interdisciplinario. De los tres días de taller (6, 7 y 8 de noviembre, oficialmente), Sergio Hernández, Carlos Tardío, Leslie García, Rodrigo Frenk, Emilio Ocelotl, Eric Torres, Mateo Rodríguez, Santiago Itzcoatl, Cintia Durán, Jorge Benet y yo realizamos prototipos para la lectura de datos con diferentes programas (openFrameworks, VVVV, SuperCollider y Processing).</p><p>El reto era interpolar nuestros conocimientos teóricos, prácticos y experimentales. Ir de la astronomía y la medición de rayos gamma del Observatorio HAWC al arte electrónico y la programación al vuelo con fines audiovisuales performáticos, a fin de encontrar un punctum entre artistas e investigadorxs en el que ambas partes conocieran las formas de hacer de la otra.</p><h3>Reflexiones</h3><p>El mayor reto al visualizar y sonorizar datos tiene que ver con la representación de un fenómeno en escalas humanamente perceptibles. Interfaces como ofhawc funcionan como una especie de prótesis que nos ayuda a tener una aproximación en escala humana a la emisión de rayos gamma. Esa aproximación está mediada por decisiones relacionadas con nuestra experiencia en el desarrollo y la implementación del proyecto, y se distorsiona en cierta medida por ellas. Otro reto fue encontrar una mediación entre las decisiones estéticas y el uso estricto de los datos.</p><p>El modelo bidireccional de intercambio de información nos permitió aprovechar las posibilidades de openFrameworks y SuperCollider. Nos resultó cómodo trabajar las estructuras fijas de datos en openFrameworks, mientras que los datos secuenciados en un continuo de tiempo son más fáciles de manipular en SuperCollider. Trabajar con varias plataformas (OF, SC y Processing) nos permitió conducir de manera colectiva la comprensión y la realización del objetivo final. El sistema permite «livecodear» los datos en vivo, y así tener una experiencia performática de aproximación a los datos de HAWC.</p><h3>Exhibiciones</h3><ul><li><strong>Live coding y sonorización de datos astronómicos</strong>: Hackatón Astronómico ACT, Escenario Vía Láctea, Las Islas, Ciudad Universitaria, Ciudad de México, 17 de noviembre de 2018, 21 h. Entrada libre</li><li><strong>Noche de las Estrellas I</strong>: visualización de datos astronómicos con ofhawc, 2018</li></ul><h3>Créditos</h3><h4>Colaboración</h4><p>Emilio Ocelotl, Eric Torres y Marianne Teixido, con el apoyo de Rodrigo Treviño</p><h4>Tecnologías</h4><p>openFrameworks, SuperCollider, JITLib, OSC y Astropy</p><h4>Código</h4><ul><li><a href=\"https://github.com/EmilioOcelotl/ofhawc\" target=\"_blank\" rel=\"noopener\">ofhawc: visualizador</a></li><li><a href=\"https://github.com/MarianneTeixido/sc_hawc\" target=\"_blank\" rel=\"noopener\">sc_hawc: complemento sonoro</a></li><li><a href=\"https://github.com/ciretorres/2HAWC\" target=\"_blank\" rel=\"noopener\">2HAWC</a></li></ul>"
+    },
+    "category": "software",
+    "tags": [
+      "live-coding",
+      "software",
+      "visualizacion-datos"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Visualization and sonification of HAWC Observatory data",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p><strong>ofhawc</strong> is a visualizer, made with openFrameworks, of the position and light-curve data of sources observed by the <a href=\"https://www.hawc-observatory.org/\" target=\"_blank\" rel=\"noopener\">HAWC Gamma-Ray Observatory</a> (High-Altitude Water Cherenkov Gamma-Ray Observatory). It came out of the Astronomical Hackathon ACT 2018 and is part of a collaborative project that is complemented by <a href=\"https://github.com/ciretorres/2HAWC\" target=\"_blank\" rel=\"noopener\">2HAWC</a> and <a href=\"https://github.com/MarianneTeixido/sc_hawc\" target=\"_blank\" rel=\"noopener\">sc_hawc</a>, and of our performative live coding practice. Emilio Ocelotl, Eric Torres and I developed it, with the support of Rodrigo Treviño.</p><p>Each visible object is a source. Its location in three-dimensional space comes from converting its position in galactic coordinates to spherical coordinates, which lets us bring the camera close to each source. The close-ups return text information about the focused object, and you can focus with a command typed in the visualizer's mini-console, for example: fuente 1. To generate data that could be used in an environment like openFrameworks or Processing from the HAWC project's public data, we used Astropy.</p>",
+          "fullDescription2": "<h3>The sound complement</h3><p><a href=\"https://github.com/MarianneTeixido/sc_hawc\" target=\"_blank\" rel=\"noopener\">sc_hawc</a> is the quadraphonic audio system I made in SuperCollider to manipulate in real time the data from a CSV file with the light-curve values of the sources Crab Nebula, Mrk421 and Mrk501, recorded by the HAWC Observatory. It includes buffers with audio samples from interviews that Cintia Durán conducted with astronomers at the Institute of Astronomy about gamma-ray emission.</p><p>The visualizer is meant to run alongside this complement. The audio engine extracts and sequences the light-curve values and sends them via OSC to openFrameworks, which represents them as light intensity. This representation does not correspond to every source because we only have data for three observed sources. The audio part uses a series of 39 synthesizers, one per source, and the amplitude values are related to the focused source; the rest stays “sounding” as background noise at a lower amplitude.</p><p>This project is partly inspired by <a href=\"https://github.com/EmilioOcelotl/Orbit\" target=\"_blank\" rel=\"noopener\">Orbit</a>, a platform for live coding and integrating it with audio and video, which is why it is possible to type text on screen to control different parameters of the system. The audio complement uses the JITLib library, which lets us dynamically manipulate the information flows that represent the light curves.</p>",
+          "fullDescription3": "<h3>Context</h3><p>I developed this code within the Astronomical Hackathon ACT 2018, an event focused on linking art, technology and scientific research through data exchange in an interdisciplinary environment. During the three workshop days (November 6, 7 and 8, officially), Sergio Hernández, Carlos Tardío, Leslie García, Rodrigo Frenk, Emilio Ocelotl, Eric Torres, Mateo Rodríguez, Santiago Itzcoatl, Cintia Durán, Jorge Benet and I built prototypes for reading data with different tools (openFrameworks, VVVV, SuperCollider and Processing).</p><p>The challenge was to interpolate our theoretical, practical and experimental knowledge. To go from astronomy and gamma-ray measurement at the HAWC Observatory to electronic art and live coding for audiovisual performance, in order to find a punctum between artists and researchers in which each side knew the other's ways of doing.</p><h3>Reflections</h3><p>The biggest challenge in visualizing and sonifying data has to do with representing a phenomenon on humanly perceptible scales. Interfaces like ofhawc work as a kind of prosthesis that helps us gain a human-scale approach to gamma-ray emission. That approach is mediated by decisions related to our experience in developing and implementing the project, and it is distorted to some extent by them. Another challenge was finding a mediation between aesthetic decisions and the strict use of the data.</p><p>The two-way information exchange model let us take advantage of what openFrameworks and SuperCollider offer. We found it comfortable to work with fixed data structures in openFrameworks, while data sequenced over a continuous time is easier to manipulate in SuperCollider. Working with several platforms (OF, SC and Processing) let us conduct the understanding and realization of the final goal collectively. The system allows us to “livecode” the data live, and so to have a performative experience of approaching HAWC's data.</p><h3>Screenings</h3><ul><li><strong>Live coding and sonification of astronomical data</strong>: Astronomical Hackathon ACT, Vía Láctea Stage, Las Islas, Ciudad Universitaria, Mexico City, November 17, 2018, 9 pm. Free admission</li><li><strong>Noche de las Estrellas I</strong>: visualization of astronomical data with ofhawc, 2018</li></ul><h3>Credits</h3><h4>Collaboration</h4><p>Emilio Ocelotl, Eric Torres and Marianne Teixido, with the support of Rodrigo Treviño</p><h4>Technologies</h4><p>openFrameworks, SuperCollider, JITLib, OSC and Astropy</p><h4>Code</h4><ul><li><a href=\"https://github.com/EmilioOcelotl/ofhawc\" target=\"_blank\" rel=\"noopener\">ofhawc: visualizer</a></li><li><a href=\"https://github.com/MarianneTeixido/sc_hawc\" target=\"_blank\" rel=\"noopener\">sc_hawc: sound complement</a></li><li><a href=\"https://github.com/ciretorres/2HAWC\" target=\"_blank\" rel=\"noopener\">2HAWC</a></li></ul>"
+        }
+      }
+    }
+  },
+  {
+    "id": "orbit",
+    "title": "Orbit",
+    "year": "2018",
+    "link": "https://github.com/EmilioOcelotl/Orbit",
+    "summary": "Texto, video y sonido con openFrameworks y SuperCollider",
+    "image": "orbit.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Orbit es un proyecto construido en openFrameworks que busca ser una extensión visual para el performance audiovisual. Adscribe al paradigma del live coding: a través de Orbit es posible modificar aspectos visuales desde la misma pantalla. También puede recibir mensajes OSC por medio de una red. Surge de la curiosidad por explorar audio y video simultáneamente. Actualmente es posible usarlo para enviar mensajes sencillos al motor de audio de SuperCollider.</p><p>Además de funcionar como una herramienta para extender la interpretación audiovisual a través de la computadora, Orbit es un pretexto para la investigación y una invitación a la exploración del software como objeto de conocimiento.</p>",
+      "images": [],
+      "fullDescription2": "<h3>Inspiración</h3><p>Orbit se inspira en estos proyectos:</p><ul><li><a href=\"http://www.pawfal.org/fluxus\" target=\"_blank\" rel=\"noopener\">Fluxus</a></li><li><a href=\"https://github.com/ojack/hydra\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://github.com/dktr0/estuary\" target=\"_blank\" rel=\"noopener\">Estuary</a></li><li><a href=\"https://github.com/essteban/CineVivo\" target=\"_blank\" rel=\"noopener\">CineVivo</a></li></ul><h3>Instalación</h3><p>Orbit ha sido probado en Linux y Mac con la versión 0.10.1 de openFrameworks. La cámara tiene comportamientos extraños en versiones anteriores y con el sistema operativo Linux. Hasta el momento no ha sido probado en Windows. Una vez compilado, se accede a un archivo de instrucciones con Ctrl + 2.</p><p>Para compilarlo hay que descargar openFrameworks y estos addons:</p><ul><li><a href=\"https://github.com/bangnoise/ofxHapPlayer\" target=\"_blank\" rel=\"noopener\">ofxHapPlayer</a> (códec Hap)</li><li><a href=\"https://github.com/bolkaaa/ofxGLEditor\" target=\"_blank\" rel=\"noopener\">un fork de ofxGLEditor</a></li><li><a href=\"https://github.com/maxillacult/ofxPostGlitch\" target=\"_blank\" rel=\"noopener\">ofxPostGlitch</a></li><li><a href=\"https://github.com/armadillu/ofxCenteredTrueTypeFont\" target=\"_blank\" rel=\"noopener\">ofxCenteredTrueTypeFont</a></li><li><a href=\"https://github.com/charlesveasey/ofxDomemaster\" target=\"_blank\" rel=\"noopener\">ofxDomemaster</a></li></ul><p>Es posible transcodificar videos Hap con ffmpeg.</p>",
+      "images2": [],
+      "fullDescription3": "<h3>Créditos</h3><h4>Colaboración</h4><p>Proyecto colaborativo entre Emilio Ocelotl y yo.</p><h4>Repositorio</h4><p><a href=\"https://github.com/EmilioOcelotl/Orbit\" target=\"_blank\" rel=\"noopener\">github.com/EmilioOcelotl/Orbit</a></p><h4>Tecnologías</h4><p>openFrameworks, SuperCollider y OSC</p>"
+    },
+    "category": "software",
+    "tags": [
+      "live-coding",
+      "software"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Text, video and sound with openFrameworks and SuperCollider",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>Orbit is a project built in openFrameworks that aims to be a visual extension for audiovisual performance. It subscribes to the live coding paradigm: through Orbit it is possible to modify visual aspects from the same screen. It can also receive OSC messages over a network. It comes from the curiosity to explore audio and video simultaneously. It can currently be used to send simple messages to the SuperCollider audio engine.</p><p>Besides working as a tool to extend audiovisual performance through the computer, Orbit is a pretext for research and an invitation to explore software as an object of knowledge.</p>",
+          "fullDescription2": "<h3>Inspiration</h3><p>Orbit is inspired by these projects:</p><ul><li><a href=\"http://www.pawfal.org/fluxus\" target=\"_blank\" rel=\"noopener\">Fluxus</a></li><li><a href=\"https://github.com/ojack/hydra\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://github.com/dktr0/estuary\" target=\"_blank\" rel=\"noopener\">Estuary</a></li><li><a href=\"https://github.com/essteban/CineVivo\" target=\"_blank\" rel=\"noopener\">CineVivo</a></li></ul><h3>Installation</h3><p>Orbit has been tested on Linux and Mac with openFrameworks version 0.10.1. The camera behaves strangely in earlier versions and on the Linux operating system. It has not been tested on Windows so far. Once compiled, an instructions file can be opened with Ctrl + 2.</p><p>To compile it you need to download openFrameworks and these addons:</p><ul><li><a href=\"https://github.com/bangnoise/ofxHapPlayer\" target=\"_blank\" rel=\"noopener\">ofxHapPlayer</a> (Hap codec)</li><li>a fork of <a href=\"https://github.com/bolkaaa/ofxGLEditor\" target=\"_blank\" rel=\"noopener\">ofxGLEditor</a></li><li><a href=\"https://github.com/maxillacult/ofxPostGlitch\" target=\"_blank\" rel=\"noopener\">ofxPostGlitch</a></li><li><a href=\"https://github.com/armadillu/ofxCenteredTrueTypeFont\" target=\"_blank\" rel=\"noopener\">ofxCenteredTrueTypeFont</a></li><li><a href=\"https://github.com/charlesveasey/ofxDomemaster\" target=\"_blank\" rel=\"noopener\">ofxDomemaster</a></li></ul><p>Hap videos can be transcoded with ffmpeg.</p>",
+          "fullDescription3": "<h3>Credits</h3><h4>Collaboration</h4><p>A collaborative project between Emilio Ocelotl and me.</p><h4>Repository</h4><p><a href=\"https://github.com/EmilioOcelotl/Orbit\" target=\"_blank\" rel=\"noopener\">github.com/EmilioOcelotl/Orbit</a></p><h4>Technologies</h4><p>openFrameworks, SuperCollider and OSC</p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "cyber-latinoamericanity",
+    "title": "Cyber-latinoamericanity",
+    "year": "2018",
+    "link": null,
+    "summary": "Serie fotográfica",
+    "image": "cyber-latinoamericanity-01.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>Serie de fotografías que tomé.</p>",
+      "images": [
+        "cyber-latinoamericanity-02.jpg",
+        "cyber-latinoamericanity-03.jpg"
+      ],
+      "fullDescription2": null,
+      "images2": []
+    },
+    "category": "fotografia",
+    "tags": [],
+    "translations": {
+      "EN": {
+        "summary": "Photo series",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>A series of photographs that I took.</p>"
         }
       }
     }
@@ -497,24 +979,36 @@
   {
     "id": "fragmentos",
     "title": "Fragmentos",
-    "year": "2017",
-    "link": null,
+    "year": "2018",
+    "link": "https://vimeo.com/254415898",
     "summary": "Video ensayo",
     "image": "fragmentos.png",
     "details": {
-      "fullDescription": "Video ensayo sobre las nuevas fracturas sísmicas en la Ciudad de México, específicamente en la delegación Benito Juárez, tras el sismo del 19 de septiembre de 2017 provocadas por las excavaciones profundas para la construcción de inmuebles, muchos de ellos, sin permisos de construcción o producto de la corrupción además de la extracción de agua del subsuelo. Estas actividades son causantes de la vulnerabilidad física del suelo y son parte de los factores que influyeron en el derrumbe de inmuebles en la zona. ",
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription": "<h3>Contexto</h3><p>Video ensayo sobre las nuevas fracturas sísmicas en la Ciudad de México, específicamente en la delegación Benito Juárez, tras el sismo del 19 de septiembre de 2017, provocadas por las excavaciones profundas para la construcción de inmuebles, muchos de ellos sin permisos de construcción o producto de la corrupción, además de la extracción de agua del subsuelo para satisfacer la demanda de una población cada vez más numerosa. Estas actividades fueron causantes de la vulnerabilidad física del suelo y son parte de los factores que influyeron en el derrumbe de inmuebles en la zona.</p>",
+      "images": [
+        "fragmentos-01.jpg",
+        "fragmentos-02.jpg"
+      ],
+      "fullDescription2": "<h3>Descripción</h3><p>Fragmentos es una investigación desde la sociología visual sobre la gentrificación de la ciudad y la catástrofe como catalizador de la corrupción gubernamental, expresadas a través del montaje audiovisual que funge como la representación de la realidad externa polarizada. Después del temblor, las condiciones objetivas de las personas afectadas, o no, por el sismo se contraponen en un crisol de formas arquitectónicas palpables a la vista y al paisaje sonoro presente en las calles.</p><p>La presenté como videoinstalación en una computadora de placa reducida y como performance audiovisual.</p><p>Duración: 3:13 min.</p>",
+      "images2": [],
+      "youtubeEmbed": "<iframe src=\"https://player.vimeo.com/video/254415898\" title=\"Fragmentos\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe>",
+      "fullDescription3": "<h3>Reconocimientos y exhibiciones</h3><ul><li><strong>Videoinstalación y performance audiovisual</strong>: Festival Hello World 1.0 (<a href=\"https://festivalhelloworld.mx/2023/06/28/biosensaciones/\" target=\"_blank\" rel=\"noopener\">Biosensaciones</a>), artista invitada, Ciudad de México, abril de 2018<ul class=\"ficha\"><li><span class=\"ficha-label\">Formato</span> instalación audiovisual</li><li><span class=\"ficha-label\">Hardware</span> Raspberry Pi 3</li><li><span class=\"ficha-label\">Software</span> openFrameworks, Python y SuperCollider</li><li><span class=\"ficha-label\">Duración</span> 3:13 min</li></ul></li><li><strong>Selección en la muestra de Cine (y) Digital</strong>: Festival Internacional de la Imagen, Manizales, Colombia, febrero de 2018</li><li><strong>Muestra Paréntesis</strong>: Cholula, Puebla, abril de 2018</li><li><strong>Mención Honorífica y Selección Oficial</strong>: 3.ª Bienal Internacional de Videoarte y Animación (VEA), Puebla, 2018</li><li><strong>Selección de trabajos</strong>: «19s Memoria y Acción 19s», Ambulante, Centro de Cultura Digital, septiembre de 2018</li></ul>"
     },
     "category": "intalacion",
-    "tags": [],
+    "tags": [
+      "performance",
+      "live-coding",
+      "videoarte",
+      "instalacion"
+    ],
     "translations": {
       "EN": {
         "title": "Fragments",
         "summary": "Video essay",
         "details": {
-          "fullDescription": "Video essay about the new seismic fractures in Mexico City, specifically in the Benito Juárez borough, following the earthquake of September 19, 2017, caused by deep excavations for building construction, many of them without construction permits or the product of corruption, as well as water extraction from the subsoil. These activities are responsible for the physical vulnerability of the ground and are part of the factors that contributed to the collapse of buildings in the area."
+          "fullDescription": "<h3>Context</h3><p>Video essay about the new seismic fractures in Mexico City, specifically in the Benito Juárez borough, following the earthquake of September 19, 2017, caused by deep excavations for building construction, many of them without construction permits or the product of corruption, as well as water extraction from the subsoil to meet the demand of an ever-growing population. These activities were responsible for the physical vulnerability of the ground and are part of the factors that contributed to the collapse of buildings in the area.</p>",
+          "fullDescription2": "<h3>Description</h3><p>Fragmentos is a visual sociology investigation into the gentrification of the city and into catastrophe as a catalyst for government corruption, expressed through an audiovisual montage that stands for the representation of a polarized external reality. After the earthquake, the objective conditions of the people affected, or not, by the quake are set against each other in a melting pot of architectural forms palpable to the eye and the soundscape present in the streets.</p><p>I presented it as a video installation on a single-board computer and as an audiovisual performance.</p><p>Duration: 3:13 min.</p>",
+          "fullDescription3": "<h3>Awards and screenings</h3><ul><li><strong>Video installation and audiovisual performance</strong>: Hello World 1.0 Festival (<a href=\"https://festivalhelloworld.mx/2023/06/28/biosensaciones/\" target=\"_blank\" rel=\"noopener\">Biosensaciones</a>), invited artist, Mexico City, April 2018<ul class=\"ficha\"><li><span class=\"ficha-label\">Format</span> audiovisual installation</li><li><span class=\"ficha-label\">Hardware</span> Raspberry Pi 3</li><li><span class=\"ficha-label\">Software</span> openFrameworks, Python and SuperCollider</li><li><span class=\"ficha-label\">Duration</span> 3:13 min</li></ul></li><li><strong>Selected for the Cine (y) Digital showcase</strong>: Festival Internacional de la Imagen, Manizales, Colombia, February 2018</li><li><strong>Muestra Paréntesis</strong>: Cholula, Puebla, April 2018</li><li><strong>Honorable Mention and Official Selection</strong>: 3rd International Biennial of Video Art and Animation (VEA), Puebla, 2018</li><li><strong>Selected works</strong>: “19s Memoria y Acción 19s”, Ambulante, Centro de Cultura Digital, September 2018</li></ul>"
         }
       }
     }
@@ -528,18 +1022,84 @@
     "image": "corpografias.png",
     "details": {
       "fullDescription": null,
-      "images": [
-        "corpografias02.png"
-      ],
-      "fullDescription2": null,
-      "images2": []
+      "images": [],
+      "fullDescription2": "<h3>Exhibiciones</h3><ul><li><strong>Festival Pumpumyachkan</strong>: Festival Asimtria 16, Audiovisual y Sonido desde la Experimentación. Cusco, 4 al 14 de mayo de 2021 (Ayacucho + Huancayo)</li></ul>",
+      "images2": [],
+      "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/LkZvv30bU4g?si=yU1O-a95atMAbRKb&amp;start=2843\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
     },
     "category": "video",
-    "tags": [],
+    "tags": [
+      "performance",
+      "live-coding",
+      "videoarte"
+    ],
     "translations": {
       "EN": {
         "title": "Corpographies of Violence",
-        "summary": "Audiovisual performance"
+        "summary": "Audiovisual performance",
+        "details": {
+          "fullDescription2": "<h3>Screenings</h3><ul><li><strong>Pumpumyachkan Festival</strong>: Festival Asimtria 16, Audiovisual and Sound from Experimentation. Cusco, May 4–14, 2021 (Ayacucho + Huancayo)</li></ul>"
+        }
+      }
+    }
+  },
+  {
+    "id": "ficciones-ciberfeministas",
+    "title": "Ficciones ciberfeministas",
+    "year": "2021",
+    "link": "https://github.com/MarianneTeixido/ficciones-ciberfeministas",
+    "summary": "Taller de narrativas audiovisuales interactivas con código al vuelo",
+    "image": "ficciones-ciberfeministas.jpg",
+    "details": {
+      "fullDescription": "<h3>Contexto</h3><p>Facilité este taller de forma virtual en el <a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Festival Pumpumyachkan 2021</a>, del miércoles 5 al viernes 7 de mayo de 2021, de 16 a 18 horas (Perú/México), con sedes presenciales en La Munay (Huancayo) y en el CCUNSCH (Ayacucho). La participación fue gratuita y con aplicación cerrada, para personas identificadas como mujeres o no binarias: artistas visuales, videoastas, cineastas, programadoras, músicas, artistas sonoras y público en general, sin necesidad de conocimientos previos de programación.</p><p>El taller tiene como objetivo dialogar con los conocimientos locales para tejer historias audiovisuales, tanto personales como colectivas, que buscan documentar, historiar y ficcionar deconstruyendo narrativas convencionales, usando el código-pantalla como herramienta para el hackeo cultural. Buscamos replantear los valores patriarcales y hegemónicos y problematizar el territorio pantalla de internet con una crítica activa a las narrativas hegemónicas que mercantilizan o violentan los cuerpos de mujeres, personas no binarias y de género fluido, desde el ruido, el porno feminista, el ensayo, el retrato, la apropiación de metraje y la resignificación del discurso como input para el código. Usamos el código como medio para exponer y confrontar la realidad social desde sus implicaciones políticas y artísticas.</p><p><em>«Un cyborg es un organismo cibernético, un híbrido de máquina y organismo, una criatura de realidad social y también de ficción.»</em> (Donna Haraway)</p>",
+      "images": [],
+      "fullDescription2": "<h3>Programa</h3><h4>1. Código hackfeminista</h4><ul><li>Decolonizar la tecnología</li><li>Otras narrativas: el código como medio</li><li>SuperCollider</li></ul><h4>2. Tejer el código</h4><ul><li>Interacción y navegación: bases de datos como narración</li><li>Descomposición de pixeles y granulación de sonido</li><li>Ejercicios para deconstruir la narrativa</li></ul><h4>3. Proyección de resultados</h4><p>Como resultado, hicimos una serie de códigos interactivos de audio y video para ejecutarse en tiempo real.</p><h3>Herramientas</h3><ul><li>SuperCollider</li><li><a href=\"https://tidalcycles.org/Welcome\" target=\"_blank\" rel=\"noopener\">TidalCycles</a></li><li><a href=\"https://hydra.ojack.xyz/\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://teddavis.org/p5live/\" target=\"_blank\" rel=\"noopener\">p5live</a></li><li><a href=\"https://obsproject.com/es\" target=\"_blank\" rel=\"noopener\">OBS</a></li></ul><h3>Referencias</h3><ul><li><a href=\"https://cyberfeminismindex.com/\" target=\"_blank\" rel=\"noopener\">Cyberfeminism Index</a></li><li><a href=\"https://monoskop.org/Cyberfeminism\" target=\"_blank\" rel=\"noopener\">Monoskop: Cyberfeminism</a></li><li><a href=\"https://radioslibres.net/ciberfem/#inicio\" target=\"_blank\" rel=\"noopener\">Radio Ciberfeminista</a></li><li><a href=\"https://ciberfemgt.org/\" target=\"_blank\" rel=\"noopener\">Ciberfeministas Guatemala</a></li><li><a href=\"https://donestech.net/noticia/manifiesto-por-algoritmias-hackfeministas\" target=\"_blank\" rel=\"noopener\">Manifiesto por las Algoritmias Hackfeministas</a></li><li><a href=\"https://hemisphericinstitute.org/en/emisferica-91/9-1-essays/venus-en-dos-actos.html\" target=\"_blank\" rel=\"noopener\"><em>Venus en dos actos</em></a>, Saidiya Hartman</li></ul><p>Dejé las notas de las sesiones y los ejemplos de código en el <a href=\"https://github.com/MarianneTeixido/ficciones-ciberfeministas\" target=\"_blank\" rel=\"noopener\">repositorio del taller en GitHub</a>.</p>",
+      "images2": [],
+      "fullDescription3": "<h3>Créditos</h3><h4>Facilitación</h4><p>Marianne Teixido</p><h4>Presentado en</h4><p><a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Festival Pumpumyachkan 2021</a></p><h4>Licencia</h4><p><a href=\"https://labekka.red/licencia-f2f/\" target=\"_blank\" rel=\"noopener\">Licencia Feminista de Producción de Pares</a></p>"
+    },
+    "category": "taller",
+    "tags": [
+      "live-coding",
+      "experimentos",
+      "talleres"
+    ],
+    "translations": {
+      "EN": {
+        "title": "Cyberfeminist Fictions",
+        "summary": "Workshop on interactive audiovisual narratives with live code",
+        "details": {
+          "fullDescription": "<h3>Context</h3><p>I facilitated this workshop virtually at the <a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Pumpumyachkan Festival 2021</a>, from Wednesday, May 5 to Friday, May 7, 2021, from 4 to 6 pm (Peru/Mexico), with in-person venues at La Munay (Huancayo) and CCUNSCH (Ayacucho). Participation was free and by closed application, for people identified as women or non-binary: visual artists, video makers, filmmakers, programmers, musicians, sound artists and the general public, with no prior programming knowledge required.</p><p>The workshop aims to dialogue with local knowledge to weave audiovisual stories, both personal and collective, that seek to document, historicize and fictionalize by deconstructing conventional narratives, using screen-code as a tool for cultural hacking. We seek to rethink patriarchal and hegemonic values and to problematize the screen territory of the internet with an active critique of the hegemonic narratives that commodify or do violence to the bodies of women, non-binary and gender-fluid people, starting from noise, feminist porn, the essay, the portrait, footage appropriation and the resignification of discourse as input for code. We use code as a medium to expose and confront social reality from its political and artistic implications.</p><p><em>“A cyborg is a cybernetic organism, a hybrid of machine and organism, a creature of social reality as well as a creature of fiction.”</em> (Donna Haraway)</p>",
+          "fullDescription2": "<h3>Program</h3><h4>1. Hackfeminist code</h4><ul><li>Decolonizing technology</li><li>Other narratives: code as a medium</li><li>SuperCollider</li></ul><h4>2. Weaving code</h4><ul><li>Interaction and navigation: databases as narration</li><li>Pixel decomposition and sound granulation</li><li>Exercises to deconstruct narrative</li></ul><h4>3. Screening of results</h4><p>As a result, we made a series of interactive audio and video codes to be run in real time.</p><h3>Tools</h3><ul><li>SuperCollider</li><li><a href=\"https://tidalcycles.org/Welcome\" target=\"_blank\" rel=\"noopener\">TidalCycles</a></li><li><a href=\"https://hydra.ojack.xyz/\" target=\"_blank\" rel=\"noopener\">Hydra</a></li><li><a href=\"https://teddavis.org/p5live/\" target=\"_blank\" rel=\"noopener\">p5live</a></li><li><a href=\"https://obsproject.com/es\" target=\"_blank\" rel=\"noopener\">OBS</a></li></ul><h3>References</h3><ul><li><a href=\"https://cyberfeminismindex.com/\" target=\"_blank\" rel=\"noopener\">Cyberfeminism Index</a></li><li><a href=\"https://monoskop.org/Cyberfeminism\" target=\"_blank\" rel=\"noopener\">Monoskop: Cyberfeminism</a></li><li><a href=\"https://radioslibres.net/ciberfem/#inicio\" target=\"_blank\" rel=\"noopener\">Radio Ciberfeminista</a></li><li><a href=\"https://ciberfemgt.org/\" target=\"_blank\" rel=\"noopener\">Ciberfeministas Guatemala</a></li><li><a href=\"https://donestech.net/noticia/manifiesto-por-algoritmias-hackfeministas\" target=\"_blank\" rel=\"noopener\">Manifiesto por las Algoritmias Hackfeministas</a></li><li><a href=\"https://hemisphericinstitute.org/en/emisferica-91/9-1-essays/venus-en-dos-actos.html\" target=\"_blank\" rel=\"noopener\"><em>Venus en dos actos</em></a>, Saidiya Hartman</li></ul><p>I left the session notes and code examples in the <a href=\"https://github.com/MarianneTeixido/ficciones-ciberfeministas\" target=\"_blank\" rel=\"noopener\">workshop repository on GitHub</a>.</p>",
+          "fullDescription3": "<h3>Credits</h3><h4>Facilitation</h4><p>Marianne Teixido</p><h4>Presented at</h4><p><a href=\"https://asimtria.org/pumpum/?page_id=802\" target=\"_blank\" rel=\"noopener\">Pumpumyachkan Festival 2021</a></p><h4>License</h4><p><a href=\"https://labekka.red/licencia-f2f/\" target=\"_blank\" rel=\"noopener\">Feminist Peer Production License</a></p>"
+        }
+      }
+    }
+  },
+  {
+    "id": "rv",
+    "title": "RV",
+    "year": "2020",
+    "link": "https://snumusic.bandcamp.com/track/rv",
+    "summary": "Pieza sonora",
+    "image": "rv.jpg",
+    "details": {
+      "fullDescription": "<h3>Descripción</h3><p>«RV» es una pieza sonora que publiqué el 19 de julio de 2020 en Bandcamp.</p><h4>Música y portada</h4><p>Marianne Teixido</p>",
+      "images": [],
+      "fullDescription2": null,
+      "images2": [],
+      "audioEmbed": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/track=162554864/size=large/bgcol=f3f3f3/linkcol=0000ff/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>"
+    },
+    "category": "music",
+    "tags": [
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Sound piece",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>“RV” is a sound piece that I released on July 19, 2020 on Bandcamp.</p><h4>Music and artwork</h4><p>Marianne Teixido</p>"
+        }
       }
     }
   },
@@ -551,45 +1111,89 @@
     "summary": null,
     "image": "distancias.png",
     "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription": "<h3>Descripción</h3><p>Distancias es un ejercicio de proximidad afectiva en contextos sonoros y visuales lejanos, los cuales se acercan mediante la agencia tecnológica compartida y la exploración de posibilidades sensoestéticas.</p><p>Duración: 10:00 min.</p>",
+      "images": [
+        "distancias-flyer.jpg"
+      ],
+      "fullDescription2": "<h3>Exhibiciones</h3><ul><li><strong>Ciclo de Música Electroacústica, Programa IX (temporada 2020)</strong>: Facultad de Arquitectura y Artes, Escuela de Artes Musicales y Sonoras, Universidad Austral de Chile. Transmisión por YouTube, 11 de diciembre de 2020. Artista invitada y curadora: Iracema de Andrade</li></ul>",
+      "images2": [],
+      "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/q3Eq7Q0PJhM?si=QYDyGsDGaGPR3Kml&amp;start=2987\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
     },
     "category": "video",
-    "tags": []
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>Distancias is an exercise in affective proximity across distant sonic and visual contexts, brought closer through shared technological agency and the exploration of sensory-aesthetic possibilities.</p><p>Duration: 10:00 min.</p>",
+          "fullDescription2": "<h3>Screenings</h3><ul><li><strong>Electroacoustic Music Cycle, Program IX (2020 season)</strong>: Faculty of Architecture and Arts, School of Musical and Sound Arts, Universidad Austral de Chile. Streamed on YouTube, December 11, 2020. Guest artist and curator: Iracema de Andrade</li></ul>"
+        }
+      }
+    }
   },
   {
     "id": "pixelscape",
     "title": "Pixelscape",
     "year": "2020",
-    "link": null,
+    "link": "https://www.instagram.com/p/CCWwanhgTu9/",
     "summary": null,
     "image": "pixelscape.png",
     "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription": "<h3>Descripción</h3><p>Improvisación audiovisual con código al vuelo.</p>",
+      "images": [
+        "pixelscape-flyer.jpg"
+      ],
+      "fullDescription2": "<h3>Exhibiciones</h3><ul><li><strong>Vivientes</strong>: transmisión por Twitch (twitch.tv/vivientes), martes 7 de julio de 2020, 20 hs, con Vermillion, Droninga y Subh. <a href=\"https://www.instagram.com/p/CCWwanhgTu9/\" target=\"_blank\" rel=\"noopener\">Ver cartel y publicación en Instagram</a></li><li><strong>Digitropics</strong></li><li><strong>Tacacocoding</strong> (Costa Rica)</li></ul>",
+      "images2": [],
+      "youtubeEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UnEGoiJd6NU?si=-fHJYU8zMKoStOZH\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
     },
     "category": "video",
-    "tags": []
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica",
+      "videoarte"
+    ],
+    "translations": {
+      "EN": {
+        "details": {
+          "fullDescription2": "<h3>Screenings</h3><ul><li><strong>Vivientes</strong>: streamed on Twitch (twitch.tv/vivientes), Tuesday, July 7, 2020, 8 pm, with Vermillion, Droninga and Subh. <a href=\"https://www.instagram.com/p/CCWwanhgTu9/\" target=\"_blank\" rel=\"noopener\">See the poster and post on Instagram</a></li><li><strong>Digitropics</strong></li><li><strong>Tacacocoding</strong> (Costa Rica)</li></ul>",
+          "fullDescription": "<h3>Description</h3><p>Audiovisual improvisation with live code.</p>"
+        }
+      }
+    }
   },
   {
     "id": "hipnosinesteria",
     "title": "Hipnosinesteria",
-    "year": "2021",
-    "link": null,
-    "summary": null,
+    "year": "2017",
+    "link": "https://vimeo.com/220654496",
+    "summary": "Videoensayo",
     "image": "hipnosinesteria.png",
     "details": {
-      "fullDescription": null,
+      "fullDescription": "<h3>Descripción</h3><p>Ensayo para la comprensión de un fenómeno hirsuto.</p><p>Duración: 1:46 min.</p>",
       "images": [],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription2": "<h3>Reconocimientos y exhibiciones</h3><ul><li><strong>Selección en la muestra de Cine (y) Digital</strong>: Festival Internacional de la Imagen, Manizales, Colombia, febrero de 2018</li><li><strong>Selección oficial</strong>: WomenCinemakers, Berlín, Alemania, mayo de 2018</li><li><strong>Proyección</strong>: Muestra Audiovisual Memorial Híbridas, con La Ruina (Im)Producciones, México, marzo de 2018</li><li><strong>Muestra Paréntesis</strong>: Cholula, Puebla, abril de 2018</li></ul>",
+      "images2": [],
+      "youtubeEmbed": "<iframe src=\"https://player.vimeo.com/video/220654496\" title=\"Hipnosinesteria\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe>"
     },
     "category": "video",
-    "tags": []
+    "tags": [
+      "videoarte",
+      "experimentos"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Video essay",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>An essay toward understanding a hirsute phenomenon.</p><p>Duration: 1:46 min.</p>",
+          "fullDescription2": "<h3>Awards and screenings</h3><ul><li><strong>Selected for the Cine (y) Digital showcase</strong>: Festival Internacional de la Imagen, Manizales, Colombia, February 2018</li><li><strong>Official Selection</strong>: WomenCinemakers, Berlin, Germany, May 2018</li><li><strong>Screening</strong>: Audiovisual showcase Memorial Híbridas, with La Ruina (Im)Producciones, Mexico, March 2018</li><li><strong>Muestra Paréntesis</strong>: Cholula, Puebla, April 2018</li></ul>"
+        }
+      }
+    }
   },
   {
     "id": "compilados",
@@ -610,139 +1214,262 @@
   },
   {
     "id": "compilamesta-aural",
-    "title": "Aural",
-    "year": "2022",
+    "title": "Austral",
+    "year": "2019",
     "text": "Compilado Híbirdas y Quimeras, Compilame´sta",
-    "link": null,
-    "summary": null,
-    "image": null,
+    "link": "https://hibridasyquimeras.bandcamp.com/album/compilamesta",
+    "summary": "Pieza en el compilado Compilame'sta",
+    "image": "compilamesta.jpg",
     "details": {
-      "fullDescription": null,
+      "fullDescription": "<h3>Descripción</h3><p>«Austral» es mi pieza en <strong>Compilame'sta</strong>, un compilado de Híbridas y Quimeras publicado el 3 de septiembre de 2019 en Bandcamp, con ilustración de portada de Iurhi Peña.</p><p>El compilado reúne a decenas de artistas sonoras, entre ellas Libertad Figueroa, Concepción Huerta, CNDSD, Naerlot, Piaka Roela y Sandy Ewen.</p>",
       "images": [],
       "fullDescription2": null,
-      "images2": []
+      "images2": [],
+      "audioEmbed": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=2467537090/size=large/bgcol=f3f3f3/linkcol=0000ff/tracklist=false/artwork=small/track=2655837932/transparent=true/\" seamless></iframe>"
     },
     "category": "video",
-    "tags": []
+    "tags": [
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Piece in the compilation Compilame'sta",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>“Austral” is my piece on <strong>Compilame'sta</strong>, a compilation by Híbridas y Quimeras released on September 3, 2019 on Bandcamp, with cover art by Iurhi Peña.</p><p>The compilation gathers dozens of sound artists, including Libertad Figueroa, Concepción Huerta, CNDSD, Naerlot, Piaka Roela and Sandy Ewen.</p>"
+        }
+      }
+    }
   },
   {
     "id": "balc-ep",
-    "title": "#003 Balc",
-    "year": "2022",
+    "title": "BALC #0003",
+    "year": "2019",
     "text": "Single",
-    "link": null,
-    "summary": null,
-    "image": null,
+    "link": "https://balc.bandcamp.com/album/0003",
+    "summary": "Compilado de música con código",
+    "image": "balc-0003.jpg",
     "details": {
-      "fullDescription": null,
+      "fullDescription": "<h3>Descripción</h3><p><strong>BALC Compilation Album #0003</strong> es un compilado de ocho pistas hechas con SuperCollider, TidalCycles y LuaJIT, publicado el 8 de julio de 2019. Participo con dos piezas: «Dirt», hecha con TidalCycles, y «TExp», hecha con SuperCollider-JITLib.</p><h4>Pistas</h4><ul><li>Teixido: «Dirt»</li><li>Elihú Garrett: «19478»</li><li>josecaos: «e4n4e99n»</li><li>diego dorado: «brindis»</li><li>Elihú Garrett: «90348»</li><li>josecaos: «m34nd0ll»</li><li>Teixido: «TExp»</li><li>diego dorado: «fanOfMan»</li></ul>",
       "images": [],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription2": "<h3>Créditos</h3><h4>Artistas y herramientas</h4><ul><li>josecaos: SuperCollider/CaosBox, Ciudad de México</li><li>diego dorado: Tidal, v-synths, MIDI y samples, Buenos Aires</li><li>Teixido: «TExp» con SuperCollider-JITLib y «Dirt» con TidalCycles, Ciudad de México</li><li>Elihú Garrett: LuaJIT, São Paulo</li></ul><h4>Portada</h4><p>Ariel Contini</p>",
+      "images2": [],
+      "audioEmbed": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=2469283031/size=large/bgcol=f3f3f3/linkcol=0000ff/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>"
     },
     "category": "música",
-    "tags": []
+    "tags": [
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "title": "BALC #0003",
+        "summary": "Compilation of music made with code",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p><strong>BALC Compilation Album #0003</strong> is an eight-track compilation made with SuperCollider, TidalCycles and LuaJIT, released on July 8, 2019. I take part with two pieces: “Dirt”, made with TidalCycles, and “TExp”, made with SuperCollider-JITLib.</p><h4>Tracks</h4><ul><li>Teixido: “Dirt”</li><li>Elihú Garrett: “19478”</li><li>josecaos: “e4n4e99n”</li><li>diego dorado: “brindis”</li><li>Elihú Garrett: “90348”</li><li>josecaos: “m34nd0ll”</li><li>Teixido: “TExp”</li><li>diego dorado: “fanOfMan”</li></ul>",
+          "fullDescription2": "<h3>Credits</h3><h4>Artists and tools</h4><ul><li>josecaos: SuperCollider/CaosBox, Mexico City</li><li>diego dorado: Tidal, v-synths, MIDI and samples, Buenos Aires</li><li>Teixido: “TExp” with SuperCollider-JITLib and “Dirt” with TidalCycles, Mexico City</li><li>Elihú Garrett: LuaJIT, São Paulo</li></ul><h4>Cover</h4><p>Ariel Contini</p>"
+        }
+      }
+    }
   },
   {
     "id": "trapp",
     "title": "tr.app",
-    "year": "2022",
+    "year": "2018",
     "text": "Single",
     "link": null,
-    "summary": null,
-    "image": null,
+    "summary": "Sencillo",
+    "image": "trapp.jpg",
     "details": {
       "fullDescription": null,
       "images": [],
       "fullDescription2": null,
-      "images2": []
+      "images2": [],
+      "audioEmbed": "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/536003550&color=%230000ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false\"></iframe>"
     },
     "category": "music",
-    "tags": []
+    "tags": [
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Single"
+      }
+    }
   },
   {
     "id": "dataset",
     "title": "Dataset - Mutek 2",
-    "year": "2022",
+    "year": "2018",
     "text": "Single",
     "link": null,
-    "summary": null,
-    "image": null,
+    "summary": "Proyecto colectivo surgido en Traslaciones 2.0 (Mutek 2018)",
+    "image": "dataset-mutek.jpg",
     "details": {
-      "fullDescription": null,
+      "fullDescription": "<h3>Contexto</h3><p><strong>Dataset</strong> es un proyecto que integramos Libertad Figueroa, Elizabeth Gómez y yo. Surgió en el marco del taller <em>Traslaciones 2.0</em>, impartido por Leslie García, Paloma López, Nika Milano y Debit como parte de las actividades de Mutek México 2018 a través de DigiLab, con el apoyo de la plataforma Amplify. El taller reunió a 13 artistas identificadas como mujeres, trans o no binarias. A lo largo de cuatro sesiones (los sábados del 27 de octubre al 17 de noviembre) conformamos equipos de trabajo por afinidades sonoras y colaboramos para presentar nuestros sets en el Nocturno 2 del festival.</p>",
       "images": [],
-      "fullDescription2": null,
+      "fullDescription2": "<h3>Exhibiciones</h3><ul><li><strong>Nocturno 2, Mutek México 2018</strong>: Fábrica, Calle Henry Ford 81, Tlalnepantla de Baz, sábado 24 de noviembre de 2018, 21:00 h</li></ul>",
       "images2": []
     },
     "category": "music",
-    "tags": []
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica",
+      "colectivas"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Collective project born at Traslaciones 2.0 (Mutek 2018)",
+        "details": {
+          "fullDescription": "<h3>Context</h3><p><strong>Dataset</strong> is a project that Libertad Figueroa, Elizabeth Gómez and I make up. It emerged from the <em>Traslaciones 2.0</em> workshop, taught by Leslie García, Paloma López, Nika Milano and Debit as part of Mutek México 2018 activities through DigiLab, with the support of the Amplify platform. The workshop brought together 13 artists identified as women, trans or non-binary. Over four sessions (Saturdays from October 27 to November 17) we formed work teams by sonic affinities and collaborated to present our sets at the festival's Nocturne 2.</p>",
+          "fullDescription2": "<h3>Screenings</h3><ul><li><strong>Nocturne 2, Mutek México 2018</strong>: Fábrica, Calle Henry Ford 81, Tlalnepantla de Baz, Saturday, November 24, 2018, 9 pm</li></ul>"
+        }
+      }
+    }
   },
   {
     "id": "feminoiselitoral",
     "title": "Feminoise Litoral",
-    "year": "2022",
+    "year": "2018",
     "text": "Single",
-    "link": null,
-    "summary": null,
-    "image": null,
+    "link": "https://sisterstriangla.bandcamp.com/album/feminoise-litoral",
+    "summary": "Compilado sonoro de Feminoise",
+    "image": "feminoise-litoral.jpg",
     "details": {
-      "fullDescription": null,
+      "fullDescription": "<h3>Descripción</h3><p><strong>Feminoise Litoral</strong> es un compilado sonoro de Feminoise («les Feminoisers»), publicado el 2 de octubre de 2018 en Bandcamp. Reúne siete piezas y participo con «Delay time».</p><h4>Pistas</h4><ul><li>Marianne Teixido: «Delay time»</li><li>Kmiac, Maria Prima y Tu Guaina: «Sentires»</li><li>Carolina Segura: «Antena»</li><li>Alejandra Cardenas: «Sublime y repulsivo»</li><li>Ailen Heredia: «Soy como el Rio»</li><li>Gabriela Calzada: «El gato que venia del muelle»</li><li>Los Duendos: «Requiem al olvido»</li></ul>",
       "images": [],
       "fullDescription2": null,
-      "images2": []
+      "images2": [],
+      "audioEmbed": "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=1723282804/size=large/bgcol=f3f3f3/linkcol=0000ff/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>"
     },
     "category": "music",
-    "tags": []
+    "tags": [
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Sound compilation by Feminoise",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p><strong>Feminoise Litoral</strong> is a sound compilation by Feminoise (“les Feminoisers”), released on October 2, 2018 on Bandcamp. It gathers seven pieces and I take part with “Delay time”.</p><h4>Tracks</h4><ul><li>Marianne Teixido: “Delay time”</li><li>Kmiac, Maria Prima and Tu Guaina: “Sentires”</li><li>Carolina Segura: “Antena”</li><li>Alejandra Cardenas: “Sublime y repulsivo”</li><li>Ailen Heredia: “Soy como el Rio”</li><li>Gabriela Calzada: “El gato que venia del muelle”</li><li>Los Duendos: “Requiem al olvido”</li></ul>"
+        }
+      }
+    }
   },
   {
     "id": "minimalresorces",
     "title": "minimal resources",
-    "year": "2022",
+    "year": "2018",
     "text": "EP",
     "link": null,
-    "summary": null,
+    "summary": "Exploraciones sonoras en SuperCollider",
     "image": null,
     "details": {
-      "fullDescription": null,
+      "fullDescription": "<h3>Descripción</h3><p>Exploraciones plásticas de las capacidades sonoras de la síntesis en SuperCollider a partir del uso de una unidad generativa por track.</p>",
       "images": [],
       "fullDescription2": null,
-      "images2": []
+      "images2": [],
+      "audioEmbed": "<iframe width=\"100%\" height=\"300\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/573758508&color=%230000ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false\"></iframe>"
     },
     "category": "music",
-    "tags": []
+    "tags": [],
+    "translations": {
+      "EN": {
+        "summary": "Sound explorations in SuperCollider",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>Plastic explorations of the sonic capabilities of synthesis in SuperCollider, using one generative unit per track.</p>"
+        }
+      }
+    }
   },
   {
     "id": "caninacan",
-    "title": "can-in-a-can",
-    "year": "2022",
+    "title": "nanc-in-a-can",
+    "year": "2018",
     "text": "EP",
     "link": null,
-    "summary": null,
-    "image": null,
+    "summary": "Piezas con el generador de cánones de Nancarrow",
+    "image": "nanc-in-a-can.jpg",
     "details": {
-      "fullDescription": null,
+      "fullDescription": "<h3>Descripción</h3><p>Primera serie de piezas realizadas con el software <em>canon-generator</em>, que reproduce la idea de los cánones temporales de Conlon Nancarrow. Colaboración con Emilio Ocelotl.</p><p><em>Canon Generator</em> es un desarrollo de software de Alejandro Franco Briones y Diego Villaseñor. <a href=\"https://github.com/nanc-in-a-can/canon-generator\" target=\"_blank\" rel=\"noopener\">Repositorio</a>.</p>",
       "images": [],
       "fullDescription2": null,
-      "images2": []
+      "images2": [],
+      "audioEmbed": "<iframe width=\"100%\" height=\"300\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/610782033&color=%230000ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false\"></iframe>"
     },
     "category": "music",
-    "tags": []
+    "tags": [
+      "live-coding",
+      "musica"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Pieces made with a Nancarrow canon generator",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>First series of pieces made with the <em>canon-generator</em> software, which reproduces Conlon Nancarrow's idea of temporal canons. Collaboration with Emilio Ocelotl.</p><p><em>Canon Generator</em> is a software development by Alejandro Franco Briones and Diego Villaseñor. <a href=\"https://github.com/nanc-in-a-can/canon-generator\" target=\"_blank\" rel=\"noopener\">Repository</a>.</p>"
+        }
+      }
+    }
   },
   {
     "id": "rggtrn",
     "title": "RGGTRN",
-    "year": "2022",
+    "year": "2012",
     "text": "EP",
-    "link": null,
-    "summary": null,
-    "image": null,
+    "link": "https://rggtrn.github.io/",
+    "summary": "Colectivo de música algorítmica para bailar",
+    "image": "rggtrn.jpg",
     "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
-      "images2": []
+      "fullDescription": "<h3>Descripción</h3><p><strong>RGGTRN</strong> se pronuncia <em>reɣɣaeˈtɾon</em>. Empezó en 2012 en la Ciudad de México como ~ON, un dúo de música electroacústica y mixta con Luis Navarro, y en el camino se volvió colectivo. Hacemos música algorítmica para bailar e improvisación audiovisual, en el contexto latinx.</p><p>RGGTRN surge en Bilbao, en plena gira de 2014, tras tocar en el Festival Databit.me en Arles, Francia, con Henri Marquet en guitarrón y Emmanuelle Aymès en voz. Desde entonces lo nuestro es programar la música mientras suena: el código en el proyector, la pista de baile enfrente y todes mirando cómo se arma el ruido. Eso es un algorave, un concierto descentralizado y autogestivo donde livecoders generamos música en tiempo real.</p>",
+      "images": [
+        "rggtrn-foto-01.jpg",
+        "rggtrn-foto-02.jpg",
+        "rggtrn-foto-03.jpg",
+        "rggtrn-foto-04.jpg",
+        "rggtrn-foto-05.jpg",
+        "rggtrn-foto-06.jpg",
+        "rggtrn-foto-07.jpg",
+        "rggtrn-foto-08.jpg",
+        "rggtrn-foto-09.jpg",
+        "rggtrn-foto-10.jpg",
+        "rggtrn-foto-11.jpg",
+        "rggtrn-foto-12.jpg"
+      ],
+      "fullDescription2": "<h3>Presentaciones</h3><p>Algunas paradas, con y sin pista de baile:</p><ul><li><strong>Mensajes Sonoros #1: RGGTRN</strong>, Centro de Cultura Digital, Ciudad de México, 26 de abril de 2018. <a href=\"https://centroculturadigital.mx/actividad/Bellacode-H1Wz9yPqG\" target=\"_blank\" rel=\"noopener\">Ver actividad</a></li><li><strong>Bellacode Tour</strong>: Bogotá, Manizales y Medellín (Colombia), Lima (Perú) y Quito (Ecuador), del 3 de mayo al 2 de junio de 2018. <a href=\"http://www.ibermusicas.org/es/noticias/596\" target=\"_blank\" rel=\"noopener\">Ver gira</a></li><li><strong>VIU</strong>, Hangar, Barcelona, del 3 de mayo de 2018 al 21 de enero de 2019. <a href=\"https://toplapbarcelona.hangar.org/index.php/en/viu-3/\" target=\"_blank\" rel=\"noopener\">Ver programa</a></li><li><strong>Algorave Transpiksel</strong>, Centro Cultural de España en México, 13 de julio de 2018. <a href=\"http://ccemx.org/formacion/festival-transpiksel-mx-antimateria\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>Algorave Terminal</strong>, Ciudad de México, 4 de agosto de 2018. <a href=\"https://algorave-terminal.boletia.com/\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>404 Art Not Found</strong>, 316centro, Ciudad de México, 8 de diciembre de 2018. <a href=\"https://boletopolis.com/es/evento/6838\" target=\"_blank\" rel=\"noopener\">Ver evento</a></li><li><strong>ICLC 2019</strong>, Medialab Prado, Madrid, del 16 al 18 de enero de 2019. <a href=\"http://iclc.livecodenetwork.org/2019/\" target=\"_blank\" rel=\"noopener\">Ver conferencia</a></li></ul><p>También tocamos en el Algorave-Algorumba (Manizales, Colombia, 2017), en el Algorave de Platoon (Ciudad de México, 2017) y en la Linux Audio Conference (2019).</p><h4>Radio y podcast</h4><ul><li><strong>Rock 101</strong>, <em>Sorry I'm Late</em> (2018). <a href=\"https://rest.rock101online.mx/ondemand101/#!/pages/archivo-sorry-i-039-m-late-rggtrn-miau-11-de-septiembre-del-2018-2553\" target=\"_blank\" rel=\"noopener\">Escuchar</a></li><li><strong>Radio Nopal</strong>, <em>Efecto Larsen</em></li></ul>",
+      "images2": [
+        "rggtrn-flyer-01.jpg",
+        "rggtrn-flyer-02.jpg",
+        "rggtrn-flyer-03.jpg",
+        "rggtrn-flyer-04.jpg",
+        "rggtrn-flyer-05.jpg",
+        "rggtrn-flyer-06.jpg",
+        "rggtrn-flyer-07.jpg",
+        "rggtrn-flyer-08.jpg",
+        "rggtrn-flyer-09.jpg",
+        "rggtrn-flyer-10.jpg"
+      ],
+      "audioEmbed": "<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/157362680&color=%230000ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false\"></iframe>",
+      "fullDescription3": "<h3>Publicaciones</h3><ul><li>Ocelotl, E., Del Angel, L. N. y Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. Dancecult, 10(1). <a href=\"https://dj.dancecult.net/index.php/dancecult/article/view/1066/962\" target=\"_blank\" rel=\"noopener\">Leer artículo</a></li><li>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E. y Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. ICLC 2019, Madrid.</li></ul><h3>Encuéntranos</h3><ul><li><a href=\"https://soundcloud.com/rggtrn\" target=\"_blank\" rel=\"noopener\">SoundCloud</a></li><li><a href=\"https://github.com/rggtrn\" target=\"_blank\" rel=\"noopener\">GitHub</a></li><li><a href=\"https://www.instagram.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Instagram</a></li><li><a href=\"https://vimeo.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Vimeo</a></li><li><a href=\"https://www.facebook.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Facebook</a></li><li><a href=\"https://twitter.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Twitter</a></li><li><a href=\"mailto:rggtrn@gmail.com\" target=\"_blank\" rel=\"noopener\">rggtrn@gmail.com</a></li></ul>"
     },
     "category": "colectivos",
-    "tags": []
+    "tags": [
+      "performance",
+      "live-coding",
+      "musica",
+      "colectivas"
+    ],
+    "translations": {
+      "EN": {
+        "summary": "Algorithmic dance music collective",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p><strong>RGGTRN</strong> is pronounced <em>reɣɣaeˈtɾon</em>. It began in 2012 in Mexico City as ~ON, an electroacoustic and mixed music duo with Luis Navarro, and along the way it became a collective. We make algorithmic dance music and audiovisual improvisation, in the Latinx context.</p><p>RGGTRN emerges in Bilbao, in the middle of a 2014 tour, after playing the Databit.me Festival in Arles, France, with Henri Marquet on guitarrón and Emmanuelle Aymès on voice. Since then our thing is programming the music while it plays: the code on the projector, the dance floor in front and everyone watching the noise get built. That is an algorave, a decentralized, self-managed concert where livecoders generate music in real time.</p>",
+          "fullDescription2": "<h3>Gigs</h3><p>Some stops, with and without a dance floor:</p><ul><li><strong>Mensajes Sonoros #1: RGGTRN</strong>, Centro de Cultura Digital, Mexico City, April 26, 2018. <a href=\"https://centroculturadigital.mx/actividad/Bellacode-H1Wz9yPqG\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>Bellacode Tour</strong>: Bogotá, Manizales and Medellín (Colombia), Lima (Peru) and Quito (Ecuador), May 3 to June 2, 2018. <a href=\"http://www.ibermusicas.org/es/noticias/596\" target=\"_blank\" rel=\"noopener\">See tour</a></li><li><strong>VIU</strong>, Hangar, Barcelona, May 3, 2018 to January 21, 2019. <a href=\"https://toplapbarcelona.hangar.org/index.php/en/viu-3/\" target=\"_blank\" rel=\"noopener\">See program</a></li><li><strong>Algorave Transpiksel</strong>, Centro Cultural de España en México, July 13, 2018. <a href=\"http://ccemx.org/formacion/festival-transpiksel-mx-antimateria\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>Algorave Terminal</strong>, Mexico City, August 4, 2018. <a href=\"https://algorave-terminal.boletia.com/\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>404 Art Not Found</strong>, 316centro, Mexico City, December 8, 2018. <a href=\"https://boletopolis.com/es/evento/6838\" target=\"_blank\" rel=\"noopener\">See event</a></li><li><strong>ICLC 2019</strong>, Medialab Prado, Madrid, January 16 to 18, 2019. <a href=\"http://iclc.livecodenetwork.org/2019/\" target=\"_blank\" rel=\"noopener\">See conference</a></li></ul><p>We also played at the Algorave-Algorumba (Manizales, Colombia, 2017), at the Platoon Algorave (Mexico City, 2017) and at the Linux Audio Conference (2019).</p><h4>Radio and podcast</h4><ul><li><strong>Rock 101</strong>, <em>Sorry I'm Late</em> (2018). <a href=\"https://rest.rock101online.mx/ondemand101/#!/pages/archivo-sorry-i-039-m-late-rggtrn-miau-11-de-septiembre-del-2018-2553\" target=\"_blank\" rel=\"noopener\">Listen</a></li><li><strong>Radio Nopal</strong>, <em>Efecto Larsen</em></li></ul>",
+          "fullDescription3": "<h3>Publications</h3><ul><li>Ocelotl, E., Del Angel, L. N., & Teixido, M. (2018). <em>Saborítmico: A Report from the Dance Floor in Mexico</em>. Dancecult, 10(1). <a href=\"https://dj.dancecult.net/index.php/dancecult/article/view/1066/962\" target=\"_blank\" rel=\"noopener\">Read article</a></li><li>Del Angel, L. N., Teixido, M., Cotrina, I., Ocelotl, E., & Ogborn, D. (2019). <em>Bellacode: localized textual interfaces for live coding music</em>. ICLC 2019, Madrid.</li></ul><h3>Find us</h3><ul><li><a href=\"https://soundcloud.com/rggtrn\" target=\"_blank\" rel=\"noopener\">SoundCloud</a></li><li><a href=\"https://github.com/rggtrn\" target=\"_blank\" rel=\"noopener\">GitHub</a></li><li><a href=\"https://www.instagram.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Instagram</a></li><li><a href=\"https://vimeo.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Vimeo</a></li><li><a href=\"https://www.facebook.com/rggtrn/\" target=\"_blank\" rel=\"noopener\">Facebook</a></li><li><a href=\"https://twitter.com/rggtrn\" target=\"_blank\" rel=\"noopener\">Twitter</a></li><li><a href=\"mailto:rggtrn@gmail.com\" target=\"_blank\" rel=\"noopener\">rggtrn@gmail.com</a></li></ul>"
+        }
+      }
+    }
   },
   {
     "id": "algorave-ram",
@@ -760,6 +1487,9 @@
     },
     "category": "performance audiovisual",
     "tags": [
+      "live-coding"
+    ],
+    "keywords": [
       "performance",
       "audiovisual",
       "live coding"
@@ -770,21 +1500,39 @@
     "title": "Xicalcoliuhqui",
     "year": "2022",
     "text": null,
-    "link": null,
-    "summary": null,
-    "image": null,
+    "link": "https://ocelotl.cc/xicalco.html",
+    "summary": "RGGTRN + Gabriel de Dios «El Hijo de Tere»",
+    "image": "xicalcoliuhqui-01.jpg",
     "details": {
-      "fullDescription": null,
-      "images": [],
-      "fullDescription2": null,
+      "fullDescription": "<h3>Descripción</h3><p>Presentamos RGGTRN en formato completo, en colaboración con Gabriel de Dios «El Hijo de Tere», en el Centro Cultural de España en México (Ciudad de México). Hay grabaciones de audio del concierto en <a href=\"https://ocelotl.cc/xicalco.html\" target=\"_blank\" rel=\"noopener\">el sitio de Emilio Ocelotl</a>.</p>",
+      "images": [
+        "xicalcoliuhqui-02.jpg",
+        "xicalcoliuhqui-03.jpg",
+        "xicalcoliuhqui-04.jpg"
+      ],
+      "fullDescription2": "<h3>Créditos</h3><h4>Colectivo</h4><p>RGGTRN</p><h4>Colaboración</h4><p>Gabriel de Dios «El Hijo de Tere»</p><h4>Lugar y año</h4><p>Centro Cultural de España en México, Ciudad de México, 2022</p>",
       "images2": []
     },
     "category": "performance audiovisual",
     "tags": [
       "performance",
+      "live-coding",
+      "musica"
+    ],
+    "keywords": [
+      "performance",
       "audiovisual",
       "live coding"
-    ]
+    ],
+    "translations": {
+      "EN": {
+        "summary": "RGGTRN + Gabriel de Dios “El Hijo de Tere”",
+        "details": {
+          "fullDescription": "<h3>Description</h3><p>We presented RGGTRN in its full format, in collaboration with Gabriel de Dios “El Hijo de Tere”, at the Centro Cultural de España en México (Mexico City). Audio recordings of the concert are available on <a href=\"https://ocelotl.cc/xicalco.html\" target=\"_blank\" rel=\"noopener\">Emilio Ocelotl’s site</a>.</p>",
+          "fullDescription2": "<h3>Credits</h3><h4>Collective</h4><p>RGGTRN</p><h4>Collaboration</h4><p>Gabriel de Dios “El Hijo de Tere”</p><h4>Place and year</h4><p>Centro Cultural de España en México, Mexico City, 2022</p>"
+        }
+      }
+    }
   },
   {
     "id": "pumpumyackkan",
@@ -801,7 +1549,8 @@
       "images2": []
     },
     "category": "performance audiovisual",
-    "tags": [
+    "tags": [],
+    "keywords": [
       "performance",
       "audiovisual",
       "live coding"

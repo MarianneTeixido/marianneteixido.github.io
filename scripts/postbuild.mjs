@@ -13,7 +13,7 @@ const clip = (s, n = 155) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…'
 const esc = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
 // Proyectos cuya description sale de otro campo que fullDescription.
-const descField = { perimetral: 'fullDescription2' }
+const descField = { perimetral: 'fullDescription2', 'voces-hibrides': 'fullDescription2' }
 
 // GitHub Pages sirve cada ruta como carpeta y redirige (301) a la versión con
 // barra final, así que esa es la URL canónica.
@@ -32,6 +32,17 @@ const pages = [
     })),
 ]
 
+// Contenido estático por ruta (h1 + párrafo): Vue lo reemplaza al montar, pero
+// los rastreadores que no ejecutan JS lo ven en el HTML.
+const intro = 'Marianne Teixido es artista sonora, live coder y programadora creativa en Ciudad de México, México. Su trabajo reúne live coding, arte sonoro, código creativo y proyectos audiovisuales.'
+const body = {
+  '/home': { h1: 'Marianne Teixido — live coding, arte sonoro y código creativo', p: intro },
+  '/bio': { h1: 'Bio — Marianne Teixido', p: intro },
+  '/contact': { h1: 'Contacto — Marianne Teixido', p: 'Contacto de Marianne Teixido, artista sonora y live coder en Ciudad de México, México.' },
+}
+const bodyFor = ({ path, title, description }) =>
+  body[path] ?? { h1: title.replace(/ \| Marianne Teixido$/, ''), p: `${description} Proyecto de Marianne Teixido, live coding, arte sonoro y código creativo desde Ciudad de México.` }
+
 const render = ({ path, title, description }) => {
   let html = template.replace(/<title>.*?<\/title>/, `<title>${esc(title)}</title>`)
   html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${url(path)}" />`)
@@ -41,6 +52,8 @@ const render = ({ path, title, description }) => {
     html = html.replace(/(<meta name="description" content=")[^"]*/, `$1${esc(description)}`)
     html = html.replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`)
   }
+  const { h1, p } = bodyFor({ path, title, description })
+  html = html.replace('<div id="app"></div>', () => `<div id="app"><h1>${esc(h1)}</h1><p>${esc(p)}</p></div>`)
   return html
 }
 
@@ -50,6 +63,10 @@ for (const page of pages) {
 }
 
 copyFileSync('docs/index.html', 'docs/404.html')
+
+// La raíz también lleva contenido estático (404.html conserva la plantilla vacía).
+const rootBody = body['/home']
+writeFileSync('docs/index.html', template.replace('<div id="app"></div>', () => `<div id="app"><h1>${esc(rootBody.h1)}</h1><p>${esc(rootBody.p)}</p></div>`))
 
 const urls = [`  <url><loc>${SITE}/</loc><lastmod>${today}</lastmod></url>`, ...pages.map(p => `  <url><loc>${url(p.path)}</loc><lastmod>${today}</lastmod></url>`)]
 writeFileSync(

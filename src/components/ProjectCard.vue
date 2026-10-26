@@ -15,6 +15,13 @@ const localizedSummary = computed(() => {
   return props.project.summary;
 });
 
+const localizedTitle = computed(() => {
+  if (current.value === 'EN' && props.project.translations?.EN?.title) {
+    return props.project.translations.EN.title;
+  }
+  return props.project.title;
+});
+
 const projectNumber = computed(() => props.project.year ?? '');
 
 const handleClick = () => {
@@ -60,11 +67,11 @@ onUnmounted(() => {
       <div class="project-thumb-wrap">
         <div class="project-thumb">
           <canvas v-if="project.hydraCode" ref="canvas" class="hydra-canvas"></canvas>
-          <img v-else :src="getImageUrl(project.image)" :alt="project.title" loading="lazy" decoding="async">
+          <img v-else :src="getImageUrl(project.image)" :alt="localizedTitle" loading="lazy" decoding="async">
         </div>
       </div>
       <span class="project-number">{{ projectNumber }}</span>
-      <h3>{{ project.title }}</h3>
+      <h3>{{ localizedTitle }}</h3>
     </a>
   </div>
 </template>

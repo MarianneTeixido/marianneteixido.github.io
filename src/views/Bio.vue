@@ -12,6 +12,7 @@
         <template v-if="current === 'ES'">
           <div class="bio-section">
             <h2>Semblanza</h2>
+            <p class="pronouns">Pronombres: ella/elle</p>
             <p>Artista, música y desarrolladora transhackfeminista. Mi práctica se sitúa en la intersección entre arte,
               tecnología y teoría crítica, explorando el código como material poético y político. A través de la escritura
               expandida, el sonido y la experimentación algorítmica, propongo otros modos del saber-hacer para ocupar la
@@ -282,6 +283,7 @@
         <template v-else>
           <div class="bio-section">
             <h2>Statement</h2>
+            <p class="pronouns">Pronouns: she/they</p>
             <p>Artist, musician and transhackfeminist developer. My practice is situated at the intersection of art,
               technology and critical theory, exploring code as poetic and political material. Through expanded writing,
               sound and algorithmic experimentation, I propose other modes of knowing-doing to occupy technology as a
@@ -616,6 +618,12 @@ const { current } = useLang()
   background-color: #f9f9f9;
   padding: 1.5rem;
   border-radius: 5px;
+}
+
+.pronouns {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 0.75rem;
 }
 
 .update-date {

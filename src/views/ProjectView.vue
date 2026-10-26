@@ -182,6 +182,16 @@ const getVideoUrl = (videoName) => {
   margin-bottom: 0.3rem;
 }
 
+/* Listas largas de nombres (participantes, créditos) en dos columnas */
+.project-description ul.two-col {
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.project-description ul.two-col li {
+  break-inside: avoid;
+}
+
 /* Ficha técnica anidada dentro de una exhibición */
 .project-description ul.ficha {
   margin: 0.5rem 0 0.9rem 1.5rem;

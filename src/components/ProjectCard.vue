@@ -2,9 +2,13 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useLang } from '../composables/useLang';
+import { attachDisplacement, isAnimatedImage } from '../composables/useCardDisplacement';
 
 const props = defineProps(['project', 'index']);
 const canvas = ref(null);
+const thumb = ref(null);
+const thumbImg = ref(null);
+let detachFx = null;
 const { current } = useLang();
 const router = useRouter();
 
@@ -38,6 +42,10 @@ const getImageUrl = (imageName) => {
 };
 
 onMounted(() => {
+  if (!props.project.hydraCode && !isAnimatedImage(props.project.image) && thumb.value && thumbImg.value) {
+    detachFx = attachDisplacement(thumb.value, thumbImg.value);
+  }
+
   if (props.project.hydraCode && canvas.value) {
     new Hydra({
       canvas: canvas.value,
@@ -55,6 +63,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  detachFx?.();
   if (props.project.hydraCode && typeof h !== 'undefined') {
     h.hush();
   }
@@ -65,9 +74,9 @@ onUnmounted(() => {
   <div class="project">
     <a @click.prevent="handleClick" class="sticky">
       <div class="project-thumb-wrap">
-        <div class="project-thumb">
+        <div ref="thumb" class="project-thumb">
           <canvas v-if="project.hydraCode" ref="canvas" class="hydra-canvas"></canvas>
-          <img v-else :src="getImageUrl(project.image)" :alt="localizedTitle" loading="lazy" decoding="async">
+          <img v-else ref="thumbImg" :src="getImageUrl(project.image)" :alt="localizedTitle" loading="lazy" decoding="async">
         </div>
       </div>
       <span class="project-number">{{ projectNumber }}</span>

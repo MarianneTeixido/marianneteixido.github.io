@@ -20,28 +20,32 @@ const descField = { perimetral: 'fullDescription2', 'voces-hibrides': 'fullDescr
 const url = path => `${SITE}${path}/`
 
 const pages = [
-  { path: '/home', title: 'Portafolio | Marianne Teixido' },
+  { path: '/home', title: 'Portfolio | Marianne Teixido' },
   { path: '/bio', title: 'Bio | Marianne Teixido' },
-  { path: '/contact', title: 'Contacto | Marianne Teixido' },
+  { path: '/contact', title: 'Contact | Marianne Teixido' },
   ...projects
     .filter(p => !p.externalOnly)
-    .map(p => ({
-      path: `/home/${p.id}`,
-      title: `${p.title} | Marianne Teixido`,
-      description: clip([p.summary, strip(p.details?.[descField[p.id] ?? 'fullDescription'])].filter(Boolean).join('. ')),
-    })),
+    .map(p => {
+      const en = p.translations?.EN
+      const field = descField[p.id] ?? 'fullDescription'
+      return {
+        path: `/home/${p.id}`,
+        title: `${en?.title ?? p.title} | Marianne Teixido`,
+        description: clip([en?.summary ?? p.summary, strip(en?.details?.[field] ?? p.details?.[field])].filter(Boolean).join('. ')),
+      }
+    }),
 ]
 
 // Contenido estático por ruta (h1 + párrafo): Vue lo reemplaza al montar, pero
 // los rastreadores que no ejecutan JS lo ven en el HTML.
-const intro = 'Marianne Teixido es artista sonora, live coder y programadora creativa en Ciudad de México, México. Su trabajo reúne live coding, arte sonoro, código creativo y proyectos audiovisuales.'
+const intro = 'Marianne Teixido is a sound artist, live coder and creative programmer based in Mexico City, Mexico. The work brings together live coding, sound art, creative code and audiovisual projects.'
 const body = {
-  '/home': { h1: 'Marianne Teixido — live coding, arte sonoro y código creativo', p: intro },
+  '/home': { h1: 'Marianne Teixido — live coding, sound art and creative code', p: intro },
   '/bio': { h1: 'Bio — Marianne Teixido', p: intro },
-  '/contact': { h1: 'Contacto — Marianne Teixido', p: 'Contacto de Marianne Teixido, artista sonora y live coder en Ciudad de México, México.' },
+  '/contact': { h1: 'Contact — Marianne Teixido', p: 'Contact Marianne Teixido, sound artist and live coder based in Mexico City, Mexico.' },
 }
 const bodyFor = ({ path, title, description }) =>
-  body[path] ?? { h1: title.replace(/ \| Marianne Teixido$/, ''), p: `${description} Proyecto de Marianne Teixido, live coding, arte sonoro y código creativo desde Ciudad de México.` }
+  body[path] ?? { h1: title.replace(/ \| Marianne Teixido$/, ''), p: `${description} Project by Marianne Teixido: live coding, sound art and creative code from Mexico City.` }
 
 const render = ({ path, title, description }) => {
   let html = template.replace(/<title>.*?<\/title>/, `<title>${esc(title)}</title>`)

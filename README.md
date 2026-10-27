@@ -3,7 +3,7 @@
 Pendientes
 
 - Probar canvar en Home
-- Completar proyectos. Cursos OCI, Oráculos, Tránsitos, Hackcode. 
+- Completar proyectos. Cursos OCI, Oráculos, Tránsitos, Hackcode y Deber Ser
 - Añadir animaciones con GSAP
 - ~~Añadir trabajo fotográfico~~
 - ~~Traducir al inglés al menos~~

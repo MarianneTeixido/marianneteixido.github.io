@@ -22,13 +22,13 @@ const router = createRouter({
   },
 })
 
-const staticTitles = { '/home': 'Portafolio', '/bio': 'Bio', '/contact': 'Contacto' }
+const staticTitles = { '/home': 'Portfolio', '/bio': 'Bio', '/contact': 'Contact' }
 
 // Mantiene document.title en sync para que analytics registre títulos útiles
 router.afterEach((to) => {
   const project = projects.find(p => p.id === to.params.projectId)
-  const name = project?.title ?? staticTitles[to.path]
-  document.title = name ? `${name} | Marianne Teixido` : 'Portafolio | Marianne Teixido'
+  const name = project?.translations?.EN?.title ?? project?.title ?? staticTitles[to.path]
+  document.title = name ? `${name} | Marianne Teixido` : 'Portfolio | Marianne Teixido'
 })
 
 export default router

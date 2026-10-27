@@ -70,6 +70,7 @@ const toggleLang = () => {
       </div>
 
       <div class="license">
+        <p>{{ t.location }}</p>
         <span style="margin-top: 3rem;">
           [ <a href="https://labekka.red/licencia-f2f/" target="_blank" class="sticky">
             <img src="../assets/img/f2f-web.png" alt="License" style="width: 32px; height: auto; padding-right: 0.1rem;"

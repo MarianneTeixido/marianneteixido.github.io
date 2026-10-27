@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 
-const current = ref('ES')
+const current = ref('EN')
 
 const messages = {
   ES: {
@@ -10,7 +10,8 @@ const messages = {
       bio: 'Bio',
       contact: 'Contacto',
     },
-    footer: 'Website from scratch con ♡.',
+    location: 'Radicada en Ciudad de México',
+    footer: 'Sitio web hecho desde cero con ♡.',
     filters: { label: 'Filtrar proyectos', all: 'Todos' },
     projectView: {
       technicalNotes: 'Ficha técnica',
@@ -26,7 +27,8 @@ const messages = {
       bio: 'Bio',
       contact: 'Contact',
     },
-    footer: 'Website from scratch with ♡.',
+    location: 'Based in Mexico City',
+    footer: 'Website made from scratch with ♡.',
     filters: { label: 'Filter projects', all: 'All' },
     projectView: {
       technicalNotes: 'Technical sheet',
